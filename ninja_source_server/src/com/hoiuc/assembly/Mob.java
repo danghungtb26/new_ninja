@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Mob {
+
     public boolean isFire;
     public boolean isIce;
     public boolean isWind;
@@ -45,8 +46,8 @@ public class Mob {
     private HashMap<Integer, Integer> nFight;
     private ArrayList<Character> sortFight;
 
-    private static int[] arrMobLangCoId = new int[] {148, 146, 147, 148, 149, 151, 152, 154, 155, 156, 157, 159 };
-    private static int[] arrMobChienTruongId = new int[] {90, 91, 92, 93, 94, 95, 96, 97, 98, 99 };
+    private static int[] arrMobLangCoId = new int[]{148, 146, 147, 148, 149, 151, 152, 154, 155, 156, 157, 159};
+    private static int[] arrMobChienTruongId = new int[]{90, 91, 92, 93, 94, 95, 96, 97, 98, 99};
 
     public Mob(int id, int idtemplate, int level, TileMap tileMap) {
         this.isRefresh = true;
@@ -80,8 +81,8 @@ public class Mob {
 
     public boolean checkMobLangCo() {
         int i;
-        for(i = 0; i < Mob.arrMobLangCoId.length; i++) {
-            if(this.templates.id == Mob.arrMobLangCoId[i]) {
+        for (i = 0; i < Mob.arrMobLangCoId.length; i++) {
+            if (this.templates.id == Mob.arrMobLangCoId[i]) {
                 return true;
             }
         }
@@ -89,7 +90,7 @@ public class Mob {
     }
 
     public boolean checkMobChienTruong() {
-        if(this.templates.id >= 90 && this.templates.id <= 99) {
+        if (this.templates.id >= 90 && this.templates.id <= 99) {
             return true;
         }
         return false;
@@ -98,8 +99,8 @@ public class Mob {
     public void updateHP(long num, int _charId, boolean liveAttack) {
         this.hp += num;
         Char _char = this.tileMap.getNinja(_charId);
-        if(!liveAttack) {
-            if(_char != null) {
+        if (!liveAttack) {
+            if (_char != null) {
                 this.Fight(_char.p.conn.id, Math.abs(num));
             }
         }
@@ -110,23 +111,22 @@ public class Mob {
             if (this.isRefresh) {
                 this.timeRefresh = System.currentTimeMillis() + 7500L;
             }
-            if(this.isRefresh && this.checkMobLangCo()) {
+            if (this.isRefresh && this.checkMobLangCo()) {
                 this.timeRefresh = System.currentTimeMillis() + 20000L;
-            }else if(this.isRefresh && this.checkMobChienTruong()) {
+            } else if (this.isRefresh && this.checkMobChienTruong()) {
                 this.timeRefresh = System.currentTimeMillis() + 30000L;
-            }else if(this.isRefresh && this.tileMap.map.getXHD() == 9) {
+            } else if (this.isRefresh && this.tileMap.map.getXHD() == 9) {
                 this.timeRefresh = System.currentTimeMillis() + 20000L;
             }
             if (this.isboss) {
                 if (this.templates.id != 198 && this.templates.id != 199 && this.templates.id != 200) {
                     this.isRefresh = false;
                     this.timeRefresh = -1L;
-                }
-                else {
+                } else {
                     this.timeRefresh = System.currentTimeMillis() + 60000L;
                 }
             }
-            if(_char != null) {
+            if (_char != null) {
                 synchronized (this) {
                     this.handleAfterCharFight(_char);
                 }
@@ -159,12 +159,11 @@ public class Mob {
 
     public void Fight(int id, long dame) {
         if (!this.nFight.containsKey(id)) {
-            this.nFight.put(id, (int)dame);
-        }
-        else {
+            this.nFight.put(id, (int) dame);
+        } else {
             long damenew = this.nFight.get(id);
             damenew += dame;
-            this.nFight.replace(id, (int)damenew);
+            this.nFight.replace(id, (int) damenew);
         }
     }
 
@@ -203,23 +202,19 @@ public class Mob {
         if (this.templates.id == 0) {
             if (_char.isTaskDanhVong == 1 && _char.taskDanhVong[0] == 6) {
                 _char.taskDanhVong[1]++;
-                if(_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
+                if (_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
                     _char.p.sendAddchatYellow("Bạn đã hoàn thành nhiệm vụ danh vọng.");
                 }
             }
         }
-        if(this.templates.id == 230 && this.tileMap.map.bossTuanLoc != null) {
+        if (this.templates.id == 230 && this.tileMap.map.bossTuanLoc != null) {
             this.isRefresh = false;
             ItemLeave.leaveItemBOSSTuanLoc(this.tileMap, this, -1);
             _char.pointNoel += 5;
             _char.pointBossTL++;
             this.tileMap.mobs.clear();
-        }
-        
-        
-        
-        else if(this.tileMap.map.mapLDGT()) {
-            if(this.lvboss == 0 && this.templates.id != 81) {
+        } else if (this.tileMap.map.mapLDGT()) {
+            if (this.lvboss == 0 && this.templates.id != 81) {
                 this.isRefresh = false;
                 switch (this.tileMap.map.id) {
                     case 81:
@@ -228,37 +223,37 @@ public class Mob {
                     case 84:
                     case 85:
                     case 86: {
-                        if(this.tileMap.mobs.size() - this.tileMap.numMobDie == 1) {
-                            this.tileMap.refreshMob(this.tileMap.mobs.size()-1);
+                        if (this.tileMap.mobs.size() - this.tileMap.numMobDie == 1) {
+                            this.tileMap.refreshMob(this.tileMap.mobs.size() - 1);
                         }
                         break;
                     }
                     case 87:
                     case 88:
                     case 89: {
-                        if(this.tileMap.mobs.size() - this.tileMap.numMobDie == 5) {
-                            this.tileMap.refreshMob(this.tileMap.mobs.size()-5);
+                        if (this.tileMap.mobs.size() - this.tileMap.numMobDie == 5) {
+                            this.tileMap.refreshMob(this.tileMap.mobs.size() - 5);
                         }
                         break;
                     }
                 }
                 this.tileMap.map.lanhDiaGiaToc.plusPoint(1);
                 this.tileMap.map.lanhDiaGiaToc.clanManager.upExp(50);
-            } else if(this.lvboss == 1 && this.templates.id != 81) {
+            } else if (this.lvboss == 1 && this.templates.id != 81) {
                 this.isRefresh = false;
                 ItemLeave.leaveChiaKhoa(this.tileMap, this, -1);
                 this.tileMap.map.lanhDiaGiaToc.plusPoint(2);
                 this.tileMap.map.lanhDiaGiaToc.clanManager.upExp(100);
-                if(this.tileMap.map.id >= 87 && this.tileMap.map.id <= 89) {
+                if (this.tileMap.map.id >= 87 && this.tileMap.map.id <= 89) {
                     int i2;
-                    for(i2 = this.tileMap.mobs.size()-4; i2 < this.tileMap.mobs.size()-1; i2++) {
+                    for (i2 = this.tileMap.mobs.size() - 4; i2 < this.tileMap.mobs.size() - 1; i2++) {
                         this.tileMap.refreshMob(i2);
                     }
                 }
-            } else if(this.lvboss == 0 && this.templates.id == 81) {
+            } else if (this.lvboss == 0 && this.templates.id == 81) {
                 this.isRefresh = true;
                 ItemLeave.leaveLDGT(this.tileMap, this, -1);
-            } else if(this.lvboss == 2 && this.templates.id == 82) {
+            } else if (this.lvboss == 2 && this.templates.id == 82) {
                 this.isRefresh = false;
                 ItemLeave.leaveYen(this.tileMap, this, -1);
                 ItemLeave.leaveYen(this.tileMap, this, -1);
@@ -270,16 +265,14 @@ public class Mob {
                 this.tileMap.map.lanhDiaGiaToc.clanManager.upExp(300);
                 this.tileMap.map.lanhDiaGiaToc.plusPoint(3);
             }
-        }
-        else if((this.templates.id == 98 || this.templates.id == 99) && ChienTruong.chienTruong != null && this.tileMap.map.mapChienTruong()) {
-            if(this.templates.id == 98) {
+        } else if ((this.templates.id == 98 || this.templates.id == 99) && ChienTruong.chienTruong != null && this.tileMap.map.mapChienTruong()) {
+            if (this.templates.id == 98) {
                 ChienTruong.pheWin = 1;
             } else if (this.templates.id == 99) {
                 ChienTruong.pheWin = 0;
             }
             ChienTruong.chienTruong.finish();
-        }
-        else if (this.level > 1) {
+        } else if (this.level > 1) {
             if (this.tileMap.map.cave != null) {
                 if (this.isboss) {
                     this.tileMap.map.cave.updatePoint(50);
@@ -290,17 +283,15 @@ public class Mob {
                 } else {
                     this.tileMap.map.cave.updatePoint(1);
                 }
-            }
-            else if(ChienTruong.chienTruong != null && this.tileMap.map.mapChienTruong()) {
+            } else if (ChienTruong.chienTruong != null && this.tileMap.map.mapChienTruong()) {
                 _char.pointCT++;
-                if(_char.pointCT > 14000) {
+                if (_char.pointCT > 14000) {
                     _char.pointCT = 14000;
                 }
                 Service.updatePointCT(_char, 1);
-            }
-            else if(this.tileMap.map.giaTocChien != null && this.tileMap.map.mapGTC()) {
+            } else if (this.tileMap.map.giaTocChien != null && this.tileMap.map.mapGTC()) {
                 _char.pointGTC++;
-                if(_char.pointGTC > 14000) {
+                if (_char.pointGTC > 14000) {
                     _char.pointGTC = 14000;
                 }
                 Service.sendPointGTC(_char, 1);
@@ -308,15 +299,15 @@ public class Mob {
 
             if (_char.isTaskHangNgay == 1 && this.templates.id == _char.taskHangNgay[3] && _char.taskHangNgay[0] == 0 && _char.taskHangNgay[1] < _char.taskHangNgay[2]) {
                 _char.taskHangNgay[1]++;
-                Service.updateTaskOrder(_char, (byte)0);
+                Service.updateTaskOrder(_char, (byte) 0);
             }
             if (_char.isTaskTaThu == 1 && this.templates.id == _char.taskTaThu[3] && this.lvboss == 3 && _char.taskTaThu[0] == 1 && _char.taskTaThu[1] < _char.taskTaThu[2]) {
                 _char.taskTaThu[1]++;
-                Service.updateTaskOrder(_char, (byte)1);
+                Service.updateTaskOrder(_char, (byte) 1);
             }
             if (_char.isTaskDanhVong == 1 && _char.taskDanhVong[0] == 7 && Math.abs(this.level - _char.get().level) <= 10) {
                 _char.taskDanhVong[1]++;
-                if(_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
+                if (_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
                     _char.p.sendAddchatYellow("Bạn đã hoàn thành nhiệm vụ danh vọng.");
                 }
             }
@@ -325,7 +316,7 @@ public class Mob {
                 this.tileMap.numTA--;
                 if (_char.isTaskDanhVong == 1 && _char.taskDanhVong[0] == 8 && Math.abs(this.level - _char.get().level) <= 10) {
                     _char.taskDanhVong[1]++;
-                    if(_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
+                    if (_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
                         _char.p.sendAddchatYellow("Bạn đã hoàn thành nhiệm vụ danh vọng.");
                     }
                 }
@@ -333,7 +324,7 @@ public class Mob {
                 this.tileMap.numTL--;
                 if (_char.isTaskDanhVong == 1 && _char.taskDanhVong[0] == 9 && Math.abs(this.level - _char.get().level) <= 10) {
                     _char.taskDanhVong[1]++;
-                    if(_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
+                    if (_char.c.taskDanhVong[1] == _char.c.taskDanhVong[2]) {
                         _char.p.sendAddchatYellow("Bạn đã hoàn thành nhiệm vụ danh vọng.");
                     }
                 }
@@ -342,130 +333,50 @@ public class Mob {
             if (Math.abs(this.level - _char.get().level) <= 10 || this.tileMap.map.LangCo() || this.tileMap.map.mapChienTruong()) {
                 if (this.lvboss == 1) {
                     ItemLeave.leaveYen(this.tileMap, this, master);
-                }else if (this.lvboss == 2) {
+                } else if (this.lvboss == 2) {
                     ItemLeave.leaveYen(this.tileMap, this, master);
                 }
                 if (Server.manager.event != 0) {
                     ItemLeave.leaveItemSuKien(this.tileMap, this, master);
                 }
-                switch ((int)Util.nextInt(1, 2)) {
+                switch ((int) Util.nextInt(1, 2)) {
                     case 1: {
-                        if(this.lvboss == 0 && Util.nextInt(10) < 1) {
+                        if (this.lvboss == 0 && Util.nextInt(10) < 1) {
                             ItemLeave.leaveYen(this.tileMap, this, master);
                         }
                         break;
                     }
                     case 2: {
-                        if(Util.nextInt(10) < 6) {
+                        if (Util.nextInt(10) < 6) {
                             ItemLeave.leaveItemOrther(this.tileMap, this, master);
                         }
                         break;
                     }
                 }
-            }if(_char.lvph <= 1){
-            byte pkoolvn = (byte) Util.nextInt(1, 100);
-          if(pkoolvn <= 10){
-           long luongUp1 = Util.nextInt(20,50);
-                _char.p.upluongMessage(luongUp1);
-                    _char.p.c.luongTN += luongUp1;
-          }
-                    
-       }else if(_char.lvph == 2){
-        byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 30){
-       long luongUp2 = Util.nextInt(20,50);
-        _char.p.upluongMessage(luongUp2);
-        _char.p.c.luongTN += luongUp2;
-       }
-        
-       }else if(_char.lvph == 3){
-        byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 50){
-       long luongUp3 = Util.nextInt(20,50);
-        _char.p.upluongMessage(luongUp3);
-        _char.p.c.luongTN += luongUp3;
-        
-       }
-       }else if(_char.lvph == 4){
-           byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 10){
-       long luongUp4 = Util.nextInt(50,100);
-        _char.p.upluongMessage(luongUp4);
-        _char.p.c.luongTN += luongUp4;
-       }
-        
-       }else if(_char.lvph == 5){
-       byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 30){
-       long luongUp5 = Util.nextInt(50,100);
-        _char.p.upluongMessage(luongUp5);
-        _char.p.c.luongTN += luongUp5;
-       }
-        
-       }else if(_char.lvph == 6){
-       byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 50){
-       long luongUp6 = Util.nextInt(50,100);
-        _char.p.upluongMessage(luongUp6);
-        _char.p.c.luongTN += luongUp6;
-       }
-        
-       }else if(_char.lvph == 7){
-       byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 10){
-       long luongUp7 = Util.nextInt(100,200);
-        _char.p.upluongMessage(luongUp7);
-        _char.p.c.luongTN += luongUp7;
-       }
-        
-       }else if(_char.lvph == 8){
-       byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 30){
-       long luongUp8 = Util.nextInt(100,200);
-        _char.p.upluongMessage(luongUp8);
-        _char.p.c.luongTN += luongUp8;
-       }
-        
-       }else if(_char.lvph != 9){
-        byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 50){
-       long luongUp9 = Util.nextInt(100,200);
-        _char.p.upluongMessage(luongUp9);
-        _char.p.c.luongTN += luongUp9;
-       }
-        }else if(_char.lvph != 10){
-        byte pkoolvn = (byte) Util.nextInt(1, 100);
-       if(pkoolvn <= 50){
-       long luongUp10 = Util.nextInt(100,200);
-        _char.p.upluongMessage(luongUp10);
-        _char.p.c.luongTN += luongUp10;
-       }
-       }if (this.tileMap.map.mapTuTien()){
-                ItemLeave.randomLeave(this.tileMap, this, master, (int)Util.nextInt(1, 3), 2);
             }
             if (this.tileMap.map.VDMQ() && (_char.get().getEffId(40) != null || _char.get().getEffId(41) != null) && Math.abs(this.level - _char.get().level) <= 10) {
-                ItemLeave.randomLeave(this.tileMap, this, master, (int)Util.nextInt(1, 2), 0);
-                _char.p.upluongMessage(60);
-            }else if (this.tileMap.map.id == 75) {
+                ItemLeave.randomLeave(this.tileMap, this, master, (int) Util.nextInt(1, 2), 0);
+                // _char.p.upluongMessage(60);
+            } else if (this.tileMap.map.id == 75) {
                 ItemLeave.leaveItemmapdong(this.tileMap, this, master);
-                _char.p.upluongMessage(110);
-                } else if (this.tileMap.map.id == 76) {
+                // _char.p.upluongMessage(110);
+            } else if (this.tileMap.map.id == 76) {
                 ItemLeave.leaveItemmapbachkim(this.tileMap, this, master);
-                _char.p.upluongMessage(150);
-                 } else if (this.tileMap.map.id == 77) {
+                // _char.p.upluongMessage(150);
+            } else if (this.tileMap.map.id == 77) {
                 ItemLeave.leaveItemmaptinhanh(this.tileMap, this, master);
-                _char.p.upluongMessage(200);
-                 } else if (this.tileMap.map.id == 79) {
+                // _char.p.upluongMessage(200);
+            } else if (this.tileMap.map.id == 79) {
                 ItemLeave.leaveItemmapsieupham(this.tileMap, this, master);
-                _char.p.upluongMessage(95);
-                }else if (this.tileMap.map.id == 169) {
+                // _char.p.upluongMessage(95);
+            } else if (this.tileMap.map.id == 169) {
                 ItemLeave.leaveitemmapdianguc(this.tileMap, this, master);
-                _char.p.upluongMessage(75);
+                // _char.p.upluongMessage(75);
             } else if (this.tileMap.map.LangCo()) {
                 ItemLeave.randomLeave(this.tileMap, this, master, (int) Util.nextInt(1, 3), 1);
-                _char.p.upluongMessage(75);
-                if(this.lvboss == 2) {
-                    ItemLeave.leaveTTTT(this.tileMap, this, master);                  
+                // _char.p.upluongMessage(75);
+                if (this.lvboss == 2) {
+                    ItemLeave.leaveTTTT(this.tileMap, this, master);
                 }
             }
 
@@ -473,27 +384,18 @@ public class Mob {
                 if (this.tileMap.map.cave == null) {
                     Service.chatKTG(_char.name + " đã tiêu diệt " + this.templates.name);
                     int i;
-                    for(i = 0; i < 10; i++) {
+                    for (i = 0; i < 10; i++) {
                         ItemLeave.leaveYen(this.tileMap, this, master);
                     }
                     ItemLeave.leaveItemBOSS(this.tileMap, this, master);
-                }
-                
-                
-            
-           
-           
-            
-
-                
-                else if (this.tileMap.map.cave != null && this.tileMap.map.getXHD() == 9 && ((this.tileMap.map.id == 157 && this.tileMap.map.cave.level == 0) || (this.tileMap.map.id == 158 && this.tileMap.map.cave.level == 1) || (this.tileMap.map.id == 159 && this.tileMap.map.cave.level == 2)) && Util.nextInt(3) < 3) {
+                } else if (this.tileMap.map.cave != null && this.tileMap.map.getXHD() == 9 && ((this.tileMap.map.id == 157 && this.tileMap.map.cave.level == 0) || (this.tileMap.map.id == 158 && this.tileMap.map.cave.level == 1) || (this.tileMap.map.id == 159 && this.tileMap.map.cave.level == 2)) && Util.nextInt(3) < 3) {
                     ItemLeave.leaveYen(this.tileMap, this, master);
                     ItemLeave.leaveYen(this.tileMap, this, master);
                     this.tileMap.map.cave.updatePoint(this.tileMap.mobs.size());
                     short k2;
                     Mob var12;
                     for (k2 = 0; k2 < this.tileMap.mobs.size(); k2++) {
-                        if(this.tileMap.mobs.get(k2) == null) {
+                        if (this.tileMap.mobs.get(k2) == null) {
                             continue;
                         }
                         var12 = this.tileMap.mobs.get(k2);
@@ -534,14 +436,14 @@ public class Mob {
                         }
                         this.tileMap.numMobDie = 0;
                         short l2;
-                        for(l2 = 0; l2 < this.tileMap.mobs.size(); l2++) {
+                        for (l2 = 0; l2 < this.tileMap.mobs.size(); l2++) {
                             this.tileMap.refreshMob(l2);
                         }
                     } else {
                         this.tileMap.map.cave.openMap();
-                   }
+                    }
                 }
             }
-       }
-       }
-       }
+        }
+    }
+}

@@ -21,6 +21,6 @@ public class Alert {
     }
 
     public void sendAlert(Player player) {
-        Server.manager.sendTB(player, "BIA444",  (this.getAlert() == null ? "" : this.getAlert())+"\n\n- tổng con nghiện online:1" + Client.gI().ninja_size());
+        Server.manager.sendTB(player, "TUANDZZZZZ",  (this.getAlert() == null ? "" : this.getAlert())+"\n\n- tổng con nghiện online:1" + Client.gI().ninja_size());
     }
 }

@@ -904,13 +904,13 @@ public class HandleController {
                                 }
                                 switch (p.c.ItemCaiTrang[10].upgrade) {
                                     case 2: {
-                                        p.c.ItemCaiTrang[10].options.add(new Option(0, 500));
-                                        p.c.ItemCaiTrang[10].options.add(new Option(1, 500));
+                                        p.c.ItemCaiTrang[10].options.add(new Option(0, 300));
+                                        p.c.ItemCaiTrang[10].options.add(new Option(1, 300));
                                         break;
                                     }
                                     case 3: {
-                                        p.c.ItemCaiTrang[10].options.add(new Option(6, 500));
-                                        p.c.ItemCaiTrang[10].options.add(new Option(7, 500));
+                                        p.c.ItemCaiTrang[10].options.add(new Option(6, 300));
+                                        p.c.ItemCaiTrang[10].options.add(new Option(7, 300));
                                         break;
                                     }
                                     case 4: {

@@ -1195,11 +1195,6 @@ public class TileMap {
                     }
                 } else {
                     long dame = (long) p.c.get().dameMax();
-                     if (p.c.leveltutien >15) {
-                        long hpnj = Util.nextInt(99);
-                        long hphut = (dame*(p.c.leveltutien - 15)/100);
-                        p.buffHP((int) hphut);
-                    }
                     switch(fightChar.c.get().Sys()) {
                         case 1: {
                             dame += dame * p.c.get().getPramSkill(54) / 100;
@@ -1269,7 +1264,7 @@ public class TileMap {
                     }else {
                         dame -= (dame * fightChar.DefendNoi())/100;
                     }                   
-                    //Giảm thọ thương
+                   
                     
                     //né
                     long miss = (long) (p.c.get().Exactly() * 10000 / fightChar.Miss());
@@ -1391,16 +1386,16 @@ public class TileMap {
                                 p.c.pointCT = 14000;
                             }
                             Service.updatePointCT(p.c, 3);
-                            p.sendAddchatYellow("Bạn vừa đánh trọng thương " + fightChar.name);
-                            Manager.chatKTG(p.c.name + " đã sút vào mồm " + "Người chơi "+ fightChar.name );
+                            p.sendAddchatYellow("Bạn vừa sút vào mồm " + fightChar.name);
+                            Manager.chatKTG(p.c.name + " đã sút vào mồm " + "tml "+ fightChar.name );
                         } else if(p.c.tileMap.map.mapGTC()) {
                             p.c.pointGTC += 3;
                             if(p.c.pointGTC > 14000) {
                                 p.c.pointGTC = 14000;
                             }
                             Service.sendPointGTC(p.c, 3);
-                            p.c.p.sendAddchatYellow("Bạn vừa đánh trọng thương " + fightChar.name);
-                            Manager.chatKTG(p.c.name + " đã sút vào mồm " + "Người chơi " + fightChar.name );
+                            p.c.p.sendAddchatYellow("Bạn vừa sút vào mồm " + fightChar.name);
+                            Manager.chatKTG(p.c.name + " đã sút vào mồm " + "tml " + fightChar.name );
                         }
 
                         if (fightChar.pk > 0) {
@@ -1437,9 +1432,6 @@ public class TileMap {
     public long handleAfterAttackMob(Mob mob3, Char _char, long xpup) {
         if (mob3 != null && _char != null) {
             long dame =  (long) _char.get().dameMax();
-             if (_char.p.c.leveltutien >0) {
-                dame += (_char.p.c.leveltutien *1000L);
-            }
              
                if (this.map.id == 75 && _char.c.potential0 > 600000 && _char.c.potential1 > 600000 && _char.c.potential2 > 600000 && _char.c.potential3 > 600000) {
                 dame = 1;
@@ -1584,37 +1576,6 @@ public class TileMap {
                     xpnew *=2;
                 }
                 xpup += (long)xpnew;
-            }
-            if (_char.p.c.leveltutien >15 ) {
-                long percenthuthp = Util.nextInt(99);
-                long hphut = (long) (_char.p.c.dameMax()* (_char.p.c.leveltutien-11) /100);
-                    if (percenthuthp < _char.p.c.leveltutien - 11) {
-                        _char.p.buffHP((int) hphut);
-                    }
-            }
-            
-            // Tu tiên
-            if (_char.c.leveltutien >= 1 && _char.c.leveltutien < 23 && map.mapTuTien()) {
-                _char.c.exptutien += dame;
-                    if (_char.c.exptutien >= GameSrc.upExpTuTien[_char.c.leveltutien - 1] * 1000) {
-                        int per = 25- _char.c.leveltutien;
-                        if (Util.nextInt(1, 80) < per) {
-                            _char.c.exptutien =0L;
-                            ++_char.c.leveltutien;
-                            _char.p.conn.sendMessageLog("RÈN LUYỆN KHỔ CỰC. CUỐI CÙNG CON ĐÃ ĐỘT PHÁ TƯ CHẤT TU TIÊN LÊN TẦNG " + Server.manager.NameTuTien[_char.c.leveltutien] );
-                            if (_char.c.leveltutien == 23) {
-                                Service.chatKTG(_char.c.name + " đã tu luyện đến cảnh giới cuối cùng " + Server.manager.NameTuTien[_char.c.leveltutien]);
-                            }
-                            _char.c.flush();
-                        } else {
-                            _char.c.exptutien = 0L;
-                            _char.p.conn.sendMessageLog("TƯ CHẤT KÉM VCL NÊN CHƯA THỂ ĐỘT PHÁ. TU LUYỆN LẠI ĐI.");
-                        }
-                    }
-            } 
-            if(map.mapTuTien()){
-               _char.c.expCS += dame;
-               xpup *= 2;
             }
             if(!mob3.isDie && mob3.hp > 0) {
                 mob3.updateHP( -dame, _char.id, true);
@@ -1978,9 +1939,9 @@ public class TileMap {
                 p.c.get().CSkill = (p.c.get().skill.get(0)).id;
             }
 
-//            if (p.c.clone != null && p.c.clone.islive && p.c.clone.CSkill == -1 && p.c.clone.skill.size() > 0) {
-//                p.c.clone.CSkill = (p.c.clone.skill.get(0)).id;
-//            }
+           if (p.c.clone != null && p.c.clone.islive && p.c.clone.CSkill == -1 && p.c.clone.skill.size() > 0) {
+               p.c.clone.CSkill = (p.c.clone.skill.get(0)).id;
+           }
 
             Skill skill = p.c.get().getSkill(p.c.get().CSkill);
             if (skill != null) {
@@ -2114,10 +2075,6 @@ public class TileMap {
 
                                         if (Manager.up_exp > 1) {
                                             xpup *= (long)Manager.up_exp;
-                                        }
-                                        //exp chuyển sinh
-                                        if(p.c.chuyenSinh > 0){
-                                            xpup /= (p.c.chuyenSinh + 1);
                                         }
                                         if(p.c.get().level >= 10 && p.c.get().level < 70 && p.c.isHuman) {
                                             xpup *= 2;
@@ -2640,18 +2597,6 @@ public class TileMap {
                                 dame = 6500;
                         }
                     }
-                    else if (this.map.mapTuTien()) { // Tu Tiên
-                        switch(mob.lvboss) {
-                            case 0:
-                                dame = Util.nextInt(1000, 2000);
-                                break;
-                            case 1:
-                                dame = 2000;
-                                break;
-                            case 2:
-                                dame = 4000;
-                        }
-                    }
                     else {
                         dame = mob.level * mob.level / 5;
                         if (this.map.cave != null && this.map.cave.finsh > 0 && this.map.getXHD() == 6) {
@@ -3004,9 +2949,6 @@ public class TileMap {
             if (n.isDie && !this.map.LangCo()) {
                 this.sendDie(n);
             }
-            /*if (n.isDie && !this.map.mapTuTien()) {
-                this.sendDie(n);
-            }*/
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -3163,19 +3105,6 @@ public class TileMap {
                                 if (ma.area[k].numplayers < ma.template.maxplayers) {
                                     ma.area[k].EnterMap0(p.c);
                                     return;
-                                }
-                            }
-                        }
-                        if(this.map.mapTuTien()) {
-                            if (TuTien.start == false) {
-                                p.c.tileMap.leave(p);
-                                Map ma = Manager.getMapid(p.c.mapLTD);
-                                byte k;
-                                for (k = 0; k < ma.area.length; k++) {
-                                    if (ma.area[k].numplayers < ma.template.maxplayers) {
-                                        ma.area[k].EnterMap0(p.c);
-                                        return;
-                                    }
                                 }
                             }
                         }
@@ -3488,9 +3417,6 @@ public class TileMap {
                         if (this.map.LangCo() && !p.c.isTest && (p.c.isDie || p.c.expdown > 0L)) {
                             this.DieReturn(p);
                         }
-                        /*if (this.map.mapTuTien()&& !p.c.isTest && (p.c.isDie || p.c.expdown > 0L)) {
-                            this.DieReturn(p);
-                        }*/
                         if (p.c.get().isDie && p.c.isTest) {
                             p.liveFromDead();
                             Char player = this.getNinja(p.c.testCharID);
@@ -3774,19 +3700,19 @@ public class TileMap {
                                     int yenup = 0;
                                     switch (itemmap.checkMob) {
                                         case 0: {
-                                            yenup = 500000;
+                                            yenup = 10000;
                                             break;
                                         }
                                         case 1: {
-                                            yenup = 1000000;
+                                            yenup = 20000;
                                             break;
                                         }
                                         case 2: {
-                                            yenup = 3000000;
+                                            yenup = 50000;
                                             break;
                                         }
                                         case 4: {
-                                            yenup = 10000000;
+                                            yenup = 100000;
                                             break;
                                         }
                                     }

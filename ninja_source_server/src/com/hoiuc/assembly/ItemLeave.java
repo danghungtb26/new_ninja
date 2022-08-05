@@ -15,7 +15,7 @@ public class ItemLeave {
     public static short[] arrItem8thang3 = new short[] {386,387,388};
     public static short[] arrItemNcbk = new short[] {530};
     
-    public static short[] arrItemBOSS = new short[] { 8,8,8,8,8,9,9,9,9,9,275,276,601,601,596,596,603,603,603,603,603,277,278,443,443,443,485,485,524,454,283,456,456,455,455,455,455,455,829,545,682,657,658,659,656,839,540,545,547};
+    public static short[] arrItemBOSS = new short[] { 8,8,8,8,8,9,9,9,9,9,275,276,603,603,603,603,603,277,278,443,443,443,485,485,524,454,283,545,545,547};
     public static short[] arrItemBOSSTuanLoc = new short[]  {275,276,277,278,443,443,603,443,485,485,524,454,455,456,457,283,456,456,455,455,455,455,455,829,545,682,657,658,659,656,540,545,547};
     public static short[] arrItemLDGT = new short[] { 8,8,8,8,8,9,9,9,9,9,10,10,10,10,10};
 
@@ -142,9 +142,6 @@ public static void leaveitemmapdianguc(TileMap place, Mob mob3, int master) {
                 case 0:
                     leaveEXPVDMQ(place, mob3, master);
                     break;
-                case 2:
-                    leaveChuyenSinh(place, mob3, master);
-                    break;
                 default:
                     break;
             }
@@ -157,9 +154,6 @@ public static void leaveitemmapdianguc(TileMap place, Mob mob3, int master) {
                     break;
                 case 0:
                     leaveTTTVDMQ(place, mob3, master);
-                    break;
-                case 2:
-                    leaveChuyenSinh(place, mob3, master);
                     break;
                 default:
                     break;
@@ -579,14 +573,14 @@ public static void leaveitemmapdianguc(TileMap place, Mob mob3, int master) {
                     im.master = master;
                 }
             }
-            if (Util.nextInt(10) < 1) {
-                im = place.LeaveItem((short) 384, mob3.x, mob3.y, mob3.templates.type, true);
-                if(im != null) {
-                    im.item.quantity = 1;
-                    im.item.isLock = false;
-                    im.master = master;
-                }
-            }
+            // if (Util.nextInt(10) < 1) {
+            //     im = place.LeaveItem((short) 384, mob3.x, mob3.y, mob3.templates.type, true);
+            //     if(im != null) {
+            //         im.item.quantity = 1;
+            //         im.item.isLock = false;
+            //         im.master = master;
+            //     }
+            // }
             if (Util.nextInt(10) < 2) {
                 im = place.LeaveItem((short) 547, mob3.x, mob3.y, mob3.templates.type, true);
                 if(im != null) {
