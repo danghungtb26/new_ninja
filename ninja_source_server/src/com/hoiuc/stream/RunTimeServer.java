@@ -68,7 +68,6 @@ public class RunTimeServer extends Thread {
 
                 rightNow = Calendar.getInstance();
                 hour = rightNow.get(11);
-                System.out.print("\nhour: " + hour);
                 min = rightNow.get(12);
                 sec = rightNow.get(13);
 

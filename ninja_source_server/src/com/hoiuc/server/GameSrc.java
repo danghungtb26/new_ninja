@@ -493,7 +493,7 @@ public class GameSrc {
                         p.conn.sendMessageLog("Ngân sách gia tộc không đủ.");
                         return;
                     }
-                    if ((sell.id >= 423 && sell.id <= 427) || sell.id == 281) {
+                    if ((sell.id >= 423 && sell.id <= 427) || sell.id == 28 || sell.id == 601 || sell.id == 596 || sell.id == 604) {
                         Item item = sell.clone();
                         item.quantity = num;
                         for (short i = 0; i < item.options.size(); ++i) {

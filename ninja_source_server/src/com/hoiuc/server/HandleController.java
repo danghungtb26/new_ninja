@@ -22,8 +22,8 @@ public class HandleController {
 
     public static void NhuongTruongNhom(Player p, Message msg) {
         try {
-            if(p.conn != null) {
-                if(p.c.mapid == 133 || p.c.mapid == 111) {
+            if (p.conn != null) {
+                if (p.c.mapid == 133 || p.c.mapid == 111) {
                     p.c.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                     return;
                 }
@@ -32,7 +32,7 @@ public class HandleController {
                 if (player != null && player.id != p.c.id) {
                     synchronized (p.c.party.LOCK) {
                         byte i;
-                        for (i = 0; i < p.c.party.numPlayer; i = (byte)(i + 1)) {
+                        for (i = 0; i < p.c.party.numPlayer; i = (byte) (i + 1)) {
                             if (p.c.party.aChar.get(i) != null && p.c.party.aChar.get(i).id == p.c.id) {
                                 p.c.party.aChar.set(i, player);
                                 p.c.party.charID = player.id;
@@ -44,11 +44,12 @@ public class HandleController {
                     p.c.party.refreshPlayer();
                     p.c.party.TeamMessage(player.name + " đã được lên làm trưởng nhóm.");
                 }
-            };
+            }
+            ;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
@@ -56,7 +57,7 @@ public class HandleController {
 
     public static void MoiRaKhoiNhom(Player p, Message msg) {
         try {
-            if(p.c.mapid == 133 || p.c.mapid == 111) {
+            if (p.c.mapid == 133 || p.c.mapid == 111) {
                 p.c.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                 return;
             }
@@ -69,7 +70,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
@@ -77,8 +78,8 @@ public class HandleController {
     }
 
     public static void RoiNhom(Player p) {
-        if(p.conn != null) {
-            if(p.c.mapid == 133 || p.c.mapid == 111) {
+        if (p.conn != null) {
+            if (p.c.mapid == 133 || p.c.mapid == 111) {
                 p.c.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                 return;
             }
@@ -86,7 +87,7 @@ public class HandleController {
             if (party != null) {
                 synchronized (party.LOCK) {
                     byte i;
-                    for (i = 0; i < party.numPlayer; i = (byte)(i + 1)) {
+                    for (i = 0; i < party.numPlayer; i = (byte) (i + 1)) {
                         if (party.aChar.get(i) != null && party.aChar.get(i).id != p.c.id)
                             Service.ServerMessage(party.aChar.get(i), p.c.name + " đã rời khỏi nhóm.");
                     }
@@ -98,13 +99,13 @@ public class HandleController {
 
     public static void publicChat(Player player, Message m) {
         try {
-            if(player != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && m != null && m.reader().available() > 0) {
                 String chat = m.reader().readUTF();
                 m.cleanup();
                 String check = chat.replaceAll("\\s+", "");
-                //chát admin
+                // chát admin
                 String[] gm = chat.split(" ");
-                if(player.role == 9999 && gm.length == 4 && gm[0].equals("a")){
+                if (player.role == 9999 && gm.length == 4 && gm[0].equals("a")) {
                     Item itemup = ItemTemplate.itemDefault(Integer.parseInt(gm[1]));
                     itemup.quantity = Integer.parseInt(gm[2]);
                     itemup.upgradeNext((byte) Integer.parseInt(gm[3]));
@@ -117,22 +118,21 @@ public class HandleController {
                     return;
                 }
                 if (player.role == 9999 && "1233331".equals(chat) || "protect".equals(chat)) {
-                   Chat(player, "Ok sư phụ để con sẽ bảo vệ sư phụ");
+                    Chat(player, "Ok sư phụ để con sẽ bảo vệ sư phụ");
                     player.c.clone.status = 1;
-                     
+
                     return;
                 }
-               
-                if (player.role == 9999&& "venha".equals(chat) || "gohome".equals(chat)) {
+
+                if (player.role == 9999 && "venha".equals(chat) || "gohome".equals(chat)) {
                     Chat(player, "Ok con về, bibi sư phụ");
                     Thread.sleep(2000L);
                     player.c.clone.status = 3;
                     return;
+                } else if (chat.equals("diemtanghoa")) {
+                    player.conn.sendMessageLog("Điểm tặng hoa: " + player.c.diemtanghoa);
                 }
-                else if(chat.equals("diemtanghoa")) {
-                   player.conn.sendMessageLog("Điểm tặng hoa: " + player.c.diemtanghoa);
-                }
-                if (player.role == 9999 && chat.equals("batu")){
+                if (player.role == 9999 && chat.equals("batu")) {
                     if (player.c.isNhanban) {
                         player.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
                         return;
@@ -142,10 +142,10 @@ public class HandleController {
                         return;
                     }
                     Item itemup = ItemTemplate.itemDefault(832);
-                    Option op = new Option(6, 70000);  
-                     op = new Option(7, 70000);
-                     op = new Option(73, 70000);
-                     op = new Option(87, 70000);
+                    Option op = new Option(6, 70000);
+                    op = new Option(7, 70000);
+                    op = new Option(73, 70000);
+                    op = new Option(87, 70000);
                     itemup.options.add(op);
                     op = new Option(133, 100);
                     itemup.options.add(op);
@@ -154,17 +154,18 @@ public class HandleController {
                     player.c.addItemBag(false, itemup);
                     return;
                 }
-                if(chat.equals("info")) {
+                if (chat.equals("info")) {
                     String status = "";
-                    if(player.status == 1) {
+                    if (player.status == 1) {
                         status = "TÀI KHOẢN TRẢI NGHIỆM.";
-                    } else if(player.status == 0) {
+                    } else if (player.status == 0) {
                         status = "TÀI KHOẢN CHÍNH THỨC.";
                     } else {
                         status = "Không xác định.";
                     }
                     int coinCheck = 0;
-                    ResultSet red = SQLManager.stat.executeQuery("SELECT `coin` FROM `player` WHERE `id` = "+player.id+";");
+                    ResultSet red = SQLManager.stat
+                            .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + player.id + ";");
                     if (red != null && red.first()) {
                         coinCheck = Integer.parseInt(red.getString("coin"));
                         red.close();
@@ -176,52 +177,50 @@ public class HandleController {
                             "- Số lượng: " + Util.getFormatNumber(player.luong) + " Lượng\n" +
                             "- Trạng thái tài khoản: " + status;
                     Server.manager.sendTB(player, "Thông tin", info);
-                }
-                else if(chat.equals("noel") && Server.manager.event == 3 && !player.c.isNhanban) {
+                } else if (chat.equals("noel") && Server.manager.event == 3 && !player.c.isNhanban) {
                     String noel = "- Số lần nhận quà tại cây thông ngày hôm nay: " + player.c.isNhanQuaNoel + "\n" +
                             "- Điểm sự kiện Noel: " + player.c.pointNoel + "\n" +
                             "- Điểm săn Boss Tuần lộc: " + player.c.pointBossTL;
                     Server.manager.sendTB(player, "Sự kiện Noel", noel);
                 }
-                                if ("sendxu".equals(chat) && player.role == 9999) {
+                if ("sendxu".equals(chat) && player.role == 9999) {
                     player.typemenu = 125;
-                    Server.menu.doMenuArray(player, new String[]{"Gửi Xu"});
+                    Server.menu.doMenuArray(player, new String[] { "Gửi Xu" });
                 } else if ("sendluong".equals(chat) && player.role == 9999) {
                     player.typemenu = 126;
-                    Server.menu.doMenuArray(player, new String[]{"Gửi Lượng"});
+                    Server.menu.doMenuArray(player, new String[] { "Gửi Lượng" });
                 } else if ("sendyen".equals(chat) && player.role == 9999) {
                     player.typemenu = 127;
-                    Server.menu.doMenuArray(player, new String[]{"Gửi Yên"});
-                }
-                else if (chat.equals("xptt") && !player.c.isNhanban) {
+                    Server.menu.doMenuArray(player, new String[] { "Gửi Yên" });
+                } else if (chat.equals("xptt") && !player.c.isNhanban) {
                     if (player.c.leveltutien >= 1) {
                         player.conn.sendMessageLog("Cấp tu tiên của bạn là : " + player.c.leveltutien
-                                + "\nExp tu tiên của bạn là : " + player.c.exptutien + "/"+ (GameSrc.upExpTuTien[player.c.leveltutien - 1] * 1000));
+                                + "\nExp tu tiên của bạn là : " + player.c.exptutien + "/"
+                                + (GameSrc.upExpTuTien[player.c.leveltutien - 1] * 1000));
                     } else {
                         player.conn.sendMessageLog("Bạn chưa theo con đường tu tiên.");
                     }
-                }
-                else if(chat.equals("tp")) {
-                    String tet = "- Điểm Lôi Đài Win : " +  player.c.nhanTP + "\n" + "- Tổng số Mảnh Pháo đã nhận: " + player.c.countPhao;
+                } else if (chat.equals("tp")) {
+                    String tet = "- Điểm Lôi Đài Win : " + player.c.nhanTP + "\n" + "- Tổng số Mảnh Pháo đã nhận: "
+                            + player.c.countPhao;
                     Server.manager.sendTB(player, "Sự kiện Tết", tet);
-                }
-                else if(chat.equals("cct")) {
-                    String tet = "- Điểm Ăn Chuột : " +  player.c.pointBossChuot;
+                } else if (chat.equals("cct")) {
+                    String tet = "- Điểm Ăn Chuột : " + player.c.pointBossChuot;
                     Server.manager.sendTB(player, "Sự kiện Tết", tet);
-                }
-                else if(chat.equals("expcs")) {
+                } else if (chat.equals("expcs")) {
                     player.conn.sendMessageLog("exp chuyển sinh: " + player.c.expCS);
-                }
-                else if (chat.equals("pointhoa")&& Server.manager.event == 5){
-                String diemtanghoa = "- Điểm hoa đỏ của bạn là : " + player.c.diemhoado + "\n" +
+                } else if (chat.equals("pointhoa") && Server.manager.event == 5) {
+                    String diemtanghoa = "- Điểm hoa đỏ của bạn là : " + player.c.diemhoado + "\n" +
                             "-  Điểm hoa vàng của bạn là : " + player.c.diemhoavang + "\n" +
                             "- Điểm hoa xanh của bạn là : " + player.c.diemhoaxanh;
-                            Server.manager.sendTB(player, "Điểm Hoa", diemtanghoa);
-                           
-                       }  
-                else if (chat.equals("nvdv") && !player.c.isNhanban) {
+                    Server.manager.sendTB(player, "Điểm Hoa", diemtanghoa);
+
+                } else if (chat.equals("nvdv") && !player.c.isNhanban) {
                     if (player.c.isTaskDanhVong == 1) {
-                        String nv = "NHIỆM VỤ LẦN NÀY: \n" + String.format(DanhVongTemplate.nameNV[player.c.taskDanhVong[0]], player.c.taskDanhVong[1], player.c.taskDanhVong[2]) + "\n\n- Số lần nhận nhiệm vụ còn lại là: " + player.c.countTaskDanhVong;
+                        String nv = "NHIỆM VỤ LẦN NÀY: \n"
+                                + String.format(DanhVongTemplate.nameNV[player.c.taskDanhVong[0]],
+                                        player.c.taskDanhVong[1], player.c.taskDanhVong[2])
+                                + "\n\n- Số lần nhận nhiệm vụ còn lại là: " + player.c.countTaskDanhVong;
                         Server.manager.sendTB(player, "Nhiệm vụ", nv);
                     } else {
                         player.sendAddchatYellow("Bạn chưa nhận nhiệm vụ danh vọng.");
@@ -233,9 +232,9 @@ public class HandleController {
                     m.writer().writeInt(player.c.get().id);
                     m.writer().writeUTF(chat);
                     m.writer().flush();
-                    if(player.c.tileMap != null && player.conn != null) {
+                    if (player.c.tileMap != null && player.conn != null) {
                         player.c.tileMap.sendMessage(m);
-                    } else if(player.c.tdbTileMap != null) {
+                    } else if (player.c.tdbTileMap != null) {
                         player.c.tdbTileMap.sendMessage(m);
                     }
                     m.cleanup();
@@ -244,12 +243,12 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
-    
+
     public static void Chat(final Player p, String chat) throws IOException {
         Message m = new Message(-23);
         m.writer().writeInt(p.c.clone.id);
@@ -261,7 +260,7 @@ public class HandleController {
 
     public static void privateChat(Player player, Message m) {
         try {
-            if(player != null && player.conn != null &&  player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 String name = m.reader().readUTF();
                 String chat = m.reader().readUTF();
                 m.cleanup();
@@ -278,7 +277,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -286,7 +285,7 @@ public class HandleController {
 
     public static void worldChat(Player p, Message m) {
         try {
-            if(p != null && p.conn != null && p.c != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.conn != null && p.c != null && m != null && m.reader().available() > 0) {
                 String chat = m.reader().readUTF();
                 m.cleanup();
                 if (p.chatKTGdelay > System.currentTimeMillis()) {
@@ -304,7 +303,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -312,7 +311,8 @@ public class HandleController {
 
     public static void partyChat(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.party != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.party != null && m != null
+                    && m.reader().available() > 0) {
                 String text = m.reader().readUTF();
                 m.cleanup();
                 if (player.c.get().party != null) {
@@ -329,7 +329,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -337,7 +337,8 @@ public class HandleController {
 
     public static void clanChat(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.chat(player, m);
@@ -346,112 +347,115 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void nextMap(Player p, Message m) {
-        if(p != null && p.c != null && !p.c.isDie && p.conn != null) {
+        if (p != null && p.c != null && !p.c.isDie && p.conn != null) {
             p.c.tileMap.VGo(p, m);
         }
     }
 
     public static synchronized void pickItem(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
-                if(p.c.tileMap != null ) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+                if (p.c.tileMap != null) {
                     p.c.tileMap.pickItem(p, m);
-                } else if(p.c.tdbTileMap != null) {
+                } else if (p.c.tdbTileMap != null) {
                     p.c.tdbTileMap.pickItem(p, m);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
-    /*public static void leaveItemToCharacter(Player p, Message m) {
-        try {
-            if(p != null && p.conn != null && p.c != null && !p.c.isDie && m != null && m.reader().available() > 0) {
-                TileMap tileMap = p.c.tileMap;
-                ThienDiaBangTileMap tdbTileMap = p.c.tdbTileMap;
-                byte index = m.reader().readByte();
-                Item itembag = p.c.getIndexBag(index);               
-                if (itembag != null && !itembag.isLock) {
-                    if(tileMap != null) {
-                        if (tileMap.itemMap.size() > 100) {
-                            tileMap.removeItemMapMessage((tileMap.itemMap.remove(0)).itemMapId);
-                        }
-                    } else {
-                        if(tdbTileMap != null) {
-                            if (tdbTileMap.itemMap.size() > 100) {
-                                tdbTileMap.removeItemMapMessage((tdbTileMap.itemMap.remove(0)).itemMapId);
-                            }
-                        }
-                    }
+    /*
+     * public static void leaveItemToCharacter(Player p, Message m) {
+     * try {
+     * if(p != null && p.conn != null && p.c != null && !p.c.isDie && m != null &&
+     * m.reader().available() > 0) {
+     * TileMap tileMap = p.c.tileMap;
+     * ThienDiaBangTileMap tdbTileMap = p.c.tdbTileMap;
+     * byte index = m.reader().readByte();
+     * Item itembag = p.c.getIndexBag(index);
+     * if (itembag != null && !itembag.isLock) {
+     * if(tileMap != null) {
+     * if (tileMap.itemMap.size() > 100) {
+     * tileMap.removeItemMapMessage((tileMap.itemMap.remove(0)).itemMapId);
+     * }
+     * } else {
+     * if(tdbTileMap != null) {
+     * if (tdbTileMap.itemMap.size() > 100) {
+     * tdbTileMap.removeItemMapMessage((tdbTileMap.itemMap.remove(0)).itemMapId);
+     * }
+     * }
+     * }
+     * 
+     * short itemmapid = -1;
+     * if(tileMap != null) {
+     * tileMap.getItemMapNotId();
+     * } else if(tdbTileMap != null) {
+     * tdbTileMap.getItemMapNotId();
+     * }
+     * ItemMap item = new ItemMap();
+     * item.master = p.c.id;
+     * item.item = itembag;
+     * if(tileMap != null) {
+     * p.c.removeItemBag(index);
+     * } else if(tdbTileMap != null) {
+     * tdbTileMap.itemMap.add(item);
+     * }
+     * p.c.ItemBag[index] = null;
+     * m = new Message(-6);
+     * m.writer().writeInt(p.c.get().id);
+     * m.writer().writeShort(item.itemMapId);
+     * m.writer().writeShort(item.item.id);
+     * m.writer().writeShort(item.x);
+     * m.writer().writeShort(item.y);
+     * m.writer().flush();
+     * if(tileMap != null) {
+     * tileMap.sendMyMessage(p, m);
+     * } else if(tdbTileMap != null) {
+     * tdbTileMap.sendMyMessage(p, m);
+     * }
+     * 
+     * Service.leaveItemBackground(p, item, index);
+     * }
+     * 
+     * }
+     * } catch (Exception e) {
+     * System.out.print("loiitemroi");
+     * e.printStackTrace();
+     * } finally {
+     * if(m != null) {
+     * m.cleanup();
+     * }
+     * }
+     * }
+     */
 
-                    short itemmapid = -1;
-                    if(tileMap != null) {
-                        tileMap.getItemMapNotId();
-                    } else if(tdbTileMap != null) {
-                        tdbTileMap.getItemMapNotId();
-                    }
-                    ItemMap item = new ItemMap();
-                    item.master = p.c.id;
-                    item.item = itembag;
-                    if(tileMap != null) {
-                        p.c.removeItemBag(index);
-                    } else if(tdbTileMap != null) {
-                        tdbTileMap.itemMap.add(item);
-                    }
-                    p.c.ItemBag[index] = null;
-                    m = new Message(-6);
-                    m.writer().writeInt(p.c.get().id);
-                    m.writer().writeShort(item.itemMapId);
-                    m.writer().writeShort(item.item.id);
-                    m.writer().writeShort(item.x);
-                    m.writer().writeShort(item.y);
-                    m.writer().flush();
-                    if(tileMap != null) {
-                        tileMap.sendMyMessage(p, m);
-                    } else if(tdbTileMap != null) {
-                        tdbTileMap.sendMyMessage(p, m);
-                    }
-
-                    Service.leaveItemBackground(p, item, index);
-                }
-
-            }
-        } catch (Exception e) {
-            System.out.print("loiitemroi");
-            e.printStackTrace();
-        } finally {
-            if(m != null) {
-                m.cleanup();
-            }
-        }
-    }*/
-    
     public static void leaveItemToCharacter(Player p, Message m) {
         try {
-            if(p != null && p.conn != null && p.c != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.conn != null && p.c != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 TileMap tileMap = p.c.tileMap;
                 ThienDiaBangTileMap tdbTileMap = p.c.tdbTileMap;
                 byte index = m.reader().readByte();
                 Item itembag = p.c.getIndexBag(index);
                 if (itembag != null && !itembag.isLock) {
-                    if(tileMap != null) {
+                    if (tileMap != null) {
                         if (tileMap.itemMap.size() > 100) {
                             tileMap.removeItemMapMessage((tileMap.itemMap.remove(0)).itemMapId);
                         }
                     } else {
-                        if(tdbTileMap != null) {
+                        if (tdbTileMap != null) {
                             if (tdbTileMap.itemMap.size() > 100) {
                                 tdbTileMap.removeItemMapMessage((tdbTileMap.itemMap.remove(0)).itemMapId);
                             }
@@ -459,20 +463,20 @@ public class HandleController {
                     }
 
                     short itemmapid = -1;
-                    if(tileMap != null) {
+                    if (tileMap != null) {
                         tileMap.getItemMapNotId();
-                    } else if(tdbTileMap != null) {
+                    } else if (tdbTileMap != null) {
                         tdbTileMap.getItemMapNotId();
                     }
                     ItemMap item = new ItemMap();
-                    item.x = (short)Util.nextInt(p.c.get().x - 30, p.c.get().x + 30);
+                    item.x = (short) Util.nextInt(p.c.get().x - 30, p.c.get().x + 30);
                     item.y = p.c.get().y;
                     item.itemMapId = itemmapid;
                     item.item = itembag;
                     item.master = p.c.id;
-                    if(tileMap != null) {
+                    if (tileMap != null) {
                         tileMap.itemMap.add(item);
-                    } else if(tdbTileMap != null) {
+                    } else if (tdbTileMap != null) {
                         tdbTileMap.itemMap.add(item);
                     }
 
@@ -484,9 +488,9 @@ public class HandleController {
                     m.writer().writeShort(item.x);
                     m.writer().writeShort(item.y);
                     m.writer().flush();
-                    if(tileMap != null) {
+                    if (tileMap != null) {
                         tileMap.sendMyMessage(p, m);
-                    } else if(tdbTileMap != null) {
+                    } else if (tdbTileMap != null) {
                         tdbTileMap.sendMyMessage(p, m);
                     }
 
@@ -497,14 +501,14 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void wakeUpDieReturn(Player p) {
-        if(p != null && p.conn != null && p.c != null && p.c.isDie && p.c.tileMap != null) {
+        if (p != null && p.conn != null && p.c != null && p.c.isDie && p.c.tileMap != null) {
             TileMap tileMap = p.c.tileMap;
             if (!tileMap.map.LangCo() && tileMap.map.dun == null) {
                 if (p.luong < 10) {
@@ -523,10 +527,10 @@ public class HandleController {
     }
 
     public static void dieReturn(Player p) {
-        if(p != null && p.c != null && p.c.isDie) {
-            if(p.c.tileMap != null && p.conn != null) {
+        if (p != null && p.c != null && p.c.isDie) {
+            if (p.c.tileMap != null && p.conn != null) {
                 p.c.tileMap.DieReturn(p);
-            } else if(p.c.tdbTileMap != null) {
+            } else if (p.c.tdbTileMap != null) {
                 p.c.tdbTileMap.DieReturn(p);
             }
         }
@@ -534,8 +538,8 @@ public class HandleController {
 
     public static void move(Player p, Message m) {
         try {
-            if(p != null && !p.c.get().isDie && m != null && m.reader().available() > 0) {
-                if(p.c.getEffId(16) != null) {
+            if (p != null && !p.c.get().isDie && m != null && m.reader().available() > 0) {
+                if (p.c.getEffId(16) != null) {
                     p.removeEffect(16);
                 }
                 TileMap tileMap = p.c.tileMap;
@@ -556,34 +560,33 @@ public class HandleController {
                             p.c.get().x = 661;
                         }
                     }
-//                    if (p.c.isNhanban) {
-//                        p.c.clone.x = x;
-//                        p.c.clone.y = y;
-//                        if (p.c.mapid == 111) {
-//                            p.c.clone.y = p.c.yDun;
-//                            if (p.c.clone.x < 107) {
-//                                p.c.clone.x = 107;
-//                            }
-//                            if (p.c.clone.x > 661) {
-//                                p.c.clone.x = 661;
-//                            }
-//                        }
-//                    }
+                    // if (p.c.isNhanban) {
+                    // p.c.clone.x = x;
+                    // p.c.clone.y = y;
+                    // if (p.c.mapid == 111) {
+                    // p.c.clone.y = p.c.yDun;
+                    // if (p.c.clone.x < 107) {
+                    // p.c.clone.x = 107;
+                    // }
+                    // if (p.c.clone.x > 661) {
+                    // p.c.clone.x = 661;
+                    // }
+                    // }
+                    // }
                     m.cleanup();
-                    if(tileMap != null && p.conn != null) {
+                    if (tileMap != null && p.conn != null) {
                         tileMap.move(p.c.get().id, p.c.get().x, p.c.get().y);
-                    } else if(tdbTileMap != null) {
+                    } else if (tdbTileMap != null) {
                         p.c.get().y = 264;
                         tdbTileMap.move(p.c.get().id, p.c.get().x, p.c.get().y);
                     }
                 }
 
-
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -591,24 +594,25 @@ public class HandleController {
 
     public static void fightAll(Player p, Message m) {
         try {
-            if(p != null && p.c != null && !p.c.isDie && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && !p.c.isDie && p.conn != null && m != null && m.reader().available() > 0) {
                 int size = m.reader().readByte();
                 if (p.c.get().ItemBody[1] != null) {
                     Skill skill = p.c.get().getSkill(p.c.get().CSkill);
                     if (skill != null) {
                         SkillOptionTemplate data = SkillTemplate.Templates(skill.id, skill.point);
-                        if (skill.coolDown <= System.currentTimeMillis() && p.c.get().mp >= data.manaUse && p.c.get().getEffId(6) == null && p.c.get().getEffId(7) == null) {
+                        if (skill.coolDown <= System.currentTimeMillis() && p.c.get().mp >= data.manaUse
+                                && p.c.get().getEffId(6) == null && p.c.get().getEffId(7) == null) {
                             p.c.setTimeKickSession();
                             if (size >= 0 && size <= data.maxFight) {
                                 Mob[] arrMob = new Mob[size];
                                 Char[] arrChar = new Char[data.maxFight];
                                 try {
                                     byte i;
-                                    for(i = 0; i < arrMob.length && i < data.maxFight; ++i) {
+                                    for (i = 0; i < arrMob.length && i < data.maxFight; ++i) {
                                         arrMob[i] = p.c.tileMap.getMob(m.reader().readUnsignedByte());
                                     }
 
-                                    for(i = 0; i < arrChar.length && i < data.maxFight; ++i) {
+                                    for (i = 0; i < arrChar.length && i < data.maxFight; ++i) {
                                         if (m.reader().available() > 0) {
                                             arrChar[i] = p.c.tileMap.getNinja(m.reader().readInt());
                                         }
@@ -626,7 +630,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -634,15 +638,15 @@ public class HandleController {
 
     public static void useItem(Player p, Message m) {
         try {
-            if(p != null && p.c != null && !p.c.isDie && p.conn != null && m != null && m.reader().available() > 0) {
-                if(p.c.getEffId(16) != null) {
+            if (p != null && p.c != null && !p.c.isDie && p.conn != null && m != null && m.reader().available() > 0) {
+                if (p.c.getEffId(16) != null) {
                     p.removeEffect(16);
                 }
                 byte index = m.reader().readByte();
                 m.cleanup();
                 Item item = p.c.getIndexBag(index);
                 if (item != null) {
-                    if(System.currentTimeMillis() > p.c.get().timeUseItem) {
+                    if (System.currentTimeMillis() > p.c.get().timeUseItem) {
                         UseItem.uesItem(p, item, index);
                         p.c.get().timeUseItem = System.currentTimeMillis() + 10L;
                     }
@@ -651,7 +655,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -659,13 +663,13 @@ public class HandleController {
 
     public static void useItemChangeMap(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 UseItem.useItemChangeMap(p, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -673,13 +677,13 @@ public class HandleController {
 
     public static void buyItem(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 GameSrc.buyItemStore(p, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -687,7 +691,7 @@ public class HandleController {
 
     public static void sellItem(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
                 int index = m.reader().readUnsignedByte();
                 int num = 1;
                 if (m.reader().available() > 0) {
@@ -695,7 +699,8 @@ public class HandleController {
                 }
                 m.cleanup();
                 Item item = p.c.getIndexBag(index);
-                if (item != null && (!ItemTemplate.ItemTemplateId(item.id).isUpToUp || num > 0 && num <= item.quantity)) {
+                if (item != null
+                        && (!ItemTemplate.ItemTemplateId(item.id).isUpToUp || num > 0 && num <= item.quantity)) {
                     if (!ItemTemplate.ItemTemplateId(item.id).isUpToUp) {
                         num = 1;
                     }
@@ -703,14 +708,15 @@ public class HandleController {
                         p.conn.sendMessageLog("Không thể bán trang bị còn nâng cấp");
                     } else {
                         ItemTemplate data = ItemTemplate.ItemTemplateId(item.id);
-                        if (data.type == 12 || item.id == 385 || item.id == 384 || ItemTemplate.isTypeNgocKham(item.id)) {
+                        if (data.type == 12 || item.id == 385 || item.id == 384
+                                || ItemTemplate.isTypeNgocKham(item.id)) {
                             p.conn.sendMessageLog("Vật phẩm quý giá bạn không thể bán được");
                         } else {
                             item.quantity -= num;
                             if (item.quantity <= 0) {
                                 p.c.ItemBag[index] = null;
                             }
-                            p.c.upyen((long)(item.saleCoinLock * num));
+                            p.c.upyen((long) (item.saleCoinLock * num));
                             m = new Message(14);
                             m.writer().writeByte(index);
                             m.writer().writeInt(p.c.yen);
@@ -725,7 +731,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -733,7 +739,7 @@ public class HandleController {
 
     public static void itemBodyToBag(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
                 byte index = m.reader().readByte();
                 byte idItemBag = p.c.getIndexBagNotItem();
                 if (idItemBag == -1) {
@@ -765,7 +771,7 @@ public class HandleController {
 
                     }
                     if (index == 10) {
-                        p.mobMeMessage(0, (byte)0);
+                        p.mobMeMessage(0, (byte) 0);
                     }
                     m = new Message(15);
                     m.writer().writeByte((int) p.c.get().speed());
@@ -779,22 +785,22 @@ public class HandleController {
                     m.writer().flush();
                     p.conn.sendMessage(m);
                     m.cleanup();
-                    if(itembody != null) {
-                        if(ItemTemplate.isIdNewCaiTrang(itembody.id)) {
+                    if (itembody != null) {
+                        if (ItemTemplate.isIdNewCaiTrang(itembody.id)) {
                             p.c.ID_HAIR = -1;
                             p.c.ID_Body = -1;
                             p.c.ID_LEG = -1;
                             p.sendInfoMeNewItem();
-                        } else if(ItemTemplate.checkIdNewWP(itembody.id) != -1) {
+                        } else if (ItemTemplate.checkIdNewWP(itembody.id) != -1) {
                             p.c.ID_WEA_PONE = -1;
                             p.sendInfoMeNewItem();
-                        } else if(ItemTemplate.checkIdNewMatNa(itembody.id) != -1) {
+                        } else if (ItemTemplate.checkIdNewMatNa(itembody.id) != -1) {
                             p.c.ID_MAT_NA = -1;
                             p.sendInfoMeNewItem();
-                        } else if(ItemTemplate.checkIdNewYoroi(itembody.id) != -1) {
+                        } else if (ItemTemplate.checkIdNewYoroi(itembody.id) != -1) {
                             p.c.ID_PP = -1;
                             p.sendInfoMeNewItem();
-                        } else if(ItemTemplate.checkIdNewBienHinh(itembody.id) != -1) {
+                        } else if (ItemTemplate.checkIdNewBienHinh(itembody.id) != -1) {
                             p.c.ID_Bien_Hinh = -1;
                             p.sendInfoMeNewItem();
                         }
@@ -804,7 +810,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -812,7 +818,7 @@ public class HandleController {
 
     public static void itemBoxToBag(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
                 byte index = m.reader().readByte();
                 m.cleanup();
                 Item item = null;
@@ -846,9 +852,9 @@ public class HandleController {
                     }
                     case 1: {
                         item = p.c.getIndexBST(index);
-                        if(p.c.ItemCaiTrang[10] == null) {
-                            for(int i = 0; i <= 8; i++) {
-                                if(p.c.ItemBST[i] == null) {
+                        if (p.c.ItemCaiTrang[10] == null) {
+                            for (int i = 0; i <= 8; i++) {
+                                if (p.c.ItemBST[i] == null) {
                                     p.sendAddchatYellow("Bạn chưa đủ điểm bộ sưu tập để sử dụng.");
                                     return;
                                 }
@@ -858,47 +864,49 @@ public class HandleController {
                             p.c.ItemCaiTrang[10].isLock = true;
                             p.c.ItemCaiTrang[10].isExpires = false;
                             p.c.ItemCaiTrang[10].expires = -1L;
-                            p.c.ItemCaiTrang[10].options.add(new Option(100,5));
+                            p.c.ItemCaiTrang[10].options.add(new Option(100, 5));
                         } else {
-                            if(16 <= p.c.ItemCaiTrang[10].upgrade) {
+                            if (16 <= p.c.ItemCaiTrang[10].upgrade) {
                                 p.sendAddchatYellow("Cải trang đã đạt cấp tối đa.");
                                 return;
                             }
                             int count = 0;
                             int upgradeTemp = 16;
                             for (int j = 0; j <= 8; j++) {
-                                if(p.c.ItemBST[j] == null) {
+                                if (p.c.ItemBST[j] == null) {
                                     return;
                                 }
-                                if(upgradeTemp > p.c.ItemBST[j].upgrade) {
+                                if (upgradeTemp > p.c.ItemBST[j].upgrade) {
                                     upgradeTemp = p.c.ItemBST[j].upgrade;
                                 }
                             }
-                            if(upgradeTemp <= p.c.ItemCaiTrang[10].upgrade) {
+                            if (upgradeTemp <= p.c.ItemCaiTrang[10].upgrade) {
                                 p.sendAddchatYellow("Bạn chưa đủ điểm bộ sưu tập để nâng cấp cải trang.");
                                 return;
                             }
                             int upgradeOld = upgradeTemp - p.c.ItemCaiTrang[10].upgrade;
-                            for(int i = 0; i < upgradeOld; i++) {
+                            for (int i = 0; i < upgradeOld; i++) {
                                 p.c.ItemCaiTrang[10].upgrade++;
-                                for(Option op : p.c.ItemCaiTrang[10].options) {
-                                    if(op.id == 100) {
-                                        op.param += op.param*2/10;
-                                    } else if(op.id == 84 || op.id == 86) {
-                                        if(p.c.ItemCaiTrang[10].upgrade > 5 && p.c.ItemCaiTrang[10].upgrade <= 10) {
+                                for (Option op : p.c.ItemCaiTrang[10].options) {
+                                    if (op.id == 100) {
+                                        op.param += op.param * 2 / 10;
+                                    } else if (op.id == 84 || op.id == 86) {
+                                        if (p.c.ItemCaiTrang[10].upgrade > 5 && p.c.ItemCaiTrang[10].upgrade <= 10) {
                                             op.param += 5;
-                                        } else if(p.c.ItemCaiTrang[10].upgrade > 10 && p.c.ItemCaiTrang[10].upgrade <= 15) {
+                                        } else if (p.c.ItemCaiTrang[10].upgrade > 10
+                                                && p.c.ItemCaiTrang[10].upgrade <= 15) {
                                             op.param += 10;
                                         } else {
                                             op.param += 15;
                                         }
                                     } else {
-                                        if(p.c.ItemCaiTrang[10].upgrade > 5 && p.c.ItemCaiTrang[10].upgrade <= 10) {
-                                            op.param += op.param*1/10;
-                                        } else if(p.c.ItemCaiTrang[10].upgrade > 10 && p.c.ItemCaiTrang[10].upgrade <= 15) {
-                                            op.param += op.param*2/10;
+                                        if (p.c.ItemCaiTrang[10].upgrade > 5 && p.c.ItemCaiTrang[10].upgrade <= 10) {
+                                            op.param += op.param * 1 / 10;
+                                        } else if (p.c.ItemCaiTrang[10].upgrade > 10
+                                                && p.c.ItemCaiTrang[10].upgrade <= 15) {
+                                            op.param += op.param * 2 / 10;
                                         } else {
-                                            op.param += op.param*3/10;
+                                            op.param += op.param * 3 / 10;
                                         }
                                     }
                                 }
@@ -951,7 +959,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -959,7 +967,8 @@ public class HandleController {
 
     public static void itemBagToBox(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0 && p.menuCaiTrang == 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0
+                    && p.menuCaiTrang == 0) {
                 byte index = m.reader().readByte();
                 m.cleanup();
                 Item item = p.c.getIndexBag(index);
@@ -990,7 +999,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -998,13 +1007,13 @@ public class HandleController {
 
     public static void stoneSmelting(Player p, Message m, boolean isCoin) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
                 GameSrc.crystalCollect(p, m, isCoin);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1012,13 +1021,13 @@ public class HandleController {
 
     public static void upgradeEquipment(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
                 GameSrc.UpGrade(p, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1026,13 +1035,13 @@ public class HandleController {
 
     public static void splitEquipment(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
                 GameSrc.Split(p, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1040,8 +1049,8 @@ public class HandleController {
 
     public static void pleaseParty(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
-                if(p.c.mapid == 133 || p.c.mapid == 111) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+                if (p.c.mapid == 133 || p.c.mapid == 111) {
                     p.c.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                     return;
                 }
@@ -1049,7 +1058,7 @@ public class HandleController {
                 m.cleanup();
                 Char cplayer = Client.gI().getNinja(name);
                 if (cplayer != null && cplayer.party != null) {
-                    if(p.c.pheCT != cplayer.pheCT) {
+                    if (p.c.pheCT != cplayer.pheCT) {
                         p.c.p.conn.sendMessageLog("Không thể xin vào nhóm đối phương của phe khác.");
                         return;
                     }
@@ -1076,7 +1085,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1084,8 +1093,8 @@ public class HandleController {
 
     public static void acceptPleaseParty(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
-                if(p.c.mapid == 133 || p.c.mapid == 111) {
+            if (p != null && p.c != null && p.conn != null && m != null && m.reader().available() > 0) {
+                if (p.c.mapid == 133 || p.c.mapid == 111) {
                     p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                     return;
                 }
@@ -1093,13 +1102,13 @@ public class HandleController {
                 m.cleanup();
                 Char cplayer = Client.gI().getNinja(name);
                 if (cplayer != null) {
-                    if(p.c.pheCT != cplayer.pheCT) {
+                    if (p.c.pheCT != cplayer.pheCT) {
                         p.conn.sendMessageLog("Không thể cho đối phương của phe khác vào nhóm.");
                         return;
                     }
                     synchronized (cplayer.aPartyInvate) {
                         if (cplayer.party != null && p.c.party.partyId == cplayer.party.partyId) {
-                            Service.ServerMessage(p.c, p.c.name+" đang là đồng đội của bạn.");
+                            Service.ServerMessage(p.c, p.c.name + " đang là đồng đội của bạn.");
                         } else if (cplayer.party != null) {
                             Service.ServerMessage(p.c, "Đối phương đang ở trong nhóm khác.");
                         } else if (p.c.party.numPlayer >= 6) {
@@ -1116,16 +1125,17 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
+
     public static void selectZone(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null &&  !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 TileMap tileMap = p.c.tileMap;
-                if(tileMap != null) {
+                if (tileMap != null) {
                     byte zoneid = m.reader().readByte();
                     byte index = m.reader().readByte();
                     if (zoneid != tileMap.id) {
@@ -1139,13 +1149,16 @@ public class HandleController {
                         }
                         boolean isalpha = false;
                         byte i;
-                        for(i = 0; i < tileMap.map.template.npc.length; ++i) {
-                            if (tileMap.map.template.npc[i].id == 13 && Math.abs(tileMap.map.template.npc[i].x - p.c.get().x) < 50 && Math.abs(tileMap.map.template.npc[i].y - p.c.get().y) < 50) {
+                        for (i = 0; i < tileMap.map.template.npc.length; ++i) {
+                            if (tileMap.map.template.npc[i].id == 13
+                                    && Math.abs(tileMap.map.template.npc[i].x - p.c.get().x) < 50
+                                    && Math.abs(tileMap.map.template.npc[i].y - p.c.get().y) < 50) {
                                 isalpha = true;
                                 break;
                             }
                         }
-                        if ((item != null && (item.id == 35 || item.id == 37) || isalpha) && zoneid >= 0 && zoneid < tileMap.map.area.length) {
+                        if ((item != null && (item.id == 35 || item.id == 37) || isalpha) && zoneid >= 0
+                                && zoneid < tileMap.map.area.length) {
                             if (tileMap.map.area[zoneid].numplayers < tileMap.map.template.maxplayers) {
                                 tileMap.leave(p);
                                 tileMap.map.area[zoneid].Enter(p);
@@ -1169,7 +1182,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1177,25 +1190,27 @@ public class HandleController {
 
     public static void selectMenuNpc(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null  && !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 Menu.menu(p, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void openZone(Player p) {
-        if(p != null && p.c != null && p.conn != null && !p.c.isDie) {
+        if (p != null && p.c != null && p.conn != null && !p.c.isDie) {
             TileMap tileMap = p.c.tileMap;
-            if(tileMap != null) {
+            if (tileMap != null) {
                 boolean isalpha = false;
-                for(byte i = 0; i < tileMap.map.template.npc.length; ++i) {
-                    if (tileMap.map.template.npc[i].id == 13 && Math.abs(tileMap.map.template.npc[i].x - p.c.get().x) < 50 && Math.abs(tileMap.map.template.npc[i].y - p.c.get().y) < 50) {
+                for (byte i = 0; i < tileMap.map.template.npc.length; ++i) {
+                    if (tileMap.map.template.npc[i].id == 13
+                            && Math.abs(tileMap.map.template.npc[i].x - p.c.get().x) < 50
+                            && Math.abs(tileMap.map.template.npc[i].y - p.c.get().y) < 50) {
                         isalpha = true;
                         break;
                     }
@@ -1208,7 +1223,7 @@ public class HandleController {
                     try {
                         m = new Message(36);
                         m.writer().writeByte(tileMap.map.area.length);
-                        for(byte j = 0; j < tileMap.map.area.length; ++j) {
+                        for (byte j = 0; j < tileMap.map.area.length; ++j) {
                             m.writer().writeByte(tileMap.map.area[j].numplayers);
                             m.writer().writeByte(tileMap.map.area[j].numParty);
                         }
@@ -1217,7 +1232,7 @@ public class HandleController {
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
-                        if(m != null) {
+                        if (m != null) {
                             m.cleanup();
                         }
                     }
@@ -1228,13 +1243,13 @@ public class HandleController {
 
     public static void openMenuNpc(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 Menu.menuId(p, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1242,15 +1257,15 @@ public class HandleController {
 
     public static void useSkill(Player p, Message m) {
         try {
-            if(p != null && p.c != null && !p.c.isDie && m != null && m.reader().available() > 0) {
-                if(System.currentTimeMillis() > p.c.get().CSkilldelay) {
+            if (p != null && p.c != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+                if (System.currentTimeMillis() > p.c.get().CSkilldelay) {
                     UseSkill.useSkill(p, m);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1258,13 +1273,13 @@ public class HandleController {
 
     public static void requestItemInfo(Player p, Message m) {
         try {
-            if(p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
+            if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 byte type = m.reader().readByte();
                 int index = m.reader().readUnsignedByte();
                 System.out.print("type " + type + " index" + index);
                 m.cleanup();
                 Item item = null;
-                switch(type) {
+                switch (type) {
                     case 2: {
                         item = ItemSell.getItemTypeIndex(type, index);
                         break;
@@ -1373,7 +1388,7 @@ public class HandleController {
                     case 39:
                         ClanManager clan = ClanManager.getClanName(p.c.clan.clanName);
                         if (clan != null && index >= 0 && index < clan.items.size()) {
-                            item = (Item)clan.items.get(index);
+                            item = (Item) clan.items.get(index);
                         }
                         break;
                     case 41: {
@@ -1391,7 +1406,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1399,8 +1414,10 @@ public class HandleController {
 
     public static void inviteTrade(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
-                if (player.c.mapid != 111 && player.c.mapid != 133 && !player.c.tileMap.map.mapChienTruong() && !player.c.tileMap.map.mapGTC()) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
+                if (player.c.mapid != 111 && player.c.mapid != 133 && !player.c.tileMap.map.mapChienTruong()
+                        && !player.c.tileMap.map.mapGTC()) {
                     int ids = m.reader().readInt();
                     m.cleanup();
                     Char _char1 = player.c.tileMap.getNinja(ids);
@@ -1408,9 +1425,12 @@ public class HandleController {
                         Player p = _char1.p;
                         if (p == null) {
                             player.sendAddchatYellow("Người này không trong khu hoặc đã offline.");
-                        } else if (Math.abs(player.c.get().x - p.c.get().x) <= 100 && Math.abs(player.c.get().y - p.c.get().y) <= 100) {
+                        } else if (Math.abs(player.c.get().x - p.c.get().x) <= 100
+                                && Math.abs(player.c.get().y - p.c.get().y) <= 100) {
                             if (player.c.tradeDelay > System.currentTimeMillis()) {
-                                player.conn.sendMessageLog("Bàn cần " + (player.c.tradeDelay - System.currentTimeMillis()) / 1000L + "s để tiếp tục giao dịch.");
+                                player.conn.sendMessageLog(
+                                        "Bàn cần " + (player.c.tradeDelay - System.currentTimeMillis()) / 1000L
+                                                + "s để tiếp tục giao dịch.");
                             } else if (player.c.rqTradeId > 0) {
                                 player.conn.sendMessageLog(p.c.name + " đang có yêu cầu giao dịch.");
                             } else if (p.c.isTrade) {
@@ -1429,15 +1449,14 @@ public class HandleController {
                         }
 
                     }
-                }
-                else {
+                } else {
                     player.conn.sendMessageLog("Bạn không thể sử dụng chức năng này tại đây");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1445,7 +1464,8 @@ public class HandleController {
 
     public static void accpetTrade(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 int ids = m.reader().readInt();
                 m.cleanup();
                 if (player.c.isTrade) {
@@ -1456,7 +1476,8 @@ public class HandleController {
                         Player p = _ch.p;
                         if (p == null) {
                             player.sendAddchatYellow("Người này không trong khu hoặc đã offline.");
-                        } else if (Math.abs(player.c.get().x - p.c.get().x) <= 100 && Math.abs(player.c.get().y - p.c.get().y) <= 100) {
+                        } else if (Math.abs(player.c.get().x - p.c.get().x) <= 100
+                                && Math.abs(player.c.get().y - p.c.get().y) <= 100) {
                             if (!p.c.isTrade) {
                                 p.c.isTrade = true;
                                 p.c.tradeId = player.c.id;
@@ -1488,7 +1509,7 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1496,7 +1517,8 @@ public class HandleController {
 
     public static void lockTrade(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 if (player.c.tradeLock == 0) {
                     Char c = player.c;
                     c.tradeLock++;
@@ -1514,7 +1536,7 @@ public class HandleController {
                     byte i;
                     byte index;
                     Item item;
-                    for(i = 0; i < length; ++i) {
+                    for (i = 0; i < length; ++i) {
                         index = m.reader().readByte();
                         item = player.c.getIndexBag(index);
                         if (player.c.tradeIdItem.size() > 12) {
@@ -1532,8 +1554,8 @@ public class HandleController {
                     m = new Message(45);
                     m.writer().writeInt(player.c.tradeCoin);
                     m.writer().writeByte(player.c.tradeIdItem.size());
-                    for(i = 0; i < player.c.tradeIdItem.size(); ++i) {
-                        Item item2 = player.c.getIndexBag((Byte)player.c.tradeIdItem.get(i));
+                    for (i = 0; i < player.c.tradeIdItem.size(); ++i) {
+                        Item item2 = player.c.getIndexBag((Byte) player.c.tradeIdItem.get(i));
                         if (item2 != null) {
                             m.writer().writeShort(item2.id);
                             if (ItemTemplate.isTypeBody(item2.id) || ItemTemplate.isTypeNgocKham(item2.id)) {
@@ -1551,14 +1573,14 @@ public class HandleController {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
-public static void submitTrade(Player player) {
-        if(player != null && player.c != null && player.conn != null && !player.c.isDie) {
+    public static void submitTrade(Player player) {
+        if (player != null && player.c != null && player.conn != null && !player.c.isDie) {
             if (player.c.tradeLock == 1) {
                 Char n = player.c.tileMap.getNinja(player.c.tradeId);
                 if (n == null) {
@@ -1581,72 +1603,74 @@ public static void submitTrade(Player player) {
                         m.cleanup();
                         // giao dịch xu
                         if (n.tradeCoin > 0) {
-                            n.upxuMessage((long)(-n.tradeCoin));
-                            player.c.upxuMessage((long)n.tradeCoin);
+                            n.upxuMessage((long) (-n.tradeCoin));
+                            player.c.upxuMessage((long) n.tradeCoin);
                         }
                         if (player.c.tradeCoin > 0) {
-                            player.c.upxuMessage((long)(-player.c.tradeCoin));
-                            n.upxuMessage((long)player.c.tradeCoin);
+                            player.c.upxuMessage((long) (-player.c.tradeCoin));
+                            n.upxuMessage((long) player.c.tradeCoin);
                         }
 
                         ArrayList<Item> item1 = new ArrayList();
                         ArrayList<Item> item2 = new ArrayList();
-                        
+
                         String a = "";
                         String b = "";
-                        
+
                         byte i;
                         Item item3;
-                        for(i = 0; i < n.tradeIdItem.size(); ++i) {
-                            item3 = n.p.c.getIndexBag((Byte)n.tradeIdItem.get(i));
+                        for (i = 0; i < n.tradeIdItem.size(); ++i) {
+                            item3 = n.p.c.getIndexBag((Byte) n.tradeIdItem.get(i));
                             if (item3 != null) {
-                                a = a + " " +String.valueOf(item3.id) + " Số lượng : " + String.valueOf(item3.quantity) + "; ";
-                                 if (item3.quantity > 20000) {
-                            Service.ServerMessage(player.c,"item quá 20k SL ko thể gd");
-                                return;
-                                     }
+                                a = a + " " + String.valueOf(item3.id) + " Số lượng : " + String.valueOf(item3.quantity)
+                                        + "; ";
+                                if (item3.quantity > 20000) {
+                                    Service.ServerMessage(player.c, "item quá 20k SL ko thể gd");
+                                    return;
+                                }
                                 item1.add(item3);
-                                n.removeItemBag((Byte)n.tradeIdItem.get(i));
+                                n.removeItemBag((Byte) n.tradeIdItem.get(i));
                             }
                         }
-                        
-                        for(i = 0; i < player.c.tradeIdItem.size(); ++i) {
-                            item3 = player.c.getIndexBag((Byte)player.c.tradeIdItem.get(i));
+
+                        for (i = 0; i < player.c.tradeIdItem.size(); ++i) {
+                            item3 = player.c.getIndexBag((Byte) player.c.tradeIdItem.get(i));
                             if (item3 != null) {
                                 item2.add(item3);
-                                b = b + "" + String.valueOf(item3.id) + " Số lượng : " + String.valueOf(item3.quantity) + ";";
-                                 if (item3.quantity > 20000) {
-                               Service.ServerMessage(player.c,"item quá 20k SL ko thể gd");
-                                return;
-                                     }
-                                player.c.removeItemBag((Byte)player.c.tradeIdItem.get(i));
+                                b = b + "" + String.valueOf(item3.id) + " Số lượng : " + String.valueOf(item3.quantity)
+                                        + ";";
+                                if (item3.quantity > 20000) {
+                                    Service.ServerMessage(player.c, "item quá 20k SL ko thể gd");
+                                    return;
+                                }
+                                player.c.removeItemBag((Byte) player.c.tradeIdItem.get(i));
                             }
                         }
-                        
-                        for(i = 0; i < item1.size(); ++i) {
-                            item3 = (Item)item1.get(i);
+
+                        for (i = 0; i < item1.size(); ++i) {
+                            item3 = (Item) item1.get(i);
                             if (item3 != null) {
                                 player.c.addItemBag(true, item3);
                             }
                         }
-                        
-                        for(i = 0; i < item2.size(); ++i) {
-                            item3 = (Item)item2.get(i);
+
+                        for (i = 0; i < item2.size(); ++i) {
+                            item3 = (Item) item2.get(i);
                             if (item3 != null) {
                                 n.addItemBag(true, item3);
                             }
                         }
-                        
-                        player.hisgd(player.c.name, n.name , b , player.c.tradeCoin, a , n.tradeCoin);
-                        player.hisgd(n.name, player.c.name , a , n.tradeCoin, b , player.c.tradeCoin);
-                        
+
+                        player.hisgd(player.c.name, n.name, b, player.c.tradeCoin, a, n.tradeCoin);
+                        player.hisgd(n.name, player.c.name, a, n.tradeCoin, b, player.c.tradeCoin);
+
                         HandleController.closeTrade(player);
                         HandleController.closeTrade(n.p);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    if(m != null) {
+                    if (m != null) {
                         m.cleanup();
                     }
                 }
@@ -1656,20 +1680,21 @@ public static void submitTrade(Player player) {
 
     public static void selectMenuNpcTileMap(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
-                Service.chatNPC(player, (short)m.reader().readByte(), m.reader().readByte() + "");
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
+                Service.chatNPC(player, (short) m.reader().readByte(), m.reader().readByte() + "");
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void closeTrade(Player player) {
-        if(player != null && player.c != null && !player.c.isDie) {
+        if (player != null && player.c != null && !player.c.isDie) {
             if (player.c.isTrade) {
                 player.c.isTrade = false;
                 player.c.tradeCoin = 0;
@@ -1685,7 +1710,7 @@ public static void submitTrade(Player player) {
     }
 
     public static void closeLoad(Player player) {
-        if(player != null && player.c != null && player.conn != null && !player.c.isDie) {
+        if (player != null && player.c != null && player.conn != null && !player.c.isDie) {
             Message m = null;
             try {
                 if (player.c.isTrade) {
@@ -1703,7 +1728,7 @@ public static void submitTrade(Player player) {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                if(m != null) {
+                if (m != null) {
                     m.cleanup();
                 }
             }
@@ -1712,27 +1737,28 @@ public static void submitTrade(Player player) {
 
     public static void addFriend(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 String nF = m.reader().readUTF();
                 if (nF.equals(player.c.name)) {
                     player.sendAddchatYellow("Không thể thêm chính bản thân vào danh sách bạn bè.");
                 } else {
                     Char _char = Client.gI().getNinja(nF);
-                    if (_char != null)
-                    {
-                        if(player.c.vFriend.size() >= 50) {
+                    if (_char != null) {
+                        if (player.c.vFriend.size() >= 50) {
                             Service.ServerMessage(player.c, "Danh sách bạn bè đã đầy.");
                         }
-                        for (short i = 0; i < player.c.vFriend.size(); i = (short)(i + 1)) {
+                        for (short i = 0; i < player.c.vFriend.size(); i = (short) (i + 1)) {
                             Friend friend1 = player.c.vFriend.get(i);
                             if (friend1.friendName.equals(nF)) {
-                                Service.ServerMessage(player.c, String.format("%s đã có tên trong danh sách bạn bè hoặc thù địch.", new Object[] { nF }));
+                                Service.ServerMessage(player.c, String.format(
+                                        "%s đã có tên trong danh sách bạn bè hoặc thù địch.", new Object[] { nF }));
                                 return;
                             }
                         }
                         byte type = 0;
                         short s1;
-                        for (s1 = 0; s1 < _char.vFriend.size(); s1 = (short)(s1 + 1)) {
+                        for (s1 = 0; s1 < _char.vFriend.size(); s1 = (short) (s1 + 1)) {
                             Friend friend1 = _char.vFriend.get(s1);
                             if (friend1.friendName.equals(player.c.name)) {
                                 friend1.type = type = 1;
@@ -1747,8 +1773,7 @@ public static void submitTrade(Player player) {
                             Service.FriendInvate(_char, player.c.name);
                         }
                         Service.addFriend(player.c, friend.friendName, friend.type);
-                    }
-                    else {
+                    } else {
                         Service.ServerMessage(player.c, "Hiện tại người chơi này không online.");
                     }
                 }
@@ -1756,7 +1781,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1764,13 +1789,14 @@ public static void submitTrade(Player player) {
 
     public static void attackMob(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 player.c.tileMap.FightMob(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1778,10 +1804,10 @@ public static void submitTrade(Player player) {
 
     public static void attackNinja(Player player, Message m) {
         try {
-            if(player != null && player.c != null && !player.c.isDie && m != null && m.reader().available() > 0) {
-                if(player.conn != null) {
+            if (player != null && player.c != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+                if (player.conn != null) {
                     player.c.tileMap.FightNinja(player, m);
-                } else if(player.c.tdbTileMap != null) {
+                } else if (player.c.tdbTileMap != null) {
                     player.c.tdbTileMap.FightNinja(player, m);
                 }
 
@@ -1789,7 +1815,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1797,7 +1823,8 @@ public static void submitTrade(Player player) {
 
     public static void inviteSolo(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie
+                    && m != null && m.reader().available() > 0) {
                 if (player.c.mapid != 111 && player.c.mapid != 133 && !player.c.tileMap.map.mapChienTruong()) {
                     Char _char = player.c.tileMap.getNinja(player.c.testCharID);
                     if (player.c.testCharID != -9999 && player != null) {
@@ -1818,7 +1845,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -1826,14 +1853,15 @@ public static void submitTrade(Player player) {
 
     public static void accpetSolo(Player player, Message msg) {
         try {
-            if(player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie && msg != null && msg.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie
+                    && msg != null && msg.reader().available() > 0) {
                 Char _char = player.c.tileMap.getNinja(msg.reader().readInt());
                 if (_char != null && _char.testCharID == player.c.id && !_char.isTest) {
                     player.c.testCharID = _char.id;
                     player.c.isTest = true;
                     _char.isTest = true;
                     int i;
-                    for(i = 0; i < player.c.tileMap.players.size(); ++i) {
+                    for (i = 0; i < player.c.tileMap.players.size(); ++i) {
                         if (player.c.tileMap.players.get(i) != null && (player.c.tileMap.players.get(i)).conn != null) {
                             Service.TestAccept((player.c.tileMap.players.get(i)).c, player.c.id, _char.id);
                         }
@@ -1843,7 +1871,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
@@ -1851,7 +1879,8 @@ public static void submitTrade(Player player) {
 
     public static void startKillNinja(Player player, Message msg) {
         try {
-            if(player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie && msg != null && msg.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie
+                    && msg != null && msg.reader().available() > 0) {
                 if (GameSrc.mapNotPK(player.c.mapid)) {
                     player.conn.sendMessageLog(Language.NOT_CUU_SAT);
                 } else if (player.c.mapid != 111 && player.c.mapid != 133 && !player.c.tileMap.map.mapChienTruong()) {
@@ -1875,7 +1904,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
@@ -1883,9 +1912,10 @@ public static void submitTrade(Player player) {
 
     public static void inviteToParty(Player player, Message msg) {
         try {
-            if(player != null && player.c != null && player.conn != null && player.c.isHuman && !player.c.isDie && msg != null && msg.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.isHuman && !player.c.isDie
+                    && msg != null && msg.reader().available() > 0) {
                 Char _char = player.c;
-                if(_char.mapid == 133 || _char.mapid == 111) {
+                if (_char.mapid == 133 || _char.mapid == 111) {
                     _char.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                     return;
                 }
@@ -1893,13 +1923,15 @@ public static void submitTrade(Player player) {
                 msg.cleanup();
                 Char cplayer = Client.gI().getNinja(name);
                 if (cplayer != null) {
-                    if((_char.tileMap.map.mapChienTruong() != cplayer.tileMap.map.mapChienTruong())) {
+                    if ((_char.tileMap.map.mapChienTruong() != cplayer.tileMap.map.mapChienTruong())) {
                         _char.p.conn.sendMessageLog("Không thể mời đối phương vào nhóm");
                         return;
-                    }else if((_char.tileMap.map.mapChienTruong() || cplayer.tileMap.map.mapChienTruong()) && _char.pheCT != cplayer.pheCT) {
+                    } else if ((_char.tileMap.map.mapChienTruong() || cplayer.tileMap.map.mapChienTruong())
+                            && _char.pheCT != cplayer.pheCT) {
                         _char.p.conn.sendMessageLog("Không thể mời đối phương phe khác vào nhóm");
                         return;
-                    } else if ((_char.tileMap.map.mapGTC() || cplayer.tileMap.map.mapGTC()) && _char.clan.clanName != cplayer.clan.clanName) {
+                    } else if ((_char.tileMap.map.mapGTC() || cplayer.tileMap.map.mapGTC())
+                            && _char.clan.clanName != cplayer.clan.clanName) {
                         _char.p.conn.sendMessageLog("Không thể mời đối phương vào nhóm");
                         return;
                     }
@@ -1939,7 +1971,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
@@ -1947,9 +1979,10 @@ public static void submitTrade(Player player) {
 
     public static void accpetInviteToParty(Player player, Message msg) {
         try {
-            if(player != null && player.c != null && player.conn != null && player.c.isHuman &&  !player.c.isDie && msg != null && msg.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.isHuman && !player.c.isDie
+                    && msg != null && msg.reader().available() > 0) {
                 Char _char = player.c;
-                if(_char.mapid == 133 || _char.mapid == 111) {
+                if (_char.mapid == 133 || _char.mapid == 111) {
                     _char.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                     return;
                 }
@@ -1957,7 +1990,7 @@ public static void submitTrade(Player player) {
                 msg.cleanup();
                 Char cplayer = Client.gI().getNinja(charId);
                 if (cplayer != null) {
-                    if(_char.pheCT != _char.pheCT) {
+                    if (_char.pheCT != _char.pheCT) {
                         _char.p.conn.sendMessageLog("Không thể vào nhóm đối phương của phe khác.");
                         return;
                     }
@@ -1966,7 +1999,8 @@ public static void submitTrade(Player player) {
                             if (_char.party != null && _char.party.partyId == cplayer.party.partyId) {
                                 Service.ServerMessage(_char, "Bạn đang trong này.");
                             } else if (_char.party != null) {
-                                Service.ServerMessage(_char, "Bạn đang trong nhóm khác, không thể chấp nhận lời mời này.");
+                                Service.ServerMessage(_char,
+                                        "Bạn đang trong nhóm khác, không thể chấp nhận lời mời này.");
                             } else if (cplayer.party.numPlayer >= 6) {
                                 Service.ServerMessage(_char, "Nhóm đã đầy");
                             } else if (cplayer.findPartyInvite(_char.id) != null) {
@@ -1980,16 +2014,16 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
     }
 
     public static void outParty(Player player) {
-        if(player != null && player.c != null && player.conn != null && player.c.party != null) {
+        if (player != null && player.c != null && player.conn != null && player.c.party != null) {
             Char _char = player.c;
-            if(_char.mapid == 133 || _char.mapid == 111) {
+            if (_char.mapid == 133 || _char.mapid == 111) {
                 _char.p.conn.sendMessageLog("Không thể sử dụng chức năng này ở đây");
                 return;
             }
@@ -1997,7 +2031,7 @@ public static void submitTrade(Player player) {
             if (party != null) {
                 synchronized (party.LOCK) {
                     byte i;
-                    for (i = 0; i < party.numPlayer; i = (byte)(i + 1)) {
+                    for (i = 0; i < party.numPlayer; i = (byte) (i + 1)) {
                         if (party.aChar.get(i) != null && party.aChar.get(i).id != _char.id)
                             Service.ServerMessage(party.aChar.get(i), _char.name + " đã rời khỏi nhóm.");
                     }
@@ -2009,13 +2043,14 @@ public static void submitTrade(Player player) {
 
     public static void inputValue(Player player, Message msg) {
         try {
-            if(player != null && player.c != null && player.conn != null && msg != null && msg.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && msg != null
+                    && msg.reader().available() > 0) {
                 Draw.Draw(player, msg);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(msg != null) {
+            if (msg != null) {
                 msg.cleanup();
             }
         }
@@ -2023,7 +2058,7 @@ public static void submitTrade(Player player) {
 
     public static void viewInfoNinja(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 String playername = m.reader().readUTF();
                 m.cleanup();
                 if (playername.equals(player.c.name)) {
@@ -2046,7 +2081,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2054,7 +2089,7 @@ public static void submitTrade(Player player) {
 
     public static void viewItemNinja(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int pid = m.reader().readInt();
                 byte index = m.reader().readByte();
                 m.cleanup();
@@ -2068,15 +2103,15 @@ public static void submitTrade(Player player) {
                         m.writer().writeInt(item.saleCoinLock);
                         m.writer().writeByte(item.sys);
                         short i;
-                        for(i = 0; i < item.options.size(); ++i) {
-                            m.writer().writeByte(((Option)item.options.get(i)).id);
-                            m.writer().writeInt(((Option)item.options.get(i)).param);
+                        for (i = 0; i < item.options.size(); ++i) {
+                            m.writer().writeByte(((Option) item.options.get(i)).id);
+                            m.writer().writeInt(((Option) item.options.get(i)).param);
                         }
                         m.writer().flush();
                         player.conn.sendMessage(m);
                         m.cleanup();
                     }
-                } else if(player.viewChar != null) {
+                } else if (player.viewChar != null) {
                     Item item = player.viewChar.get().ItemBody[index];
                     if (item != null) {
                         m = new Message(94);
@@ -2085,9 +2120,9 @@ public static void submitTrade(Player player) {
                         m.writer().writeInt(item.saleCoinLock);
                         m.writer().writeByte(item.sys);
                         short i;
-                        for(i = 0; i < item.options.size(); ++i) {
-                            m.writer().writeByte(((Option)item.options.get(i)).id);
-                            m.writer().writeInt(((Option)item.options.get(i)).param);
+                        for (i = 0; i < item.options.size(); ++i) {
+                            m.writer().writeByte(((Option) item.options.get(i)).id);
+                            m.writer().writeInt(((Option) item.options.get(i)).param);
                         }
                         m.writer().flush();
                         player.conn.sendMessage(m);
@@ -2098,7 +2133,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2106,7 +2141,8 @@ public static void submitTrade(Player player) {
 
     public static void accpetDun(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null &&  player.c.tileMap != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie
+                    && m != null && m.reader().available() > 0) {
                 if (player.c.isNhanban) {
                     player.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
                 } else {
@@ -2125,7 +2161,7 @@ public static void submitTrade(Player player) {
                             player.c.dunId = dun.dunID;
                             player.c.mapKanata = player.c.mapid;
                             if (player.c.typepk != 0) {
-                                Service.ChangTypePkId(player.c, (byte)0);
+                                Service.ChangTypePkId(player.c, (byte) 0);
                             }
 
                             dun.team1.add(player.c);
@@ -2134,21 +2170,22 @@ public static void submitTrade(Player player) {
                             dun.name1 = player.c.name;
                             dun.lv1 = player.c.level;
                             player.c.tileMap.leave(player.c.p);
-                            dun.map[0].area[0].EnterMap0WithXY(player.c, (short)398, (short)-1);
+                            dun.map[0].area[0].EnterMap0WithXY(player.c, (short) 398, (short) -1);
                         } else {
                             if (player.c.party.charID != player.c.id) {
-                                player.sendAddchatYellow("Bạn không phải trưởng nhóm, nên không thể chấp nhận lời mời lôi đài này");
+                                player.sendAddchatYellow(
+                                        "Bạn không phải trưởng nhóm, nên không thể chấp nhận lời mời lôi đài này");
                                 return;
                             }
 
-                            for(i = 0; i < player.c.party.aChar.size(); ++i) {
-                                _charP = (Char)player.c.party.aChar.get(i);
+                            for (i = 0; i < player.c.party.aChar.size(); ++i) {
+                                _charP = (Char) player.c.party.aChar.get(i);
                                 if (tileMapTemp.getNinja(_charP.id) != null && !_charP.isNhanban) {
                                     _charP.isInDun = true;
                                     _charP.dunId = dun.dunID;
                                     _charP.mapKanata = _charP.c.mapid;
                                     if (_charP.typepk != 0) {
-                                        Service.ChangTypePkId(_charP, (byte)0);
+                                        Service.ChangTypePkId(_charP, (byte) 0);
                                     }
 
                                     if (_charP.id == player.c.party.charID) {
@@ -2160,21 +2197,21 @@ public static void submitTrade(Player player) {
 
                                     dun.team1.add(_charP);
                                     _charP.tileMap.leave(_charP.p);
-                                    dun.map[0].area[0].EnterMap0WithXY(_charP, (short)398, (short)-1);
+                                    dun.map[0].area[0].EnterMap0WithXY(_charP, (short) 398, (short) -1);
                                 } else {
                                     player.c.party.removePlayer(_charP.id);
                                 }
                             }
                         }
                         if (_p.c.party != null) {
-                            for(i = 0; i < _p.c.party.aChar.size(); ++i) {
-                                _charP = (Char)_p.c.party.aChar.get(i);
+                            for (i = 0; i < _p.c.party.aChar.size(); ++i) {
+                                _charP = (Char) _p.c.party.aChar.get(i);
                                 if (tileMapTemp.getNinja(_charP.id) != null && !_charP.isNhanban) {
                                     _charP.isInDun = true;
                                     _charP.dunId = dun.dunID;
                                     _charP.mapKanata = _charP.c.mapid;
                                     if (_charP.typepk != 0) {
-                                        Service.ChangTypePkId(_charP, (byte)0);
+                                        Service.ChangTypePkId(_charP, (byte) 0);
                                     }
                                     if (_charP.id == _p.c.party.charID) {
                                         _charTemp2 = _charP;
@@ -2184,18 +2221,17 @@ public static void submitTrade(Player player) {
                                     }
                                     dun.team2.add(_charP);
                                     _charP.tileMap.leave(_charP.p);
-                                    dun.map[0].area[0].EnterMap0WithXY(_charP, (short)153, (short)-1);
+                                    dun.map[0].area[0].EnterMap0WithXY(_charP, (short) 153, (short) -1);
                                 } else {
                                     _p.c.party.removePlayer(_charP.id);
                                 }
                             }
-                        }
-                        else {
+                        } else {
                             _p.c.isInDun = true;
                             _p.c.dunId = dun.dunID;
                             _p.c.mapKanata = _p.c.mapid;
                             if (_p.c.typepk != 0) {
-                                Service.ChangTypePkId(_p.c, (byte)0);
+                                Service.ChangTypePkId(_p.c, (byte) 0);
                             }
                             dun.team2.add(_p.c);
                             _charTemp2 = _p.c;
@@ -2203,9 +2239,9 @@ public static void submitTrade(Player player) {
                             dun.name2 = _p.c.name;
                             dun.lv2 = _p.c.level;
                             _p.c.tileMap.leave(_p.c.p);
-                            dun.map[0].area[0].EnterMap0WithXY(_p.c, (short)153, (short)-1);
+                            dun.map[0].area[0].EnterMap0WithXY(_p.c, (short) 153, (short) -1);
                         }
-                        if(_charTemp1 != null && _charTemp2 != null) {
+                        if (_charTemp1 != null && _charTemp2 != null) {
                             dun.c1 = _charTemp1;
                             dun.c2 = _charTemp2;
                         }
@@ -2216,7 +2252,7 @@ public static void submitTrade(Player player) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2224,82 +2260,89 @@ public static void submitTrade(Player player) {
 
     public static void viewDun(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.tileMap != null && !player.c.isDie
+                    && m != null && m.reader().available() > 0) {
                 int idDun = m.reader().readUnsignedByte();
                 Char _char = player.c;
                 Dun dun = null;
                 if (Dun.duns.containsKey(idDun)) {
                     dun = Dun.duns.get(idDun);
-                    if(dun != null) {
-                        if(!dun.isStart) {
-                            _char.p.conn.sendMessageLog( "Trận đấu này đã chưa diễn ra, hãy quay lại sau.");
+                    if (dun != null) {
+                        if (!dun.isStart) {
+                            _char.p.conn.sendMessageLog("Trận đấu này đã chưa diễn ra, hãy quay lại sau.");
                             return;
                         }
                         _char.dunId = idDun;
                         _char.isInDun = true;
                         _char.mapKanata = _char.mapid;
-                        if(_char.typepk != 0) {
-                            Service.ChangTypePkId(_char, (byte)0);
+                        if (_char.typepk != 0) {
+                            Service.ChangTypePkId(_char, (byte) 0);
                         }
                         dun.viewer.add(_char);
                         _char.tileMap.leave(_char.p);
                         _char.yDun = 336;
-                        dun.map[1].area[0].EnterMap0WithXY(_char, (short)Util.nextInt(280,490) , (short)336);
+                        dun.map[1].area[0].EnterMap0WithXY(_char, (short) Util.nextInt(280, 490), (short) 336);
                     } else {
                         _char.p.conn.sendMessageLog("Trận đấu này đã kết thúc hoặc không tồn tại.");
                         return;
                     }
                 } else {
-                    _char.p.conn.sendMessageLog( "Gặp lỗi, hãy đăng xuất và vào lại nhé!");
+                    _char.p.conn.sendMessageLog("Gặp lỗi, hãy đăng xuất và vào lại nhé!");
                     return;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
-// thay cả hoặc chỉ thêm  player.lssellshinwa(player.c.name, item.id, (long)xu, item.quantity); vào trên  player.c.ItemBag[index] = null;
-public static void sendItemToAuction(Player player, Message m) {
+
+    // thay cả hoặc chỉ thêm player.lssellshinwa(player.c.name, item.id, (long)xu,
+    // item.quantity); vào trên player.c.ItemBag[index] = null;
+    public static void sendItemToAuction(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0 && player.menuIdAuction == -2) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0 && player.menuIdAuction == -2) {
                 byte index = m.reader().readByte();
                 int xu = m.reader().readInt();
                 Item item = player.c.ItemBag[index];
-                if(item != null) {
-                    if(item.isLock() || item.isExpires) {
+                if (item != null) {
+                    if (item.isLock() || item.isExpires) {
                         player.sendAddchatYellow("Vật phẩm này không thể rao bán!");
                         return;
                     }
-                    if(player.c.xu < 5000) {
+                    if (player.c.xu < 5000) {
                         player.sendAddchatYellow("Bạn không đủ xu để bán vật phẩm!");
                         return;
                     }
-                    if(player.luong < 5) {
+                    if (player.luong < 5) {
                         player.sendAddchatYellow("Bạn không đủ lượng để bán vật phẩm");
                         return;
-                        
+
                     }
-                    if(xu < 100) {
+                    if (xu < 100) {
                         player.sendAddchatYellow("Giá thấp nhất để đặt là 100 xu");
                         return;
                     }
-                    if ( player.c.soluongitem >= 2000) {
+                    if (player.c.soluongitem >= 2000) {
                         player.conn.sendMessageLog("Chỉ được bán tối đa 2000 món đồ.");
                         return;
                     }
                     ItemTemplate data = ItemTemplate.ItemTemplateId(item.id);
-                    if(data.type == 26) {
-                        ShinwaManager.entrys.get(0).add(new ShinwaTemplate(item, System.currentTimeMillis(), player.c.name, xu));
-                    } else if(data.type >= 0 && data.type <= 9) {
-                        ShinwaManager.entrys.get(data.type+1).add(new ShinwaTemplate(item, System.currentTimeMillis(), player.c.name, xu));
+                    if (data.type == 26) {
+                        ShinwaManager.entrys.get(0)
+                                .add(new ShinwaTemplate(item, System.currentTimeMillis(), player.c.name, xu));
+                    } else if (data.type >= 0 && data.type <= 9) {
+                        ShinwaManager.entrys.get(data.type + 1)
+                                .add(new ShinwaTemplate(item, System.currentTimeMillis(), player.c.name, xu));
                     } else {
-                        ShinwaManager.entrys.get(11).add(new ShinwaTemplate(item, System.currentTimeMillis(), player.c.name, xu));
+                        ShinwaManager.entrys.get(11)
+                                .add(new ShinwaTemplate(item, System.currentTimeMillis(), player.c.name, xu));
                     }
-                      player.lssellshinwa(player.c.name, item.id, (long)xu, item.quantity);
+                    player.lssellshinwa(player.c.name, item.id, (long) xu, item.quantity);
                     player.c.soluongitem++;
                     player.c.ItemBag[index] = null;
                     player.c.upxuMessage(-5000);
@@ -2313,20 +2356,22 @@ public static void sendItemToAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
+
     public static void viewItemAuction(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
-                if(player.menuIdAuction == -1) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
+                if (player.menuIdAuction == -1) {
                     return;
                 }
                 int index = m.reader().readInt();
                 ShinwaTemplate itemShinwa = ShinwaManager.entrys.get(player.menuIdAuction).get(index);
-                if(itemShinwa != null) {
+                if (itemShinwa != null) {
                     Service.viewItemToAuction(player, index, itemShinwa.getItem());
                 } else {
                     player.sendAddchatYellow("Vật phẩm không còn tồn tại!");
@@ -2336,45 +2381,49 @@ public static void sendItemToAuction(Player player, Message m) {
             e.printStackTrace();
             return;
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
- // thay cả
-public static void buyItemAuction(Player player, Message m) {
+    // thay cả
+    public static void buyItemAuction(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
-                if(player.menuIdAuction == -1) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
+                if (player.menuIdAuction == -1) {
                     return;
                 }
                 int index = m.reader().readInt();
                 ShinwaTemplate itemShinwa = ShinwaManager.entrys.get(player.menuIdAuction).get(index);
-                if(itemShinwa != null) {
-                    if(player.c.getBagNull() == 0) {
+                if (itemShinwa != null) {
+                    if (player.c.getBagNull() == 0) {
                         player.sendAddchatYellow(Language.NOT_ENOUGH_BAG);
                         return;
                     }
-                    if(player.c.xu < itemShinwa.getPrice()) {
+                    if (player.c.xu < itemShinwa.getPrice()) {
                         player.sendAddchatYellow("Bạn không đủ xu để mua vật phẩm!");
                         return;
                     }
                     Char _char = Client.gI().getNinja(itemShinwa.getSeller());
-                    if(_char != null) {
-                        _char.upxuMessage((long)itemShinwa.getPrice()*99/100);
-                        _char.p.sendAddchatYellow("Bạn vừa nhận được " + itemShinwa.getPrice()*99/100 + " từ đồ đấu giá tại Shinwa.");
+                    if (_char != null) {
+                        _char.upxuMessage((long) itemShinwa.getPrice() * 99 / 100);
+                        _char.p.sendAddchatYellow(
+                                "Bạn vừa nhận được " + itemShinwa.getPrice() * 99 / 100 + " từ đồ đấu giá tại Shinwa.");
                     } else {
                         synchronized (Server.LOCK_MYSQL) {
                             try {
-                                ResultSet res = SQLManager.stat.executeQuery("SELECT * FROM `ninja` WHERE `name`='" + itemShinwa.getSeller() + "';");
-                                if(res.next()) {
+                                ResultSet res = SQLManager.stat.executeQuery(
+                                        "SELECT * FROM `ninja` WHERE `name`='" + itemShinwa.getSeller() + "';");
+                                if (res.next()) {
                                     long xuOld = res.getLong("xu");
-                                    xuOld += itemShinwa.getPrice()*99/100;
-                                    if(xuOld > 2000000000L) {
+                                    xuOld += itemShinwa.getPrice() * 99 / 100;
+                                    if (xuOld > 2000000000L) {
                                         xuOld = 2000000000L;
                                     }
-                                    SQLManager.stat.executeUpdate("UPDATE `ninja` SET `xu`=" + xuOld + " WHERE `name`='" + itemShinwa.getSeller() + "';");
+                                    SQLManager.stat.executeUpdate("UPDATE `ninja` SET `xu`=" + xuOld + " WHERE `name`='"
+                                            + itemShinwa.getSeller() + "';");
                                     res.close();
                                 }
                             } catch (Exception e) {
@@ -2383,9 +2432,10 @@ public static void buyItemAuction(Player player, Message m) {
                             }
                         }
                     }
-                     player.lsshinwa(player.c.name, itemShinwa.getPrice(), itemShinwa.getItem().id, itemShinwa.getItem().quantity);
+                    player.lsshinwa(player.c.name, itemShinwa.getPrice(), itemShinwa.getItem().id,
+                            itemShinwa.getItem().quantity);
                     ShinwaManager.entrys.get(player.menuIdAuction).remove(index);
-                    player.c.upxuMessage(-(long)itemShinwa.getPrice());
+                    player.c.upxuMessage(-(long) itemShinwa.getPrice());
                     player.c.addItemBag(true, itemShinwa.getItem());
                     player.endDlg(true);
                 } else {
@@ -2395,7 +2445,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2403,7 +2453,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void yesNoDlg(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 int type = m.reader().readByte();
                 System.out.println(type);
                 switch (type) {
@@ -2415,47 +2466,49 @@ public static void buyItemAuction(Player player, Message m) {
                         GameSrc.NangMat(player, player.c.ItemBody[14], 1);
                         break;
                     }
-                     
+
                     case 2: {
                         GameSrc.HuyNhiemVuDanhVong(player);
                         break;
                     }
                     case 10: {
-                        GameSrc.nangpet(player, player.c.ItemBody[10],1); // nâng pet
+                        GameSrc.nangpet(player, player.c.ItemBody[10], 1); // nâng pet
                         break;
                     }
-                      case 11: {
-                        GameSrc.nangmatna(player, player.c.ItemBody[11],1); // nâng pet
+                    case 11: {
+                        GameSrc.nangmatna(player, player.c.ItemBody[11], 1); // nâng pet
                         break;
                     }
-                     case 12: {
-                        GameSrc.nangyoroi(player, player.c.ItemBody[12],1); // nâng yoroi
+                    case 12: {
+                        GameSrc.nangyoroi(player, player.c.ItemBody[12], 1); // nâng yoroi
                         break;
                     }
                     case 15: {
-                        GameSrc.nangbikip(player, player.c.ItemBody[15],1); // nâng bí kíp
+                        GameSrc.nangbikip(player, player.c.ItemBody[15], 1); // nâng bí kíp
                         break;
                     }
-                      case 16: {
-                        GameSrc.nangntgt(player, player.c.ItemBody[13],1); // nâng ntgt
+                    case 16: {
+                        GameSrc.nangntgt(player, player.c.ItemBody[13], 1); // nâng ntgt
                         break;
                     }
-                    //Mời ldgt
+                    // Mời ldgt
                     case 3: {
-                        if(player.c.clan != null && player.c.tileMap != null) {
+                        if (player.c.clan != null && player.c.tileMap != null) {
                             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
-                            if(clan != null && clan.ldgtID != -1) {
+                            if (clan != null && clan.ldgtID != -1) {
                                 if (LanhDiaGiaToc.ldgts.containsKey(clan.ldgtID)) {
                                     LanhDiaGiaToc lanhDiaGiaToc = LanhDiaGiaToc.ldgts.get(clan.ldgtID);
-                                    if (lanhDiaGiaToc != null && lanhDiaGiaToc.map[0] != null && lanhDiaGiaToc.map[0].area[0] != null) {
-                                        if(lanhDiaGiaToc.ninjas.size() <= 24) {
+                                    if (lanhDiaGiaToc != null && lanhDiaGiaToc.map[0] != null
+                                            && lanhDiaGiaToc.map[0].area[0] != null) {
+                                        if (lanhDiaGiaToc.ninjas.size() <= 24) {
                                             player.c.ldgtID = clan.ldgtID;
                                             player.c.mapKanata = player.c.mapid;
                                             player.c.tileMap.leave(player);
                                             lanhDiaGiaToc.map[0].area[0].EnterMap0(player.c);
                                             return;
                                         } else {
-                                            player.sendAddchatYellow("Số thành viên tham gia Lãnh Địa Gia Tộc đã đạt tối đa.");
+                                            player.sendAddchatYellow(
+                                                    "Số thành viên tham gia Lãnh Địa Gia Tộc đã đạt tối đa.");
                                             return;
                                         }
                                     }
@@ -2468,24 +2521,27 @@ public static void buyItemAuction(Player player, Message m) {
                         break;
                     }
 
-                    //Mời GTC
+                    // Mời GTC
                     case 4: {
-                        if(player.c.clan != null && player.c.tileMap != null) {
+                        if (player.c.clan != null && player.c.tileMap != null) {
                             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
-                            if(clan != null && player.c.clan.typeclan == 4) {
+                            if (clan != null && player.c.clan.typeclan == 4) {
                                 if (GiaTocChien.gtcs.containsKey(clan.gtcID)) {
                                     GiaTocChien giaTocChien = GiaTocChien.gtcs.get(clan.gtcID);
                                     ClanManager clan2 = ClanManager.getClanName(clan.gtcClanName);
                                     String main2 = clan2.getmain_name();
                                     Char _charTT = Client.gI().getNinja(main2);
-                                    if (giaTocChien != null && giaTocChien.map[0] != null && giaTocChien.map[0].area[0] != null) {
-                                        if(_charTT != null) {
+                                    if (giaTocChien != null && giaTocChien.map[0] != null
+                                            && giaTocChien.map[0].area[0] != null) {
+                                        if (_charTT != null) {
                                             giaTocChien.clan1 = clan;
                                             giaTocChien.clan2 = clan2;
                                             player.c.tileMap.leave(player);
-                                            giaTocChien.map[0].area[0].EnterMap0WithXY(player.c,(short)117,(short)336);
+                                            giaTocChien.map[0].area[0].EnterMap0WithXY(player.c, (short) 117,
+                                                    (short) 336);
                                             _charTT.tileMap.leave(_charTT.p);
-                                            giaTocChien.map[0].area[0].EnterMap0WithXY(_charTT,(short)673,(short)336);
+                                            giaTocChien.map[0].area[0].EnterMap0WithXY(_charTT, (short) 673,
+                                                    (short) 336);
                                             giaTocChien.join();
                                             return;
                                         } else {
@@ -2502,16 +2558,16 @@ public static void buyItemAuction(Player player, Message m) {
                         break;
                     }
                     case 5: {
-                        if(player.c != null && player.c.clone != null && player.c.tileMap != null) {
+                        if (player.c != null && player.c.clone != null && player.c.tileMap != null) {
                             player.c.clone.exp = Level.getMaxExp(10);
                             player.c.clone.level = 10;
-                            for(int i = 0; i < player.c.clone.ItemBody.length; i++) {
+                            for (int i = 0; i < player.c.clone.ItemBody.length; i++) {
                                 player.c.clone.ItemBody[i] = null;
                             }
-                            for(int i = 0; i < player.c.clone.ItemMounts.length; i++) {
+                            for (int i = 0; i < player.c.clone.ItemMounts.length; i++) {
                                 player.c.clone.ItemMounts[i] = null;
                             }
-                            player.c.clone.ItemBody[1] = ItemTemplate.itemDefault(194,true);
+                            player.c.clone.ItemBody[1] = ItemTemplate.itemDefault(194, true);
                             player.c.clone.skill.removeAll(player.c.clone.skill);
                             Skill skill2 = new Skill();
                             player.c.clone.skill.add(skill2);
@@ -2526,10 +2582,10 @@ public static void buyItemAuction(Player player, Message m) {
                             player.c.clone.KSkill = new byte[3];
                             player.c.clone.OSkill = new byte[5];
                             byte i;
-                            for(i = 0; i < player.c.clone.KSkill.length; ++i) {
+                            for (i = 0; i < player.c.clone.KSkill.length; ++i) {
                                 player.c.clone.KSkill[i] = -1;
                             }
-                            for(i = 0; i < player.c.clone.OSkill.length; ++i) {
+                            for (i = 0; i < player.c.clone.OSkill.length; ++i) {
                                 player.c.clone.OSkill[i] = -1;
                             }
                             player.c.clone.CSkill = -1;
@@ -2542,69 +2598,71 @@ public static void buyItemAuction(Player player, Message m) {
                             player.c.clone.countTayKyNang = 1;
                             player.c.clone.countTayTiemNang = 1;
 
-                            if(player.c.clone.islive) {
+                            if (player.c.clone.islive) {
                                 player.c.clone.islive = false;
                                 player.c.clone.isDie = true;
                             }
                         }
                         break;
                     }
-                    
-                    //vòng xoay v1
-                    case 6:{
+
+                    // vòng xoay v1
+                    case 6: {
                         player.upluongMessage(-77000);
                         long luongUp = Util.nextInt(107000, 177000);
                         player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
+                        player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
                         player.vxLuong = 1;
                         break;
                     }
-                    //vòng xoay v2
-                    case 7:{
+                    // vòng xoay v2
+                    case 7: {
                         player.upluongMessage(-277000);
                         long luongUp = Util.nextInt(377000, 577000);
                         player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
+                        player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
                         player.vxLuong = 2;
                         break;
                     }
-                    //case bug
-                    case 8:{
+                    // case bug
+                    case 8: {
                         break;
                     }
-                    case 9:{
+                    case 9: {
                         player.upluongMessage(-777000);
                         long luongUp = Util.nextInt(977000, 1777000);
                         player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
+                        player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
                         player.vxLuong = 3;
                         break;
                     }
-                 /*   case 10:{
-                        player.upluongMessage(-2077000);
-                        long luongUp = Util.nextInt(2777000, 4377000);
-                        player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
-                        player.vxLuong = 4;
-                        break;
-                    }
-                    case 11:{
-                        player.upluongMessage(-5077000);
-                        long luongUp = Util.nextInt(6777000, 7777000);
-                        player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
-                        player.vxLuong = 5;
-                        break;
-                    }
-                    case 12:{
-                        player.upluongMessage(-10777000);
-                        long luongUp = Util.nextInt(17777000, 27777000);
-                        player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
-                        player.vxLuong = 6;
-                        break;
-                    }*/
-                    case 13:{
+                    /*
+                     * case 10:{
+                     * player.upluongMessage(-2077000);
+                     * long luongUp = Util.nextInt(2777000, 4377000);
+                     * player.upluongMessage(luongUp);
+                     * player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
+                     * player.vxLuong = 4;
+                     * break;
+                     * }
+                     * case 11:{
+                     * player.upluongMessage(-5077000);
+                     * long luongUp = Util.nextInt(6777000, 7777000);
+                     * player.upluongMessage(luongUp);
+                     * player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
+                     * player.vxLuong = 5;
+                     * break;
+                     * }
+                     * case 12:{
+                     * player.upluongMessage(-10777000);
+                     * long luongUp = Util.nextInt(17777000, 27777000);
+                     * player.upluongMessage(luongUp);
+                     * player.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
+                     * player.vxLuong = 6;
+                     * break;
+                     * }
+                     */
+                    case 13: {
                         player.c.removeItemBox();
                         player.conn.sendMessageLog("Trùm đã xoá rương đồ thành công");
                         break;
@@ -2617,7 +2675,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2625,7 +2683,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void itemMountToBag(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 byte index = m.reader().readByte();
                 m.cleanup();
                 if (index >= 0) {
@@ -2633,7 +2692,8 @@ public static void buyItemAuction(Player player, Message m) {
                     if (indexItemBag <= 0) {
                         player.conn.sendMessageLog(Language.NOT_ENOUGH_BAG);
                     } else if (index <= 4 && index >= 0 && player.c.get().ItemMounts[index] != null) {
-                        if (index != 4 || player.c.get().ItemMounts[0] == null && player.c.get().ItemMounts[1] == null && player.c.get().ItemMounts[2] == null && player.c.get().ItemMounts[3] == null) {
+                        if (index != 4 || player.c.get().ItemMounts[0] == null && player.c.get().ItemMounts[1] == null
+                                && player.c.get().ItemMounts[2] == null && player.c.get().ItemMounts[3] == null) {
                             int idMount = player.c.get().ItemMounts[index].id;
                             player.c.ItemBag[indexItemBag] = player.c.get().ItemMounts[index];
                             player.c.get().ItemMounts[index] = null;
@@ -2650,16 +2710,16 @@ public static void buyItemAuction(Player player, Message m) {
                             m.cleanup();
                             TileMap tileMap = player.c.tileMap;
                             int i;
-                            if(tileMap != null) {
+                            if (tileMap != null) {
                                 for (i = tileMap.players.size() - 1; i >= 0; i--) {
                                     tileMap.sendMounts(player.c.get(), tileMap.players.get(i));
                                 }
-                            } else if(player.c.tdbTileMap != null) {
+                            } else if (player.c.tdbTileMap != null) {
                                 for (i = player.c.tdbTileMap.players.size() - 1; i >= 0; i--) {
                                     player.c.tdbTileMap.sendMounts(player.c.get(), player.c.tdbTileMap.players.get(i));
                                 }
                             }
-                            if(ItemTemplate.isIdNewMounts(idMount)) {
+                            if (ItemTemplate.isIdNewMounts(idMount)) {
                                 player.c.get().ID_HORSE = -1;
                                 player.sendInfoMeNewItem();
                                 System.out.println("Update Item Mount");
@@ -2673,7 +2733,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2681,13 +2741,14 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void luyenThach(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 GameSrc.LuyenThach(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2695,13 +2756,14 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void tinhLuyen(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 GameSrc.TinhLuyen(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2709,13 +2771,14 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void dichChuyen(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 GameSrc.DichChuyen(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2723,13 +2786,14 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void luyenNgoc(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 GameSrc.ngocFeature(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2737,7 +2801,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void sendEffect(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && !player.c.isDie && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && m != null
+                    && m.reader().available() > 0) {
                 byte check = m.reader().readByte();
                 short idTemplate = m.reader().readShort();
                 switch (check) {
@@ -2754,7 +2819,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2762,12 +2827,12 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void plusPpoint(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 if (player.c.get().nclass != 0) {
                     byte num = m.reader().readByte();
                     short quantity = m.reader().readShort();
                     if (quantity > 0 && quantity <= player.c.get().ppoint) {
-                        switch(num) {
+                        switch (num) {
                             case 0:
                                 player.c.get().potential0 += quantity;
                                 break;
@@ -2793,7 +2858,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2802,18 +2867,19 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void plusSpoint(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 short sk = m.reader().readShort();
                 byte point = m.reader().readByte();
                 Skill skill = player.c.get().getSkill(sk);
                 if (skill != null && player.c.get().spoint > 0 && point > 0) {
-                    if ((sk >= 67 && sk <= 72 ) && player.vip < 3) {
+                    if ((sk >= 67 && sk <= 72) && player.vip < 3) {
                         player.conn.sendMessageLog("Dưới vip 3 không thể cộng skill này");
                     } else {
                         SkillTemplate data = SkillTemplate.Templates(sk);
                         if (skill.point + point > data.maxPoint) {
                             player.conn.sendMessageLog("Cấp tối đa là " + data.maxPoint);
-                        } else if (player.c.get().level < ((SkillOptionTemplate)data.templates.get(skill.point + point)).level) {
+                        } else if (player.c
+                                .get().level < ((SkillOptionTemplate) data.templates.get(skill.point + point)).level) {
                             player.conn.sendMessageLog("Bạn chưa đủ cấp để cộng điểm kỹ năng này");
                         } else {
                             skill.point += point;
@@ -2821,14 +2887,14 @@ public static void buyItemAuction(Player player, Message m) {
                             player.c.get().upHP(player.c.get().getMaxHP());
                             player.c.get().upMP(player.c.get().getMaxMP());
                             player.loadSkill();
-                       }
+                        }
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2837,13 +2903,16 @@ public static void buyItemAuction(Player player, Message m) {
     public static void sortBag(Player player) {
         Message m = null;
         try {
-            if(player != null && player.c != null && player.conn != null) {
+            if (player != null && player.c != null && player.conn != null) {
                 byte i;
                 byte j;
-                for(i = 0; i < player.c.ItemBag.length; ++i) {
-                    if (player.c.ItemBag[i] != null && !player.c.ItemBag[i].isExpires && ItemTemplate.ItemTemplateId(player.c.ItemBag[i].id).isUpToUp) {
-                        for(j = (byte)(i + 1); j < player.c.ItemBag.length; ++j) {
-                            if (player.c.ItemBag[j] != null && !player.c.ItemBag[i].isExpires && player.c.ItemBag[j].id == player.c.ItemBag[i].id && player.c.ItemBag[j].isLock == player.c.ItemBag[i].isLock) {
+                for (i = 0; i < player.c.ItemBag.length; ++i) {
+                    if (player.c.ItemBag[i] != null && !player.c.ItemBag[i].isExpires
+                            && ItemTemplate.ItemTemplateId(player.c.ItemBag[i].id).isUpToUp) {
+                        for (j = (byte) (i + 1); j < player.c.ItemBag.length; ++j) {
+                            if (player.c.ItemBag[j] != null && !player.c.ItemBag[i].isExpires
+                                    && player.c.ItemBag[j].id == player.c.ItemBag[i].id
+                                    && player.c.ItemBag[j].isLock == player.c.ItemBag[i].isLock) {
                                 Item item = player.c.ItemBag[i];
                                 item.quantity += player.c.ItemBag[j].quantity;
                                 player.c.ItemBag[j] = null;
@@ -2852,9 +2921,9 @@ public static void buyItemAuction(Player player, Message m) {
                     }
                 }
 
-                for(i = 0; i < player.c.ItemBag.length; ++i) {
+                for (i = 0; i < player.c.ItemBag.length; ++i) {
                     if (player.c.ItemBag[i] == null) {
-                        for(j = (byte)(i + 1); j < player.c.ItemBag.length; ++j) {
+                        for (j = (byte) (i + 1); j < player.c.ItemBag.length; ++j) {
                             if (player.c.ItemBag[j] != null) {
                                 player.c.ItemBag[i] = player.c.ItemBag[j];
                                 player.c.ItemBag[j] = null;
@@ -2871,7 +2940,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2880,13 +2949,16 @@ public static void buyItemAuction(Player player, Message m) {
     public static void sortBox(Player player) {
         Message m = null;
         try {
-            if(player != null && player.c != null && player.conn != null && player.menuCaiTrang == 0) {
+            if (player != null && player.c != null && player.conn != null && player.menuCaiTrang == 0) {
                 byte i;
                 byte j;
-                for(i = 0; i < player.c.ItemBox.length; ++i) {
-                    if (player.c.ItemBox[i] != null && !player.c.ItemBox[i].isExpires && ItemTemplate.ItemTemplateId(player.c.ItemBox[i].id).isUpToUp) {
-                        for(j = (byte)(i + 1); j < player.c.ItemBox.length; j++) {
-                            if (player.c.ItemBox[j] != null && !player.c.ItemBox[i].isExpires && player.c.ItemBox[j].id == player.c.ItemBox[i].id && player.c.ItemBox[j].isLock == player.c.ItemBox[i].isLock) {
+                for (i = 0; i < player.c.ItemBox.length; ++i) {
+                    if (player.c.ItemBox[i] != null && !player.c.ItemBox[i].isExpires
+                            && ItemTemplate.ItemTemplateId(player.c.ItemBox[i].id).isUpToUp) {
+                        for (j = (byte) (i + 1); j < player.c.ItemBox.length; j++) {
+                            if (player.c.ItemBox[j] != null && !player.c.ItemBox[i].isExpires
+                                    && player.c.ItemBox[j].id == player.c.ItemBox[i].id
+                                    && player.c.ItemBox[j].isLock == player.c.ItemBox[i].isLock) {
                                 Item item = player.c.ItemBox[i];
                                 item.quantity += player.c.ItemBox[j].quantity;
                                 player.c.ItemBox[j] = null;
@@ -2895,9 +2967,9 @@ public static void buyItemAuction(Player player, Message m) {
                     }
                 }
 
-                for(i = 0; i < player.c.ItemBox.length; ++i) {
+                for (i = 0; i < player.c.ItemBox.length; ++i) {
                     if (player.c.ItemBox[i] == null) {
-                        for(j = (byte)(i + 1); j < player.c.ItemBox.length; ++j) {
+                        for (j = (byte) (i + 1); j < player.c.ItemBox.length; ++j) {
                             if (player.c.ItemBox[j] != null) {
                                 player.c.ItemBox[i] = player.c.ItemBox[j];
                                 player.c.ItemBox[j] = null;
@@ -2911,7 +2983,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2919,11 +2991,12 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void xuToBox(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int xu = m.reader().readInt();
                 if (xu > 0 && xu <= player.c.xu) {
-                    if ((long)xu + (long)player.c.xuBox > 2000000000L) {
-                        player.conn.sendMessageLog("Bạn chỉ có thể cất thêm " + Util.getFormatNumber((long)xu + (long)player.c.xu - 2000000000L));
+                    if ((long) xu + (long) player.c.xuBox > 2000000000L) {
+                        player.conn.sendMessageLog("Bạn chỉ có thể cất thêm "
+                                + Util.getFormatNumber((long) xu + (long) player.c.xu - 2000000000L));
                     } else {
                         player.c.xu -= xu;
                         player.c.xuBox += xu;
@@ -2934,7 +3007,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2942,11 +3015,12 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void xuToBag(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int xu = m.reader().readInt();
                 if (xu > 0 && xu <= player.c.xuBox) {
-                    if ((long)xu + (long)player.c.xu > 2000000000L) {
-                        player.conn.sendMessageLog("Bạn chỉ có thể rút thêm " + Util.getFormatNumber((long)xu + (long)player.c.xu - 2000000000L));
+                    if ((long) xu + (long) player.c.xu > 2000000000L) {
+                        player.conn.sendMessageLog("Bạn chỉ có thể rút thêm "
+                                + Util.getFormatNumber((long) xu + (long) player.c.xu - 2000000000L));
                     } else {
                         player.c.xu += xu;
                         player.c.xuBox -= xu;
@@ -2957,7 +3031,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2965,13 +3039,13 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void sendItemInfo(Player player, Message m) {
         try {
-            if(player != null && player.c != null&& player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 GameSrc.ItemInfo(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2979,13 +3053,15 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void changeTypePk(Player player, Message m) {
         try {
-            if(player != null && player.c != null  && player.conn != null&& m != null && m.reader().available() > 0) {
-                if(player.c.tileMap == null) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+                if (player.c.tileMap == null) {
                     return;
                 }
                 if (player.c.isNhanban) {
                     player.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
-                } else if (player.c.mapid != 133 && player.c.mapid != 111 && player.c.tileMap != null && !player.c.tileMap.map.mapChienTruong() && !player.c.tileMap.map.mapLDGT() && player.c.tileMap.map.getXHD() == -1 && !player.c.tileMap.map.mapGTC()) {
+                } else if (player.c.mapid != 133 && player.c.mapid != 111 && player.c.tileMap != null
+                        && !player.c.tileMap.map.mapChienTruong() && !player.c.tileMap.map.mapLDGT()
+                        && player.c.tileMap.map.getXHD() == -1 && !player.c.tileMap.map.mapGTC()) {
                     byte pk = m.reader().readByte();
                     if (player.c.pk > 14) {
                         player.sendAddchatYellow(Language.MAX_HIEU_CHIEN);
@@ -3000,14 +3076,14 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void createPatry(Player player) {
-        if(player != null && player.c != null && player.conn != null && player.c.isHuman) {
+        if (player != null && player.c != null && player.conn != null && player.c.isHuman) {
             if (player.c.mapid != 111 && player.c.mapid != 133) {
                 if (player.c.party == null && player.c.tileMap.numParty <= 4) {
                     Party party = new Party(player.c);
@@ -3023,7 +3099,7 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void sendKeyParty(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 if (player.c.mapid != 111 && player.c.mapid != 133) {
                     if (player.c != null && player.c.party != null && player.c.party.charID == player.c.id) {
                         HandleController.NhuongTruongNhom(player, m);
@@ -3035,7 +3111,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3043,7 +3119,7 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void kickParty(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 if (player.c.mapid != 111 && player.c.mapid != 133) {
                     if (player.c.party != null && player.c.party.charID == player.c.id) {
                         HandleController.MoiRaKhoiNhom(player, m);
@@ -3055,31 +3131,31 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void viewFriendList(Player player) {
-        if(player != null && player.c != null && player.conn != null) {
+        if (player != null && player.c != null && player.conn != null) {
             Service.requestFriend(player.c);
         }
     }
 
     public static void viewEnemiesList(Player player) {
-        if(player != null && player.c != null && player.conn != null) {
+        if (player != null && player.c != null && player.conn != null) {
             Service.requestEnemies(player.c);
         }
     }
 
     public static void deleteFriend(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 String name = m.reader().readUTF();
                 short i;
                 Friend friend;
-                for (i = 0; i < player.c.vFriend.size(); i = (short)(i + 1)) {
+                for (i = 0; i < player.c.vFriend.size(); i = (short) (i + 1)) {
                     friend = player.c.vFriend.get(i);
                     if (friend.friendName.equals(name)) {
                         player.c.vFriend.remove(i);
@@ -3095,7 +3171,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3103,27 +3179,28 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void useSkillRevive(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 UseSkill.buffLive(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void findParty(Player player) {
-        if(player != null && player.c != null && player.conn != null && player.c.tileMap != null) {
+        if (player != null && player.c != null && player.conn != null && player.c.tileMap != null) {
             Service.findParty(player.c);
         }
     }
 
     public static void statusParty(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null &&  player.c.party != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && player.c.party != null && m != null
+                    && m.reader().available() > 0) {
                 player.c.party.isLock = m.reader().readBoolean();
                 player.c.party.refreshLock();
                 player.sendAddchatYellow(player.c.party.isLock ? "Nhóm đã được khoá" : "Nhóm đã được mở khoá");
@@ -3131,7 +3208,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3139,7 +3216,7 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void pasteSkill(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 String t1 = m.reader().readUTF();
                 String t2 = m.reader().readUTF();
                 short lent = m.reader().readShort();
@@ -3182,7 +3259,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3190,13 +3267,13 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void sendSkill(Player player, Message m) {
         try {
-            if(player != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && m != null && m.reader().available() > 0) {
                 GameSrc.sendSkill(player, m.reader().readUTF());
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3204,7 +3281,7 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void inviteClan(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int charId = m.reader().readInt();
                 if (player.c.requestclan != -1) {
                     player.conn.sendMessageLog("Bạn đã gửi lời mời tham gia Gia tộc.");
@@ -3236,7 +3313,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3244,11 +3321,11 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void acppetInviteClan(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int charMapid = m.reader().readInt();
                 if (player.c.clan.clanName.length() > 0) {
                     player.conn.sendMessageLog("Bạn đã có gia tộc.");
-                } else if(player.c.tileMap != null){
+                } else if (player.c.tileMap != null) {
                     Char n = player.c.tileMap.getNinja(charMapid);
                     if (n != null && n.requestclan == player.c.id) {
                         ClanManager clan = ClanManager.getClanName(n.clan.clanName);
@@ -3273,7 +3350,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3281,11 +3358,11 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void pleaseClan(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int charID = m.reader().readInt();
                 if (player.c.clan.clanName.length() > 0) {
                     player.conn.sendMessageLog("Bạn đã có gia tộc");
-                } else if(player.c.tileMap != null){
+                } else if (player.c.tileMap != null) {
                     Char n = player.c.tileMap.getNinja(charID);
                     if (n == null || n.clan.typeclan < 2) {
                         return;
@@ -3310,7 +3387,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3318,7 +3395,7 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void acppetPleaseClan(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 int charID = m.reader().readInt();
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null && player.c.clan.typeclan >= 2 && player.c.tileMap != null) {
@@ -3345,7 +3422,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3353,13 +3430,13 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void divedeItem(Player player, Message m) {
         try {
-            if(player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.c != null && player.conn != null && m != null && m.reader().available() > 0) {
                 ItemTemplate.divedeItem(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3367,12 +3444,12 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void selectNinja(Player player, Message m) {
         try {
-            if(player != null && player.conn != null) {
+            if (player != null && player.conn != null) {
                 byte i;
-                if (m != null && player.c == null ) {
+                if (m != null && player.c == null) {
                     String name = m.reader().readUTF();
                     m.cleanup();
-                    for(i = 0; i < player.sortNinja.length; ++i) {
+                    for (i = 0; i < player.sortNinja.length; ++i) {
                         if (name.equals(player.sortNinja[i])) {
                             player.c = Char.setup(player, player.sortNinja[i]);
                             if (player.c != null) {
@@ -3381,11 +3458,14 @@ public static void buyItemAuction(Player player, Message m) {
                                 Manager.alert.sendAlert(player);
                                 m = new Message(-23);
                                 m.writer().writeInt(player.c.get().id);
-                                m.writer().writeUTF("Trò chơi dành cho người từ 18 tuổi trở lên. Chơi game quá 180 phút 1 ngày sẽ ảnh hưởng xấu đến sức khoẻ.");
+                                m.writer().writeUTF(
+                                        "Trò chơi dành cho người từ 18 tuổi trở lên. Chơi game quá 180 phút 1 ngày sẽ ảnh hưởng xấu đến sức khoẻ.");
                                 // Tu tiên
-                              //  if (player.c.leveltutien >= 1) {
-                              //       Service.chatKTG("Chào mừng " + Server.manager.NameTuTien[player.c.leveltutien] + " " + player.c.name +" đã đăng nhập vào game.");
-                              //  }
+                                // if (player.c.leveltutien >= 1) {
+                                // Service.chatKTG("Chào mừng " +
+                                // Server.manager.NameTuTien[player.c.leveltutien] + " " + player.c.name +" đã
+                                // đăng nhập vào game.");
+                                // }
                                 Calendar rightNow;
                                 int hour;
                                 int min;
@@ -3394,17 +3474,17 @@ public static void buyItemAuction(Player player, Message m) {
                                 hour = rightNow.get(11);
                                 min = rightNow.get(12);
                                 sec = rightNow.get(13);
-                                    if (player.c.tileMap.map.mapTuTien()) {
-                                        player.c.tileMap.leave(player);
-                                        Map ma = Manager.getMapid(player.c.mapLTD);
-                                        byte k;
-                                        for (k = 0; k < ma.area.length; k++) {
-                                            if (ma.area[k].numplayers < ma.template.maxplayers) {
-                                                ma.area[k].EnterMap0(player.c);
-                                                return;
-                                            }
+                                if (player.c.tileMap.map.mapTuTien()) {
+                                    player.c.tileMap.leave(player);
+                                    Map ma = Manager.getMapid(player.c.mapLTD);
+                                    byte k;
+                                    for (k = 0; k < ma.area.length; k++) {
+                                        if (ma.area[k].numplayers < ma.template.maxplayers) {
+                                            ma.area[k].EnterMap0(player.c);
+                                            return;
                                         }
                                     }
+                                }
                                 m.writer().flush();
                                 player.conn.sendMessage(m);
                                 m.cleanup();
@@ -3412,12 +3492,11 @@ public static void buyItemAuction(Player player, Message m) {
                             }
                         }
                     }
-                }
-                else {
+                } else {
                     m = new Message(-28);
                     m.writer().writeByte(-126);
                     byte lent = 0;
-                    for(i = 0; i < player.sortNinja.length; ++i) {
+                    for (i = 0; i < player.sortNinja.length; ++i) {
                         if (player.sortNinja[i] != null) {
                             lent++;
                         }
@@ -3425,27 +3504,29 @@ public static void buyItemAuction(Player player, Message m) {
                     m.writer().writeByte(lent);
                     ResultSet red = null;
                     try {
-                        for(byte j = 0; j < player.sortNinja.length; ++j) {
+                        for (byte j = 0; j < player.sortNinja.length; ++j) {
                             if (player.sortNinja[j] != null) {
-                                synchronized(Server.LOCK_MYSQL) {
-                                    red = SQLManager.stat.executeQuery("SELECT `gender`,`name`,`class`,`level`,`head`,`ItemBody` FROM `ninja` WHERE `name`LIKE'" + player.sortNinja[j] + "';");
+                                synchronized (Server.LOCK_MYSQL) {
+                                    red = SQLManager.stat.executeQuery(
+                                            "SELECT `gender`,`name`,`class`,`level`,`head`,`ItemBody` FROM `ninja` WHERE `name`LIKE'"
+                                                    + player.sortNinja[j] + "';");
                                     if (red != null && red.first()) {
                                         m.writer().writeByte(red.getByte("gender"));
                                         m.writer().writeUTF(red.getString("name"));
                                         m.writer().writeUTF(Server.manager.NinjaS[red.getByte("class")]);
                                         m.writer().writeByte(red.getInt("level"));
-                                        short head = (short)red.getByte("head");
+                                        short head = (short) red.getByte("head");
                                         short weapon = -1;
                                         short body = -1;
                                         short leg = -1;
-                                        JSONArray jar = (JSONArray)JSONValue.parse(red.getString("ItemBody"));
+                                        JSONArray jar = (JSONArray) JSONValue.parse(red.getString("ItemBody"));
                                         Item[] itembody = new Item[32];
                                         JSONObject job = null;
                                         if (jar != null) {
                                             byte k;
                                             byte index;
-                                            for(k = 0; k < jar.size(); ++k) {
-                                                job = (JSONObject)jar.get(k);
+                                            for (k = 0; k < jar.size(); ++k) {
+                                                job = (JSONObject) jar.get(k);
                                                 index = Byte.parseByte(job.get("index").toString());
                                                 itembody[index] = ItemTemplate.parseItem(jar.get(k).toString());
                                                 job.clear();
@@ -3467,8 +3548,8 @@ public static void buyItemAuction(Player player, Message m) {
                                             leg = ItemTemplate.ItemTemplateId(itembody[6].id).part;
                                         }
                                         if (head == 258 || head == 264) {
-                                            body = (short)(head + 1);
-                                            leg = (short)(head + 2);
+                                            body = (short) (head + 1);
+                                            leg = (short) (head + 2);
                                         }
                                         m.writer().writeShort(head);
                                         m.writer().writeShort(weapon);
@@ -3488,7 +3569,7 @@ public static void buyItemAuction(Player player, Message m) {
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
-                        if(red != null) {
+                        if (red != null) {
                             red.close();
                         }
                     }
@@ -3499,7 +3580,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3507,70 +3588,73 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void createNinja(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && m != null & m.reader().available() > 0) {
+            if (player != null && player.conn != null && m != null & m.reader().available() > 0) {
                 if (player.sortNinja[2] == null) {
                     String name = m.reader().readUTF().toLowerCase();
                     byte gender = m.reader().readByte();
                     byte head = m.reader().readByte();
                     if (Util.CheckString(name, "^[a-zA-Z0-9]+$") && name.length() >= 6 && name.length() <= 15) {
-                        if (player.sortNinja[0] != null) {
-                            player.conn.sendMessageLog("Để tránh tạo nhiều clone gây lag server, không tạo thêm nhân vật!");
-                        } else {
-                            synchronized(Server.LOCK_MYSQL) {
-                                ResultSet red = SQLManager.stat.executeQuery("SELECT `id` FROM `ninja` WHERE `name`LIKE'" + name + "';");
-                                if (red != null && red.first()) {
-                                    player.conn.sendMessageLog("Tên nhân vật đã tồn tại!");
-                                    return;
-                                }
-                                red.close();
-                                SQLManager.stat.executeUpdate("INSERT INTO ninja(`name`,`gender`,`head`,`ItemBag`,`ItemBox`,`ItemBST`,`ItemCaiTrang`,`ItemBody`,`ItemMounts`) VALUES (\"" + name + "\"," + gender + "," + head + ",'[]','[]','[]','[]','[]','[]');");
-                                byte i = 0;
-                                while(true) {
-                                    if (i < player.sortNinja.length) {
-                                        if (player.sortNinja[i] != null) {
-                                            i++;
-                                            continue;
-                                        }
-                                        player.sortNinja[i] = name;
-                                    }
-                                    break;
-                                }
+                        // if (player.sortNinja[0] != null) {
+                        // player.conn.sendMessageLog("Để tránh tạo nhiều clone gây lag server, không
+                        // tạo thêm nhân vật!");
+                        // } else {
+                        synchronized (Server.LOCK_MYSQL) {
+                            ResultSet red = SQLManager.stat
+                                    .executeQuery("SELECT `id` FROM `ninja` WHERE `name`LIKE'" + name + "';");
+                            if (red != null && red.first()) {
+                                player.conn.sendMessageLog("Tên nhân vật đã tồn tại!");
+                                return;
                             }
-                            player.flush();
-                            HandleController.selectNinja(player, null);
+                            red.close();
+                            SQLManager.stat.executeUpdate(
+                                    "INSERT INTO ninja(`name`,`gender`,`head`,`ItemBag`,`ItemBox`,`ItemBST`,`ItemCaiTrang`,`ItemBody`,`ItemMounts`) VALUES (\""
+                                            + name + "\"," + gender + "," + head + ",'[]','[]','[]','[]','[]','[]');");
+                            byte i = 0;
+                            while (true) {
+                                if (i < player.sortNinja.length) {
+                                    if (player.sortNinja[i] != null) {
+                                        i++;
+                                        continue;
+                                    }
+                                    player.sortNinja[i] = name;
+                                }
+                                break;
+                            }
                         }
+                        player.flush();
+                        HandleController.selectNinja(player, null);
+                        // }
                     } else {
-                        player.conn.sendMessageLog("Tên nhân vật chỉ chứa các ký tự từ a-z,0-9 và chiều dài từ 6 đến 15 ký tự!");
+                        player.conn.sendMessageLog(
+                                "Tên nhân vật chỉ chứa các ký tự từ a-z,0-9 và chiều dài từ 6 đến 15 ký tự!");
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
-    
-
     public static void reciveImage(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && m != null && m.reader().available() > 0) {
                 GameSrc.reciveImage(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void logClan(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.LogClan(player);
@@ -3579,7 +3663,7 @@ public static void buyItemAuction(Player player, Message m) {
     }
 
     public static void infoClan(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.requestClanInfo(player);
@@ -3587,9 +3671,8 @@ public static void buyItemAuction(Player player, Message m) {
         }
     }
 
-
     public static void infoClanMember(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.requestClanMember(player);
@@ -3598,7 +3681,7 @@ public static void buyItemAuction(Player player, Message m) {
     }
 
     public static void infoClanItem(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.requestClanItem(player);
@@ -3608,17 +3691,17 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void sendMapInfo(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 int idMap = m.reader().readByte();
-                if(idMap < 0) {
+                if (idMap < 0) {
                     idMap += 256;
                 }
-                Service.sendMapInfo(player, Manager.getMapid( idMap ));
+                Service.sendMapInfo(player, Manager.getMapid(idMap));
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3626,13 +3709,13 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void reciveImageMOB(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 GameSrc.reciveImageMOB(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3640,7 +3723,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void setClanAlert(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.setAlert(player, m);
@@ -3649,7 +3733,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3657,7 +3741,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void changeClanType(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.changeClanType(player, m);
@@ -3666,7 +3751,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3674,7 +3759,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void moveOutClan(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.moveOutClan(player, m);
@@ -3683,14 +3769,14 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void outClan(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.OutClan(player);
@@ -3699,7 +3785,7 @@ public static void buyItemAuction(Player player, Message m) {
     }
 
     public static void upLevelClan(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.clanUpLevel(player);
@@ -3709,7 +3795,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void inputCoinClan(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.inputCoinClan(player, m);
@@ -3718,7 +3805,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3726,13 +3813,13 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void convertUpgrade(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 GameSrc.doConvertUpgrade(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3740,13 +3827,15 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void accpetInviteLDGT(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.tileMap != null && m != null && m.reader().available() > 0) {
-                if(player.c.tileMap.map.lanhDiaGiaToc != null && player.c.tileMap.map.mapLDGT()) {
-                    if(player.c.tileMap.map.lanhDiaGiaToc.ninjas.size() >= 24) {
-                        player.conn.sendMessageLog("Đã đạt số thành viên tham gia Lãnh Địa Gia Tộc tối đa, không thể mời thêm.");
+            if (player != null && player.conn != null && player.c != null && player.c.tileMap != null && m != null
+                    && m.reader().available() > 0) {
+                if (player.c.tileMap.map.lanhDiaGiaToc != null && player.c.tileMap.map.mapLDGT()) {
+                    if (player.c.tileMap.map.lanhDiaGiaToc.ninjas.size() >= 24) {
+                        player.conn.sendMessageLog(
+                                "Đã đạt số thành viên tham gia Lãnh Địa Gia Tộc tối đa, không thể mời thêm.");
                         return;
                     }
-                    if(!player.c.tileMap.map.lanhDiaGiaToc.start) {
+                    if (!player.c.tileMap.map.lanhDiaGiaToc.start) {
                         player.inviteToLDT(m);
                     } else {
                         player.conn.sendMessageLog("Đã mở cửa Lãnh Địa Gia Tộc, không thể mời thêm thành viên.");
@@ -3756,14 +3845,14 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void rewardedCave(Player player) {
-        if(player != null && player.c != null && player.conn != null) {
+        if (player != null && player.c != null && player.conn != null) {
             int num = player.c.pointCave / 10;
             if (player.c.isHangDong6x == 1) {
                 num = player.c.pointCave / 20;
@@ -3789,7 +3878,7 @@ public static void buyItemAuction(Player player, Message m) {
                 player.c.pointCave = 0;
                 player.c.isHangDong6x = 0;
                 player.c.caveID = -1;
-                if(player.c.party != null && player.c.party.charID == player.c.id) {
+                if (player.c.party != null && player.c.party.charID == player.c.id) {
                     player.c.party.cave = null;
                 }
                 if (player.c.bagCaveMax < num) {
@@ -3801,8 +3890,8 @@ public static void buyItemAuction(Player player, Message m) {
     }
 
     public static void rewardedCT(Player player) {
-        if(player != null && player.c != null && player.conn != null) {
-            if(player.c.getBagNull() < 4) {
+        if (player != null && player.c != null && player.conn != null) {
+            if (player.c.getBagNull() < 4) {
                 player.sendAddchatYellow(Language.NOT_ENOUGH_BAG);
                 return;
             }
@@ -3849,13 +3938,13 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void luckyValue(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 GameSrc.LuckValue(player, m);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3863,20 +3952,20 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void acceptClanDun(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 System.out.println("Accpet Clan Dun ---------------------- ");
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static void openItemClanLevel(Player player) {
-        if(player != null && player.conn != null && player.c != null && player.c.clan != null) {
+        if (player != null && player.conn != null && player.c != null && player.c.clan != null) {
             ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
             if (clan != null) {
                 clan.openItemLevel(player);
@@ -3886,7 +3975,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void sendItemClanToMember(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.sendClanItem(player, m);
@@ -3895,7 +3985,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3903,7 +3993,8 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void useItemClan(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && player.c.clan != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && player.c.clan != null && m != null
+                    && m.reader().available() > 0) {
                 ClanManager clan = ClanManager.getClanName(player.c.clan.clanName);
                 if (clan != null) {
                     clan.useClanItem(player, m);
@@ -3912,7 +4003,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -3920,7 +4011,7 @@ public static void buyItemAuction(Player player, Message m) {
 
     public static void thienDiaBang(Player player, Message m) {
         try {
-            if(player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
+            if (player != null && player.conn != null && player.c != null && m != null && m.reader().available() > 0) {
                 byte choose = m.reader().readByte();
                 switch (choose) {
                     case 0: {
@@ -3939,62 +4030,66 @@ public static void buyItemAuction(Player player, Message m) {
                         break;
                     }
                     case 1: {
-                        if(player.c.countTDB <= 0) {
+                        if (player.c.countTDB <= 0) {
                             player.conn.sendMessageLog("Hôm nay bạn đã hết lần thách đấu, hãy quay lại vào ngày mai");
                             return;
                         }
-                        if(player.c.delayJoinTDB > System.currentTimeMillis()) {
-                            Service.chatNPC(player, (short) 4, "Con vừa tranh đấu xong, nghỉ mệt đi, 1 phút sau quay lại thi đấu tiếp nhé.");
+                        if (player.c.delayJoinTDB > System.currentTimeMillis()) {
+                            Service.chatNPC(player, (short) 4,
+                                    "Con vừa tranh đấu xong, nghỉ mệt đi, 1 phút sau quay lại thi đấu tiếp nhé.");
                             return;
                         }
                         synchronized (ThienDiaBangManager.diaBangList) {
                             synchronized (ThienDiaBangManager.thienBangList) {
                                 String playername = m.reader().readUTF();
-                                if(playername.equals(player.c.name)) {
+                                if (playername.equals(player.c.name)) {
                                     player.sendAddchatYellow("Bạn không thể thách đấu chính mình");
                                     return;
                                 }
                                 ThienDiaData data = null;
-                                if(ThienDiaBangManager.diaBangList.containsKey(playername)) {
+                                if (ThienDiaBangManager.diaBangList.containsKey(playername)) {
                                     data = ThienDiaBangManager.diaBangList.get(playername);
-                                } else if(ThienDiaBangManager.thienBangList.containsKey(playername)) {
+                                } else if (ThienDiaBangManager.thienBangList.containsKey(playername)) {
                                     data = ThienDiaBangManager.thienBangList.get(playername);
                                 }
-                                if(data == null) {
+                                if (data == null) {
                                     player.sendAddchatYellow("Không tìm thấy đối thủ.");
                                     return;
                                 }
-                                if(data.getType() == 0) {
+                                if (data.getType() == 0) {
                                     player.sendAddchatYellow("Đối thủ đang trong cuộc so tài, không thể thách đấu.");
                                     return;
                                 } else {
                                     data.setType(0);
                                     Char ninjaBot = Client.gI().getNinja(playername);
-                                    if(ninjaBot != null) {
+                                    if (ninjaBot != null) {
                                         ninjaBot.flush();
                                     }
                                     ninjaBot = HandleController.setupNinjaBot(playername);
-                                    if(ninjaBot != null) {
+                                    if (ninjaBot != null) {
                                         ninjaBot.p.getMobMe();
                                         if (ninjaBot.get().level >= 90) {
                                             Skill ski = null;
-                                            for(int i2 = 67; i2 <= 72; ++i2) {
+                                            for (int i2 = 67; i2 <= 72; ++i2) {
                                                 ski = ninjaBot.get().getSkill(i2);
                                                 if (ski != null) {
                                                     ninjaBot.clone = CloneCharacter.getClone(ninjaBot);
-                                                    ninjaBot.clone.id = -100000-ninjaBot.id;
+                                                    ninjaBot.clone.id = -100000 - ninjaBot.id;
                                                     ninjaBot.clone.islive = true;
-                                                    ninjaBot.clone.open((long) (System.currentTimeMillis() + 60000 * ninjaBot.get().getPramSkill(i2)), (int) ninjaBot.get().getPramSkill(71));
+                                                    ninjaBot.clone.open(
+                                                            (long) (System.currentTimeMillis()
+                                                                    + 60000 * ninjaBot.get().getPramSkill(i2)),
+                                                            (int) ninjaBot.get().getPramSkill(71));
                                                     break;
                                                 }
                                             }
                                         }
 
                                         ThienDiaBang thienDiaBang = new ThienDiaBang(player.c, ninjaBot);
-                                        thienDiaBang.map[0].area[0].EnterMap0WithXY(ninjaBot, (short)506, (short)264);
+                                        thienDiaBang.map[0].area[0].EnterMap0WithXY(ninjaBot, (short) 506, (short) 264);
                                         player.c.tileMap.leave(player);
-                                        thienDiaBang.map[0].area[0].EnterMap0WithXY(player.c, (short)265, (short)264);
-                                        player.setEffect(14,0,10000,0);
+                                        thienDiaBang.map[0].area[0].EnterMap0WithXY(player.c, (short) 265, (short) 264);
+                                        player.setEffect(14, 0, 10000, 0);
 
                                     } else {
                                         player.sendAddchatYellow("Hiện tại không thể thách đấu với đối phương.");
@@ -4010,7 +4105,7 @@ public static void buyItemAuction(Player player, Message m) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -4024,19 +4119,18 @@ public static void buyItemAuction(Player player, Message m) {
             ninjaBot.p = new Player();
             ninjaBot.p.id = ninjaBot.id;
             ninjaBot.isHuman = true;
-            ninjaBot.isNhanban =false;
+            ninjaBot.isNhanban = false;
             ninjaBot.get().typepk = 3;
             ninjaBot.get().hp = ninjaBot.get().getMaxHP();
             ninjaBot.get().mp = (long) ninjaBot.get().getMaxMP();
             ninjaBot.get().isDie = false;
             ninjaBot.isBot = true;
-            ninjaBot.get().setSpeed((byte)12);
+            ninjaBot.get().setSpeed((byte) 12);
             ninjaBot.p.c = ninjaBot;
             return ninjaBot;
         } catch (Exception e) {
             return null;
         }
     }
-
 
 }

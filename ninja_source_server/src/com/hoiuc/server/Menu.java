@@ -1654,14 +1654,14 @@ public class Menu {
                         p.c.isHangDong6x = 0;
                     }
                     if (b3 == 6) {
-                        if (p.c.level < 90 || p.c.level > 130) {
+                        if (p.c.level < 90 || p.c.level > Server.manager.max_level_up + 1) {
                             p.conn.sendMessageLog("Trình độ không phù hợp");
                             return;
                         }
                         if (p.c.party != null) {
                             synchronized (p.c.party.aChar) {
                                 for (byte i = 0; i < p.c.party.aChar.size(); ++i) {
-                                    if (p.c.party.aChar.get(i).level < 90 || p.c.party.aChar.get(i).level > 131) {
+                                    if (p.c.party.aChar.get(i).level < 90 || p.c.party.aChar.get(i).level > Server.manager.max_level_up + 1) {
                                         p.conn.sendMessageLog("Thành viên trong nhóm có trình độ không phù hợp");
                                         return;
                                     }
@@ -3746,46 +3746,42 @@ public class Menu {
                 }
                 break;
             case 2: {
+                if (p.c.isNhanban) {
+                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+                    return;
+                }
+                if(p.c.level <80) {
+                    Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
+                    return;
+                }
                 switch (b3) {
                     case 0: {
-                        if (p.c.isNhanban) {
-                            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                            return;
-                        }
-                        if (p.c.yen < 1000000000) {
-                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 1.000.000.000 yên mới đổi được");
+                        if (p.luong < 100) {
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
                         } else {
-                            p.c.upyenMessage(-1000000000);
-                            p.luongMessage(2000);
-                            Service.chatNPC(p, (short) npcid, "Đổi yên sang lượng thành công");
+                            p.luongMessage(-100);
+                            p.c.upxuMessage(20000);
+                            Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
                     }
                     break;
                     case 1: {
-                        if (p.c.isNhanban) {
-                            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                            return;
-                        }
-                        if (p.c.yen < 1000000000) {
-                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 1.000.000.000 yên mới đổi được");
+                        if (p.luong < 1000) {
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
                         } else {
-                            p.c.upyenMessage(-1000000000);
-                            p.c.upxuMessage(50000000);
-                            Service.chatNPC(p, (short) npcid, "Đổi yên sang xu thành công");
+                            p.luongMessage(-1000);
+                            p.c.upxuMessage(200000);
+                            Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
                     }
                     break;
                     case 2: {
-                        if (p.c.isNhanban) {
-                            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                            return;
-                        }
-                        if (p.luong < 20000) {
-                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 20.000 mới đổi được");
+                        if (p.luong < 1000) {
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
                         } else {
-                            p.luongMessage(-20000);
-                            p.c.upxuMessage(700000000);
-                            Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
+                            p.luongMessage(-1000);
+                            p.c.upyenMessage(5000000);
+                            Service.chatNPC(p, (short) npcid, "Đổi lượng sang yên thành công");
                         }
                     }
                     break;
