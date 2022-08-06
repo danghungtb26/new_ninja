@@ -57,7 +57,7 @@ CREATE TABLE `clone_ninja` (
 
 LOCK TABLES `clone_ninja` WRITE;
 /*!40000 ALTER TABLE `clone_ninja` DISABLE KEYS */;
-INSERT INTO `clone_ninja` VALUES (-10001056,'cakakaaa',4,10,80500,0,0,0,15,5,5,5,0,0,'[{\"id\":0,\"point\":0}]','[-1,-1,-1]','[-1,-1,-1,-1,-1]',-1,'[{\"isLock\":true,\"sale\":0,\"quantity\":1,\"upgrade\":0,\"index\":1,\"id\":194,\"sys\":0,\"isExpires\":false,\"option\":[]}]','[]','[]','[8,8,10,10,1,1]',-1,'[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]'),(-10001055,'acascsac',4,10,80500,0,0,0,15,5,5,5,0,0,'[{\"id\":0,\"point\":0}]','[-1,-1,-1]','[-1,-1,-1,-1,-1]',0,'[{\"isLock\":true,\"sale\":0,\"quantity\":1,\"upgrade\":0,\"index\":1,\"id\":194,\"sys\":0,\"isExpires\":false,\"option\":[]}]','[]','[]','[8,8,10,10,1,1]',-1,'[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]');
+INSERT INTO `clone_ninja` VALUES (-10001057,'aaaaaaaa',4,10,80500,0,0,0,15,5,5,5,0,0,'[{\"id\":0,\"point\":0}]','[-1,-1,-1]','[-1,-1,-1,-1,-1]',-1,'[{\"isLock\":true,\"sale\":0,\"quantity\":1,\"upgrade\":0,\"index\":1,\"id\":194,\"sys\":0,\"isExpires\":false,\"option\":[]}]','[]','[]','[8,8,10,10,1,1]',-1,'[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]'),(-10001056,'cakakaaa',4,10,80500,0,0,0,15,5,5,5,0,0,'[{\"id\":0,\"point\":0}]','[-1,-1,-1]','[-1,-1,-1,-1,-1]',-1,'[{\"isLock\":true,\"sale\":0,\"quantity\":1,\"upgrade\":0,\"index\":1,\"id\":194,\"sys\":0,\"isExpires\":false,\"option\":[]}]','[]','[]','[8,8,10,10,1,1]',-1,'[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]'),(-10001055,'acascsac',4,10,80500,0,0,0,15,5,5,5,0,0,'[{\"id\":0,\"point\":0}]','[-1,-1,-1]','[-1,-1,-1,-1,-1]',0,'[{\"isLock\":true,\"sale\":0,\"quantity\":1,\"upgrade\":0,\"index\":1,\"id\":194,\"sys\":0,\"isExpires\":false,\"option\":[]}]','[]','[]','[8,8,10,10,1,1]',-1,'[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]');
 /*!40000 ALTER TABLE `clone_ninja` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -70,4 +70,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-05 16:15:46
+-- Dump completed on 2022-08-06 13:26:09

@@ -51,7 +51,7 @@ public class Player extends User {
     public int menuIdAuction = -1;
     public int menuCaiTrang = 0;
 
-    //Vip
+    // Vip
     public int coinnap = 0;
     public int vip = 0;
     public byte vxLuong = 0;
@@ -82,7 +82,16 @@ public class Player extends User {
             return;
         } else {
 
-            short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256};
+            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682,
+                    384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278,
+                    539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                    739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699,
+                    674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674,
+                    763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                    735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290,
+                    291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682,
+                    682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407,
+                    12, 254, 255, 256, 12, 254, 255, 256 };
             short idI = arId[Util.nextInt(arId.length)];
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
@@ -106,7 +115,9 @@ public class Player extends User {
             String filename = "log_game/lstachdo/lstachdo_" + dateFormatFile.format(date) + ".txt";
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("\n Name : " + name1 + " đã tách vật phẩm || Vật phẩm tách: " + idvp + " || Số lượng vật phẩm ban đầu " + vptach + " || Số lượng tách: " + slsau + " || Số lượng vật phẩm sau khi tách: " + sltrc + " và " + slsau + "|| Thời gian tách : " + str
+            bw.write("\n Name : " + name1 + " đã tách vật phẩm || Vật phẩm tách: " + idvp
+                    + " || Số lượng vật phẩm ban đầu " + vptach + " || Số lượng tách: " + slsau
+                    + " || Số lượng vật phẩm sau khi tách: " + sltrc + " và " + slsau + "|| Thời gian tách : " + str
                     + "\n");
             bw.close();
             fw.close();
@@ -117,28 +128,23 @@ public class Player extends User {
 
     public void nhanhoncot() {
         if (c.lvnhc == 0) {
-            conn.sendMessageLog("hồn sư chưa có hồn cốt"
-            );
+            conn.sendMessageLog("hồn sư chưa có hồn cốt");
         } else if (c.lvnhc == 1) {
             conn.sendMessageLog("hồn sư đăng là hồn cốt 1 nghìn năm"
-                    + "\n Hiệu ứng nhận đc tương ứng: "
-            );
+                    + "\n Hiệu ứng nhận đc tương ứng: ");
         } else if (c.lvnhc == 7) {
             conn.sendMessageLog("hồn sư đăng là hồn cốt 7 nghìn năm"
-                    + "\n Hiệu ứng nhận đc tương ứng: "
-            );
+                    + "\n Hiệu ứng nhận đc tương ứng: ");
         } else if (c.lvnhc == 10) {
             conn.sendMessageLog("hồn sư đăng là hồn cốt 100 nghìn năm"
-                    + "\n Hiệu ứng nhận đc tương ứng: "
-            );
+                    + "\n Hiệu ứng nhận đc tương ứng: ");
         }
     }
 
     public void honcot() {
         switch (c.lvhc) {
             case 0:
-                conn.sendMessageLog("hồn sư chưa có hồn cốt"
-                );
+                conn.sendMessageLog("hồn sư chưa có hồn cốt");
                 break;
             case 1:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 1 nghìn năm"
@@ -147,8 +153,7 @@ public class Player extends User {
                         + "\n +5k tiềm năng vào thân pháp"
                         + "\n +5k tiềm năng vào hp"
                         + "\n +5k tiềm năng vào mp"
-                        + "\n và hồn cốt 1 nghìn năm "
-                );
+                        + "\n và hồn cốt 1 nghìn năm ");
                 break;
             case 2:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 2 nghìn năm"
@@ -156,8 +161,7 @@ public class Player extends User {
                         + "\n +10k tiềm năng vào sức mạnh"
                         + "\n +10k tiềm năng vào thân pháp"
                         + "\n +10k tiềm năng vào hp"
-                        + "\n +10k tiềm năng vào mp"
-                );
+                        + "\n +10k tiềm năng vào mp");
                 break;
             case 3:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 3 nghìn năm"
@@ -165,8 +169,7 @@ public class Player extends User {
                         + "\n +15k tiềm năng vào sức mạnh"
                         + "\n +15k tiềm năng vào thân pháp"
                         + "\n +15k tiềm năng vào hp"
-                        + "\n +15k tiềm năng vào mp"
-                );
+                        + "\n +15k tiềm năng vào mp");
                 break;
             case 4:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 4 nghìn năm"
@@ -174,8 +177,7 @@ public class Player extends User {
                         + "\n +20k tiềm năng vào sức mạnh"
                         + "\n +20k tiềm năng vào thân pháp"
                         + "\n +20k tiềm năng vào hp"
-                        + "\n +20k tiềm năng vào mp"
-                );
+                        + "\n +20k tiềm năng vào mp");
                 break;
             case 5:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 5 nghìn năm"
@@ -183,8 +185,7 @@ public class Player extends User {
                         + "\n +30k tiềm năng vào sức mạnh"
                         + "\n +30k tiềm năng vào thân pháp"
                         + "\n +30k tiềm năng vào hp"
-                        + "\n +30k tiềm năng vào mp"
-                );
+                        + "\n +30k tiềm năng vào mp");
                 break;
             case 6:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 6 nghìn năm"
@@ -192,8 +193,7 @@ public class Player extends User {
                         + "\n +50k tiềm năng vào sức mạnh"
                         + "\n +50k tiềm năng vào thân pháp"
                         + "\n +50k tiềm năng vào hp"
-                        + "\n +50k tiềm năng vào mp"
-                );
+                        + "\n +50k tiềm năng vào mp");
                 break;
             case 7:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 7 nghìn năm"
@@ -201,8 +201,7 @@ public class Player extends User {
                         + "\n +70k tiềm năng vào sức mạnh"
                         + "\n +70k tiềm năng vào thân pháp"
                         + "\n +70k tiềm năng vào hp"
-                        + "\n +70k tiềm năng vào mp"
-                );
+                        + "\n +70k tiềm năng vào mp");
                 break;
             case 8:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 8 nghìn năm"
@@ -210,8 +209,7 @@ public class Player extends User {
                         + "\n +90k tiềm năng vào sức mạnh"
                         + "\n +90k tiềm năng vào thân pháp"
                         + "\n +90k tiềm năng vào hp"
-                        + "\n +90k tiềm năng vào mp"
-                );
+                        + "\n +90k tiềm năng vào mp");
                 break;
             case 9:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 9 nghìn năm"
@@ -219,8 +217,7 @@ public class Player extends User {
                         + "\n +110k tiềm năng vào sức mạnh"
                         + "\n +110k tiềm năng vào thân pháp"
                         + "\n +110k tiềm năng vào hp"
-                        + "\n +110k tiềm năng vào mp"
-                );
+                        + "\n +110k tiềm năng vào mp");
                 break;
             case 10:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 10 nghìn năm"
@@ -228,8 +225,7 @@ public class Player extends User {
                         + "\n +130k tiềm năng vào sức mạnh"
                         + "\n +130k tiềm năng vào thân pháp"
                         + "\n +130k tiềm năng vào hp"
-                        + "\n +130k tiềm năng vào mp"
-                );
+                        + "\n +130k tiềm năng vào mp");
                 break;
             case 11:
                 conn.sendMessageLog("hồn sư đăng là hồn cốt 100 nghìn năm"
@@ -237,8 +233,7 @@ public class Player extends User {
                         + "\n +150k tiềm năng vào sức mạnh"
                         + "\n +150k tiềm năng vào thân pháp"
                         + "\n +150k tiềm năng vào hp"
-                        + "\n +150k tiềm năng vào mp"
-                );
+                        + "\n +150k tiềm năng vào mp");
                 break;
             default:
                 break;
@@ -248,71 +243,61 @@ public class Player extends User {
     public void phuhao() {
         switch (c.lvph) {
             case 0:
-                conn.sendMessageLog("người chơi chưa mở phú hào"
-                );
+                conn.sendMessageLog("người chơi chưa mở phú hào");
                 break;
             case 1:
                 conn.sendMessageLog("người chơi đăng là phú hào 1"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +5k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 10% ra thêm lượng từ 20 tới 50 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 10% ra thêm lượng từ 20 tới 50 lượng");
                 break;
             case 2:
                 conn.sendMessageLog("người chơi đăng là phú hào 2"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +15k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 30% ra thêm lượng từ 20 tới 50 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 30% ra thêm lượng từ 20 tới 50 lượng");
                 break;
             case 3:
                 conn.sendMessageLog("người chơi đăng là phú hào 3"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +25k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 50% ra thêm lượng từ 20 tới 50 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 50% ra thêm lượng từ 20 tới 50 lượng");
                 break;
             case 4:
                 conn.sendMessageLog("người chơi đăng là phú hào 4"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +35k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 10% ra thêm lượng từ 50 tới 100 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 10% ra thêm lượng từ 50 tới 100 lượng");
                 break;
             case 5:
                 conn.sendMessageLog("người chơi đăng là phú hào 5"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +45k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 30% ra thêm lượng từ 50 tới 100 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 30% ra thêm lượng từ 50 tới 100 lượng");
                 break;
             case 6:
                 conn.sendMessageLog("người chơi đăng là phú hào 6"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +55k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 50% ra thêm lượng từ 50 tới 100 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 50% ra thêm lượng từ 50 tới 100 lượng");
                 break;
             case 7:
                 conn.sendMessageLog("người chơi đăng là phú hào 7"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +65k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 10% ra thêm lượng từ 100 tới 200 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 10% ra thêm lượng từ 100 tới 200 lượng");
                 break;
             case 8:
                 conn.sendMessageLog("người chơi đăng là phú hào 8"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +75k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 30% ra thêm lượng từ 100 tới 200 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 30% ra thêm lượng từ 100 tới 200 lượng");
                 break;
             case 9:
                 conn.sendMessageLog("người chơi đăng là phú hào 9"
                         + "\n Hiệu ứng đang nhận được cộng thêm là: "
                         + "\n +85k tiềm năng vào thân pháp"
-                        + "\n +up quái sẽ có tỉ lệ 50% ra thêm lượng từ 100 tới 200 lượng"
-                );
+                        + "\n +up quái sẽ có tỉ lệ 50% ra thêm lượng từ 100 tới 200 lượng");
                 break;
             default:
                 break;
@@ -321,70 +306,59 @@ public class Player extends User {
 
     public void nhucthan() {
         if (c.lvnt == 0) {
-            conn.sendMessageLog("bạn chưa luyện nhục thân yếu vcl"
-            );
+            conn.sendMessageLog("bạn chưa luyện nhục thân yếu vcl");
         } else if (c.lvnt == 1) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 1"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +20k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +20k tiềm năng vào thân pháp"
-            );
+                    + "\n +20k tiềm năng vào thân pháp");
         } else if (c.lvnt == 2) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 2"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +30k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +30k tiềm năng vào thân pháp"
-            );
+                    + "\n +30k tiềm năng vào thân pháp");
         } else if (c.lvnt == 3) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 3"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +40k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +40k tiềm năng vào thân pháp"
-            );
+                    + "\n +40k tiềm năng vào thân pháp");
         } else if (c.lvnt == 4) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 4"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +50k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +50k tiềm năng vào thân pháp"
-            );
+                    + "\n +50k tiềm năng vào thân pháp");
         } else if (c.lvnt == 5) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 5"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +60k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +60k tiềm năng vào thân pháp"
-            );
+                    + "\n +60k tiềm năng vào thân pháp");
         } else if (c.lvnt == 6) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 6"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +70k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +70k tiềm năng vào thân pháp"
-            );
+                    + "\n +70k tiềm năng vào thân pháp");
         } else if (c.lvnt == 7) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 7"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +80k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +80k tiềm năng vào thân pháp"
-            );
+                    + "\n +80k tiềm năng vào thân pháp");
         } else if (c.lvnt == 8) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 8"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +90k tiềm năng vào sức mạnh hoặc chaka"
-                    + "\n +90k tiềm năng vào thân pháp"
-            );
+                    + "\n +90k tiềm năng vào thân pháp");
         } else if (c.lvnt == 9) {
             conn.sendMessageLog(" bạn đã luyện thành công nhục thân cấp 9"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +100k tiềm năng vào sức mạnh hoặc chaka"
                     + "\n +100k tiềm năng vào thân pháp"
-                    + "\n và nhận thêm 1 danh hiệu theo phái mà bạn đăng học"
-            );
+                    + "\n và nhận thêm 1 danh hiệu theo phái mà bạn đăng học");
         }
     }
 
     public void ThonThienDia() {
         if (c.lvttd == 0) {
-            conn.sendMessageLog("đại hiệp nghiện bia 333 nên gà vl"
-            );
+            conn.sendMessageLog("đại hiệp nghiện bia 333 nên gà vl");
         } else if (c.lvttd == 1) {
             conn.sendMessageLog("đại hiệp đăng là thần men 1"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -392,8 +366,7 @@ public class Player extends User {
                     + "\n +5k tiềm năng vào thân pháp"
                     + "\n +5k tiềm năng vào hp"
                     + "\n +5k tiềm năng vào mp"
-                    + "\n + bí kíp cùng phái"
-            );
+                    + "\n + bí kíp cùng phái");
         } else if (c.lvttd == 2) {
             conn.sendMessageLog("đại hiệp đăng là thần men 2"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -401,8 +374,7 @@ public class Player extends User {
                     + "\n +10k tiềm năng vào thân pháp"
                     + "\n +10k tiềm năng vào hp"
                     + "\n +10k tiềm năng vào mp"
-                    + "\n + bí kíp cùng phái +1"
-            );
+                    + "\n + bí kíp cùng phái +1");
         } else if (c.lvttd == 3) {
             conn.sendMessageLog("đại hiệp đăng là thần men 3"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -410,8 +382,7 @@ public class Player extends User {
                     + "\n +15k tiềm năng vào thân pháp"
                     + "\n +15k tiềm năng vào hp"
                     + "\n +15k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +2"
-            );
+                    + "\n +1 bí kíp cùng phái +2");
         } else if (c.lvttd == 4) {
             conn.sendMessageLog("đại hiệp đăng là thần men 4"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -419,8 +390,7 @@ public class Player extends User {
                     + "\n +20k tiềm năng vào thân pháp"
                     + "\n +20k tiềm năng vào hp"
                     + "\n +20k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +3"
-            );
+                    + "\n +1 bí kíp cùng phái +3");
         } else if (c.lvttd == 5) {
             conn.sendMessageLog("đại hiệp đăng là thần men 5"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -428,8 +398,7 @@ public class Player extends User {
                     + "\n +25k tiềm năng vào thân pháp"
                     + "\n +25k tiềm năng vào hp"
                     + "\n +25k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +4"
-            );
+                    + "\n +1 bí kíp cùng phái +4");
         } else if (c.lvttd == 6) {
             conn.sendMessageLog("đại hiệp đăng là thần men 6"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -437,8 +406,7 @@ public class Player extends User {
                     + "\n +30k tiềm năng vào thân pháp"
                     + "\n +30k tiềm năng vào hp"
                     + "\n +30k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +5"
-            );
+                    + "\n +1 bí kíp cùng phái +5");
         } else if (c.lvttd == 7) {
             conn.sendMessageLog("đại hiệp đăng là thần men 7"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -446,8 +414,7 @@ public class Player extends User {
                     + "\n +35k tiềm năng vào thân pháp"
                     + "\n +35k tiềm năng vào hp"
                     + "\n +35k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +6"
-            );
+                    + "\n +1 bí kíp cùng phái +6");
         } else if (c.lvttd == 8) {
             conn.sendMessageLog("đại hiệp đăng là thần men 8"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -455,8 +422,7 @@ public class Player extends User {
                     + "\n +40k tiềm năng vào thân pháp"
                     + "\n +40k tiềm năng vào hp"
                     + "\n +40k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +7"
-            );
+                    + "\n +1 bí kíp cùng phái +7");
         } else if (c.lvttd == 9) {
             conn.sendMessageLog("Bạn đang tu luyện Thôn Thiên Địa đến tầng 9"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -464,8 +430,7 @@ public class Player extends User {
                     + "\n +45k tiềm năng vào thân pháp"
                     + "\n +45k tiềm năng vào hp"
                     + "\n +45k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+8"
-            );
+                    + "\n +1 bí kíp cùng phái+8");
         } else if (c.lvttd == 10) {
             conn.sendMessageLog("đại hiệp đăng là thần men 10"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -473,8 +438,7 @@ public class Player extends User {
                     + "\n +50k tiềm năng vào thân pháp"
                     + "\n +50k tiềm năng vào hp"
                     + "\n +50k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái +9"
-            );
+                    + "\n +1 bí kíp cùng phái +9");
         } else if (c.lvttd == 11) {
             conn.sendMessageLog("đại hiệp đăng là thần men 11"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -482,8 +446,7 @@ public class Player extends User {
                     + "\n +55k tiềm năng vào thân pháp"
                     + "\n +5k tiềm năng vào hp"
                     + "\n +55k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+10"
-            );
+                    + "\n +1 bí kíp cùng phái+10");
         } else if (c.lvttd == 12) {
             conn.sendMessageLog("đại hiệp đăng là thần men 12"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -491,8 +454,7 @@ public class Player extends User {
                     + "\n +60k tiềm năng vào thân pháp"
                     + "\n +60k tiềm năng vào hp"
                     + "\n +60k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+11"
-            );
+                    + "\n +1 bí kíp cùng phái+11");
         } else if (c.lvttd == 13) {
             conn.sendMessageLog("đại hiệp đăng là thần men 13"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -500,8 +462,7 @@ public class Player extends User {
                     + "\n +65k tiềm năng vào thân pháp"
                     + "\n +65k tiềm năng vào hp"
                     + "\n +65k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+12"
-            );
+                    + "\n +1 bí kíp cùng phái+12");
         } else if (c.lvttd == 14) {
             conn.sendMessageLog("đại hiệp đăng là thần men 14"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -509,8 +470,7 @@ public class Player extends User {
                     + "\n +70k tiềm năng vào thân pháp"
                     + "\n +70k tiềm năng vào hp"
                     + "\n +70k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+13"
-            );
+                    + "\n +1 bí kíp cùng phái+13");
         } else if (c.lvttd == 15) {
             conn.sendMessageLog("đại hiệp đăng là thần men 15"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -519,8 +479,7 @@ public class Player extends User {
                     + "\n +75k tiềm năng vào hp"
                     + "\n +5k tiềm năng vào mp"
                     + "\n +71 bí kíp cùng phái"
-                    + "\n +71 bí kíp cùng phái+14"
-            );
+                    + "\n +71 bí kíp cùng phái+14");
         } else if (c.lvttd == 16) {
             conn.sendMessageLog("đại hiệp đăng là thần men 16"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -528,8 +487,7 @@ public class Player extends User {
                     + "\n +80k tiềm năng vào thân pháp"
                     + "\n +80k tiềm năng vào hp"
                     + "\n +80k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+15"
-            );
+                    + "\n +1 bí kíp cùng phái+15");
         } else if (c.lvttd == 17) {
             conn.sendMessageLog("đại hiệp đã là thần men đại hiệp 1 mình chấp hết cả đại hội nghiện bia"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
@@ -537,91 +495,80 @@ public class Player extends User {
                     + "\n +85k tiềm năng vào thân pháp"
                     + "\n +85k tiềm năng vào hp"
                     + "\n +85k tiềm năng vào mp"
-                    + "\n +1 bí kíp cùng phái+16"
-            );
+                    + "\n +1 bí kíp cùng phái+16");
         }
     }
 
     public void KinhMach() {
         if (c.lvkm == 0) {
-            conn.sendMessageLog("võ giả chưa bước vào con đường tu luyện nên gà vl"
-            );
+            conn.sendMessageLog("võ giả chưa bước vào con đường tu luyện nên gà vl");
         } else if (c.lvkm == 1) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu khí"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +10k tiềm năng vào sức mạnh"
                     + "\n +10k tiềm năng vào thân pháp"
                     + "\n +10k tiềm năng vào hp"
-                    + "\n +10k tiềm năng vào mp"
-            );
+                    + "\n +10k tiềm năng vào mp");
         } else if (c.lvkm == 2) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu giả"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +20k tiềm năng vào sức mạnh"
                     + "\n +20k tiềm năng vào thân pháp"
                     + "\n +20k tiềm năng vào hp"
-                    + "\n +20k tiềm năng vào mp"
-            );
+                    + "\n +20k tiềm năng vào mp");
         } else if (c.lvkm == 3) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu sư"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +30k tiềm năng vào sức mạnh"
                     + "\n +30k tiềm năng vào thân pháp"
                     + "\n +30k tiềm năng vào hp"
-                    + "\n +30k tiềm năng vào mp"
-            );
+                    + "\n +30k tiềm năng vào mp");
         } else if (c.lvkm == 4) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu linh"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +40k tiềm năng vào sức mạnh"
                     + "\n +40k tiềm năng vào thân pháp"
                     + "\n +40k tiềm năng vào hp"
-                    + "\n +40k tiềm năng vào mp"
-            );
+                    + "\n +40k tiềm năng vào mp");
         } else if (c.lvkm == 5) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu vương"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +50k tiềm năng vào sức mạnh"
                     + "\n +50k tiềm năng vào thân pháp"
                     + "\n +50k tiềm năng vào hp"
-                    + "\n +50k tiềm năng vào mp"
-            );
+                    + "\n +50k tiềm năng vào mp");
         } else if (c.lvkm == 6) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu hoàng"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +60k tiềm năng vào sức mạnh"
                     + "\n +60k tiềm năng vào thân pháp"
                     + "\n +60k tiềm năng vào hp"
-                    + "\n +60k tiềm năng vào mp"
-            );
+                    + "\n +60k tiềm năng vào mp");
         } else if (c.lvkm == 7) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu tông"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +70k tiềm năng vào sức mạnh"
                     + "\n +70k tiềm năng vào thân pháp"
                     + "\n +70k tiềm năng vào hp"
-                    + "\n +70k tiềm năng vào mp"
-            );
+                    + "\n +70k tiềm năng vào mp");
         } else if (c.lvkm == 8) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu tôn"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +80k tiềm năng vào sức mạnh"
                     + "\n +80k tiềm năng vào thân pháp"
                     + "\n +80k tiềm năng vào hp"
-                    + "\n +80k tiềm năng vào mp"
-            );
+                    + "\n +80k tiềm năng vào mp");
         } else if (c.lvkm == 9) {
             conn.sendMessageLog("võ giả tu luyện thành công cấp bậc đấu đế"
                     + "\n Hiệu ứng đang nhận được cộng thêm là: "
                     + "\n +90k tiềm năng vào sức mạnh"
                     + "\n +90k tiềm năng vào thân pháp"
                     + "\n +90k tiềm năng vào hp"
-                    + "\n +90k tiềm năng vào mp"
-            );
+                    + "\n +90k tiềm năng vào mp");
         }
     }
 
-    // tạo hàm 
+    // tạo hàm
     public void tanghoaxanh() throws IOException {
         this.updateExp(5000000L);
         this.c.removeItemBags(391, 1);
@@ -631,7 +578,16 @@ public class Player extends User {
             this.conn.sendMessageLog("Hành trang không đủ chỗ trống");
             return;
         } else {
-            short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256};
+            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682,
+                    384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278,
+                    539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                    739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699,
+                    674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674,
+                    763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                    735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290,
+                    291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682,
+                    682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407,
+                    12, 254, 255, 256, 12, 254, 255, 256 };
             short idI = arId[Util.nextInt(arId.length)];
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
@@ -642,7 +598,7 @@ public class Player extends User {
 
         }
     }
-// tạo hàm 
+    // tạo hàm
 
     public void tanghoavang() throws IOException {
         this.updateExp(5000000L);
@@ -653,7 +609,16 @@ public class Player extends User {
             this.conn.sendMessageLog("Hành trang không đủ chỗ trống");
             return;
         } else {
-            short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256};
+            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682,
+                    384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278,
+                    539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                    739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699,
+                    674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674,
+                    763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                    735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290,
+                    291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682,
+                    682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407,
+                    12, 254, 255, 256, 12, 254, 255, 256 };
             short idI = arId[Util.nextInt(arId.length)];
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
@@ -675,7 +640,8 @@ public class Player extends User {
             String filename = "log_game/lsmuadoshinwa/lsmua_" + dateFormatFile.format(date) + ".txt";
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("\nName : " + name1 + " Mua đồ shinwa " + " || Time : " + str + " || Giá mua :" + xubuy + "|| Item mua :" + vpmua + " || Số lượng mua :" + slmua
+            bw.write("\nName : " + name1 + " Mua đồ shinwa " + " || Time : " + str + " || Giá mua :" + xubuy
+                    + "|| Item mua :" + vpmua + " || Số lượng mua :" + slmua
                     + " \n");
             bw.close();
             fw.close();
@@ -712,7 +678,8 @@ public class Player extends User {
             String filename = "log_game/bandoshinwa/lsban_" + dateFormatFile.format(date) + ".txt";
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("\nName : " + name1 + " bán đồ vào Shinwa  " + " || Time : " + str + " || Giá bán :" + xusell + " || Vật phẩm bán :" + itemsell + " || Số lượng vật phẩm bán : " + soluong
+            bw.write("\nName : " + name1 + " bán đồ vào Shinwa  " + " || Time : " + str + " || Giá bán :" + xusell
+                    + " || Vật phẩm bán :" + itemsell + " || Số lượng vật phẩm bán : " + soluong
                     + "\n");
             bw.close();
             fw.close();
@@ -721,7 +688,7 @@ public class Player extends User {
         }
     }
 
-// tạo hàm 
+    // tạo hàm
     public void tanghoado() throws IOException {
 
         this.updateExp(5000000L);
@@ -732,7 +699,16 @@ public class Player extends User {
             this.conn.sendMessageLog("Hành trang không đủ chỗ trống");
             return;
         } else {
-            short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256};
+            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682,
+                    384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278,
+                    539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                    739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699,
+                    674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674,
+                    763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                    735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290,
+                    291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682,
+                    682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407,
+                    12, 254, 255, 256, 12, 254, 255, 256 };
             short idI = arId[Util.nextInt(arId.length)];
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
@@ -743,7 +719,7 @@ public class Player extends User {
 
         }
     }
-// tạo hàm
+    // tạo hàm
 
     public void tanggiohoa() throws IOException {
         this.updateExp(10000000L);
@@ -753,7 +729,16 @@ public class Player extends User {
             this.conn.sendMessageLog("Hành trang không đủ chỗ trống");
             return;
         } else {
-            short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256};
+            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 7, 8, 9, 436, 437, 438, 682,
+                    384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278,
+                    539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                    739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699,
+                    674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674,
+                    763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                    735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290,
+                    291, 289, 290, 291, 289, 290, 291, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682,
+                    682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407,
+                    12, 254, 255, 256, 12, 254, 255, 256 };
             short idI = arId[Util.nextInt(arId.length)];
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
@@ -775,7 +760,8 @@ public class Player extends User {
             String filename = "log_game/lsgd/lsgd_" + dateFormatFile.format(date) + ".txt";
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("\nName : " + name1 + " giao dịch với " + name2 + " || Time : " + str + " || Item chuyển : [" + itemsend + "] Xu giao dịch :" + xusend + " || Item Nhận :[" + itemadd + "] Xu nhận :" + xuadd
+            bw.write("\nName : " + name1 + " giao dịch với " + name2 + " || Time : " + str + " || Item chuyển : ["
+                    + itemsend + "] Xu giao dịch :" + xusend + " || Item Nhận :[" + itemadd + "] Xu nhận :" + xuadd
                     + "\n");
             bw.close();
             fw.close();
@@ -860,11 +846,11 @@ public class Player extends User {
         }
 
     }
-    //  public void sendTB() throws IOException {
-    // //      this.updateExp(500000L);
-    //      Char userGF = Client.gI().getNinja(nameUS);
-    //      Manager.chatKTG("Chúc @"+ nameUS + " " +messTB);
-    //     c.removeItemBags(830,1);
+    // public void sendTB() throws IOException {
+    // // this.updateExp(500000L);
+    // Char userGF = Client.gI().getNinja(nameUS);
+    // Manager.chatKTG("Chúc @"+ nameUS + " " +messTB);
+    // c.removeItemBags(830,1);
     // }
 
     public void sendXu() {
@@ -898,18 +884,18 @@ public class Player extends User {
     }
 
     // public void sendItem() {
-    //     try {
-    //         Char userGF = Client.gI().getNinja(nameUS);
-    //        short idItemGFF = Short.parseShort(idItemGF);
-    //        int itemQuantityGFF = Integer.parseInt(itemQuantityGF);
-    ///       Item itemGF = new Item();          
-    //       for (byte i = 0; i < itemQuantityGFF; i++) {
-    //           itemGF = ItemTemplate.itemDefault(idItemGFF);
-    //           userGF.addItemBag(true, itemGF);
-    //       }
-    //     } catch (Exception e) {
-    //         sendAddchatYellow("Vật phẩm này không tồn tại!");
-    //     }
+    // try {
+    // Char userGF = Client.gI().getNinja(nameUS);
+    // short idItemGFF = Short.parseShort(idItemGF);
+    // int itemQuantityGFF = Integer.parseInt(itemQuantityGF);
+    /// Item itemGF = new Item();
+    // for (byte i = 0; i < itemQuantityGFF; i++) {
+    // itemGF = ItemTemplate.itemDefault(idItemGFF);
+    // userGF.addItemBag(true, itemGF);
+    // }
+    // } catch (Exception e) {
+    // sendAddchatYellow("Vật phẩm này không tồn tại!");
+    // }
     // }
     public void sendMess() {
         Char userGF = Client.gI().getNinja(nameUS);
@@ -926,7 +912,16 @@ public class Player extends User {
             return;
         } else {
 
-            short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256, 7, 8, 9, 436, 437, 438, 682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291};
+            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 276, 277, 278, 548, 12, 548,
+                    381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436,
+                    437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256, 7, 8, 9, 436, 437, 438,
+                    682, 384, 385, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277,
+                    278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737,
+                    738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698,
+                    699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762,
+                    674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733,
+                    734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289,
+                    290, 291, 289, 290, 291, 289, 290, 291 };
             short idI = arId[Util.nextInt(arId.length)];
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
@@ -956,18 +951,21 @@ public class Player extends User {
     }
 
     public void changePassword() {
-        if (!Util.CheckString(this.passnew + this.passold, "^[a-zA-Z0-9]+$") || this.passnew.length() < 1 || this.passnew.length() > 30) {
+        if (!Util.CheckString(this.passnew + this.passold, "^[a-zA-Z0-9]+$") || this.passnew.length() < 1
+                || this.passnew.length() > 30) {
             this.conn.sendMessageLog("Mật khẩu chỉ đồng ý các ký tự a-z,0-9 và chiều dài từ 1 đến 30 ký tự");
             return;
         }
         try {
-            final ResultSet red = SQLManager.stat.executeQuery("SELECT `id` FROM `player` WHERE (`password`LIKE'" + this.passold + "' AND `id` = " + this.id + ");");
+            final ResultSet red = SQLManager.stat.executeQuery("SELECT `id` FROM `player` WHERE (`password`LIKE'"
+                    + this.passold + "' AND `id` = " + this.id + ");");
             if (red == null || !red.first()) {
                 this.conn.sendMessageLog("Mật khẩu cũ không chính xác!");
                 return;
             }
             synchronized (Server.LOCK_MYSQL) {
-                SQLManager.stat.executeUpdate("UPDATE `player` SET `password`='" + this.passnew + "' WHERE `id`=" + this.id + " LIMIT 1;");
+                SQLManager.stat.executeUpdate(
+                        "UPDATE `player` SET `password`='" + this.passnew + "' WHERE `id`=" + this.id + " LIMIT 1;");
             }
             this.conn.sendMessageLog("Đã đổi mật khẩu thành công");
         } catch (SQLException e) {
@@ -978,7 +976,8 @@ public class Player extends User {
     public static Player login(final Session conn, final String user, final String pass) {
         try {
             synchronized (Server.LOCK_MYSQL) {
-                final ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `player` WHERE (`username`LIKE'" + user + "' AND `password`LIKE'" + pass + "');");
+                final ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `player` WHERE (`username`LIKE'"
+                        + user + "' AND `password`LIKE'" + pass + "');");
                 if (red != null && red.first()) {
                     final int iddb = red.getInt("id");
                     final String username = red.getString("username");
@@ -991,13 +990,14 @@ public class Player extends User {
                     final int status = red.getInt("status");
                     final int coin = red.getInt("coin");
 
-                    //vip
+                    // vip
                     final int vip = red.getInt("vip");
                     final int coinnap = red.getInt("coinnap");
                     final byte vxLuong = red.getByte("vongxoayluong");
 
                     if (lock != 0 && lock == 1) {
-                        conn.sendMessageLog("Tài khoản của bạn chưa được kích hoạt, hãy truy cập trang chủ để kích hoạt tài khoản.");
+                        conn.sendMessageLog(
+                                "Tài khoản của bạn chưa được kích hoạt, hãy truy cập trang chủ để kích hoạt tài khoản.");
                         return null;
                     }
                     if (ban >= 1) {
@@ -1022,7 +1022,7 @@ public class Player extends User {
                     p.online = online;
                     p.status = status;
 
-                    //vip
+                    // vip
                     p.vip = vip;
                     p.coinnap = coinnap;
                     p.vxLuong = vxLuong;
@@ -1043,85 +1043,97 @@ public class Player extends User {
         return null;
     }
 
-    /*public static Player login(Session conn, String user, String pass) {
-        try {
-            synchronized(Server.LOCK_MYSQL) {
-                ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `player` WHERE (`username`LIKE'" + user + "' AND `password`LIKE'" + pass + "');");
-                if (red != null && red.first()) {
-                    int iddb = red.getInt("id");
-                    String username = red.getString("username").toLowerCase();
-                    int luong = red.getInt("luong");
-                    byte lock = red.getByte("lock");
-                    int role = red.getInt("role");
-                    int ban = red.getInt("ban");
-                    int online = red.getInt("online");
-                    int status = red.getInt("status");
-                    
-                    //vip
-                    int vip = red.getInt("vip");
-                    int coinnap = red.getInt("coinnap");
-                    byte vxLuong = red.getByte("vongxoayluong");
-                    
-                    
-                    if (lock != 0 && lock == 1) {
-                        conn.sendMessageLog("Tài khoản của bạn chưa được kích hoạt, hãy truy cập trang chủ để kích hoạt tài khoản.");
-                        return null;
-                    } else if (ban >= 1) {
-                        conn.sendMessageLog("Tài khoản của bạn đã bị khoá do vi phạm quy định của Server");
-                        return null;
-                    } else {
-                        JSONArray jarr = (JSONArray)JSONValue.parse(red.getString("ninja"));
-                        Player p = Client.gI().getPlayer(user);
-                        if (p != null) {
-                            if(p.c != null && p.c.tileMap != null) {
-                                p.c.tileMap.leave(p);
-                            }
-                            p.conn.sendMessageLog("Có người đăng nhập vào tài khoản của bạn.");
-                            Client.gI().kickSession(p.conn);
-                            conn.sendMessageLog("Bạn đang đăng nhập tại máy khác. Hãy thử đăng nhập lại");
-                            return null;
-                        } 
-                            if (Client.timeWaitLogin.containsKey(username)) {
-                                if (System.currentTimeMillis() < (Long)Client.timeWaitLogin.get(username)) {
-                                    conn.sendMessageLog("Bạn chỉ có thể đăng nhập lại vào tài khoản sau " + ((Long)Client.timeWaitLogin.get(username) - System.currentTimeMillis()) / 1000L + "s nữa");
-                                    return null;
-                                }
-                                Client.timeWaitLogin.remove(username);
-                            }
-                            p = new Player();
-                            p.conn = conn;
-                            p.id = iddb;
-                            p.username = username;
-                            p.luong = luong;
-                            p.role = role;
-                            p.online = online;
-                            p.status = status;
-                            
-                            //vip
-                            p.vip = vip;
-                            p.coinnap = coinnap;
-                            p.vxLuong = vxLuong;
-
-                            for(byte i = 0; i < jarr.size(); ++i) {
-                                p.sortNinja[i] = jarr.get(i).toString();
-                            }
-                            SQLManager.stat.executeUpdate("UPDATE `player` SET `online`=1 WHERE `id`=" + p.id + " ;");
-                            Client.gI().put(p);
-                            jarr.clear();
-                            red.close();
-                            return p;
-                        
-                    }
-                } else {
-                    conn.sendMessageLog("Tài khoản hoặc mật khẩu không chính xác.");
-                    return null;
-                }
-            }
-        } catch (SQLException var17) {
-            var17.printStackTrace();
-            return null;
-        }
-    }*/
+    /*
+     * public static Player login(Session conn, String user, String pass) {
+     * try {
+     * synchronized(Server.LOCK_MYSQL) {
+     * ResultSet red =
+     * SQLManager.stat.executeQuery("SELECT * FROM `player` WHERE (`username`LIKE'"
+     * + user + "' AND `password`LIKE'" + pass + "');");
+     * if (red != null && red.first()) {
+     * int iddb = red.getInt("id");
+     * String username = red.getString("username").toLowerCase();
+     * int luong = red.getInt("luong");
+     * byte lock = red.getByte("lock");
+     * int role = red.getInt("role");
+     * int ban = red.getInt("ban");
+     * int online = red.getInt("online");
+     * int status = red.getInt("status");
+     * 
+     * //vip
+     * int vip = red.getInt("vip");
+     * int coinnap = red.getInt("coinnap");
+     * byte vxLuong = red.getByte("vongxoayluong");
+     * 
+     * 
+     * if (lock != 0 && lock == 1) {
+     * conn.
+     * sendMessageLog("Tài khoản của bạn chưa được kích hoạt, hãy truy cập trang chủ để kích hoạt tài khoản."
+     * );
+     * return null;
+     * } else if (ban >= 1) {
+     * conn.
+     * sendMessageLog("Tài khoản của bạn đã bị khoá do vi phạm quy định của Server"
+     * );
+     * return null;
+     * } else {
+     * JSONArray jarr = (JSONArray)JSONValue.parse(red.getString("ninja"));
+     * Player p = Client.gI().getPlayer(user);
+     * if (p != null) {
+     * if(p.c != null && p.c.tileMap != null) {
+     * p.c.tileMap.leave(p);
+     * }
+     * p.conn.sendMessageLog("Có người đăng nhập vào tài khoản của bạn.");
+     * Client.gI().kickSession(p.conn);
+     * conn.sendMessageLog("Bạn đang đăng nhập tại máy khác. Hãy thử đăng nhập lại"
+     * );
+     * return null;
+     * }
+     * if (Client.timeWaitLogin.containsKey(username)) {
+     * if (System.currentTimeMillis() < (Long)Client.timeWaitLogin.get(username)) {
+     * conn.sendMessageLog("Bạn chỉ có thể đăng nhập lại vào tài khoản sau " +
+     * ((Long)Client.timeWaitLogin.get(username) - System.currentTimeMillis()) /
+     * 1000L + "s nữa");
+     * return null;
+     * }
+     * Client.timeWaitLogin.remove(username);
+     * }
+     * p = new Player();
+     * p.conn = conn;
+     * p.id = iddb;
+     * p.username = username;
+     * p.luong = luong;
+     * p.role = role;
+     * p.online = online;
+     * p.status = status;
+     * 
+     * //vip
+     * p.vip = vip;
+     * p.coinnap = coinnap;
+     * p.vxLuong = vxLuong;
+     * 
+     * for(byte i = 0; i < jarr.size(); ++i) {
+     * p.sortNinja[i] = jarr.get(i).toString();
+     * }
+     * SQLManager.stat.executeUpdate("UPDATE `player` SET `online`=1 WHERE `id`=" +
+     * p.id + " ;");
+     * Client.gI().put(p);
+     * jarr.clear();
+     * red.close();
+     * return p;
+     * 
+     * }
+     * } else {
+     * conn.sendMessageLog("Tài khoản hoặc mật khẩu không chính xác.");
+     * return null;
+     * }
+     * }
+     * } catch (SQLException var17) {
+     * var17.printStackTrace();
+     * return null;
+     * }
+     * }
+     */
     public void sendInfo() {
         Message m = null;
         try {
@@ -1161,7 +1173,8 @@ public class Player extends User {
 
             short i;
             for (i = 0; i < this.c.skill.size(); ++i) {
-                m.writer().writeShort(SkillTemplate.Templates(((Skill) this.c.skill.get(i)).id, ((Skill) this.c.skill.get(i)).point).skillId);
+                m.writer().writeShort(SkillTemplate.Templates(((Skill) this.c.skill.get(i)).id,
+                        ((Skill) this.c.skill.get(i)).point).skillId);
             }
 
             m.writer().writeInt(this.c.xu);
@@ -1176,7 +1189,8 @@ public class Player extends User {
                 } else {
                     m.writer().writeShort(this.c.ItemBag[j].id);
                     m.writer().writeBoolean(this.c.ItemBag[j].isLock);
-                    if (ItemTemplate.isTypeBody(this.c.ItemBag[j].id) || ItemTemplate.isTypeMounts(this.c.ItemBag[j].id) || ItemTemplate.isTypeNgocKham(this.c.ItemBag[j].id)) {
+                    if (ItemTemplate.isTypeBody(this.c.ItemBag[j].id) || ItemTemplate.isTypeMounts(this.c.ItemBag[j].id)
+                            || ItemTemplate.isTypeNgocKham(this.c.ItemBag[j].id)) {
                         m.writer().writeByte(this.c.ItemBag[j].upgrade);
                     }
                     m.writer().writeBoolean(this.c.ItemBag[j].isExpires);
@@ -1338,7 +1352,8 @@ public class Player extends User {
             this.c.get().potential2 = 5;
             this.c.get().potential3 = 5;
         }
-        int usePlusPpoint = (8 - this.c.get().useTiemNang) * 10 + (10 - this.c.get().useBanhBangHoa) * 10 + this.c.chuyenSinh * 5780;
+        int usePlusPpoint = (8 - this.c.get().useTiemNang) * 10 + (10 - this.c.get().useBanhBangHoa) * 10
+                + this.c.chuyenSinh * 5780;
         this.c.get().ppoint = (short) (Level.totalpPoint(this.c.get().level) + usePlusPpoint);
         this.loadPpoint();
     }
@@ -1611,7 +1626,9 @@ public class Player extends User {
                     }
                 }
 
-                SQLManager.stat.executeUpdate("UPDATE `player` SET `online`=0,`luong`=" + this.luong + ",`coin`=" + this.coin + ",`vip`=" + this.vip + ",`vongxoayluong`=" + this.vxLuong + ",`ninja`='" + jarr.toJSONString() + "' WHERE `id`=" + this.id + " LIMIT 1;");
+                SQLManager.stat.executeUpdate("UPDATE `player` SET `online`=0,`luong`=" + this.luong + ",`coin`="
+                        + this.coin + ",`vip`=" + this.vip + ",`vongxoayluong`=" + this.vxLuong + ",`ninja`='"
+                        + jarr.toJSONString() + "' WHERE `id`=" + this.id + " LIMIT 1;");
                 if (jarr != null && !jarr.isEmpty()) {
                     jarr.clear();
                 }
@@ -1660,8 +1677,11 @@ public class Player extends User {
         try {
             if (this != null) {
                 try {
-                    String sqlSET = "(" + this.c.id + ", '" + this.c.name + "', " + this.c.level + ", '" + Server.manager.NinjaS[this.c.nclass] + "', '" + Util.toDateString(Date.from(Instant.now())) + "');";
-                    SQLManager.stat.executeUpdate("INSERT INTO `xep_hang_level` (`ninja_id`,`name`,`level`,`class`,`time`) VALUES " + sqlSET);
+                    String sqlSET = "(" + this.c.id + ", '" + this.c.name + "', " + this.c.level + ", '"
+                            + Server.manager.NinjaS[this.c.nclass] + "', '"
+                            + Util.toDateString(Date.from(Instant.now())) + "');";
+                    SQLManager.stat.executeUpdate(
+                            "INSERT INTO `xep_hang_level` (`ninja_id`,`name`,`level`,`class`,`time`) VALUES " + sqlSET);
                 } catch (Exception e) {
                 }
             }
@@ -1695,8 +1715,12 @@ public class Player extends User {
                     if (this.c.level == Manager.max_level_up) {
                         try {
                             if (this.c.saveBXH != Manager.max_level_up) {
-                                String sqlSET = "(" + this.c.id + ", '" + this.c.name + "', " + this.c.level + ", '" + Server.manager.NinjaS[this.c.nclass] + "', '" + Util.toDateString(Date.from(Instant.now())) + "');";
-                                SQLManager.stat.executeUpdate("INSERT INTO `xep_hang_level` (`ninja_id`,`name`,`level`,`class`,`time`) VALUES " + sqlSET);
+                                String sqlSET = "(" + this.c.id + ", '" + this.c.name + "', " + this.c.level + ", '"
+                                        + Server.manager.NinjaS[this.c.nclass] + "', '"
+                                        + Util.toDateString(Date.from(Instant.now())) + "');";
+                                SQLManager.stat.executeUpdate(
+                                        "INSERT INTO `xep_hang_level` (`ninja_id`,`name`,`level`,`class`,`time`) VALUES "
+                                                + sqlSET);
                                 this.c.saveBXH = Manager.max_level_up;
                                 System.out.println("Check ---------------------------------- update exp");
                             }
@@ -1708,7 +1732,17 @@ public class Player extends User {
                     if (this.c.level > Manager.max_level_up) {
                         this.c.level = Manager.max_level_up;
                         this.c.exp = xpold;
-                        xpup = 0L;
+                        // xpup = 0L;
+                        try {
+                            ResultSet expMax = SQLManager.stat.executeQuery(
+                                    "select sum(exps) as max from level where level < " + Manager.max_level_up + ";");
+                            if(expMax != null && expMax.first()) {
+                                this.c.exp = expMax.getLong("max");
+                                
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     if (level < this.c.level) {
@@ -2104,7 +2138,8 @@ public class Player extends User {
             if (isuplv) {
                 item.upgrade++;
                 int lv = item.upgrade + 1;
-                if (lv == 10 || lv == 20 || lv == 30 || lv == 40 || lv == 50 || lv == 60 || lv == 70 || lv == 80 || lv == 90) {
+                if (lv == 10 || lv == 20 || lv == 30 || lv == 40 || lv == 50 || lv == 60 || lv == 70 || lv == 80
+                        || lv == 90) {
                     byte j;
                     Option op2;
                     for (j = 0; j < item.options.size(); ++j) {
@@ -2630,8 +2665,11 @@ public class Player extends User {
         try {
             String name = m.reader().readUTF();
             Char _char = Client.gI().getNinja(name);
-            if (_char != null && _char.tileMap != null && !_char.tileMap.map.mapLDGT() && _char.tileMap.map.getXHD() == -1 && !_char.tileMap.map.mapChienTruong() && !_char.tileMap.map.mapBossTuanLoc() && !_char.isInDun) {
-                Service.startYesNoDlg(_char.p, (byte) 3, this.c.name + " mời bạn vào Lãnh Địa Gia Tộc. Bạn có muốn tham gia?");
+            if (_char != null && _char.tileMap != null && !_char.tileMap.map.mapLDGT()
+                    && _char.tileMap.map.getXHD() == -1 && !_char.tileMap.map.mapChienTruong()
+                    && !_char.tileMap.map.mapBossTuanLoc() && !_char.isInDun) {
+                Service.startYesNoDlg(_char.p, (byte) 3,
+                        this.c.name + " mời bạn vào Lãnh Địa Gia Tộc. Bạn có muốn tham gia?");
             } else {
                 this.sendAddchatYellow("Người chơi đang ở vị trí không thể mời vào LDGT.");
             }
@@ -2666,6 +2704,7 @@ public class Player extends User {
     }
 
     private void closeLoad() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 }

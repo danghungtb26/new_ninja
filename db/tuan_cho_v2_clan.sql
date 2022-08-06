@@ -39,7 +39,7 @@ CREATE TABLE `clan` (
   `items` varchar(5000) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `week` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL DEFAULT '2003-05-28 22:22:1',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +48,7 @@ CREATE TABLE `clan` (
 
 LOCK TABLES `clan` WRITE;
 /*!40000 ALTER TABLE `clan` DISABLE KEYS */;
+INSERT INTO `clan` VALUES (73,'admin',1497663,30,5,353400000,'2022-08-06 11:56:45','aaaaaaaa,2,500000000,2022-08-06 12:05:43\naaaaaaaa,5,6100000,2022-08-06 12:03:22\naaaaaaaa,5,5800000,2022-08-06 12:02:50\naaaaaaaa,5,5500000,2022-08-06 12:02:49\naaaaaaaa,5,5200000,2022-08-06 12:02:22\naaaaaaaa,5,4900000,2022-08-06 12:02:20\naaaaaaaa,5,4600000,2022-08-06 12:01:52\naaaaaaaa,5,4300000,2022-08-06 12:01:32\naaaaaaaa,5,4000000,2022-08-06 12:01:30\naaaaaaaa,5,3700000,2022-08-06 12:01:29\naaaaaaaa,5,3400000,2022-08-06 12:01:28\n','',4,3,0,'[[1057,\"aaaaaaaa\",\"admin\",4,146,1,6411613,6411613]]','[{\"isLock\":false,\"expires\":604800000,\"sale\":0,\"quantity\":1,\"upgrade\":0,\"index\":0,\"id\":601,\"sys\":0,\"isExpires\":true,\"option\":[]}]','2022-08-06 11:56:45');
 /*!40000 ALTER TABLE `clan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-05 16:15:48
+-- Dump completed on 2022-08-06 13:26:10

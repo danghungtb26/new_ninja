@@ -780,7 +780,10 @@ case 123:
                                             ItemTemplate data2;
                                             int i;
                                             for(i = 0; i < itemId.length; i++) {
-                                                if(itemId[i] == -3) {
+                                                if(itemId[i] == -4) {
+                                                   p.updateExp(itemQuantity[i]);
+                                                }
+                                                else if(itemId[i] == -3) {
                                                     p.c.upyenMessage(itemQuantity[i]);
                                                 } else if(itemId[i] == -2) {
                                                     p.c.upxuMessage(itemQuantity[i]);
