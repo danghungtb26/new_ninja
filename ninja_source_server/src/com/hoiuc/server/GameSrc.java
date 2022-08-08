@@ -240,7 +240,7 @@ public class GameSrc {
             if (mob == null) {
                 return;
             }
-            Util.Debug(mob.id + " Id mob " + id);
+            // Util.Debug(mob.id + " Id mob " + id);
             int zoomLv = p.conn.zoomLevel;
             if(zoomLv < 1 || zoomLv > 4){
                 zoomLv = 1;

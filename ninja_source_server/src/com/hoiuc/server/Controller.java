@@ -31,7 +31,7 @@ public class Controller implements IMessageHandler {
             return;
         }
         byte num1 = message.getCommand();
-        Util.Debug("Check cmd ---> " + num1);
+        // Util.Debug("Check cmd ---> " + num1);
         Player player = session.player;
         switch (num1) {
             case -30: {
@@ -390,7 +390,7 @@ public class Controller implements IMessageHandler {
                 return;
             }
             byte b = message.reader().readByte();
-            Util.Debug("-30 ------------------------> " + b);
+            // Util.Debug("-30 ------------------------> " + b);
             switch (b) {
                 case -127: {
                     break;
@@ -571,7 +571,7 @@ public class Controller implements IMessageHandler {
                 return;
             }
             byte b = message.reader().readByte();
-            Util.Debug("-28 ------------------> " + b);
+            // Util.Debug("-28 ------------------> " + b);
             switch (b) {
                 //Chọn nhân vật
                 case -126: {

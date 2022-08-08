@@ -382,7 +382,7 @@ public class Session {
                                     Session.this.socket.close();
                                 }
                             }else{
-                                Util.Debug("Session: " + Session.this.id + " do message " + message.getCommand() + " size " + message.reader().available());
+                                // Util.Debug("Session: " + Session.this.id + " do message " + message.getCommand() + " size " + message.reader().available());
                                 Session.this.messageHandler.processMessage(Session.this, message);
                                 message.cleanup();
                                 continue;

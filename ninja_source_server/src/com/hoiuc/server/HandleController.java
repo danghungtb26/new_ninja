@@ -1276,7 +1276,7 @@ public class HandleController {
             if (p != null && p.c != null && p.conn != null && !p.c.isDie && m != null && m.reader().available() > 0) {
                 byte type = m.reader().readByte();
                 int index = m.reader().readUnsignedByte();
-                System.out.print("type " + type + " index" + index);
+                // System.out.print("type " + type + " index" + index);
                 m.cleanup();
                 Item item = null;
                 switch (type) {
@@ -1806,10 +1806,18 @@ public class HandleController {
         try {
             if (player != null && player.c != null && !player.c.isDie && m != null && m.reader().available() > 0) {
                 if (player.conn != null) {
-                    player.c.tileMap.FightNinja(player, m);
-                } else if (player.c.tdbTileMap != null) {
-                    player.c.tdbTileMap.FightNinja(player, m);
-                }
+                    if (player.c.tdbTileMap != null) {
+                        player.c.tdbTileMap.FightNinja(player, m);
+                    } else {
+                        player.c.tileMap.FightNinja(player, m);
+                    } 
+                } 
+
+                // if (player.conn != null) {
+                //     player.c.tileMap.FightNinja(player, m);
+                // } else if (player.c.tdbTileMap != null) {
+                //     player.c.tdbTileMap.FightNinja(player, m);
+                // }
 
             }
         } catch (Exception e) {

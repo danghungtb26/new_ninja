@@ -393,7 +393,7 @@ public class ThienDiaBangTileMap {
 
     public void FightNinja(Player p, Message m){
         try {
-            long idP = m.reader().readInt();
+            int idP = m.reader().readInt();
             Char c = this.getNinja((int) idP);
             if (c != null) {
                 if ((!GameSrc.mapNotPK(this.map.id) || p.c.isTest || c.isTest || p.c.testCharID == c.id) && p.c.get().getEffId(14) == null && p.c.get().getEffId(6) == null && p.c.get().getEffId(7) == null) {

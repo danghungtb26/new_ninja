@@ -90,29 +90,29 @@ public class Menu {
             if (npcId == 33) {
                 switch (Server.manager.event) {
                     case 1: {
-                        Menu.doMenuArray(p, new String[] { "Diều giấy", "Diều vải" });
+                        Menu.doMenuArray(p, new String[]{"Diều giấy", "Diều vải"});
                         break;
                     }
                     case 2: {
-                        Menu.doMenuArray(p, new String[] { "Hộp bánh thường", "Hộp bánh thượng hạng", "Bánh thập cẩm",
-                                "Bánh dẻo", "Bánh đậu xanh", "Bánh pía" });
+                        Menu.doMenuArray(p, new String[]{"Hộp bánh thường", "Hộp bánh thượng hạng", "Bánh thập cẩm",
+                            "Bánh dẻo", "Bánh đậu xanh", "Bánh pía"});
                         break;
                     }
                     case 3: {
-                        Menu.doMenuArray(p, new String[] { "Bánh Chocolate", "Bánh dâu tây", "Đổi mặt nạ", "Đổi pet",
-                                "BXH Diệt Boss TL", "Hướng dẫn" });
+                        Menu.doMenuArray(p, new String[]{"Bánh Chocolate", "Bánh dâu tây", "Đổi mặt nạ", "Đổi pet",
+                            "BXH Diệt Boss TL", "Hướng dẫn"});
                         break;
                     }
                     case 4: {
-                        Menu.doMenuArray(p, new String[] { "Bánh Chưng", "Bánh Tét", "Lì xì", "Làm Pháo",
-                                "Top diệt chuột", "Hướng dẫn" });
+                        Menu.doMenuArray(p, new String[]{"Bánh Chưng", "Bánh Tét", "Lì xì", "Làm Pháo",
+                            "Top diệt chuột", "Hướng dẫn"});
                         break;
                     }
                     case 5: {
                         Menu.doMenuArray(p,
-                                new String[] { "Làm Hoa Hồng Đỏ", "Làm Hoa Hồng Vàng", "Làm Hoa Hồng Xanh",
-                                        "Làm Giỏ Hoa", "Tặng Hoa Hồng Đỏ", "Tặng Hoa Hồng Vàng", "Tặng Hoa Hồng Xanh",
-                                        "Tặng Giỏ Hoa", "Kết Hoa" });
+                                new String[]{"Làm Hoa Hồng Đỏ", "Làm Hoa Hồng Vàng", "Làm Hoa Hồng Xanh",
+                                    "Làm Giỏ Hoa", "Tặng Hoa Hồng Đỏ", "Tặng Hoa Hồng Vàng", "Tặng Hoa Hồng Xanh",
+                                    "Tặng Giỏ Hoa", "Kết Hoa"});
                     }
                     default: {
                         break;
@@ -121,12 +121,12 @@ public class Menu {
             } else if (npcId == 40) {
                 switch (p.c.mapid) {
                     case 117: {
-                        Menu.doMenuArray(p, new String[] { "Rời khỏi nơi này", "Đặt cược", "Hướng dẫn" });
+                        Menu.doMenuArray(p, new String[]{"Rời khỏi nơi này", "Đặt cược", "Hướng dẫn"});
                         break;
                     }
                     case 118:
                     case 119: {
-                        Menu.doMenuArray(p, new String[] { "Rời khỏi nơi này", "Thông tin" });
+                        Menu.doMenuArray(p, new String[]{"Rời khỏi nơi này", "Thông tin"});
                         break;
                     }
                 }
@@ -403,7 +403,7 @@ public class Menu {
                     }
                     case 92:
                         p.typemenu = menuId == 0 ? 93 : 94;
-                        Menu.doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
+                        Menu.doMenuArray(p, new String[]{"Thông tin", "Luật chơi"});
                         break;
                     case 93:
                         if (menuId == 0) {
@@ -682,7 +682,7 @@ public class Menu {
                     }
                     case 92:
                         p.typemenu = menuId == 0 ? 93 : 94;
-                        doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
+                        doMenuArray(p, new String[]{"Thông tin", "Luật chơi"});
                         break;
                     case 93:
                         if (menuId == 0) {
@@ -739,7 +739,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 55, "Nhập IGAME người nhận:");
                             break;
                         }
-                        // Send Lượng
+                    // Send Lượng
                     case 126:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -748,7 +748,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 57, "Nhập IGAME người nhận:");
                             break;
                         }
-                        // Send Yên
+                    // Send Yên
                     case 127:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -757,7 +757,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 59, "Nhập IGAME người nhận:");
                             break;
                         }
-                        // Send Item
+                    // Send Item
                     case 128:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -766,7 +766,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 61, "Nhập IGAME người nhận:");
                             break;
                         }
-                        // Send Mess
+                    // Send Mess
                     case 129:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -775,7 +775,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 64, "Nhập IGAME người nhận:");
                             break;
                         }
-                        // Mảnh top vk
+                    // Mảnh top vk
                     case 839: {
                         Menu.menuDoiVK(p, npcId, menuId, b3);
                         break;
@@ -810,17 +810,17 @@ public class Menu {
                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                         return;
                     }
-                    short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 276, 277, 278, 548,
-                            12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283,
-                            436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256,
-                            7, 8, 9, 436, 437, 438, 682, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308,
-                            309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702,
-                            703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764,
-                            765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
-                            735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768,
-                            674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
-                            739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289,
-                            290, 291, 289, 290, 291 };
+                    short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 276, 277, 278, 548,
+                        12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283,
+                        436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256,
+                        7, 8, 9, 436, 437, 438, 682, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308,
+                        309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702,
+                        703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764,
+                        765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                        735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768,
+                        674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                        739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289,
+                        290, 291, 289, 290, 291};
                     short idI = arId[Util.nextInt(arId.length)];
                     Item itemup = ItemTemplate.itemDefault(idI);
                     itemup.isLock = false;
@@ -1038,8 +1038,8 @@ public class Menu {
                 try {
                     Server.manager.sendTB(p, "Kiểm tra",
                             "- Tổng số kết nối: " + Client.gI().conns_size() + "\n\n- Số người đăng nhập: "
-                                    + Client.gI().players_size() + "\n\n- TỔNG SỐ NGƯỜI CHƠI THỰC TẾ: "
-                                    + Client.gI().ninja_size());
+                            + Client.gI().players_size() + "\n\n- TỔNG SỐ NGƯỜI CHƠI THỰC TẾ: "
+                            + Client.gI().ninja_size());
                 } catch (Exception var11) {
                     var11.printStackTrace();
                 }
@@ -1161,7 +1161,7 @@ public class Menu {
     }
 
     public static void npcThanMeo(Player p, byte npcid, byte menuId, byte b3) {
-        int[] bk = { 0, 397, 398, 399, 400, 401, 402 };
+        int[] bk = {0, 397, 398, 399, 400, 401, 402};
 
         switch (menuId) {
             case 0: {
@@ -1287,7 +1287,7 @@ public class Menu {
                             }
                         }
                     }
-                        break;
+                    break;
                     case 1: {
                         if (p.c.vip < 7) {
                             Service.chatNPC(p, (short) npcid, "pro đã nạp vip 12 chưa");
@@ -1333,7 +1333,7 @@ public class Menu {
                     }
                 }
             }
-                break;
+            break;
 
             case 1: {
                 Server.manager.sendTB(p, "Thông tin", "Để vào được MAP bạn cần phải đủ lv vip  tương xứng"
@@ -1347,7 +1347,7 @@ public class Menu {
                         + "\n+ buôn bán cày chay tư duy vô cực nhưng vẫn phải nạp tiền"
                         + "\n+ cách 4 làm theo 3 cách như trên");
             }
-                break;
+            break;
             default: {
                 Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
                 break;
@@ -1357,7 +1357,7 @@ public class Menu {
 
     // Đổi vk top
     public static void menuDoiVK(Player p, byte npcid, byte menuId, byte b3) {
-        int[] ids = { 0, 632, 633, 634, 635, 636, 637 };
+        int[] ids = {0, 632, 633, 634, 635, 636, 637};
         switch (menuId) {
             case 0: {
                 if (p.c.get().nclass == 0) {
@@ -2538,7 +2538,7 @@ public class Menu {
                         }
 
                         p.c.isTaskDanhVong = 0;
-                        p.c.taskDanhVong = new int[] { -1, -1, -1, 0, p.c.countTaskDanhVong };
+                        p.c.taskDanhVong = new int[]{-1, -1, -1, 0, p.c.countTaskDanhVong};
                         Item item = ItemTemplate.itemDefault(DanhVongTemplate.randomDaDanhVong(), false);
                         item.quantity = 1;
                         item.isLock = false;
@@ -2642,17 +2642,17 @@ public class Menu {
                             return;
                         }
 
-                        // if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
-                        //     Service.chatNPC(p, (short) npcid,
-                        //             "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
-                        //     return;
-                        // }
+                        if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
+                            return;
+                        }
 
                         data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
-                        Service.startYesNoDlg(p, (byte) 0, "Bạn có muốn nâng cấp " + data.name +
-                                " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] +
-                                " yên hoặc xu với tỷ lệ thành công là " +
-                                GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] + "% không?");
+                        Service.startYesNoDlg(p, (byte) 0, "Bạn có muốn nâng cấp " + data.name
+                                + " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade]
+                                + " yên hoặc xu với tỷ lệ thành công là "
+                                + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] + "% không?");
                         break;
                     }
                     // case 5: {
@@ -2666,18 +2666,15 @@ public class Menu {
                     // "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
                     // return;
                     // }
-
                     // if (p.c.ItemBody[14].upgrade >= 10) {
                     // Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
                     // return;
                     // }
-
                     // if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
                     // Service.chatNPC(p, (short) npcid,
                     // "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
                     // return;
                     // }
-
                     // data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
                     // Service.startYesNoDlg(p, (byte) 1, "Bạn có muốn nâng cấp " + data.name +
                     // " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu và " +
@@ -2686,7 +2683,6 @@ public class Menu {
                     // GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2 + "% không?");
                     // break;
                     // }
-
                     case 5: {
                         if (p.c.isNhanban) {
                             Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
@@ -3011,22 +3007,22 @@ public class Menu {
                     case 5: {
                         Server.manager.sendTB(p, "Hướng dẫn",
                                 "- Thiên Địa Bảng sẽ được mở hàng tuần. Bắt đầu từ thứ 2 và tổng kết vào chủ nhật.\n"
-                                        + "- Thiên Địa Bảng sẽ được mở đăng ký và chính phục từ 00h05' đến 23h45' hàng ngày. Mỗi ngày sẽ có 20p để tổng kết ngày, trong thời gian này sẽ không thể đăng ký và chinh phục\n"
-                                        + "- Trong thời gian tổng kết nếu chiến thắng trong Chinh phục sẽ không được tính rank."
-                                        + "- Vào ngày thường sẽ không giới hạn lượt thách đấu.\n"
-                                        + "- Vào Thứ 7 và Chủ Nhật mỗi Ninja sẽ có 5 lượt thách đấu, Thắng sẽ không bị mất lượt, thua sẽ bị trừ 1 lần thách đấu."
-                                        + "- Địa Bảng dành cho ninja từ cấp độ 50-69.\n"
-                                        + "- Thiên Bảng dành cho ninja từ cấp độ trên 70\n"
-                                        + "- Sau khi đăng ký thành công, hãy Chinh Phục ngay để giành lấy vị trí top đầu.\n"
-                                        + "- Mỗi lần chiến thắng, nếu vị trí của đối thủ trước bạn, bạn sẽ đổi vị trí của mình cho đối thủ, còn không vị trí của bạn sẽ được giữ nguyên.\n"
-                                        + "- Phần thưởng sẽ được trả thưởng vào mỗi tuần mới (Lưu ý: Hãy nhận thưởng ngay trong tuần mới đó, nếu sang tuần sau phần thưởng sẽ bị reset).\n\n"
-                                        + "- PHẦN THƯỞNG: \n"
-                                        + "Top 1: Hào quang Rank 1 + 2 Bánh Phong Lôi, 2 Bánh Băng Hoả, 2 Nấm x4, 3 Nấm x3, 1 Rương bạch ngân, 2 Bát bảo, 20,000 Lượng, 20,000,000 xu.\n\n"
-                                        + "Top 2: Hào quang Rank 2 + 1 Bánh Phong Lôi, 1 Bánh Băng Hoả, 1 Nấm x4, 2 Nấm x3, 1 Rương bạch ngân, 1 Bát bảo, 10,000 Lượng, 10,000,000 xu.\n\n"
-                                        + "Top 3: Hào quang Rank 3 + 1 Nấm x4, 1 Nấm x3, 2 Bát bảo, 5,000 Lượng, 5,000,000 xu.\n\n"
-                                        + "Top 4-10: 1 Nấm x3, 1 Bát bảo, 3,000 Lượng, 3,000,000 xu.\n\n"
-                                        + "Top 11-20: 1,000 Lượng, 1,000,000 xu.\n\n"
-                                        + "Còn lại: 500 Lượng, 500,000 xu.");
+                                + "- Thiên Địa Bảng sẽ được mở đăng ký và chính phục từ 00h05' đến 23h45' hàng ngày. Mỗi ngày sẽ có 20p để tổng kết ngày, trong thời gian này sẽ không thể đăng ký và chinh phục\n"
+                                + "- Trong thời gian tổng kết nếu chiến thắng trong Chinh phục sẽ không được tính rank."
+                                + "- Vào ngày thường sẽ không giới hạn lượt thách đấu.\n"
+                                + "- Vào Thứ 7 và Chủ Nhật mỗi Ninja sẽ có 5 lượt thách đấu, Thắng sẽ không bị mất lượt, thua sẽ bị trừ 1 lần thách đấu."
+                                + "- Địa Bảng dành cho ninja từ cấp độ 50-69.\n"
+                                + "- Thiên Bảng dành cho ninja từ cấp độ trên 70\n"
+                                + "- Sau khi đăng ký thành công, hãy Chinh Phục ngay để giành lấy vị trí top đầu.\n"
+                                + "- Mỗi lần chiến thắng, nếu vị trí của đối thủ trước bạn, bạn sẽ đổi vị trí của mình cho đối thủ, còn không vị trí của bạn sẽ được giữ nguyên.\n"
+                                + "- Phần thưởng sẽ được trả thưởng vào mỗi tuần mới (Lưu ý: Hãy nhận thưởng ngay trong tuần mới đó, nếu sang tuần sau phần thưởng sẽ bị reset).\n\n"
+                                + "- PHẦN THƯỞNG: \n"
+                                + "Top 1: Hào quang Rank 1 + 2 Bánh Phong Lôi, 2 Bánh Băng Hoả, 2 Nấm x4, 3 Nấm x3, 1 Rương bạch ngân, 2 Bát bảo, 20,000 Lượng, 20,000,000 xu.\n\n"
+                                + "Top 2: Hào quang Rank 2 + 1 Bánh Phong Lôi, 1 Bánh Băng Hoả, 1 Nấm x4, 2 Nấm x3, 1 Rương bạch ngân, 1 Bát bảo, 10,000 Lượng, 10,000,000 xu.\n\n"
+                                + "Top 3: Hào quang Rank 3 + 1 Nấm x4, 1 Nấm x3, 2 Bát bảo, 5,000 Lượng, 5,000,000 xu.\n\n"
+                                + "Top 4-10: 1 Nấm x3, 1 Bát bảo, 3,000 Lượng, 3,000,000 xu.\n\n"
+                                + "Top 11-20: 1,000 Lượng, 1,000,000 xu.\n\n"
+                                + "Còn lại: 500 Lượng, 500,000 xu.");
                         break;
                     }
                     default: {
@@ -3860,7 +3856,7 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
                     }
-                        break;
+                    break;
                     case 1: {
                         if (p.luong < 1000) {
                             Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
@@ -3870,7 +3866,7 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
                     }
-                        break;
+                    break;
                     case 2: {
                         if (p.luong < 1000) {
                             Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
@@ -3880,10 +3876,10 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang yên thành công");
                         }
                     }
-                        break;
+                    break;
                 }
             }
-                break;
+            break;
             case 3:
                 Service.chatNPC(p, (short) npcid, "Hãy rèn luyện thật chăm chỉ rồi quay lại chỗ ta nhận thưởng nha!");
                 break;
@@ -4111,7 +4107,7 @@ public class Menu {
 
                         p.c.isTaskHangNgay = 0;
                         p.c.countTaskHangNgay--;
-                        p.c.taskHangNgay = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay };
+                        p.c.taskHangNgay = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay};
                         Service.clearTaskOrder(p.c, (byte) 0);
                         Service.chatNPC(p, (short) npcid, "Con đã huỷ nhiệm vụ lần này.");
                         break;
@@ -4139,7 +4135,7 @@ public class Menu {
                         }
 
                         p.c.isTaskHangNgay = 0;
-                        p.c.taskHangNgay = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay };
+                        p.c.taskHangNgay = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay};
                         Service.clearTaskOrder(p.c, (byte) 0);
                         long luongUp = Util.nextInt(500, 1000);
                         if (p.c.vip < 1) {
@@ -4254,7 +4250,7 @@ public class Menu {
                         Service.clearTaskOrder(p.c, (byte) 1);
                         p.c.isTaskTaThu = 0;
                         --p.c.countTaskTaThu;
-                        p.c.taskTaThu = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskTaThu };
+                        p.c.taskTaThu = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskTaThu};
                         Service.chatNPC(p, (short) npcid, "Con đã huỷ nhiệm vụ lần này.");
                         break;
                     }
@@ -4281,7 +4277,7 @@ public class Menu {
                         }
 
                         p.c.isTaskTaThu = 0;
-                        p.c.taskTaThu = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskTaThu };
+                        p.c.taskTaThu = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskTaThu};
                         Service.clearTaskOrder(p.c, (byte) 1);
                         if (p.c.pointUydanh < 5000) {
                             p.c.pointUydanh += 3;
@@ -4573,21 +4569,21 @@ public class Menu {
                             p.c.tileMap.map.lanhDiaGiaToc.openMap(8, p);
                             Server.manager.sendTB(p, "Ghi chú",
                                     "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
-                                            + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
+                                    + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
                             break;
                         }
                         case 88: {
                             p.c.tileMap.map.lanhDiaGiaToc.openMap(9, p);
                             Server.manager.sendTB(p, "Ghi chú",
                                     "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
-                                            + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
+                                    + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
                             break;
                         }
                         case 89: {
                             p.c.tileMap.map.lanhDiaGiaToc.openMap(10, p);
                             Server.manager.sendTB(p, "Ghi chú",
                                     "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
-                                            + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
+                                    + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
                             break;
                         }
                         default: {
@@ -5180,9 +5176,9 @@ public class Menu {
                         case 2: {
                             Server.manager.sendTB(p, "Hướng dẫn",
                                     "----------------- Luyện Đan cao cấp -----------------\n +, 3 riềng + 5 xả + 1 linh chi đỏ + 3  mắm tôm + 2 ớt + 50.000 xu + 50.000 yên.\n"
-                                            + "----------------- luyện đan thường -----------------\n +,  2 riềng + 4 xả + 2 mắm tôm + 4 ớt + 40.000 xu + 40.000 yên.\n"
-                                            + "----------------- đan thường  -----------------\n +, ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân.\n"
-                                            + "----------------- đan cao cấp -----------------\n +,ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân và đan này sẽ đc tính đua top .\n");
+                                    + "----------------- luyện đan thường -----------------\n +,  2 riềng + 4 xả + 2 mắm tôm + 4 ớt + 40.000 xu + 40.000 yên.\n"
+                                    + "----------------- đan thường  -----------------\n +, ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân.\n"
+                                    + "----------------- đan cao cấp -----------------\n +,ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân và đan này sẽ đc tính đua top .\n");
 
                             break;
                         }
@@ -5234,9 +5230,9 @@ public class Menu {
                         case 8: {
                             Server.manager.sendTB(p, "Hướng dẫn",
                                     "Cách ghép hoa: \n  - Bó hoa hồng đỏ = 8 Hoa hồng đỏ + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
-                                            + " - Bó hoa hồng vàng = 8 Hoa hồng vàng + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
-                                            + " - Bó hoa hồng xanh = 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
-                                            + " - Giỏ hoa = 8 Hoa hồng đỏ + 8 Hoa hồng vàng + 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n");
+                                    + " - Bó hoa hồng vàng = 8 Hoa hồng vàng + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
+                                    + " - Bó hoa hồng xanh = 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
+                                    + " - Giỏ hoa = 8 Hoa hồng đỏ + 8 Hoa hồng vàng + 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n");
                         }
                     }
                 }
@@ -5500,9 +5496,7 @@ public class Menu {
                 if (p.c.isQuaHangDong == 1) {
                     Service.chatNPC(p, (short) npcid, "Con đã nhận thưởng hôm nay rồi!");
                     return;
-                }
-
-                else if (p.c.countHangDong < 2) {
+                } else if (p.c.countHangDong < 2) {
                     Service.chatNPC(p, (short) npcid,
                             "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay lại gặp ta đã nhận thường");
                 }
@@ -5519,37 +5513,36 @@ public class Menu {
                     return;
                 }
 
-                // if (p.c.level == 10) {
-                if (p.c.level <= 10) {
-                    p.updateExp(Level.getMaxExp(20));
-                }
-                if (p.status == 1) {
-                    p.upluongMessage(10000L);
-                    p.c.upxuMessage(25000000L);
-                    p.c.upyenMessage(25000000L);
-                    p.c.luongTN += 10000;
-                    p.c.yenTN += 50000000;
-                    p.c.xuTN += 50000000;
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                if (p.c.level == 10) {
+                    // if (p.c.level <= 10) {
+                    //     p.updateExp(Level.getMaxExp(20));
+                    // }
+                    if (p.status == 1) {
+                        p.upluongMessage(10000L);
+                        p.c.upxuMessage(25000000L);
+                        p.c.upyenMessage(25000000L);
+                        p.c.luongTN += 10000;
+                        p.c.yenTN += 50000000;
+                        p.c.xuTN += 50000000;
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                    } else {
+                        p.upluongMessage(20000000L);
+                        p.c.upxuMessage(10000000L);
+                        p.c.upyenMessage(500000000L);
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                    }
+                    Service.chatNPC(p, (short) npcid,
+                            "Con đã nhận quà tân thủ thành công, chúc con trải nghiệm game vui vẻ.");
                 } else {
-                    p.upluongMessage(20000000L);
-                    p.c.upxuMessage(10000000L);
-                    p.c.upyenMessage(500000000L);
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                    Service.chatNPC(p, (short) npcid, "Con đã nhận quà tân thủ trước đó rồi,không thể nhận lại lần nữa!");
                 }
-                Service.chatNPC(p, (short) npcid,
-                        "Con đã nhận quà tân thủ thành công, chúc con trải nghiệm game vui vẻ.");
-                // } else {
-                // Service.chatNPC(p, (short) npcid, "Con đã nhận quà tân thủ trước đó rồi,
-                // không thể nhận lại lần nữa!");
-                // }
                 break;
             }
             case 2: {
@@ -5928,22 +5921,22 @@ public class Menu {
             case 11: {
                 Server.manager.sendTB(p, "Điều Kiện học kinh mạch",
                         "Bạn phải tích đủ exp kinh mạch thông qua việc đánh boss lấy sách KINH MACH"
-                                + "\n>Kinh mạch<"
-                                + "\n-lv1 cần 5 triệu exp Kinh mạch và 100k lượng"
-                                + "\n-lv2 cần 10 triệu exp Kinh mạch và 200k lượng"
-                                + "\n-lv3 cần 15 triệu exp Kinh mạch và 300k lượng"
-                                + "\n-lv4 cần 20 triệu exp Kinh mạch và 400k lượng"
-                                + "\n-lv5 cần 25 triệu exp Kinh mạch và 500k lượng"
-                                + "\n-lv6 cần 30 triệu exp Kinh mạch và 600k lượng"
-                                + "\n-lv7 cần 35 triệu exp Kinh mạch và 700k lượng"
-                                + "\n-lv8 cần 40 triệu exp Kinh mạch và 800k lượng"
-                                + "\n-lv9 cần 50 triệu exp Kinh mạch và 1 triệu lượng"
-                                + "\n-thành công Kinh mạch sẽ lên lv và nhận đc hiệu ứng tương ứng"
-                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
-                                + "\n-BẢNG TÍNH ĐIỂM "
-                                + "\n-Tầng 1:10k + Tầng 2:20k + Tầng 3:30k + Tầng 4:40k\n"
-                                + "Tầng 5:+50k + Tầng 6:60k + Tầng 7:70k + Tầng 8:80k + Tầng 9:90k");
+                        + "\n>Kinh mạch<"
+                        + "\n-lv1 cần 5 triệu exp Kinh mạch và 100k lượng"
+                        + "\n-lv2 cần 10 triệu exp Kinh mạch và 200k lượng"
+                        + "\n-lv3 cần 15 triệu exp Kinh mạch và 300k lượng"
+                        + "\n-lv4 cần 20 triệu exp Kinh mạch và 400k lượng"
+                        + "\n-lv5 cần 25 triệu exp Kinh mạch và 500k lượng"
+                        + "\n-lv6 cần 30 triệu exp Kinh mạch và 600k lượng"
+                        + "\n-lv7 cần 35 triệu exp Kinh mạch và 700k lượng"
+                        + "\n-lv8 cần 40 triệu exp Kinh mạch và 800k lượng"
+                        + "\n-lv9 cần 50 triệu exp Kinh mạch và 1 triệu lượng"
+                        + "\n-thành công Kinh mạch sẽ lên lv và nhận đc hiệu ứng tương ứng"
+                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                        + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
+                        + "\n-BẢNG TÍNH ĐIỂM "
+                        + "\n-Tầng 1:10k + Tầng 2:20k + Tầng 3:30k + Tầng 4:40k\n"
+                        + "Tầng 5:+50k + Tầng 6:60k + Tầng 7:70k + Tầng 8:80k + Tầng 9:90k");
                 break;
             }
             case 9: {
@@ -6604,32 +6597,32 @@ public class Menu {
                     case 19: {
                         Server.manager.sendTB(p, "Điều Kiện học Thôn Thiên Địa",
                                 "Bạn phải tích đủ exp Thôn Thiên Địa thông qua việc đánh boss lấy sách Thôn Thiên Địa"
-                                        + "\n>Thôn Thiên Địa<"
-                                        + "\n-lv1 cần 5 triệu exp Thôn Thiên Địa và 100k lượng"
-                                        + "\n-lv2 cần 10 triệu exp Thôn Thiên Địa và 200k lượng"
-                                        + "\n-lv3 cần 15 triệu exp Thôn Thiên Địavà 300k lượng"
-                                        + "\n-lv4 cần 20 triệu exp Thôn Thiên Địa và 400k lượng"
-                                        + "\n-lv5 cần 25 triệu exp Thôn Thiên Địa và 500k lượng"
-                                        + "\n-lv6 cần 30 triệu exp Thôn Thiên Địa và 600k lượng"
-                                        + "\n-lv7 cần 35 triệu exp Thôn Thiên Địa và 700k lượng"
-                                        + "\n-lv8 cần 40 triệu exp Thôn Thiên Địa và 800k lượng"
-                                        + "\n-lv9 cần 45 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv10 cần 50 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv11 cần 55 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv12 cần 60 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv13 cần 65 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv14 cần 70 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv15 cần 75 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv16 cần 80 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-lv17 cần 85 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                        + "\n-thành công Thôn Thiên Địa sẽ lên lv và nhận đc hiệu ứng tương ứng"
-                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                        + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
-                                        + "\n-BẢNG TÍNH ĐIỂM "
-                                        + "\n-Tầng 1:5k + Tầng 2:10k + Tầng 3:15k + Tầng 4:20k "
-                                        + "\nTầng 5:+25k + Tầng 6:30k + Tầng 7:35k + Tầng 8:40k + Tầng 9:45k"
-                                        + "\nTầng 10:+50k + Tầng 11:55k + Tầng 12:60k + Tầng 13:65k + Tầng 14:70k"
-                                        + "\nTầng 15:+75k + Tầng 16:80k + Tầng 17:85k  ");
+                                + "\n>Thôn Thiên Địa<"
+                                + "\n-lv1 cần 5 triệu exp Thôn Thiên Địa và 100k lượng"
+                                + "\n-lv2 cần 10 triệu exp Thôn Thiên Địa và 200k lượng"
+                                + "\n-lv3 cần 15 triệu exp Thôn Thiên Địavà 300k lượng"
+                                + "\n-lv4 cần 20 triệu exp Thôn Thiên Địa và 400k lượng"
+                                + "\n-lv5 cần 25 triệu exp Thôn Thiên Địa và 500k lượng"
+                                + "\n-lv6 cần 30 triệu exp Thôn Thiên Địa và 600k lượng"
+                                + "\n-lv7 cần 35 triệu exp Thôn Thiên Địa và 700k lượng"
+                                + "\n-lv8 cần 40 triệu exp Thôn Thiên Địa và 800k lượng"
+                                + "\n-lv9 cần 45 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv10 cần 50 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv11 cần 55 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv12 cần 60 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv13 cần 65 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv14 cần 70 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv15 cần 75 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv16 cần 80 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-lv17 cần 85 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                + "\n-thành công Thôn Thiên Địa sẽ lên lv và nhận đc hiệu ứng tương ứng"
+                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
+                                + "\n-BẢNG TÍNH ĐIỂM "
+                                + "\n-Tầng 1:5k + Tầng 2:10k + Tầng 3:15k + Tầng 4:20k "
+                                + "\nTầng 5:+25k + Tầng 6:30k + Tầng 7:35k + Tầng 8:40k + Tầng 9:45k"
+                                + "\nTầng 10:+50k + Tầng 11:55k + Tầng 12:60k + Tầng 13:65k + Tầng 14:70k"
+                                + "\nTầng 15:+75k + Tầng 16:80k + Tầng 17:85k  ");
                         break;
                     }
                 }
@@ -6996,22 +6989,22 @@ public class Menu {
                     case 11: {
                         Server.manager.sendTB(p, "Điều Kiện tu luyện đấu khí",
                                 "võ giả phải tích đủ exp đấu khí bằng cách đánh boss lấy sách đấu khí"
-                                        + "\n>Đấu khí<"
-                                        + "\n-lv1 cần 5 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 90%"
-                                        + "\n-lv2 cần 10 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 80%"
-                                        + "\n-lv3 cần 15 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 70%"
-                                        + "\n-lv4 cần 20 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 60%"
-                                        + "\n-lv5 cần 25 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 50%"
-                                        + "\n-lv6 cần 30 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 35%"
-                                        + "\n-lv7 cần 35 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 20%"
-                                        + "\n-lv8 cần 40 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 10%"
-                                        + "\n-lv9 cần 50 triệu exp đấu khí và 500k lượng với tỉ lệ thành công là 5%"
-                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                        + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
-                                        + "\n-BẢNG cấp bậc "
-                                        + "\n-đấu khí :10k + đấu giả :20k + đấu sư:30k + đấu linh :40k\n"
-                                        + "đấu vương:+50k + đấu hoàng:60k + đấu tông:70k + đấu tôn:80k + đấu đế:90k");
+                                + "\n>Đấu khí<"
+                                + "\n-lv1 cần 5 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 90%"
+                                + "\n-lv2 cần 10 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 80%"
+                                + "\n-lv3 cần 15 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 70%"
+                                + "\n-lv4 cần 20 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 60%"
+                                + "\n-lv5 cần 25 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 50%"
+                                + "\n-lv6 cần 30 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 35%"
+                                + "\n-lv7 cần 35 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 20%"
+                                + "\n-lv8 cần 40 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 10%"
+                                + "\n-lv9 cần 50 triệu exp đấu khí và 500k lượng với tỉ lệ thành công là 5%"
+                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
+                                + "\n-BẢNG cấp bậc "
+                                + "\n-đấu khí :10k + đấu giả :20k + đấu sư:30k + đấu linh :40k\n"
+                                + "đấu vương:+50k + đấu hoàng:60k + đấu tông:70k + đấu tôn:80k + đấu đế:90k");
                         break;
                     }
                     case 9: {
@@ -7030,8 +7023,8 @@ public class Menu {
     }
 
     public static void npcVip(Player p, byte npcid, byte menuId, byte b3) throws IOException, InterruptedException {
-        short[] nam = { 712, 713, 746, 747, 748, 749, 750, 751, 752 };
-        short[] nu = { 715, 716, 753, 754, 755, 756, 757, 758, 759 };
+        short[] nam = {712, 713, 746, 747, 748, 749, 750, 751, 752};
+        short[] nu = {715, 716, 753, 754, 755, 756, 757, 758, 759};
         switch (menuId) {
             case 0: {
                 switch (b3) {
@@ -7166,7 +7159,7 @@ public class Menu {
                         break;
                     }
                     case 4: {
-                        short[] ngokhong = { 835, 836 };
+                        short[] ngokhong = {835, 836};
                         if (p.coinnap >= 900000 && p.c.vip == 4 && p.c.vip < 5) {
                             if (p.c.getBagNull() < 4) {
                                 Service.chatNPC(p, (short) npcid, Language.NOT_ENOUGH_BAG);
@@ -7269,7 +7262,7 @@ public class Menu {
                     }
 
                     case 7: {
-                        short[] set11x = { 972, 973 };
+                        short[] set11x = {972, 973};
                         if (p.coinnap >= 2000000 && p.c.vip == 7 && p.c.vip < 8) {
                             if (p.c.getBagNull() < 4) {
                                 Service.chatNPC(p, (short) npcid, Language.NOT_ENOUGH_BAG);
@@ -7895,154 +7888,154 @@ public class Menu {
             case 1: {
                 Service.chatNPC(p, (short) npcid, "chào cu em");
             }
-                if (p.c.isNhanban) {
-                    p.conn.sendMessageLog("Chức năng này không dành cho phân thân");
-                    return;
-                } else if (p.luong < 500000) {
-                    p.conn.sendMessageLog("Chuyển phái cần 500k lượng con nhé!");
+            if (p.c.isNhanban) {
+                p.conn.sendMessageLog("Chức năng này không dành cho phân thân");
+                return;
+            } else if (p.luong < 500000) {
+                p.conn.sendMessageLog("Chuyển phái cần 500k lượng con nhé!");
+                return;
+            }
+            switch (b3) {
+                case 0: {
+                    if (p.c.nclass == 1) {
+                        p.conn.sendMessageLog("Đang ở phái kiếm chuyển cc");
+                        return;
+                    }
+                    if (p.c.get().ItemBody[1] != null) {
+                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                        return;
+                    }
+                    p.c.nclass = 1;
+                    p.restSpoint();
+                    // p.restPpoint();
+                    p.loadSkill();
+                    p.upluongMessage(-500000L);
+                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                    int TimeSeconds = 5;
+                    while (TimeSeconds > 0) {
+                        TimeSeconds--;
+                        Thread.sleep(1000);
+                    }
+                    Client.gI().kickSession(p.conn);
                     return;
                 }
-                switch (b3) {
-                    case 0: {
-                        if (p.c.nclass == 1) {
-                            p.conn.sendMessageLog("Đang ở phái kiếm chuyển cc");
-                            return;
-                        }
-                        if (p.c.get().ItemBody[1] != null) {
-                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                            return;
-                        }
-                        p.c.nclass = 1;
-                        p.restSpoint();
-                        // p.restPpoint();
-                        p.loadSkill();
-                        p.upluongMessage(-500000L);
-                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                        int TimeSeconds = 5;
-                        while (TimeSeconds > 0) {
-                            TimeSeconds--;
-                            Thread.sleep(1000);
-                        }
-                        Client.gI().kickSession(p.conn);
+                case 1: {
+                    if (p.c.nclass == 2) {
+                        p.conn.sendMessageLog("Đang ở phái tiêu chuyển cc");
                         return;
                     }
-                    case 1: {
-                        if (p.c.nclass == 2) {
-                            p.conn.sendMessageLog("Đang ở phái tiêu chuyển cc");
-                            return;
-                        }
-                        if (p.c.get().ItemBody[1] != null) {
-                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                            return;
-                        }
-                        p.c.nclass = 2;
-                        p.restSpoint();
-                        // p.restPpoint();
-                        p.loadSkill();
-                        p.upluongMessage(-500000L);
-                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                        int TimeSeconds = 5;
-                        while (TimeSeconds > 0) {
-                            TimeSeconds--;
-                            Thread.sleep(1000);
-                        }
-                        Client.gI().kickSession(p.conn);
+                    if (p.c.get().ItemBody[1] != null) {
+                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
                         return;
                     }
-                    case 2: {
-                        if (p.c.nclass == 3) {
-                            p.conn.sendMessageLog("Đang ở phái kunai chuyển cc");
-                            return;
-                        }
-                        if (p.c.get().ItemBody[1] != null) {
-                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                            return;
-                        }
-                        p.c.nclass = 3;
-                        p.restSpoint();
-                        // p.restPpoint();
-                        p.loadSkill();
-                        p.upluongMessage(-500000L);
-                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                        int TimeSeconds = 5;
-                        while (TimeSeconds > 0) {
-                            TimeSeconds--;
-                            Thread.sleep(1000);
-                        }
-                        Client.gI().kickSession(p.conn);
-                        return;
+                    p.c.nclass = 2;
+                    p.restSpoint();
+                    // p.restPpoint();
+                    p.loadSkill();
+                    p.upluongMessage(-500000L);
+                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                    int TimeSeconds = 5;
+                    while (TimeSeconds > 0) {
+                        TimeSeconds--;
+                        Thread.sleep(1000);
                     }
-                    case 3: {
-                        if (p.c.nclass == 4) {
-                            p.conn.sendMessageLog("Đang ở phái cung chuyển cc");
-                            return;
-                        }
-                        if (p.c.get().ItemBody[1] != null) {
-                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                            return;
-                        }
-                        p.c.nclass = 4;
-                        p.restSpoint();
-                        // p.restPpoint();
-                        p.loadSkill();
-                        p.upluongMessage(-500000L);
-                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                        int TimeSeconds = 5;
-                        while (TimeSeconds > 0) {
-                            TimeSeconds--;
-                            Thread.sleep(1000);
-                        }
-                        Client.gI().kickSession(p.conn);
-                        return;
-                    }
-                    case 4: {
-                        if (p.c.nclass == 5) {
-                            p.conn.sendMessageLog("Đang ở phái đao chuyển cc");
-                            return;
-                        }
-                        if (p.c.get().ItemBody[1] != null) {
-                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                            return;
-                        }
-                        p.c.nclass = 5;
-                        p.restSpoint();
-                        // p.restPpoint();
-                        p.loadSkill();
-                        p.upluongMessage(-500000L);
-                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                        int TimeSeconds = 5;
-                        while (TimeSeconds > 0) {
-                            TimeSeconds--;
-                            Thread.sleep(1000);
-                        }
-                        Client.gI().kickSession(p.conn);
-                        return;
-                    }
-                    case 5: {
-                        if (p.c.nclass == 6) {
-                            p.conn.sendMessageLog("Đang ở phái quạt chuyển cc");
-                            return;
-                        }
-                        if (p.c.get().ItemBody[1] != null) {
-                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                            return;
-                        }
-                        p.c.nclass = 6;
-                        p.restSpoint();
-                        // p.restPpoint();
-                        p.loadSkill();
-                        p.upluongMessage(-500000L);
-                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                        int TimeSeconds = 5;
-                        while (TimeSeconds > 0) {
-                            TimeSeconds--;
-                            Thread.sleep(1000);
-                        }
-                        Client.gI().kickSession(p.conn);
-                        return;
-                    }
+                    Client.gI().kickSession(p.conn);
+                    return;
                 }
-                break;
+                case 2: {
+                    if (p.c.nclass == 3) {
+                        p.conn.sendMessageLog("Đang ở phái kunai chuyển cc");
+                        return;
+                    }
+                    if (p.c.get().ItemBody[1] != null) {
+                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                        return;
+                    }
+                    p.c.nclass = 3;
+                    p.restSpoint();
+                    // p.restPpoint();
+                    p.loadSkill();
+                    p.upluongMessage(-500000L);
+                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                    int TimeSeconds = 5;
+                    while (TimeSeconds > 0) {
+                        TimeSeconds--;
+                        Thread.sleep(1000);
+                    }
+                    Client.gI().kickSession(p.conn);
+                    return;
+                }
+                case 3: {
+                    if (p.c.nclass == 4) {
+                        p.conn.sendMessageLog("Đang ở phái cung chuyển cc");
+                        return;
+                    }
+                    if (p.c.get().ItemBody[1] != null) {
+                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                        return;
+                    }
+                    p.c.nclass = 4;
+                    p.restSpoint();
+                    // p.restPpoint();
+                    p.loadSkill();
+                    p.upluongMessage(-500000L);
+                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                    int TimeSeconds = 5;
+                    while (TimeSeconds > 0) {
+                        TimeSeconds--;
+                        Thread.sleep(1000);
+                    }
+                    Client.gI().kickSession(p.conn);
+                    return;
+                }
+                case 4: {
+                    if (p.c.nclass == 5) {
+                        p.conn.sendMessageLog("Đang ở phái đao chuyển cc");
+                        return;
+                    }
+                    if (p.c.get().ItemBody[1] != null) {
+                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                        return;
+                    }
+                    p.c.nclass = 5;
+                    p.restSpoint();
+                    // p.restPpoint();
+                    p.loadSkill();
+                    p.upluongMessage(-500000L);
+                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                    int TimeSeconds = 5;
+                    while (TimeSeconds > 0) {
+                        TimeSeconds--;
+                        Thread.sleep(1000);
+                    }
+                    Client.gI().kickSession(p.conn);
+                    return;
+                }
+                case 5: {
+                    if (p.c.nclass == 6) {
+                        p.conn.sendMessageLog("Đang ở phái quạt chuyển cc");
+                        return;
+                    }
+                    if (p.c.get().ItemBody[1] != null) {
+                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                        return;
+                    }
+                    p.c.nclass = 6;
+                    p.restSpoint();
+                    // p.restPpoint();
+                    p.loadSkill();
+                    p.upluongMessage(-500000L);
+                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                    int TimeSeconds = 5;
+                    while (TimeSeconds > 0) {
+                        TimeSeconds--;
+                        Thread.sleep(1000);
+                    }
+                    Client.gI().kickSession(p.conn);
+                    return;
+                }
+            }
+            break;
             case 2: {
                 if (p.c.isHuman) {
                     p.conn.sendMessageLog("Chức năng này không dành cho chủ thân");
@@ -8235,11 +8228,11 @@ public class Menu {
             case 5: {
                 Server.manager.sendTB(p, "Hướng dẫn",
                         "Chuyển sinh xong yêu cầu ko tẩy tiềm năng nếu tẩy ad ko chịu trách nhiệm\n"
-                                + "đã vào các phái ngoại công như ĐAO KIẾM KUNAI thì các phái đó chỉ lên chuyển phái qua nhau\n"
-                                + "còn các phái QUẠT CUNG PHI TIÊU thì cũng chỉ chuyển phái qua nhau \n"
-                                + "do chuyển phái số tiềm năng đã cộng sẽ ko đc tẩy lên yêu cầu đọc kĩ\n"
-                                + "chuyển nhầm phái hay tẩy ad ko giải quyết.\n"
-                                + "ĐÁ ngũ sắc có thể kiếm đc ở ước ngọc rồng và đổi dưa hấu ở sứ giả.");
+                        + "đã vào các phái ngoại công như ĐAO KIẾM KUNAI thì các phái đó chỉ lên chuyển phái qua nhau\n"
+                        + "còn các phái QUẠT CUNG PHI TIÊU thì cũng chỉ chuyển phái qua nhau \n"
+                        + "do chuyển phái số tiềm năng đã cộng sẽ ko đc tẩy lên yêu cầu đọc kĩ\n"
+                        + "chuyển nhầm phái hay tẩy ad ko giải quyết.\n"
+                        + "ĐÁ ngũ sắc có thể kiếm đc ở ước ngọc rồng và đổi dưa hấu ở sứ giả.");
                 return;
             }
         }
@@ -9033,100 +9026,100 @@ public class Menu {
                     case 8: {
                         Server.manager.sendTB(p, "Điều Kiện để ước ngọc rồng",
                                 "người chơi cần phải đánh quái trong map này để kiếm ngọc rồng từ 1 tới 7 sao"
-                                        + "\n>điều ước<"
-                                        + "\n-ước đc nhiều lượng sẽ nhận đc 5m lượng"
-                                        + "\n-ước nhiều xu sẽ được 20m xu"
-                                        + "\n-ước đẹp trai nhất sever thì sẽ nhận được 1 mặt nạ vip"
-                                        + "\n-ước có người yêu bạn sẽ có 1 người yêu đi bên cạnh và chiến đấu cùng mình"
-                                        + "\n-ước quyền admin bạn sẽ được quyền khóa tk bất kỳ ai trong server"
-                                        + "\n-ước full đồ mua bạn sẽ nhận được full đồ đăng có trên wep shop"
-                                        + "\n-ước 2 tỷ coin thì bạn sẽ nhận được 2 tỷ coin có thể lên wep để xem số coin"
-                                        + "\n-ước đá ngũ sắc sẽ nhận được 1 viên đá ngũ sắc"
-                                        + "\n-điều ước càng xịn thì độ khó càng cao"
-                                        + "\n-CHÚC CÁC BẠN THÀNH CÔNG"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n"
-                                        + "\n- ADMIN MUÔN ĐỜI BỊP TIN ADMIN CHỈ CÓ BÁN NHÀ MÀ ĂN");
+                                + "\n>điều ước<"
+                                + "\n-ước đc nhiều lượng sẽ nhận đc 5m lượng"
+                                + "\n-ước nhiều xu sẽ được 20m xu"
+                                + "\n-ước đẹp trai nhất sever thì sẽ nhận được 1 mặt nạ vip"
+                                + "\n-ước có người yêu bạn sẽ có 1 người yêu đi bên cạnh và chiến đấu cùng mình"
+                                + "\n-ước quyền admin bạn sẽ được quyền khóa tk bất kỳ ai trong server"
+                                + "\n-ước full đồ mua bạn sẽ nhận được full đồ đăng có trên wep shop"
+                                + "\n-ước 2 tỷ coin thì bạn sẽ nhận được 2 tỷ coin có thể lên wep để xem số coin"
+                                + "\n-ước đá ngũ sắc sẽ nhận được 1 viên đá ngũ sắc"
+                                + "\n-điều ước càng xịn thì độ khó càng cao"
+                                + "\n-CHÚC CÁC BẠN THÀNH CÔNG"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n"
+                                + "\n- ADMIN MUÔN ĐỜI BỊP TIN ADMIN CHỈ CÓ BÁN NHÀ MÀ ĂN");
                         break;
                     }
                 }
@@ -9350,9 +9343,9 @@ public class Menu {
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[11].id);
                 Service.startYesNoDlg(p, (byte) 11,
                         "Bạn có muốn nâng cấp mặt nạ " + data.name + " cấp " + (p.c.ItemBody[11].upgrade + 1) + " với "
-                                + GameSrc.da[p.c.ItemBody[11].upgrade] + " chuyển tinh thạch và "
-                                + GameSrc.coinup[p.c.ItemBody[11].upgrade] + " lượng tỷ lệ thành công là "
-                                + GameSrc.tile[p.c.ItemBody[11].upgrade] + "% không?");
+                        + GameSrc.da[p.c.ItemBody[11].upgrade] + " chuyển tinh thạch và "
+                        + GameSrc.coinup[p.c.ItemBody[11].upgrade] + " lượng tỷ lệ thành công là "
+                        + GameSrc.tile[p.c.ItemBody[11].upgrade] + "% không?");
                 break;
             }
             case 1: { // bíkip
@@ -9372,9 +9365,9 @@ public class Menu {
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[15].id);
                 Service.startYesNoDlg(p, (byte) 15,
                         "Bạn có muốn nâng cấp  " + data.name + " cấp " + (p.c.ItemBody[15].upgrade + 1) + " với "
-                                + GameSrc.da[p.c.ItemBody[15].upgrade] + " chuyển tinh thạch và "
-                                + GameSrc.coinup[p.c.ItemBody[15].upgrade] + " lượng tỷ lệ thành công là "
-                                + GameSrc.tile[p.c.ItemBody[15].upgrade] + "% không?");
+                        + GameSrc.da[p.c.ItemBody[15].upgrade] + " chuyển tinh thạch và "
+                        + GameSrc.coinup[p.c.ItemBody[15].upgrade] + " lượng tỷ lệ thành công là "
+                        + GameSrc.tile[p.c.ItemBody[15].upgrade] + "% không?");
                 break;
             }
             case 2: { // yoroi
@@ -9394,9 +9387,9 @@ public class Menu {
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[12].id);
                 Service.startYesNoDlg(p, (byte) 12,
                         "Bạn có muốn nâng cấp  " + data.name + " cấp " + (p.c.ItemBody[12].upgrade + 1) + " với "
-                                + GameSrc.da[p.c.ItemBody[12].upgrade] + " chuyển tinh thạch và "
-                                + GameSrc.coinup[p.c.ItemBody[12].upgrade] + " lượng tỷ lệ thành công là "
-                                + GameSrc.tile[p.c.ItemBody[12].upgrade] + "% không?");
+                        + GameSrc.da[p.c.ItemBody[12].upgrade] + " chuyển tinh thạch và "
+                        + GameSrc.coinup[p.c.ItemBody[12].upgrade] + " lượng tỷ lệ thành công là "
+                        + GameSrc.tile[p.c.ItemBody[12].upgrade] + "% không?");
                 break;
             }
             case 3: { // nangpet
@@ -9416,9 +9409,9 @@ public class Menu {
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[10].id);
                 Service.startYesNoDlg(p, (byte) 10,
                         "Bạn có muốn nâng cấp pet " + data.name + " cấp " + (p.c.ItemBody[10].upgrade + 1) + " với "
-                                + GameSrc.da[p.c.ItemBody[10].upgrade] + " chuyển tinh thạch và "
-                                + GameSrc.coinup[p.c.ItemBody[10].upgrade] + " lượng tỷ lệ thành công là "
-                                + GameSrc.tile[p.c.ItemBody[10].upgrade] + "% không?");
+                        + GameSrc.da[p.c.ItemBody[10].upgrade] + " chuyển tinh thạch và "
+                        + GameSrc.coinup[p.c.ItemBody[10].upgrade] + " lượng tỷ lệ thành công là "
+                        + GameSrc.tile[p.c.ItemBody[10].upgrade] + "% không?");
                 break;
             }
             case 4: {// mắt
@@ -9446,9 +9439,9 @@ public class Menu {
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
                 Service.startYesNoDlg(p, (byte) 1,
                         "Bạn có muốn nâng cấp " + data.name + " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade]
-                                + " yên hoặc xu và " + GameSrc.goldUpMat[p.c.ItemBody[14].upgrade]
-                                + " lượng với tỷ lệ thành công là " + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2
-                                + "% không?");
+                        + " yên hoặc xu và " + GameSrc.goldUpMat[p.c.ItemBody[14].upgrade]
+                        + " lượng với tỷ lệ thành công là " + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2
+                        + "% không?");
                 break;
             }
             case 5: {// ntgt
@@ -9468,9 +9461,9 @@ public class Menu {
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[13].id);
                 Service.startYesNoDlg(p, (byte) 16,
                         "Bạn có muốn nâng cấp ntgt " + data.name + " cấp " + (p.c.ItemBody[13].upgrade + 1) + " với "
-                                + GameSrc.da[p.c.ItemBody[13].upgrade] + " chuyển tinh thạch và "
-                                + GameSrc.coinup[p.c.ItemBody[13].upgrade] + " lượng tỷ lệ thành công là "
-                                + GameSrc.tile[p.c.ItemBody[13].upgrade] + "% không?");
+                        + GameSrc.da[p.c.ItemBody[13].upgrade] + " chuyển tinh thạch và "
+                        + GameSrc.coinup[p.c.ItemBody[13].upgrade] + " lượng tỷ lệ thành công là "
+                        + GameSrc.tile[p.c.ItemBody[13].upgrade] + "% không?");
                 break;
             }
             case 6: { // hành trang
@@ -9771,7 +9764,7 @@ public class Menu {
                     }
                 }
             }
-                break;
+            break;
 
             case 1: {
                 switch (b3) {
@@ -9837,7 +9830,7 @@ public class Menu {
                     }
                 }
             }
-                break;
+            break;
             case 2: {
                 switch (b3) {
                     case 0: {
@@ -9967,7 +9960,7 @@ public class Menu {
                     }
                 }
             }
-                break;
+            break;
             case 4: {
                 Server.manager.sendTB(p, "Hướng dẫn", "- Trứng Có Thể kiếm được từ việc săn BOSS."
                         + "\n Trứng sẽ có tỷ lệ hỏng Cao."
@@ -10995,24 +10988,24 @@ public class Menu {
                     case 13: {
                         Server.manager.sendTB(p, "Điều Kiện tu luyện hồn cốt",
                                 "hồn sư phải tích đủ exp hồn lực bằng cách đánh chơi đoán mò với npc tình fox hoặc đánh boss"
-                                        + "\n>hồn cốt<"
-                                        + "\n-1 vạn năm cần 5 triệu exp hồn lực và 100k lượng và 300 hồn hoàn"
-                                        + "\n-2 vạn năm cần 10 triệu exp hồn lực và 120k lượng và 400 hồn hoàn"
-                                        + "\n-3 vạn năm cần 15 triệu exp hồn lực và 140k lượng và 500 hồn hoàn"
-                                        + "\n-4 vạn năm cần 15 triệu exp hồn lực và 160k lượng và 600 hồn hoàn"
-                                        + "\n-5 vạn năm cần 20 triệu exp hồn lực và 180k lượng và 700 hồn hoàn"
-                                        + "\n-6 vạn năm cần 20 triệu exp hồn lực và 200k lượng và 800 hồn hoàn"
-                                        + "\n-7 vạn năm cần 25 triệu exp hồn lực và 250k lượng và 900 hồn hoàn"
-                                        + "\n-8 vạn năm cần 25 triệu exp hồn lực và 300k lượng và 1000 hồn hoàn"
-                                        + "\n-9 vạn năm cần 30 triệu exp hồn lực và 350k lượng và 1100 hồn hoàn"
-                                        + "\n-10 vạn năm cần 35 triệu exp hồn lực và 500k lượng và 1500 hồn hoàn"
-                                        + "\n-100 vạn năm cần 35 triệu exp hồn lực và 1000k lượng và 2000 hồn hoàn"
-                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                        + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
-                                        + "\n-BẢNG cấp bậc "
-                                        + "\n-1 vạn năm :5k + 2 vạn năm :10k  + 3 vạn năm :15k  + 4 vạn năm :20k \n"
-                                        + "5 vạn năm :30k + 6 vạn năm :50k  + 7 vạn năm :70k  + 8 vạn năm :90k  + 9 vạn năm :110k + 10 vạn năm :130k + 100 vạn năm :150k ");
+                                + "\n>hồn cốt<"
+                                + "\n-1 vạn năm cần 5 triệu exp hồn lực và 100k lượng và 300 hồn hoàn"
+                                + "\n-2 vạn năm cần 10 triệu exp hồn lực và 120k lượng và 400 hồn hoàn"
+                                + "\n-3 vạn năm cần 15 triệu exp hồn lực và 140k lượng và 500 hồn hoàn"
+                                + "\n-4 vạn năm cần 15 triệu exp hồn lực và 160k lượng và 600 hồn hoàn"
+                                + "\n-5 vạn năm cần 20 triệu exp hồn lực và 180k lượng và 700 hồn hoàn"
+                                + "\n-6 vạn năm cần 20 triệu exp hồn lực và 200k lượng và 800 hồn hoàn"
+                                + "\n-7 vạn năm cần 25 triệu exp hồn lực và 250k lượng và 900 hồn hoàn"
+                                + "\n-8 vạn năm cần 25 triệu exp hồn lực và 300k lượng và 1000 hồn hoàn"
+                                + "\n-9 vạn năm cần 30 triệu exp hồn lực và 350k lượng và 1100 hồn hoàn"
+                                + "\n-10 vạn năm cần 35 triệu exp hồn lực và 500k lượng và 1500 hồn hoàn"
+                                + "\n-100 vạn năm cần 35 triệu exp hồn lực và 1000k lượng và 2000 hồn hoàn"
+                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
+                                + "\n-BẢNG cấp bậc "
+                                + "\n-1 vạn năm :5k + 2 vạn năm :10k  + 3 vạn năm :15k  + 4 vạn năm :20k \n"
+                                + "5 vạn năm :30k + 6 vạn năm :50k  + 7 vạn năm :70k  + 8 vạn năm :90k  + 9 vạn năm :110k + 10 vạn năm :130k + 100 vạn năm :150k ");
                         break;
                     }
                 }
@@ -11348,16 +11341,16 @@ public class Menu {
                     case 10: {
                         Server.manager.sendTB(p, "Điều Kiện ĐỔI ĐỒ",
                                 "người chơi cần đi đánh quái ở map huy chương hoặc map vip để lấy chuyển tinh thạch và mảnh dưa hấu "
-                                        + "\n>SỨ GIẢ<"
-                                        + "\n-đổi cánh thiên thần cần có 50 viên chuyển tinh thạch và 50 mảnh dưa hấu để đổi với tỉ lệ 30 %"
-                                        + "\n-đổi cánh địa ngục cần 50 viên chuyển tinh thạch và 50 mảnh dưa hấu tỉ lệ 30%"
-                                        + "\n-đổi đá ngũ sắc cần 150 mảnh dưa hấu tỉ lệ 90%"
-                                        + "\n-đổi đá ngũ sắc cần 1 tử tinh thạch cao tỉ lệ 90%"
-                                        + "\n-đổi vk thần cần 200 đá ngũ sắc tỉ lệ 100%"
-                                        + "\n-mảnh dưa hấu là 1 vật phẩm cực hiếm nên ae phải biết tận dụng"
-                                        + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
-                                        + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
-                                        + "\n-CHÚC CÁC BẠN THÀNH CÔNG");
+                                + "\n>SỨ GIẢ<"
+                                + "\n-đổi cánh thiên thần cần có 50 viên chuyển tinh thạch và 50 mảnh dưa hấu để đổi với tỉ lệ 30 %"
+                                + "\n-đổi cánh địa ngục cần 50 viên chuyển tinh thạch và 50 mảnh dưa hấu tỉ lệ 30%"
+                                + "\n-đổi đá ngũ sắc cần 150 mảnh dưa hấu tỉ lệ 90%"
+                                + "\n-đổi đá ngũ sắc cần 1 tử tinh thạch cao tỉ lệ 90%"
+                                + "\n-đổi vk thần cần 200 đá ngũ sắc tỉ lệ 100%"
+                                + "\n-mảnh dưa hấu là 1 vật phẩm cực hiếm nên ae phải biết tận dụng"
+                                + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
+                                + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
+                                + "\n-CHÚC CÁC BẠN THÀNH CÔNG");
                         break;
                     }
                 }
@@ -11831,16 +11824,16 @@ public class Menu {
                     case 15: {
                         Server.manager.sendTB(p, "Điều Kiện ĐỔI ĐỒ",
                                 "người chơi cần đi đánh quái lấy chuyển tinh thạch và đạn 7mm để đổi"
-                                        + "\n>TẠP HÓA<"
-                                        + "\n-đổi đồ cần có 50 viên chuyển tinh thạch và 10k đạn 7mm để đổi với tỉ lệ 30 %"
-                                        + "\n-đổi bánh trung thu phong lôi , băng hỏa cần 20 viên chuyển tinh thạch và 3k đạn tỉ lệ 30%"
-                                        + "\n-đổi huy chương câu cá cần  20 viên chuyển tinh thạch và 300 đạn 7 mm tỉ lệ 30%"
-                                        + "\n-đổi túi 100k xu  cần 200 huyết long ngư tỉ lệ 30%"
-                                        + "\n-đổi túi 100k lượng  cần 200 huyết long ngư tỉ lệ 30%"
-                                        + "\n-huyết long ngư có thể kiếm trong map huy chương câu cá, nếu may mắn có thể nhặt được mảnh dưa hấu dùng để đổi vk thiên thần , địa ngục"
-                                        + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
-                                        + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
-                                        + "\n-CHÚC CÁC BẠN THÀNH CÔNG");
+                                + "\n>TẠP HÓA<"
+                                + "\n-đổi đồ cần có 50 viên chuyển tinh thạch và 10k đạn 7mm để đổi với tỉ lệ 30 %"
+                                + "\n-đổi bánh trung thu phong lôi , băng hỏa cần 20 viên chuyển tinh thạch và 3k đạn tỉ lệ 30%"
+                                + "\n-đổi huy chương câu cá cần  20 viên chuyển tinh thạch và 300 đạn 7 mm tỉ lệ 30%"
+                                + "\n-đổi túi 100k xu  cần 200 huyết long ngư tỉ lệ 30%"
+                                + "\n-đổi túi 100k lượng  cần 200 huyết long ngư tỉ lệ 30%"
+                                + "\n-huyết long ngư có thể kiếm trong map huy chương câu cá, nếu may mắn có thể nhặt được mảnh dưa hấu dùng để đổi vk thiên thần , địa ngục"
+                                + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
+                                + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
+                                + "\n-CHÚC CÁC BẠN THÀNH CÔNG");
                         break;
                     }
                 }
@@ -13186,20 +13179,20 @@ public class Menu {
                     case 0: {
                         Server.manager.sendTB(p, "Điều Kiện tu luyện nhục thân",
                                 "bạn phải tích đủ exp nhục thân và viên đan dược  bằng cách làm sự kiện tại npc tiên nữ"
-                                        + "\n>Nhục Thân<"
-                                        + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
-                                        + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
-                                        + "\n-chúc ae thành công"
-                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên");
+                                + "\n>Nhục Thân<"
+                                + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
+                                + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
+                                + "\n-chúc ae thành công"
+                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                + "\n-thất bại sẽ mất lượng exp giữ nguyên");
                         break;
                     }
                 }
@@ -13221,17 +13214,17 @@ public class Menu {
                 break;
             case 3:
                 try {
-                    String a = "";
-                    int i2 = 1;
-                    for (SoiCau check : SoiCau.soicau) {
-                        a = a + i2 + ". " + check.time + " - " + check.ketqua + " - " + check.soramdom + ".\n";
-                        i2++;
-                    }
-                    Server.manager.sendTB(p, "Soi Cầu", a);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                String a = "";
+                int i2 = 1;
+                for (SoiCau check : SoiCau.soicau) {
+                    a = a + i2 + ". " + check.time + " - " + check.ketqua + " - " + check.soramdom + ".\n";
+                    i2++;
                 }
-                break;
+                Server.manager.sendTB(p, "Soi Cầu", a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            break;
             case 4:
                 Server.manager.sendTB(p, "Hướng dẫn", "Số lượng đặt cược phải là số chia hết cho 10.\n"
                         + "Khi đã đặt cược không được thoát game, nếu thoát game sẽ bị mất số tiền cược và admin sẽ không giải quyết.\n"
@@ -14576,20 +14569,20 @@ public class Menu {
                     case 0: {
                         Server.manager.sendTB(p, "Điều Kiện tu luyện nhục thân",
                                 "bạn phải tích đủ exp nhục thân và viên đan dược  bằng cách làm sự kiện tại npc tiên nữ"
-                                        + "\n>Nhục Thân<"
-                                        + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
-                                        + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
-                                        + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
-                                        + "\n-chúc ae thành công"
-                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên");
+                                + "\n>Nhục Thân<"
+                                + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
+                                + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
+                                + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
+                                + "\n-chúc ae thành công"
+                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                + "\n-thất bại sẽ mất lượng exp giữ nguyên");
                         break;
                     }
                 }

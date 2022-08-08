@@ -736,10 +736,10 @@ public class UseItem {
                             return;
                         }
                         p.c.get().useTiemNang--;
-                        p.c.get().ppoint += 10000;
+                        p.c.get().ppoint += 10;
                         p.loadPpoint();
                         p.c.removeItemBag(index, 1);
-                        p.sendAddchatYellow("Bạn nhận được 10000 điểm tiềm năng.");
+                        p.sendAddchatYellow("Bạn nhận được 10 điểm tiềm năng.");
                         break;
                     }
                     case 254:
@@ -2367,6 +2367,24 @@ case 995: {//lượng
                         break;
                     }
                     // Sử dụng cần câu
+
+                    // sử dụng hoa tuyết
+                    case 775: {
+                        if (p.c.ItemCaiTrang[0] != null) {
+                            p.sendAddchatYellow("Mày đã có cải trang này rồi");
+                            return;
+                        }
+
+                        p.c.removeItemBag(p.c.getIndexBagid(775, false), 1000);
+                        Item it = ItemTemplate.itemDefault(774);
+                        it.isLock = true;
+                        it.isExpires = false;
+                        it.expires = -1L;
+                        it.upgrade = 1;
+                        p.c.ItemCaiTrang[0] = it;
+                        p.sendAddchatYellow("Mày đã nhận được cải trang mới");
+                        break;
+                    }
                     
                     default: {
                         break;

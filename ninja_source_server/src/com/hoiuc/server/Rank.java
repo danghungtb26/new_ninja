@@ -33,7 +33,12 @@ public class Rank {
                 Entry2 bXHCaoThu;
                 if(red != null) {
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         level = red.getInt("level");
                         nClass = red.getString("class");
                         time = red.getString("time");
@@ -74,7 +79,12 @@ public class Rank {
                     String name;
                     int point;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         point = Integer.parseInt(red.getString("pointBossChuot"));
                         bXHBChuot = new Entry4();
                         bXHBChuot.name = name;
@@ -111,7 +121,12 @@ public class Rank {
                     String name;
                     int point;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         point = Integer.parseInt(red.getString("pointBossTL"));
                         bXHBTL = new Entry3();
                         bXHBTL.name = name;
@@ -163,7 +178,12 @@ public class Rank {
                     Entry bXHE;
                     if(red != null) {
                         while (red.next()) {
-                            name = red.getString("name");
+                            try {
+                                name = red.getString("name");
+                            }
+                            catch (SQLException e) {
+                                name = red.getInt("name") + "";
+                            }
                             coin = red.getInt("yen");
                             level = red.getInt("level");
                             bXHE = new Entry();
@@ -201,12 +221,12 @@ public class Rank {
                     int nClass;
                     Entry bXHE2;
                     while (red.next()) {
-//                        try {
-                            name = red.getString("name");
-//                        }
-//                        catch (SQLException e) {
-//                            name = red.getInt("name") + "";
-//                        }
+                        try {
+                                name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         exp = red.getLong("exp");
                         level2 = red.getInt("level");
                         nClass = red.getInt("class");
@@ -243,7 +263,12 @@ public class Rank {
                     int level3;
                     Entry bXHE3;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         level3 = red.getInt("level");
                         bXHE3 = new Entry();
                         bXHE3.nXH = new long[1];
@@ -277,7 +302,12 @@ public class Rank {
                     short id;
                     Entry bXHE;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         cave = red.getInt("bagCaveMax");
                         id = red.getShort("itemIDCaveMax");
                         bXHE = new Entry();
@@ -309,7 +339,13 @@ public class Rank {
                     int i = 1;
                     red = SQLManager.stat.executeQuery("SELECT `name`,`luongTN` FROM `ninja` WHERE (`luongTN` > 0) ORDER BY `luongTN` DESC LIMIT 10;");
                     while (red.next()) {
-                        String name = red.getString("name");
+                        String name;
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         int sk = red.getInt("luongTN");
                         Entry bXHE = new Entry();
                         bXHE.nXH = new long[2];
@@ -343,7 +379,12 @@ public class Rank {
                     short id;
                     Entry bXHD;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         dame = red.getLong("dame");
                         bXHD = new Entry();
                         bXHD.nXH = new long[2];
@@ -376,7 +417,12 @@ public class Rank {
                     long tn;
                     Entry bXHT;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         tn = red.getLong("tiemnang");
                         bXHT = new Entry();
                         bXHT.nXH = new long[2];
@@ -410,7 +456,12 @@ public class Rank {
                     short id;
                     Entry bXHD;
                     while (red.next()) {
-                        name = red.getString("name");
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         chuyenSinh = red.getLong("chuyenSinh");
                         bXHD = new Entry();
                         bXHD.nXH = new long[2];
@@ -444,7 +495,12 @@ public class Rank {
                     short id;
                     Entry bXHD;
                     while (red.next()) {
-                        username = red.getString("username");
+                        try {
+                            username = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            username = red.getInt("name") + "";
+                        }
                         tiennap = red.getLong("tiennap");
                         bXHD = new Entry();
                         bXHD.nXH = new long[2];
@@ -474,7 +530,13 @@ public class Rank {
                     int i = 1;
                     red = SQLManager.stat.executeQuery("SELECT `name`,`diemcauca` FROM `ninja` WHERE (`diemcauca` > 0) ORDER BY `diemcauca` DESC LIMIT 10;");
                     while (red.next()) {
-                        String name = red.getString("name");
+                        String name;
+                        try {
+                            name = red.getString("name");
+                        }
+                        catch (SQLException e) {
+                            name = red.getInt("name") + "";
+                        }
                         int diemcauca = red.getInt("diemcauca");
                         Entry bXHE = new Entry();
                         bXHE.nXH = new long[2];
