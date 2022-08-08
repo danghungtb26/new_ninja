@@ -533,6 +533,9 @@ public class GameSrc {
                 int j;
                 for (j = 0; j < num; ++j) {
                     item = new Item();
+                    if (sell.id >= 652 && sell.id <= 655) {
+                        item = ItemTemplate.itemNgocDefault(sell.id, 1, true);
+                    }
                     item.id = sell.id;
                     if(sell.id == 539) {
                         p.c.countBuyX3--;

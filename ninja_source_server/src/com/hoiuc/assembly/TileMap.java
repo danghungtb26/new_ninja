@@ -1335,9 +1335,9 @@ public class TileMap {
                             }
                         }
 
-                        if (fightChar.name.equals("loveyou")) {
-                            dame -= (dame * 30) / 100;
-                        }
+                        // if (fightChar.name.equals("loveyou")) {
+                        dame -= (dame * 30) / 100;
+                        // }
 
                         if (p.c.percentWind2() >= Util.nextInt(1, 100)) {
                             if (fightChar.c.getEffId(20) != null) {
@@ -3768,7 +3768,7 @@ public class TileMap {
                                 p.sendAddchatYellow("Vật phẩm của người khác.");
                                 return;
                             }
-                            if (Math.abs(itemmap.x - p.c.get().x) > 50 || Math.abs(itemmap.y - p.c.get().y) > 30) {
+                            if (Math.abs(itemmap.x - p.c.get().x) > 150 || Math.abs(itemmap.y - p.c.get().y) > 120) {
                                 p.sendAddchatYellow("Khoảng cách quá xa.");
                                 return;
                             }

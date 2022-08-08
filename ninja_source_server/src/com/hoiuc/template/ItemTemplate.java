@@ -37,7 +37,7 @@ public class ItemTemplate {
     public static final Option VU_KHI_OPTION = new Option(106, 0);
     public static final Option TRANG_BI_OPTION = new Option(107, 0);
     public static final Option TRANG_SUC_OPTION = new Option(108, 0);
-    public static final int VU_KHI_OPTION_ID= 106;
+    public static final int VU_KHI_OPTION_ID = 106;
     public static final int TRANG_BI_OPTION_ID = 107;
     public static final int TRANG_SUC_OPTION_ID = 108;
     public static final int EXP_ID = 104;
@@ -79,50 +79,54 @@ public class ItemTemplate {
     public static final int HP_TOI_DA_ID = 125;
     public static final int PHAN_DON_ID = 126;
 
-    public static final int[] checkPartHead = new int[]{226, 223, 258, 264, 267, 275};
+    public static final int[] checkPartHead = new int[] { 226, 223, 258, 264, 267, 275 };
 
-    public static final int[] check_id = new int[]{73, 102, 103, 105, 114, 115, 116, 117, 118, 119, 120, 121, 124, 125, 126};
+    public static final int[] check_id = new int[] { 73, 102, 103, 105, 114, 115, 116, 117, 118, 119, 120, 121, 124,
+            125, 126 };
 
-    public static short[] idNewItems = new short[]{798, 801, 802, 803, 795, 796, 804, 805, 799, 800, 813, 814, 815, 816, 817 , 828, 830, 831, 833, 834};
+    public static short[] idNewItems = new short[] { 798, 801, 802, 803, 795, 796, 804, 805, 799, 800, 813, 814, 815,
+            816, 817, 828, 830, 831, 833, 834 };
 
-    public static short[][] idNewItemMounts = new short[][]{
-            new short[]{798, 801, 802, 803, 828, 831},
-            new short[]{36, 47, 48, 49, 63, 72},
+    public static short[][] idNewItemMounts = new short[][] {
+            new short[] { 798, 801, 802, 803, 828, 831 },
+            new short[] { 36, 47, 48, 49, 63, 72 },
     };
-    public static short[][] idNewItemCaiTrang = new short[][]{
-            new short[]{795, 796, 804, 805, 830},
-            new short[]{37, 40, 55, 58, 66},
-            new short[]{38, 41, 56, 59, 67},
-            new short[]{39, 42, 57, 60, 68}
+    public static short[][] idNewItemCaiTrang = new short[][] {
+            new short[] { 795, 796, 804, 805, 830 },
+            new short[] { 37, 40, 55, 58, 66 },
+            new short[] { 38, 41, 56, 59, 67 },
+            new short[] { 39, 42, 57, 60, 68 }
     };
-    public static short[][] idNewItemWP = new short[][]{
-            new short[]{799, 800, 833, 834},
-            new short[]{44, 46, 44, 46},
+    public static short[][] idNewItemWP = new short[][] {
+            new short[] { 799, 800, 833, 834 },
+            new short[] { 44, 46, 44, 46 },
     };
-    public static short[][] idNewItemMatNa = new short[][]{
-            new short[]{813, 814, 815, 816, 817},
-            new short[]{50, 51, 52, 53, 54},
+    public static short[][] idNewItemMatNa = new short[][] {
+            new short[] { 813, 814, 815, 816, 817 },
+            new short[] { 50, 51, 52, 53, 54 },
     };
-    public static short[][] idNewItemYoroi= new short[][]{
-            new short[]{797},
-            new short[]{43},
+    public static short[][] idNewItemYoroi = new short[][] {
+            new short[] { 797 },
+            new short[] { 43 },
     };
-    public static short[][] idNewItemBienHinh= new short[][]{
-            new short[]{825, 826, 834},
-            new short[]{61, 62, 73},
+    public static short[][] idNewItemBienHinh = new short[][] {
+            new short[] { 825, 826, 834 },
+            new short[] { 61, 62, 73 },
     };
 
     private static HashMap<Integer, ItemOptionTemplate> options = new HashMap<Integer, ItemOptionTemplate>();
+
     public static void put(int id, ItemOptionTemplate option) {
         ItemTemplate.options.put(id, option);
     }
+
     public static Collection<ItemOptionTemplate> getOptions() {
         return ItemTemplate.options.values();
     }
 
     public static boolean isPartHead(int id) {
-        for(int entry : ItemTemplate.checkPartHead) {
-            if(entry == id) {
+        for (int entry : ItemTemplate.checkPartHead) {
+            if (entry == id) {
                 return true;
             }
         }
@@ -152,7 +156,9 @@ public class ItemTemplate {
     }
 
     public static boolean isTypeUIShop(int typeUI) {
-        return typeUI == 20 || typeUI == 21 || typeUI == 22 || typeUI == 23 || typeUI == 24 || typeUI == 25 || typeUI == 26 || typeUI == 27 || typeUI == 28 || typeUI == 29 || typeUI == 16 || typeUI == 17 || typeUI == 18 || typeUI == 19 || typeUI == 2 || typeUI == 6 || typeUI == 8 || typeUI == 34;
+        return typeUI == 20 || typeUI == 21 || typeUI == 22 || typeUI == 23 || typeUI == 24 || typeUI == 25
+                || typeUI == 26 || typeUI == 27 || typeUI == 28 || typeUI == 29 || typeUI == 16 || typeUI == 17
+                || typeUI == 18 || typeUI == 19 || typeUI == 2 || typeUI == 6 || typeUI == 8 || typeUI == 34;
     }
 
     public static boolean isTypeUIShopLock(int typeUI) {
@@ -196,7 +202,7 @@ public class ItemTemplate {
     public static boolean checkIdNewItems(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItems.length; i++) {
-            if(id == ItemTemplate.idNewItems[i]){
+            if (id == ItemTemplate.idNewItems[i]) {
                 return true;
             }
         }
@@ -206,7 +212,7 @@ public class ItemTemplate {
     public static boolean isIdNewMounts(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemMounts[0].length; i++) {
-            if(id == ItemTemplate.idNewItemMounts[0][i]){
+            if (id == ItemTemplate.idNewItemMounts[0][i]) {
                 return true;
             }
         }
@@ -216,7 +222,7 @@ public class ItemTemplate {
     public static int checkIdNewMounts(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemMounts[0].length; i++) {
-            if(id == ItemTemplate.idNewItemMounts[0][i]){
+            if (id == ItemTemplate.idNewItemMounts[0][i]) {
                 return i;
             }
         }
@@ -226,7 +232,7 @@ public class ItemTemplate {
     public static boolean isIdNewCaiTrang(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemCaiTrang[0].length; i++) {
-            if(id == ItemTemplate.idNewItemCaiTrang[0][i]){
+            if (id == ItemTemplate.idNewItemCaiTrang[0][i]) {
                 return true;
             }
         }
@@ -236,7 +242,7 @@ public class ItemTemplate {
     public static int checkIdNewCaiTrang(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemCaiTrang[0].length; i++) {
-            if(id == ItemTemplate.idNewItemCaiTrang[0][i]){
+            if (id == ItemTemplate.idNewItemCaiTrang[0][i]) {
                 return i;
             }
         }
@@ -246,7 +252,7 @@ public class ItemTemplate {
     public static int checkIdNewMatNa(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemMatNa[0].length; i++) {
-            if(id == ItemTemplate.idNewItemMatNa[0][i]){
+            if (id == ItemTemplate.idNewItemMatNa[0][i]) {
                 return i;
             }
         }
@@ -256,7 +262,7 @@ public class ItemTemplate {
     public static int checkIdNewWP(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemWP[0].length; i++) {
-            if(id == ItemTemplate.idNewItemWP[0][i]){
+            if (id == ItemTemplate.idNewItemWP[0][i]) {
                 return i;
             }
         }
@@ -266,17 +272,17 @@ public class ItemTemplate {
     public static int checkIdNewYoroi(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemYoroi[0].length; i++) {
-            if(id == ItemTemplate.idNewItemYoroi[0][i]){
+            if (id == ItemTemplate.idNewItemYoroi[0][i]) {
                 return i;
             }
         }
         return -1;
     }
-    
+
     public static int checkIdNewBienHinh(int id) {
         int i;
         for (i = 0; i < ItemTemplate.idNewItemBienHinh[0].length; i++) {
-            if(id == ItemTemplate.idNewItemBienHinh[0][i]){
+            if (id == ItemTemplate.idNewItemBienHinh[0][i]) {
                 return i;
             }
         }
@@ -285,90 +291,251 @@ public class ItemTemplate {
 
     public static int checkIdJiraiNam(int id) {
         switch (id) {
-            case 0: return 746;
-            case 1: return 747;
-            case 2: return 712;
-            case 3: return 713;
-            case 4: return 748;
-            case 5: return 752;
-            case 6: return 751;
-            case 7: return 750;
-            case 8: return 749;
+            case 0:
+                return 746;
+            case 1:
+                return 747;
+            case 2:
+                return 712;
+            case 3:
+                return 713;
+            case 4:
+                return 748;
+            case 5:
+                return 752;
+            case 6:
+                return 751;
+            case 7:
+                return 750;
+            case 8:
+                return 749;
         }
         return -1;
     }
 
     public static int checkIdJiraiNu(int id) {
         switch (id) {
-            case 0: return 753;
-            case 1: return 754;
-            case 2: return 715;
-            case 3: return 716;
-            case 4: return 755;
-            case 5: return 759;
-            case 6: return 758;
-            case 7: return 757;
-            case 8: return 756;
+            case 0:
+                return 753;
+            case 1:
+                return 754;
+            case 2:
+                return 715;
+            case 3:
+                return 716;
+            case 4:
+                return 755;
+            case 5:
+                return 759;
+            case 6:
+                return 758;
+            case 7:
+                return 757;
+            case 8:
+                return 756;
         }
         return -1;
     }
 
     public static int ThinhLuyenParam(int id, int tl) {
         switch (id) {
-            //Tăng tấn công cho chủ: +#
+            // Tăng tấn công cho chủ: +#
             case 76: {
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 50) : 60) : 70) : 80) : 110) : 170) : 230) : 320) : 510; //550, 610, 680, 770, 900, 1080
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 50) : 60)
+                                                                        : 70)
+                                                                : 80)
+                                                        : 110)
+                                                : 170)
+                                        : 230)
+                                : 320)
+                        : 510; // 550, 610, 680, 770, 900, 1080
             }
 
-            //Tăng max HP cho chủ: +#
+            // Tăng max HP cho chủ: +#
             case 77: {
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 40) : 60) : 80) : 100) : 140) : 220) : 300) : 420) : 590; //540, 600, 680, 780, 920, 1140, 1440, 1860, 2450
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 40) : 60)
+                                                                        : 80)
+                                                                : 100)
+                                                        : 140)
+                                                : 220)
+                                        : 300)
+                                : 420)
+                        : 590; // 540, 600, 680, 780, 920, 1140, 1440, 1860, 2450
             }
 
-            case 75: //Tăng chính xác cho chủ: +#
-            case 78: { //Tăng né tránh cho chủ: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 25) : 30) : 35) : 40) : 50) : 60) : 80) : 110) : 160; //75, 105, 140, 180
+            case 75: // Tăng chính xác cho chủ: +#
+            case 78: { // Tăng né tránh cho chủ: +#
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 25) : 30)
+                                                                        : 35)
+                                                                : 40)
+                                                        : 50)
+                                                : 60)
+                                        : 80)
+                                : 110)
+                        : 160; // 75, 105, 140, 180
             }
 
             case 79: { // Kháng sát thương chí mạng: #%
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 1) : 1) : 2) :2) : 2) : 2) : 3) : 3) : 4; // done
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 1) : 1)
+                                                                        : 2)
+                                                                : 2)
+                                                        : 2)
+                                                : 2)
+                                        : 3)
+                                : 3)
+                        : 4; // done
             }
 
             case 80: { // Giảm trừ sát thương: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 7) : 9) : 11) : 13) : 15) : 20) : 25) : 30; // done
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 7)
+                                                                        : 9)
+                                                                : 11)
+                                                        : 13)
+                                                : 15)
+                                        : 20)
+                                : 25)
+                        : 30; // done
             }
 
-            case 84:  // Né đòn: +#
-            case 86: { //Chính xác: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 25) : 30) : 35) : 40) : 50) : 60) : 80) : 115) : 165; // done
+            case 84: // Né đòn: +#
+            case 86: { // Chính xác: +#
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 25) : 30)
+                                                                        : 35)
+                                                                : 40)
+                                                        : 50)
+                                                : 60)
+                                        : 80)
+                                : 115)
+                        : 165; // done
             }
 
-            case 85: { //Độ tinh luyện: #
+            case 85: { // Độ tinh luyện: #
                 return 1;
             }
-            case 82: //Hp tối đa: #
-            case 83: {//Mp tối đa: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 40) : 60) : 80) : 100) : 130) : 190) : 260) : 370) : 570; // done
+            case 82: // Hp tối đa: #
+            case 83: {// Mp tối đa: +#
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 40) : 60)
+                                                                        : 80)
+                                                                : 100)
+                                                        : 130)
+                                                : 190)
+                                        : 260)
+                                : 370)
+                        : 570; // done
             }
-            case 87: //Tấn công: +#
-            case 88: //Hoả công: +#
-            case 89: //Băng công: +#
-            case 90: { //Phong lôi: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 50) : 60) : 85) : 115) : 125) : 300) : 350) : 405) : 510; //done
+            case 87: // Tấn công: +#
+            case 88: // Hoả công: +#
+            case 89: // Băng công: +#
+            case 90: { // Phong lôi: +#
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 50) : 60)
+                                                                        : 85)
+                                                                : 115)
+                                                        : 125)
+                                                : 300)
+                                        : 350)
+                                : 405)
+                        : 510; // done
             }
-            case 94: { //Tấn công: +#%
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 10) : 15) : 20) : 25) : 30) : 35) : 45) : 65; // done 374
+            case 94: { // Tấn công: +#%
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 10)
+                                                                        : 15)
+                                                                : 20)
+                                                        : 25)
+                                                : 30)
+                                        : 35)
+                                : 45)
+                        : 65; // done 374
             }
-            case 91: //Phản đòn: #
-            case 81: {//Kháng tất cả: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 5) : 5) : 5) : 10) : 10) : 10) : 15) : 20; // done
+            case 91: // Phản đòn: #
+            case 81: {// Kháng tất cả: +#
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 5)
+                                                                        : 5)
+                                                                : 5)
+                                                        : 10)
+                                                : 10)
+                                        : 10)
+                                : 15)
+                        : 20; // done
             }
 
-            case 92: //Chí mạng: +#
-            case 95: //Kháng băng: +#
-            case 96: //Kháng hoả: +#
-            case 97: { //Kháng phong: +#
-                return (tl != 8) ? ((tl != 7) ? ((tl != 6) ? ((tl != 5) ? ((tl != 4) ? ((tl != 3) ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 5) : 5) : 5) : 5) : 10) : 10) : 10) : 15; // done
+            case 92: // Chí mạng: +#
+            case 95: // Kháng băng: +#
+            case 96: // Kháng hoả: +#
+            case 97: { // Kháng phong: +#
+                return (tl != 8)
+                        ? ((tl != 7)
+                                ? ((tl != 6)
+                                        ? ((tl != 5)
+                                                ? ((tl != 4)
+                                                        ? ((tl != 3)
+                                                                ? ((tl != 2) ? ((tl != 1) ? ((tl != 0) ? 0 : 5) : 5)
+                                                                        : 5)
+                                                                : 5)
+                                                        : 5)
+                                                : 10)
+                                        : 10)
+                                : 10)
+                        : 15; // done
             }
             default: {
                 return 0;
@@ -376,8 +543,8 @@ public class ItemTemplate {
         }
     }
 
-  // thay cả  nếu không muốn thay thì chỉ thay cả thì chỉ thêm cái lstachdo ở dưới
- public static void divedeItem(Player p, Message m) {
+    // thay cả nếu không muốn thay thì chỉ thay cả thì chỉ thêm cái lstachdo ở dưới
+    public static void divedeItem(Player p, Message m) {
         try {
             byte index = m.reader().readByte();
             int quantity = m.reader().readInt();
@@ -385,14 +552,13 @@ public class ItemTemplate {
                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                 return;
             }
-           
-    
+
             Item item = p.c.getIndexBag(index);
             if (quantity > 0 && item != null && item.quantity > 1 && quantity <= item.quantity)
-             if (item.quantity > 20000) {
-                p.conn.sendMessageLog("item quá 20k SL ko thể tách");
-                return;
-            }
+                // if (item.quantity > 20000) {
+                //     p.conn.sendMessageLog("item quá 20k SL ko thể tách");
+                //     return;
+                // }
             {
                 Item itemup = new Item();
                 itemup.id = item.id;
@@ -403,86 +569,94 @@ public class ItemTemplate {
                 itemup.expires = item.expires;
                 p.c.addItemBag(false, itemup);
                 p.c.removeItemBag(index, quantity);
-                p.lstachdo(p.c.name, p.c.getIndexBag(index).id ,p.c.getIndexBag(index).quantity,quantity); // nếu không thay cả thì chỉ thêm cái này thôi
+                p.lstachdo(p.c.name, p.c.getIndexBag(index).id, p.c.getIndexBag(index).quantity, quantity); // nếu không
+                                                                                                            // thay cả
+                                                                                                            // thì chỉ
+                                                                                                            // thêm cái
+                                                                                                            // này thôi
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
     }
 
     public static boolean isUpgradeHide(int id, byte upgrade) {
-        return ((id == 27 || id == 30 || id == 60) && upgrade < 4) || ((id == 28 || id == 31 || id == 37 || id == 61) && upgrade < 8) || ((id == 29 || id == 32 || id == 38 || id == 62) && upgrade < 12) || ((id == 33 || id == 34 || id == 35 || id == 36 || id == 39) && upgrade < 14) || (((id >= 40 && id <= 46) || (id >= 48 && id <= 56)) && upgrade < 16);
+        return ((id == 27 || id == 30 || id == 60) && upgrade < 4)
+                || ((id == 28 || id == 31 || id == 37 || id == 61) && upgrade < 8)
+                || ((id == 29 || id == 32 || id == 38 || id == 62) && upgrade < 12)
+                || ((id == 33 || id == 34 || id == 35 || id == 36 || id == 39) && upgrade < 14)
+                || (((id >= 40 && id <= 46) || (id >= 48 && id <= 56)) && upgrade < 16);
     }
 
     public static Item itemDefault(int id) {
-        //return itemDefault(id, (byte)0);
+        // return itemDefault(id, (byte)0);
         if (id >= 652 && id <= 655) {
             return itemNgocDefault(id, 1, true);
         } else {
             try {
-                return itemDefault(id, (byte)0);
+                return itemDefault(id, (byte) 0);
             } catch (Exception var2) {
                 return new ItemDefault();
             }
-//            Item item;
-//            if (id >= ClanThanThu.HAI_MA_1_ID && id <= ClanThanThu.DI_LONG_3_ID) {
-//                item = itemDefault(id, (byte)0);
-//                if (id != ClanThanThu.HAI_MA_1_ID && id != ClanThanThu.DI_LONG_1_ID) {
-//                    if (id != ClanThanThu.HAI_MA_2_ID && id != ClanThanThu.DI_LONG_2_ID) {
-//                        if (id == ClanThanThu.HAI_MA_3_ID || id == ClanThanThu.DI_LONG_3_ID) {
-//                            item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 8000));
-//                            item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 30000));
-//                        }
-//                    } else {
-//                        item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 3000));
-//                        item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 15000));
-//                    }
-//                } else {
-//                    item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 1000));
-//                    item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 5000));
-//                }
-//
-//                return item;
-//            }
-//            else if (id == ClanThanThu.HOA_LONG_ID) {
-//                item = itemDefault(id, (byte)0);
-//                item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 15000));
-//                item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 35000));
-//                return item;
-//            }
-//            else if (id == 597) {
-//                item = itemDefault(id, (byte)0);
-//                item.isExpires = true;
-//                item.setLock(true);
-//                item.expires = Util.TimeDay(3);
-//                return item;
-//            }
-//            else if (id == 572) {
-//                item = itemDefault(id, (byte)0);
-//                item.isExpires = true;
-//                item.setLock(true);
-//                item.expires = Util.TimeHours(5);
-//                return item;
-//            }
-//            else {
-//
-//            }
+            // Item item;
+            // if (id >= ClanThanThu.HAI_MA_1_ID && id <= ClanThanThu.DI_LONG_3_ID) {
+            // item = itemDefault(id, (byte)0);
+            // if (id != ClanThanThu.HAI_MA_1_ID && id != ClanThanThu.DI_LONG_1_ID) {
+            // if (id != ClanThanThu.HAI_MA_2_ID && id != ClanThanThu.DI_LONG_2_ID) {
+            // if (id == ClanThanThu.HAI_MA_3_ID || id == ClanThanThu.DI_LONG_3_ID) {
+            // item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 8000));
+            // item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 30000));
+            // }
+            // } else {
+            // item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 3000));
+            // item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 15000));
+            // }
+            // } else {
+            // item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 1000));
+            // item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 5000));
+            // }
+            //
+            // return item;
+            // }
+            // else if (id == ClanThanThu.HOA_LONG_ID) {
+            // item = itemDefault(id, (byte)0);
+            // item.options.add(new Option(ClanThanThu.ST_NGUOI_ID, 15000));
+            // item.options.add(new Option(ClanThanThu.ST_QUAI_ID, 35000));
+            // return item;
+            // }
+            // else if (id == 597) {
+            // item = itemDefault(id, (byte)0);
+            // item.isExpires = true;
+            // item.setLock(true);
+            // item.expires = Util.TimeDay(3);
+            // return item;
+            // }
+            // else if (id == 572) {
+            // item = itemDefault(id, (byte)0);
+            // item.isExpires = true;
+            // item.setLock(true);
+            // item.expires = Util.TimeHours(5);
+            // return item;
+            // }
+            // else {
+            //
+            // }
         }
     }
 
     public static Item itemDefault(int id, boolean isLock) {
-        Item item = itemDefault(id, (byte)0);
+        Item item = itemDefault(id, (byte) 0);
         item.isLock = isLock;
         return item;
     }
 
     public static Item itemDefault(int id, byte sys) {
         Item item = new Item();
-        item.id = (short)id;
+        item.id = (short) id;
         item.sys = sys;
         ItemTemplate data = ItemTemplateId(id);
         if (data.isExpires) {
@@ -500,24 +674,21 @@ public class ItemTemplate {
                 op = new Option(idOp, par);
                 item.options.add(op);
             }
-        }
-        else if (sys == 1) {
+        } else if (sys == 1) {
             for (Option option : data.option1) {
                 idOp = option.id;
                 par = option.param;
                 op = new Option(idOp, par);
                 item.options.add(op);
             }
-        }
-        else if (sys == 2) {
+        } else if (sys == 2) {
             for (Option option : data.option2) {
                 idOp = option.id;
                 par = option.param;
                 op = new Option(idOp, par);
                 item.options.add(op);
             }
-        }
-        else if (sys == 3) {
+        } else if (sys == 3) {
             for (Option option : data.option3) {
                 idOp = option.id;
                 par = option.param;
@@ -531,33 +702,34 @@ public class ItemTemplate {
     public static Item parseItem(String str) {
         Item item = new Item();
         JSONObject job = (JSONObject) JSONValue.parse(str);
-        item.id = Short.parseShort(job.get((Object)"id").toString());
-        item.isLock = Boolean.parseBoolean(job.get((Object)"isLock").toString());
-        item.upgrade = Byte.parseByte(job.get((Object)"upgrade").toString());
-        item.isExpires = Boolean.parseBoolean(job.get((Object)"isExpires").toString());
-        item.quantity = Integer.parseInt(job.get((Object)"quantity").toString());
+        item.id = Short.parseShort(job.get((Object) "id").toString());
+        item.isLock = Boolean.parseBoolean(job.get((Object) "isLock").toString());
+        item.upgrade = Byte.parseByte(job.get((Object) "upgrade").toString());
+        item.isExpires = Boolean.parseBoolean(job.get((Object) "isExpires").toString());
+        item.quantity = Integer.parseInt(job.get((Object) "quantity").toString());
         if (item.isExpires) {
-            item.expires = Long.parseLong(job.get((Object)"expires").toString());
+            item.expires = Long.parseLong(job.get((Object) "expires").toString());
         }
         if (item.id == 523 && !item.isExpires) {
             item.isExpires = true;
             item.expires = Util.TimeDay(1);
         }
-        item.sys = Byte.parseByte(job.get((Object)"sys").toString());
-        item.saleCoinLock = Integer.parseInt(job.get((Object)"sale").toString());
-        JSONArray Option = (JSONArray)JSONValue.parse(job.get((Object)"option").toString());
+        item.sys = Byte.parseByte(job.get((Object) "sys").toString());
+        item.saleCoinLock = Integer.parseInt(job.get((Object) "sale").toString());
+        JSONArray Option = (JSONArray) JSONValue.parse(job.get((Object) "option").toString());
         for (Object Option2 : Option) {
-            JSONObject job2 = (JSONObject)Option2;
-            Option option = new Option(Integer.parseInt(job2.get((Object)"id").toString()), Integer.parseInt(job2.get((Object)"param").toString()));
+            JSONObject job2 = (JSONObject) Option2;
+            Option option = new Option(Integer.parseInt(job2.get((Object) "id").toString()),
+                    Integer.parseInt(job2.get((Object) "param").toString()));
             item.options.add(option);
         }
 
-        if(job.get((Object)"ngocs") != null) {
-            JSONArray jar = (JSONArray)JSONValue.parse(job.get((Object)"ngocs").toString());
+        if (job.get((Object) "ngocs") != null) {
+            JSONArray jar = (JSONArray) JSONValue.parse(job.get((Object) "ngocs").toString());
             for (byte ii = 0; ii < jar.size(); ii++) {
                 Item itemNgoc = new Item();
                 JSONObject jobNgoc = (JSONObject) JSONValue.parse(jar.get(ii).toString());
-                itemNgoc.id = Short.parseShort(jobNgoc.get((Object)"id").toString());
+                itemNgoc.id = Short.parseShort(jobNgoc.get((Object) "id").toString());
                 itemNgoc.isLock = Boolean.parseBoolean(jobNgoc.get((Object) "isLock").toString());
                 itemNgoc.upgrade = Byte.parseByte(jobNgoc.get((Object) "upgrade").toString());
                 itemNgoc.isExpires = Boolean.parseBoolean(jobNgoc.get((Object) "isExpires").toString());
@@ -574,7 +746,8 @@ public class ItemTemplate {
                 JSONArray OptionNgoc = (JSONArray) JSONValue.parse(jobNgoc.get((Object) "option").toString());
                 for (Object Option2 : OptionNgoc) {
                     JSONObject job2 = (JSONObject) Option2;
-                    Option option = new Option(Integer.parseInt(job2.get((Object) "id").toString()), Integer.parseInt(job2.get((Object) "param").toString()));
+                    Option option = new Option(Integer.parseInt(job2.get((Object) "id").toString()),
+                            Integer.parseInt(job2.get((Object) "param").toString()));
                     itemNgoc.options.add(option);
                 }
                 item.ngocs.add(itemNgoc);
@@ -585,133 +758,133 @@ public class ItemTemplate {
 
     public static JSONObject ObjectItem(Item item, int index) {
         JSONObject put = new JSONObject();
-        put.put((Object)"index", (Object)index);
-        put.put((Object)"id", (Object)item.id);
-        put.put((Object)"isLock", (Object)item.isLock);
-        put.put((Object)"upgrade", (Object)item.upgrade);
-        put.put((Object)"isExpires", (Object)item.isExpires);
-        put.put((Object)"quantity", (Object)item.quantity);
+        put.put((Object) "index", (Object) index);
+        put.put((Object) "id", (Object) item.id);
+        put.put((Object) "isLock", (Object) item.isLock);
+        put.put((Object) "upgrade", (Object) item.upgrade);
+        put.put((Object) "isExpires", (Object) item.isExpires);
+        put.put((Object) "quantity", (Object) item.quantity);
         if (item.isExpires) {
-            put.put((Object)"expires", (Object)item.expires);
+            put.put((Object) "expires", (Object) item.expires);
         }
-        put.put((Object)"sys", (Object)item.sys);
-        put.put((Object)"sale", (Object)item.saleCoinLock);
+        put.put((Object) "sys", (Object) item.sys);
+        put.put((Object) "sale", (Object) item.saleCoinLock);
         JSONArray option = new JSONArray();
         for (Option Option : item.options) {
             JSONObject pa = new JSONObject();
-//            if(item.id == ItemTemplate.HUYEN_TINH_NGOC) {
-//                if(Option.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID) {
-//                    Option.id = ItemTemplate.CHI_MANG_ID;
-//                }
-//            }
-//            if(Option.id == ItemTemplate.CHI_MANG_ID) {
-//                if(item.upgrade == 1) {
-//                    Option.param = 4;
-//                }
-//                if(item.upgrade == 2) {
-//                    Option.param = 7;
-//                }
-//                if(item.upgrade == 3) {
-//                    Option.param = 9;
-//                }
-//            }
-            pa.put((Object)"id", (Object)Option.id);
-            pa.put((Object)"param", (Object)Option.param);
-            option.add((Object)pa);
+            // if(item.id == ItemTemplate.HUYEN_TINH_NGOC) {
+            // if(Option.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID) {
+            // Option.id = ItemTemplate.CHI_MANG_ID;
+            // }
+            // }
+            // if(Option.id == ItemTemplate.CHI_MANG_ID) {
+            // if(item.upgrade == 1) {
+            // Option.param = 4;
+            // }
+            // if(item.upgrade == 2) {
+            // Option.param = 7;
+            // }
+            // if(item.upgrade == 3) {
+            // Option.param = 9;
+            // }
+            // }
+            pa.put((Object) "id", (Object) Option.id);
+            pa.put((Object) "param", (Object) Option.param);
+            option.add((Object) pa);
         }
-        put.put((Object)"option", (Object)option);
+        put.put((Object) "option", (Object) option);
 
-        if(item.ngocs != null && item.ngocs.size() > 0) {
+        if (item.ngocs != null && item.ngocs.size() > 0) {
             JSONArray jarr = new JSONArray();
-            for (Item itemNgoc:item.ngocs) {
+            for (Item itemNgoc : item.ngocs) {
                 JSONObject put2 = new JSONObject();
-                put2.put((Object)"id", (Object)itemNgoc.id);
-                put2.put((Object)"isLock", (Object)itemNgoc.isLock);
-                put2.put((Object)"upgrade", (Object)itemNgoc.upgrade);
-                put2.put((Object)"isExpires", (Object)itemNgoc.isExpires);
-                put2.put((Object)"quantity", (Object)itemNgoc.quantity);
+                put2.put((Object) "id", (Object) itemNgoc.id);
+                put2.put((Object) "isLock", (Object) itemNgoc.isLock);
+                put2.put((Object) "upgrade", (Object) itemNgoc.upgrade);
+                put2.put((Object) "isExpires", (Object) itemNgoc.isExpires);
+                put2.put((Object) "quantity", (Object) itemNgoc.quantity);
                 if (itemNgoc.isExpires) {
-                    put2.put((Object)"expires", (Object)itemNgoc.expires);
+                    put2.put((Object) "expires", (Object) itemNgoc.expires);
                 }
-                put2.put((Object)"sys", (Object)itemNgoc.sys);
-                put2.put((Object)"sale", (Object)itemNgoc.saleCoinLock);
+                put2.put((Object) "sys", (Object) itemNgoc.sys);
+                put2.put((Object) "sale", (Object) itemNgoc.saleCoinLock);
                 JSONArray option2 = new JSONArray();
                 for (Option Option : itemNgoc.options) {
                     JSONObject pa = new JSONObject();
-//                    if(itemNgoc.id == ItemTemplate.HUYEN_TINH_NGOC) {
-//                        if(Option.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID) {
-//                            Option.id = ItemTemplate.CHI_MANG_ID;
-//                        }
-//                    }
-//                    if(Option.id == ItemTemplate.CHI_MANG_ID) {
-//                        if(item.upgrade == 1) {
-//                            Option.param = 4;
-//                        }
-//                        if(item.upgrade == 2) {
-//                            Option.param = 7;
-//                        }
-//                        if(item.upgrade == 3) {
-//                            Option.param = 9;
-//                        }
-//
-                    pa.put((Object)"id", (Object)Option.id);
-                    pa.put((Object)"param", (Object)Option.param);
-                    option2.add((Object)pa);
+                    // if(itemNgoc.id == ItemTemplate.HUYEN_TINH_NGOC) {
+                    // if(Option.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID) {
+                    // Option.id = ItemTemplate.CHI_MANG_ID;
+                    // }
+                    // }
+                    // if(Option.id == ItemTemplate.CHI_MANG_ID) {
+                    // if(item.upgrade == 1) {
+                    // Option.param = 4;
+                    // }
+                    // if(item.upgrade == 2) {
+                    // Option.param = 7;
+                    // }
+                    // if(item.upgrade == 3) {
+                    // Option.param = 9;
+                    // }
+                    //
+                    pa.put((Object) "id", (Object) Option.id);
+                    pa.put((Object) "param", (Object) Option.param);
+                    option2.add((Object) pa);
                 }
-                put2.put((Object)"option", (Object)option2);
+                put2.put((Object) "option", (Object) option2);
                 jarr.add(put2);
             }
-            put.put((Object)"ngocs", (Object)jarr);
+            put.put((Object) "ngocs", (Object) jarr);
         }
         return put;
     }
 
     public static JSONObject ObjectItem(Item item) {
         JSONObject put = new JSONObject();
-        put.put((Object)"id", (Object)item.id);
-        put.put((Object)"isLock", (Object)item.isLock);
-        put.put((Object)"upgrade", (Object)item.upgrade);
-        put.put((Object)"isExpires", (Object)item.isExpires);
-        put.put((Object)"quantity", (Object)item.quantity);
+        put.put((Object) "id", (Object) item.id);
+        put.put((Object) "isLock", (Object) item.isLock);
+        put.put((Object) "upgrade", (Object) item.upgrade);
+        put.put((Object) "isExpires", (Object) item.isExpires);
+        put.put((Object) "quantity", (Object) item.quantity);
         if (item.isExpires) {
-            put.put((Object)"expires", (Object)item.expires);
+            put.put((Object) "expires", (Object) item.expires);
         }
-        put.put((Object)"sys", (Object)item.sys);
-        put.put((Object)"sale", (Object)item.saleCoinLock);
+        put.put((Object) "sys", (Object) item.sys);
+        put.put((Object) "sale", (Object) item.saleCoinLock);
         JSONArray option = new JSONArray();
         for (Option Option : item.options) {
             JSONObject pa = new JSONObject();
-            pa.put((Object)"id", (Object)Option.id);
-            pa.put((Object)"param", (Object)Option.param);
-            option.add((Object)pa);
+            pa.put((Object) "id", (Object) Option.id);
+            pa.put((Object) "param", (Object) Option.param);
+            option.add((Object) pa);
         }
-        put.put((Object)"option", (Object)option);
+        put.put((Object) "option", (Object) option);
 
-        if(item.ngocs != null && item.ngocs.size() > 0) {
+        if (item.ngocs != null && item.ngocs.size() > 0) {
             JSONArray jarr = new JSONArray();
-            for (Item itemNgoc:item.ngocs) {
+            for (Item itemNgoc : item.ngocs) {
                 JSONObject put2 = new JSONObject();
-                put2.put((Object)"id", (Object)itemNgoc.id);
-                put2.put((Object)"isLock", (Object)itemNgoc.isLock);
-                put2.put((Object)"upgrade", (Object)itemNgoc.upgrade);
-                put2.put((Object)"isExpires", (Object)itemNgoc.isExpires);
-                put2.put((Object)"quantity", (Object)itemNgoc.quantity);
+                put2.put((Object) "id", (Object) itemNgoc.id);
+                put2.put((Object) "isLock", (Object) itemNgoc.isLock);
+                put2.put((Object) "upgrade", (Object) itemNgoc.upgrade);
+                put2.put((Object) "isExpires", (Object) itemNgoc.isExpires);
+                put2.put((Object) "quantity", (Object) itemNgoc.quantity);
                 if (itemNgoc.isExpires) {
-                    put2.put((Object)"expires", (Object)itemNgoc.expires);
+                    put2.put((Object) "expires", (Object) itemNgoc.expires);
                 }
-                put2.put((Object)"sys", (Object)itemNgoc.sys);
-                put2.put((Object)"sale", (Object)itemNgoc.saleCoinLock);
+                put2.put((Object) "sys", (Object) itemNgoc.sys);
+                put2.put((Object) "sale", (Object) itemNgoc.saleCoinLock);
                 JSONArray option2 = new JSONArray();
                 for (Option Option : itemNgoc.options) {
                     JSONObject pa = new JSONObject();
-                    pa.put((Object)"id", (Object)Option.id);
-                    pa.put((Object)"param", (Object)Option.param);
-                    option2.add((Object)pa);
+                    pa.put((Object) "id", (Object) Option.id);
+                    pa.put((Object) "param", (Object) Option.param);
+                    option2.add((Object) pa);
                 }
-                put2.put((Object)"option", (Object)option2);
+                put2.put((Object) "option", (Object) option2);
                 jarr.add(put2);
             }
-            put.put((Object)"ngocs", (Object)jarr);
+            put.put((Object) "ngocs", (Object) jarr);
         }
         return put;
     }
@@ -727,7 +900,7 @@ public class ItemTemplate {
 
     public static Item itemNgocDefault(int id, int upgrade, boolean random) {
         Item item = new Item();
-        item.id = (short)id;
+        item.id = (short) id;
         item.sys = 0;
         item.saleCoinLock = 5;
         ItemTemplate data = ItemTemplateId(id);
@@ -740,7 +913,7 @@ public class ItemTemplate {
         int idOp;
         int par;
         Option op;
-        for(Option option : data.itemoption) {
+        for (Option option : data.itemoption) {
             idOp = option.id;
             par = option.param;
             op = new Option(idOp, par);
@@ -749,53 +922,84 @@ public class ItemTemplate {
 
         if (id == HUYET_NGOC) {
             item.options.add(VU_KHI_OPTION);
-            item.options.add(new Option(73, (int) (random ? Util.nextInt((int)(0.8D * (double)MAX_TAN_CONG), MAX_TAN_CONG) : MAX_TAN_CONG)));
-            item.options.add(new Option(114, (int) -(random ? Util.nextInt((int)(0.8D * (double)CHI_MANG), CHI_MANG) : CHI_MANG)));
+            item.options.add(new Option(73,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) MAX_TAN_CONG), MAX_TAN_CONG) : MAX_TAN_CONG)));
+            item.options.add(new Option(114,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) CHI_MANG), CHI_MANG) : CHI_MANG)));
             item.options.add(TRANG_BI_OPTION);
-            item.options.add(new Option(124, (int) (random ? Util.nextInt((int)(0.8D * (double)GIAM_TRU_ST), GIAM_TRU_ST) : GIAM_TRU_ST)));
-            item.options.add(new Option(73, (int) -(random ? Util.nextInt((int)(0.6D * (double)MAX_TAN_CONG), MAX_TAN_CONG) : MAX_TAN_CONG)));
+            item.options.add(new Option(124,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) GIAM_TRU_ST), GIAM_TRU_ST) : GIAM_TRU_ST)));
+            item.options.add(new Option(73,
+                    (int) -(random ? Util.nextInt((int) (0.6D * (double) MAX_TAN_CONG), MAX_TAN_CONG) : MAX_TAN_CONG)));
             item.options.add(TRANG_SUC_OPTION);
-            item.options.add(new Option(115, (int) (random ? Util.nextInt((int)(0.8D * (double)NE_DON), NE_DON) : NE_DON)));
-            item.options.add(new Option(119, (int)-(random ? Util.nextInt((int)(0.8D * (double)MOI_GIAY_HOI_PHUC_MP), MOI_GIAY_HOI_PHUC_MP) : MOI_GIAY_HOI_PHUC_MP)));
+            item.options.add(
+                    new Option(115, (int) (random ? Util.nextInt((int) (0.8D * (double) NE_DON), NE_DON) : NE_DON)));
+            item.options
+                    .add(new Option(119,
+                            (int) -(random
+                                    ? Util.nextInt((int) (0.8D * (double) MOI_GIAY_HOI_PHUC_MP), MOI_GIAY_HOI_PHUC_MP)
+                                    : MOI_GIAY_HOI_PHUC_MP)));
         }
 
         if (id == HUYEN_TINH_NGOC) {
             item.options.add(VU_KHI_OPTION);
-            item.options.add(new Option(102, (int) (random ? Util.nextInt((int)(0.8D * (double)MAX_ST_QUAI), MAX_ST_QUAI) : MAX_ST_QUAI)));
-            item.options.add(new Option(115, (int)-(random ? Util.nextInt((int)(0.8D * (double)NE_DON), NE_DON) : NE_DON)));
+            item.options.add(new Option(102,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) MAX_ST_QUAI), MAX_ST_QUAI) : MAX_ST_QUAI)));
+            item.options.add(
+                    new Option(115, (int) -(random ? Util.nextInt((int) (0.8D * (double) NE_DON), NE_DON) : NE_DON)));
             item.options.add(TRANG_BI_OPTION);
-            item.options.add(new Option(126, (int) (random ? Util.nextInt((int)(0.8D * (double)PHAN_DON), PHAN_DON) : PHAN_DON)));
-            item.options.add(new Option(105, (int)-(random ? Util.nextInt((int)(0.6D * (double)ST_CHI_MANG), ST_CHI_MANG) : ST_CHI_MANG)));
+            item.options.add(new Option(126,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) PHAN_DON), PHAN_DON) : PHAN_DON)));
+            item.options.add(new Option(105,
+                    (int) -(random ? Util.nextInt((int) (0.6D * (double) ST_CHI_MANG), ST_CHI_MANG) : ST_CHI_MANG)));
             item.options.add(TRANG_SUC_OPTION);
-            item.options.add(new Option(114, (int) (random ? Util.nextInt((int)(0.8D * (double)CHI_MANG), CHI_MANG) : CHI_MANG)));
-            item.options.add(new Option(118, (int)-(random ? Util.nextInt((int)(0.8D * (double)KHANG_TAT_CA), KHANG_TAT_CA) : KHANG_TAT_CA)));
+            item.options.add(new Option(114,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) CHI_MANG), CHI_MANG) : CHI_MANG)));
+            item.options.add(new Option(118,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) KHANG_TAT_CA), KHANG_TAT_CA) : KHANG_TAT_CA)));
         }
 
         if (id == LAM_TINH_NGOC) {
             item.options.add(VU_KHI_OPTION);
-            item.options.add(new Option(103, (int) (random ? Util.nextInt((int)(0.8D * (double)MAX_ST_NGUOI), MAX_ST_NGUOI) : MAX_ST_NGUOI)));
-            item.options.add(new Option(125, (int)-(random ? Util.nextInt((int)(0.8D * (double)HP_TOI_DA), HP_TOI_DA) : HP_TOI_DA)));
+            item.options.add(new Option(103,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) MAX_ST_NGUOI), MAX_ST_NGUOI) : MAX_ST_NGUOI)));
+            item.options.add(new Option(125,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) HP_TOI_DA), HP_TOI_DA) : HP_TOI_DA)));
             item.options.add(TRANG_BI_OPTION);
-            item.options.add(new Option(121, (int) (random ? Util.nextInt((int)(0.8D * (double)KHANG_ST_CHI_MANG), KHANG_ST_CHI_MANG) : KHANG_ST_CHI_MANG)));
-            item.options.add(new Option(120, (int)-(random ? Util.nextInt((int)(0.8D * (double)MOI_GIAY_HOI_PHUC_HP), MOI_GIAY_HOI_PHUC_HP) : MOI_GIAY_HOI_PHUC_HP)));
+            item.options.add(new Option(121,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) KHANG_ST_CHI_MANG), KHANG_ST_CHI_MANG)
+                            : KHANG_ST_CHI_MANG)));
+            item.options
+                    .add(new Option(120,
+                            (int) -(random
+                                    ? Util.nextInt((int) (0.8D * (double) MOI_GIAY_HOI_PHUC_HP), MOI_GIAY_HOI_PHUC_HP)
+                                    : MOI_GIAY_HOI_PHUC_HP)));
             item.options.add(TRANG_SUC_OPTION);
-            item.options.add(new Option(116, (int) (random ? Util.nextInt((int)(0.8D * (double)CHINH_XAC), CHINH_XAC) : CHINH_XAC)));
-            item.options.add(new Option(126, (int)-(random ? Util.nextInt((int)(0.8D * (double)PHAN_DON), PHAN_DON) : PHAN_DON)));
+            item.options.add(new Option(116,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) CHINH_XAC), CHINH_XAC) : CHINH_XAC)));
+            item.options.add(new Option(126,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) PHAN_DON), PHAN_DON) : PHAN_DON)));
         }
 
         if (id == LUC_NGOC) {
             item.options.add(VU_KHI_OPTION);
-            item.options.add(new Option(105, (int) (random ? Util.nextInt((int)(0.8D * (double)ST_CHI_MANG), ST_CHI_MANG) : ST_CHI_MANG)));
-            item.options.add(new Option(116, (int)-(random ? Util.nextInt((int)(0.8D * (double)CHINH_XAC), CHINH_XAC) : CHINH_XAC)));
+            item.options.add(new Option(105,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) ST_CHI_MANG), ST_CHI_MANG) : ST_CHI_MANG)));
+            item.options.add(new Option(116,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) CHINH_XAC), CHINH_XAC) : CHINH_XAC)));
             item.options.add(TRANG_BI_OPTION);
-            item.options.add(new Option(125, (int) (random ? Util.nextInt((int)(0.8D * (double)HP_TOI_DA), HP_TOI_DA) : HP_TOI_DA)));
-            item.options.add(new Option(117, (int)-(random ? Util.nextInt((int)(0.8D * (double)MP_TOI_DA), MP_TOI_DA) : MP_TOI_DA)));
+            item.options.add(new Option(125,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) HP_TOI_DA), HP_TOI_DA) : HP_TOI_DA)));
+            item.options.add(new Option(117,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) MP_TOI_DA), MP_TOI_DA) : MP_TOI_DA)));
             item.options.add(TRANG_SUC_OPTION);
-            item.options.add(new Option(117, (int) (random ? Util.nextInt((int)(0.8D * (double)MP_TOI_DA), MP_TOI_DA) : MP_TOI_DA)));
-            item.options.add(new Option(124, (int)-(random ? Util.nextInt((int)(0.8D * (double)GIAM_TRU_ST), GIAM_TRU_ST) : GIAM_TRU_ST)));
+            item.options.add(new Option(117,
+                    (int) (random ? Util.nextInt((int) (0.8D * (double) MP_TOI_DA), MP_TOI_DA) : MP_TOI_DA)));
+            item.options.add(new Option(124,
+                    (int) -(random ? Util.nextInt((int) (0.8D * (double) GIAM_TRU_ST), GIAM_TRU_ST) : GIAM_TRU_ST)));
         }
 
-        item.setUpgrade((byte)upgrade);
+        item.setUpgrade((byte) upgrade);
         item.options.add(new Option(104, 0));
         item.options.add(new Option(123, 800000));
         return item;
@@ -844,4 +1048,3 @@ public class ItemTemplate {
     }
 
 }
-

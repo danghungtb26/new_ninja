@@ -31,7 +31,7 @@ public class Char extends Body {
     public int xu = 0;
     public int xuBox = 0;
     public int yen = 0;
-    public byte maxluggage = 30;
+    public byte maxluggage = 60;
     public byte levelBag = 0;
     public Item[] ItemShinwa = null;
     public Item[] ItemBag = null;

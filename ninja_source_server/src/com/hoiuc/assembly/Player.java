@@ -2066,7 +2066,7 @@ public class Player extends User {
         } else if (item.upgrade < 99) {
             this.c.p.sendAddchatYellow("Thú cưỡi chưa đạt cấp tối đa");
             return false;
-        } else if (item.sys >= 999999) {
+        } else if (item.sys > 5) {
             this.c.p.sendAddchatYellow("Không thể nâng thêm sao");
             return false;
         } else {

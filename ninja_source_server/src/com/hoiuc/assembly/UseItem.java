@@ -196,7 +196,7 @@ public class UseItem {
                         p.conn.sendMessageLog("Bạn cần phải tháo trang bị thú cưỡi đang sử dụng.");
                         return;
                     }
-                    if (!item.isLock && item.id != 828) {
+                    if (item.id != 828 && item.options.size() < 3) {
                         byte i;
                         int op;
                         Option option2;

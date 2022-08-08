@@ -90,23 +90,29 @@ public class Menu {
             if (npcId == 33) {
                 switch (Server.manager.event) {
                     case 1: {
-                        Menu.doMenuArray(p, new String[]{"Diều giấy", "Diều vải"});
+                        Menu.doMenuArray(p, new String[] { "Diều giấy", "Diều vải" });
                         break;
                     }
                     case 2: {
-                        Menu.doMenuArray(p, new String[]{"Hộp bánh thường", "Hộp bánh thượng hạng", "Bánh thập cẩm", "Bánh dẻo", "Bánh đậu xanh", "Bánh pía"});
+                        Menu.doMenuArray(p, new String[] { "Hộp bánh thường", "Hộp bánh thượng hạng", "Bánh thập cẩm",
+                                "Bánh dẻo", "Bánh đậu xanh", "Bánh pía" });
                         break;
                     }
                     case 3: {
-                        Menu.doMenuArray(p, new String[]{"Bánh Chocolate", "Bánh dâu tây", "Đổi mặt nạ", "Đổi pet", "BXH Diệt Boss TL", "Hướng dẫn"});
+                        Menu.doMenuArray(p, new String[] { "Bánh Chocolate", "Bánh dâu tây", "Đổi mặt nạ", "Đổi pet",
+                                "BXH Diệt Boss TL", "Hướng dẫn" });
                         break;
                     }
                     case 4: {
-                        Menu.doMenuArray(p, new String[]{"Bánh Chưng", "Bánh Tét", "Lì xì", "Làm Pháo", "Top diệt chuột", "Hướng dẫn"});
+                        Menu.doMenuArray(p, new String[] { "Bánh Chưng", "Bánh Tét", "Lì xì", "Làm Pháo",
+                                "Top diệt chuột", "Hướng dẫn" });
                         break;
                     }
                     case 5: {
-                        Menu.doMenuArray(p, new String[]{"Làm Hoa Hồng Đỏ", "Làm Hoa Hồng Vàng", "Làm Hoa Hồng Xanh", "Làm Giỏ Hoa", "Tặng Hoa Hồng Đỏ", "Tặng Hoa Hồng Vàng", "Tặng Hoa Hồng Xanh", "Tặng Giỏ Hoa", "Kết Hoa"});
+                        Menu.doMenuArray(p,
+                                new String[] { "Làm Hoa Hồng Đỏ", "Làm Hoa Hồng Vàng", "Làm Hoa Hồng Xanh",
+                                        "Làm Giỏ Hoa", "Tặng Hoa Hồng Đỏ", "Tặng Hoa Hồng Vàng", "Tặng Hoa Hồng Xanh",
+                                        "Tặng Giỏ Hoa", "Kết Hoa" });
                     }
                     default: {
                         break;
@@ -115,12 +121,12 @@ public class Menu {
             } else if (npcId == 40) {
                 switch (p.c.mapid) {
                     case 117: {
-                        Menu.doMenuArray(p, new String[]{"Rời khỏi nơi này", "Đặt cược", "Hướng dẫn"});
+                        Menu.doMenuArray(p, new String[] { "Rời khỏi nơi này", "Đặt cược", "Hướng dẫn" });
                         break;
                     }
                     case 118:
                     case 119: {
-                        Menu.doMenuArray(p, new String[]{"Rời khỏi nơi này", "Thông tin"});
+                        Menu.doMenuArray(p, new String[] { "Rời khỏi nơi này", "Thông tin" });
                         break;
                     }
                 }
@@ -397,7 +403,7 @@ public class Menu {
                     }
                     case 92:
                         p.typemenu = menuId == 0 ? 93 : 94;
-                        Menu.doMenuArray(p, new String[]{"Thông tin", "Luật chơi"});
+                        Menu.doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
                         break;
                     case 93:
                         if (menuId == 0) {
@@ -675,7 +681,7 @@ public class Menu {
                     }
                     case 92:
                         p.typemenu = menuId == 0 ? 93 : 94;
-                        doMenuArray(p, new String[]{"Thông tin", "Luật chơi"});
+                        doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
                         break;
                     case 93:
                         if (menuId == 0) {
@@ -723,7 +729,7 @@ public class Menu {
                         }
                         break;
                     }
-                    //Send xu
+                    // Send xu
                     case 125:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -732,7 +738,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 55, "Nhập IGAME người nhận:");
                             break;
                         }
-                    //Send Lượng
+                        // Send Lượng
                     case 126:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -741,7 +747,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 57, "Nhập IGAME người nhận:");
                             break;
                         }
-                    //Send Yên    
+                        // Send Yên
                     case 127:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -750,7 +756,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 59, "Nhập IGAME người nhận:");
                             break;
                         }
-                    //Send Item
+                        // Send Item
                     case 128:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -759,7 +765,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 61, "Nhập IGAME người nhận:");
                             break;
                         }
-                    //Send Mess
+                        // Send Mess
                     case 129:
                         if (p.id != 1) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
@@ -768,7 +774,7 @@ public class Menu {
                             Service.sendInputDialog(p, (short) 64, "Nhập IGAME người nhận:");
                             break;
                         }
-                    //Mảnh top vk    
+                        // Mảnh top vk
                     case 839: {
                         Menu.menuDoiVK(p, npcId, menuId, b3);
                         break;
@@ -803,7 +809,17 @@ public class Menu {
                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                         return;
                     }
-                    short[] arId = new short[]{12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 276, 277, 278, 548, 12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256, 7, 8, 9, 436, 437, 438, 682, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289, 290, 291, 289, 290, 291};
+                    short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 276, 277, 278, 548,
+                            12, 548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283,
+                            436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256,
+                            7, 8, 9, 436, 437, 438, 682, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308,
+                            309, 548, 275, 276, 277, 278, 539, 540, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702,
+                            703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764,
+                            765, 766, 767, 768, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734,
+                            735, 736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768,
+                            674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738,
+                            739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 289, 290, 291, 289,
+                            290, 291, 289, 290, 291 };
                     short idI = arId[Util.nextInt(arId.length)];
                     Item itemup = ItemTemplate.itemDefault(idI);
                     itemup.isLock = false;
@@ -818,7 +834,8 @@ public class Menu {
             }
 
             case 1: {
-                Server.manager.sendTB(p, "Hướng Dẫn", "Bạn cần 1 Bùa May Mắn để Xin Lộc Đầu Xuân và sẽ nhận được EXP và những món quà bất ngờ.");
+                Server.manager.sendTB(p, "Hướng Dẫn",
+                        "Bạn cần 1 Bùa May Mắn để Xin Lộc Đầu Xuân và sẽ nhận được EXP và những món quà bất ngờ.");
                 break;
             }
         }
@@ -832,7 +849,8 @@ public class Menu {
                     return;
                 }
                 if (p.c.level < 60) {
-                    Service.chatNPC(p, (short) npcid, "Anh chưa đủ cấp 60 để tặng hoa cho iem\n Anh hãy tu luyện thêm rồi đến gặp iem!\n Yêu........");
+                    Service.chatNPC(p, (short) npcid,
+                            "Anh chưa đủ cấp 60 để tặng hoa cho iem\n Anh hãy tu luyện thêm rồi đến gặp iem!\n Yêu........");
                     break;
                 }
                 if (p.c.quantityItemyTotal(862) < 1) {
@@ -869,7 +887,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemtanghoa < 5000) {
-                            Service.chatNPC(p, (short) npcid, "Anh chưa đủ 5000 điểm tặng hoa để nhận đồ xịn\n Hãy tặng em đủ 5000 bó hoa hồng\n Yêu");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Anh chưa đủ 5000 điểm tặng hoa để nhận đồ xịn\n Hãy tặng em đủ 5000 bó hoa hồng\n Yêu");
                             break;
                         }
                         if (p.c.getBagNull() < 3) {
@@ -891,7 +910,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemtanghoa < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Anh chưa đủ 10000 điểm tặng hoa để nhận đồ xịn\n Hãy tặng em đủ 10000 bó hoa hồng\n Yêu");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Anh chưa đủ 10000 điểm tặng hoa để nhận đồ xịn\n Hãy tặng em đủ 10000 bó hoa hồng\n Yêu");
                             break;
                         }
                         if (p.c.getBagNull() < 3) {
@@ -913,7 +933,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemtanghoa < 15000) {
-                            Service.chatNPC(p, (short) npcid, "Anh chưa đủ 15000 điểm tặng hoa để nhận đồ xịn\n Hãy tặng em đủ 15000 bó hoa hồng\n Yêu");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Anh chưa đủ 15000 điểm tặng hoa để nhận đồ xịn\n Hãy tặng em đủ 15000 bó hoa hồng\n Yêu");
                             break;
                         }
                         if (p.c.getBagNull() < 3) {
@@ -932,7 +953,8 @@ public class Menu {
                 }
             }
             case 2: {
-                // Service.chatNPC(p, (short) npcid, "Bạn đang có: " + p.c.diemtanghoa + " điểm");   
+                // Service.chatNPC(p, (short) npcid, "Bạn đang có: " + p.c.diemtanghoa + "
+                // điểm");
                 p.conn.sendMessageLog("Điểm tặng hoa: " + p.c.diemtanghoa);
                 break;
             }
@@ -1013,7 +1035,10 @@ public class Menu {
             }
             case 12: {
                 try {
-                    Server.manager.sendTB(p, "Kiểm tra", "- Tổng số kết nối: " + Client.gI().conns_size() + "\n\n- Số người đăng nhập: " + Client.gI().players_size() + "\n\n- TỔNG SỐ NGƯỜI CHƠI THỰC TẾ: " + Client.gI().ninja_size());
+                    Server.manager.sendTB(p, "Kiểm tra",
+                            "- Tổng số kết nối: " + Client.gI().conns_size() + "\n\n- Số người đăng nhập: "
+                                    + Client.gI().players_size() + "\n\n- TỔNG SỐ NGƯỜI CHƠI THỰC TẾ: "
+                                    + Client.gI().ninja_size());
                 } catch (Exception var11) {
                     var11.printStackTrace();
                 }
@@ -1086,7 +1111,8 @@ public class Menu {
             }
             case 18: {
                 try {
-                    Manager.chatKTG("Người chơi " + p.c.name + " sử dụng Bánh khúc cây dâu tây đã nhận được " + ItemTemplate.ItemTemplateId(385).name);
+                    Manager.chatKTG("Người chơi " + p.c.name + " sử dụng Bánh khúc cây dâu tây đã nhận được "
+                            + ItemTemplate.ItemTemplateId(385).name);
                 } catch (Exception e) {
                     p.conn.sendMessageLog("Lỗi cập nhật!");
                 }
@@ -1094,7 +1120,8 @@ public class Menu {
             }
             case 19: {
                 try {
-                    Manager.chatKTG("Người chơi " + p.c.name + " sử dụng Bánh khúc cây dâu tây đã nhận được " + ItemTemplate.ItemTemplateId(384).name);
+                    Manager.chatKTG("Người chơi " + p.c.name + " sử dụng Bánh khúc cây dâu tây đã nhận được "
+                            + ItemTemplate.ItemTemplateId(384).name);
                 } catch (Exception e) {
                     p.conn.sendMessageLog("Lỗi cập nhật!");
                 }
@@ -1133,7 +1160,7 @@ public class Menu {
     }
 
     public static void npcThanMeo(Player p, byte npcid, byte menuId, byte b3) {
-        int[] bk = {0, 397, 398, 399, 400, 401, 402};
+        int[] bk = { 0, 397, 398, 399, 400, 401, 402 };
 
         switch (menuId) {
             case 0: {
@@ -1179,46 +1206,49 @@ public class Menu {
                     break;
                 }
             }
-            /*  case 1: {
-                if (p.c.isNhanban) {
-                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                    return;
-                }
-                Item itemup = p.c.ItemBody[15];
-                if((itemup == null)){
-                    p.conn.sendMessageLog("Bạn chưa mang bí kíp");
-                    return;
-                }
-                if(p.c.quantityItemyTotal(530) < 1000){
-                    p.conn.sendMessageLog("Bạn không có 1000 linh thạch");
-                    return;
-                }
-                if(itemup.upgrade == 16) {
-                    p.conn.sendMessageLog("Bí Kíp đã đạt cấp độ tối đa");
-                    return;
-                }
-                int[] xu = new int[16];
-                xu[0] = 10000000;
-                for(byte i = 1; i < 16; i++) {
-                    xu[i] = xu[i - 1] + 10000000;
-                }
-                if(p.c.xu < xu[itemup.upgrade]){
-                    p.conn.sendMessageLog("Bạn không đủ " + xu[itemup.upgrade] + " xu để nâng cấp bí kíp");
-                    return;
-                }
-                p.c.upxuMessage(-(xu[itemup.upgrade]));
-                p.c.removeItemBody((byte)15);
-                for (int i = 530; i <=530 ; i++) {
-                    if (p.c.getIndexBagid(i, false) != -1000) {
-                        p.c.removeItemBag(p.c.getIndexBagid(i, false), 1000);
-                    } else {
-                        p.c.removeItemBag(p.c.getIndexBagid(i, true), 1000);
-                    }
-                }
-                itemup.ncBK((byte)1);
-                p.c.addItemBag(false, itemup);
-                break;
-            }*/
+            /*
+             * case 1: {
+             * if (p.c.isNhanban) {
+             * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+             * return;
+             * }
+             * Item itemup = p.c.ItemBody[15];
+             * if((itemup == null)){
+             * p.conn.sendMessageLog("Bạn chưa mang bí kíp");
+             * return;
+             * }
+             * if(p.c.quantityItemyTotal(530) < 1000){
+             * p.conn.sendMessageLog("Bạn không có 1000 linh thạch");
+             * return;
+             * }
+             * if(itemup.upgrade == 16) {
+             * p.conn.sendMessageLog("Bí Kíp đã đạt cấp độ tối đa");
+             * return;
+             * }
+             * int[] xu = new int[16];
+             * xu[0] = 10000000;
+             * for(byte i = 1; i < 16; i++) {
+             * xu[i] = xu[i - 1] + 10000000;
+             * }
+             * if(p.c.xu < xu[itemup.upgrade]){
+             * p.conn.sendMessageLog("Bạn không đủ " + xu[itemup.upgrade] +
+             * " xu để nâng cấp bí kíp");
+             * return;
+             * }
+             * p.c.upxuMessage(-(xu[itemup.upgrade]));
+             * p.c.removeItemBody((byte)15);
+             * for (int i = 530; i <=530 ; i++) {
+             * if (p.c.getIndexBagid(i, false) != -1000) {
+             * p.c.removeItemBag(p.c.getIndexBagid(i, false), 1000);
+             * } else {
+             * p.c.removeItemBag(p.c.getIndexBagid(i, true), 1000);
+             * }
+             * }
+             * itemup.ncBK((byte)1);
+             * p.c.addItemBag(false, itemup);
+             * break;
+             * }
+             */
             case 1: {
                 Server.manager.sendTB(p, "Bí Kíp", ">Bí kíp max chỉ số<\n"
                         + "Hp tối đa: 1 đến 10000\n"
@@ -1227,14 +1257,13 @@ public class Menu {
                         + "Kháng tất cả: 1 đến 500\n"
                         + "Hồi hp, mp mỗi 5 giây: 1 đến 5000\n"
                         + "Cộng thêm tiềm năng: 1 đến 25%\n"
-                        + "Né đòn: 1 đến 500\n"
-                );
+                        + "Né đòn: 1 đến 500\n");
                 break;
             }
         }
     }
 
-//thêm public trong menu
+    // thêm public trong menu
     public static void luyenma(Player p, byte npcid, byte menuId, byte b3) throws IOException, InterruptedException {
         switch (menuId) {
             case 0: {
@@ -1257,7 +1286,7 @@ public class Menu {
                             }
                         }
                     }
-                    break;
+                        break;
                     case 1: {
                         if (p.c.vip < 7) {
                             Service.chatNPC(p, (short) npcid, "pro đã nạp vip 12 chưa");
@@ -1303,7 +1332,7 @@ public class Menu {
                     }
                 }
             }
-            break;
+                break;
 
             case 1: {
                 Server.manager.sendTB(p, "Thông tin", "Để vào được MAP bạn cần phải đủ lv vip  tương xứng"
@@ -1317,7 +1346,7 @@ public class Menu {
                         + "\n+ buôn bán cày chay tư duy vô cực nhưng vẫn phải nạp tiền"
                         + "\n+ cách 4 làm theo 3 cách như trên");
             }
-            break;
+                break;
             default: {
                 Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
                 break;
@@ -1325,9 +1354,9 @@ public class Menu {
         }
     }
 
-    //Đổi vk top
+    // Đổi vk top
     public static void menuDoiVK(Player p, byte npcid, byte menuId, byte b3) {
-        int[] ids = {0, 632, 633, 634, 635, 636, 637};
+        int[] ids = { 0, 632, 633, 634, 635, 636, 637 };
         switch (menuId) {
             case 0: {
                 if (p.c.get().nclass == 0) {
@@ -1392,12 +1421,14 @@ public class Menu {
                 switch (b3) {
                     case 0: {
                         if (!p.c.clan.clanName.isEmpty()) {
-                            Service.chatNPC(p, (short) npcid, "Hiện tại con đã có gia tộc, không thể thành lập gia tộc được nữa.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hiện tại con đã có gia tộc, không thể thành lập gia tộc được nữa.");
                             return;
                         }
 
                         if (p.luong < 100000) {
-                            Service.chatNPC(p, (short) npcid, "Để thành lập gia tộc, con phải có ít nhất 100000 lượng trong người.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Để thành lập gia tộc, con phải có ít nhất 100000 lượng trong người.");
                             return;
                         }
                         Menu.sendWrite(p, (short) 50, "Tên gia tộc");
@@ -1405,7 +1436,8 @@ public class Menu {
                     }
                     case 1: {
                         if (p.c.clan.clanName.isEmpty()) {
-                            Service.chatNPC(p, (short) npcid, "Hiện tại con chưa có gia tộc, không thể mở Lãnh địa gia tộc.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hiện tại con chưa có gia tộc, không thể mở Lãnh địa gia tộc.");
                             return;
                         }
 
@@ -1413,7 +1445,8 @@ public class Menu {
                         if (p.c.ldgtID != -1) {
                             if (LanhDiaGiaToc.ldgts.containsKey(p.c.ldgtID)) {
                                 lanhDiaGiaToc = LanhDiaGiaToc.ldgts.get(p.c.ldgtID);
-                                if (lanhDiaGiaToc != null && lanhDiaGiaToc.map[0] != null && lanhDiaGiaToc.map[0].area[0] != null) {
+                                if (lanhDiaGiaToc != null && lanhDiaGiaToc.map[0] != null
+                                        && lanhDiaGiaToc.map[0].area[0] != null) {
                                     if (lanhDiaGiaToc.ninjas.size() <= 24) {
                                         p.c.mapKanata = p.c.mapid;
                                         p.c.tileMap.leave(p);
@@ -1427,11 +1460,13 @@ public class Menu {
                         }
                         if (lanhDiaGiaToc == null) {
                             if (p.c.clan.typeclan < 3) {
-                                Service.chatNPC(p, (short) npcid, "Con không phải tộc trưởng hoặc tộc phó, không thể mở Lãnh địa gia tộc.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Con không phải tộc trưởng hoặc tộc phó, không thể mở Lãnh địa gia tộc.");
                                 return;
                             }
                             if (p.c.getBagNull() < 1) {
-                                Service.chatNPC(p, (short) npcid, "Hành trang của con không đủ chỗ trống để nhận Chìa khoá LDGT");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Hành trang của con không đủ chỗ trống để nhận Chìa khoá LDGT");
                                 return;
                             }
                             ClanManager clan = ClanManager.getClanName(p.c.clan.clanName);
@@ -1475,7 +1510,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.quantityItemyTotal(262) < 50) {
-                            Service.chatNPC(p, (short) npcid, "Con cần có 50 Đồng tiền gia tộc để đổi lấy Túi quà gia tộc.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con cần có 50 Đồng tiền gia tộc để đổi lấy Túi quà gia tộc.");
                             return;
                         }
                         if (p.c.getBagNull() < 1) {
@@ -1503,7 +1539,7 @@ public class Menu {
                     return;
                 }
 
-                //Trả thưởng
+                // Trả thưởng
                 if (b3 == 0) {
                     Service.evaluateCave(p.c);
                     return;
@@ -1526,7 +1562,8 @@ public class Menu {
 
                 if (cave == null) {
                     if (p.c.nCave <= 0) {
-                        Service.chatNPC(p, (short) npcid, "Số lần vào hang động của con hôm nay đã hết, hãy quay lại vào ngày mai.");
+                        Service.chatNPC(p, (short) npcid,
+                                "Số lần vào hang động của con hôm nay đã hết, hãy quay lại vào ngày mai.");
                         return;
                     }
                     if (b3 == 1) {
@@ -1661,7 +1698,8 @@ public class Menu {
                         if (p.c.party != null) {
                             synchronized (p.c.party.aChar) {
                                 for (byte i = 0; i < p.c.party.aChar.size(); ++i) {
-                                    if (p.c.party.aChar.get(i).level < 90 || p.c.party.aChar.get(i).level > Server.manager.max_level_up + 1) {
+                                    if (p.c.party.aChar.get(i).level < 90
+                                            || p.c.party.aChar.get(i).level > Server.manager.max_level_up + 1) {
                                         p.conn.sendMessageLog("Thành viên trong nhóm có trình độ không phù hợp");
                                         return;
                                     }
@@ -1720,7 +1758,9 @@ public class Menu {
                                     for (int i = 0; i < p.c.party.aChar.size(); i++) {
                                         if (p.c.party.aChar.get(i) != null) {
                                             _char = p.c.party.aChar.get(i);
-                                            if (_char.id != p.c.id && p.c.tileMap.getNinja(_char.id) != null && _char.nCave > 0 && _char.caveID == -1 && _char.level >= 30 && (int) _char.level / 10 == cave.x) {
+                                            if (_char.id != p.c.id && p.c.tileMap.getNinja(_char.id) != null
+                                                    && _char.nCave > 0 && _char.caveID == -1 && _char.level >= 30
+                                                    && (int) _char.level / 10 == cave.x) {
                                                 _char.nCave--;
                                                 _char.pointCave = 0;
                                                 _char.caveID = p.c.caveID;
@@ -1753,8 +1793,9 @@ public class Menu {
                 break;
             }
             case 3: {
-//                Service.chatNPC(p, (short) npcid, "Chức năng đang bảo trì, vui lòng quay lại sau!");
-//                return;
+                // Service.chatNPC(p, (short) npcid, "Chức năng đang bảo trì, vui lòng quay lại
+                // sau!");
+                // return;
                 switch (b3) {
                     case 0: {
                         if (p.c.isNhanban) {
@@ -1763,7 +1804,8 @@ public class Menu {
                         }
 
                         if (p.c.party != null && p.c.party.charID != p.c.id) {
-                            Service.chatNPC(p, (short) npcid, "Con không phải trưởng nhóm, không thể thực hiện gửi lời mời lôi đài cho người/nhóm khác");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con không phải trưởng nhóm, không thể thực hiện gửi lời mời lôi đài cho người/nhóm khác");
                             return;
                         }
 
@@ -1779,7 +1821,8 @@ public class Menu {
 
                         for (int i = 0; i < DunListWin.dunList.size(); ++i) {
                             int temp = i + 1;
-                            alert = alert + temp + ". Phe " + ((DunListWin) DunListWin.dunList.get(i)).win + " thắng Phe " + ((DunListWin) DunListWin.dunList.get(i)).lose + ".\n";
+                            alert = alert + temp + ". Phe " + ((DunListWin) DunListWin.dunList.get(i)).win
+                                    + " thắng Phe " + ((DunListWin) DunListWin.dunList.get(i)).lose + ".\n";
                         }
                         Server.manager.sendTB(p, "Kết quả", alert);
                         return;
@@ -1845,10 +1888,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.c.upxuMessage(19000000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
@@ -1862,10 +1907,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.c.upxuMessage(19000000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
@@ -1884,10 +1931,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.c.upxuMessage(90000000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
@@ -1901,10 +1950,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.c.upxuMessage(90000000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
@@ -1923,10 +1974,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.c.upxuMessage(190000000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
@@ -1940,10 +1993,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.c.upxuMessage(190000000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa bị Casino Luộc 100.000.000 tr xu Còn cái nịt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 100.000.000 tr xu Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
@@ -1962,10 +2017,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.upluongMessage(19000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa hốt 20.000 lượng của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa hốt 20.000 lượng của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Lẽ con nghiện " + p.c.name + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
+                                Manager.chatKTG("Về Lẽ con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
@@ -1979,10 +2036,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.upluongMessage(19000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa hốt 19.000 lượng của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa hốt 19.000 lượng của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
@@ -2001,10 +2060,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.upluongMessage(90000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Lẽ con nghiện " + p.c.name + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
+                                Manager.chatKTG("Về Lẽ con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
@@ -2018,10 +2079,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.upluongMessage(90000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
@@ -2040,10 +2103,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.upluongMessage(190000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
@@ -2057,10 +2122,12 @@ public class Menu {
                             int x = Util.nextInt(2);
                             if (x == 1) {
                                 p.upluongMessage(190000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
+                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+                                        + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
                                 break;
                             } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
+                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+                                        + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
                             }
                         } else {
                             Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
@@ -2221,7 +2288,8 @@ public class Menu {
                 }
             }
             default: {
-                Server.manager.sendTB(p, "Hướng dẫn", "Khoắng cây bút viết thơ tặng bạn Chúc Tân Niên có vạn niềm vui Bao nhiêu vất vả đẩy lùi Thay vào là những ngọt bùi yêu thương Hôm nay là Tết Dương lịch đó Gửi lời chúc nhờ gió chuyển cho Mong mọi người hết sầu lo Bình an hạnh phúc chuyến đò nhân gian Một... hai... ba, cùng san sẻ Tết Ta nâng ly quên hết buồn đời Chúc cho cuộc sống tuyệt vời Tình bạn tri kỷ người ơi giữ gìn Hãy đặt những niềm tin yêu quý Sống chân thành, hoan hỷ mỗi ngày Thế sự có lắm đổi thay Tâm ta bất biến, thẳng ngay mà làm Gửi chúc người Việt Nam yêu dấu Năm Tân sửu phấn đấu mọi điều Làm những công việc mình yêu Để cho cuộc sống thêm nhiều bình yên -Tết 2022 Chúc Mọi Người May Mắn !!");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "Khoắng cây bút viết thơ tặng bạn Chúc Tân Niên có vạn niềm vui Bao nhiêu vất vả đẩy lùi Thay vào là những ngọt bùi yêu thương Hôm nay là Tết Dương lịch đó Gửi lời chúc nhờ gió chuyển cho Mong mọi người hết sầu lo Bình an hạnh phúc chuyến đò nhân gian Một... hai... ba, cùng san sẻ Tết Ta nâng ly quên hết buồn đời Chúc cho cuộc sống tuyệt vời Tình bạn tri kỷ người ơi giữ gìn Hãy đặt những niềm tin yêu quý Sống chân thành, hoan hỷ mỗi ngày Thế sự có lắm đổi thay Tâm ta bất biến, thẳng ngay mà làm Gửi chúc người Việt Nam yêu dấu Năm Tân sửu phấn đấu mọi điều Làm những công việc mình yêu Để cho cuộc sống thêm nhiều bình yên -Tết 2022 Chúc Mọi Người May Mắn !!");
                 break;
             }
         }
@@ -2286,10 +2354,12 @@ public class Menu {
             case 2: {
                 try {
                     synchronized (Server.LOCK_MYSQL) {
-                        ResultSet red = SQLManager.stat.executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
+                        ResultSet red = SQLManager.stat
+                                .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
                         if (red != null && red.first()) {
                             p.coin = red.getInt("coin");
-                            p.conn.sendMessageLog("Bạn đang có : " + p.coin + ". Hãy thoát ra vào lại để cập nhật coin mới nhất nếu nạp.");
+                            p.conn.sendMessageLog("Bạn đang có : " + p.coin
+                                    + ". Hãy thoát ra vào lại để cập nhật coin mới nhất nếu nạp.");
                             break;
                         }
                     }
@@ -2416,7 +2486,8 @@ public class Menu {
                         }
 
                         if (p.c.isTaskDanhVong == 1) {
-                            Service.chatNPC(p, (short) npcid, "Trước đó con đã nhận nhiệm vụ rồi, hãy hoàn thành đã nha");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trước đó con đã nhận nhiệm vụ rồi, hãy hoàn thành đã nha");
                             return;
                         }
 
@@ -2496,7 +2567,7 @@ public class Menu {
                         }
 
                         p.c.isTaskDanhVong = 0;
-                        p.c.taskDanhVong = new int[]{-1, -1, -1, 0, p.c.countTaskDanhVong};
+                        p.c.taskDanhVong = new int[] { -1, -1, -1, 0, p.c.countTaskDanhVong };
                         Item item = ItemTemplate.itemDefault(DanhVongTemplate.randomDaDanhVong(), false);
                         item.quantity = 1;
                         item.isLock = false;
@@ -2558,7 +2629,8 @@ public class Menu {
 
                         if (p.c.checkPointDanhVong(1)) {
                             if (p.c.getBagNull() < 1) {
-                                Service.chatNPC(p, (short) npcid, "Hành trang của con không đủ chỗ trống để nhận thưởng");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Hành trang của con không đủ chỗ trống để nhận thưởng");
                                 return;
                             }
 
@@ -2577,69 +2649,86 @@ public class Menu {
 
                         break;
                     }
-                    /*     case 4: {
-                        if (p.c.isNhanban) {
-                            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                            return;
-                        }
-
-                        if (p.c.ItemBody[14] == null) {
-                            Service.chatNPC(p, (short) npcid, "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
-                            return;
-                        }
-
-                        if (p.c.ItemBody[14] == null) {
-                            return;
-                        }
-
-                        if (p.c.ItemBody[14].upgrade >= 10) {
-                            Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
-                            return;
-                        }
-
-                        if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
-                            Service.chatNPC(p, (short) npcid, "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
-                            return;
-                        }
-
-                        data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
-                        Service.startYesNoDlg(p, (byte) 0, "Bạn có muốn nâng cấp " + data.name + " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu với tỷ lệ thành công là " + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] + "% không?");
-                        break;
-                    }
-                    case 5: {
-                        if (p.c.isNhanban) {
-                            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                            return;
-                        }
-
-                        if (p.c.ItemBody[14] == null) {
-                            Service.chatNPC(p, (short) npcid, "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
-                            return;
-                        }
-
-                        if (p.c.ItemBody[14].upgrade >= 10) {
-                            Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
-                            return;
-                        }
-
-                        if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
-                            Service.chatNPC(p, (short) npcid, "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
-                            return;
-                        }
-
-                        data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
-                        Service.startYesNoDlg(p, (byte) 1, "Bạn có muốn nâng cấp " + data.name + " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu và " + GameSrc.goldUpMat[p.c.ItemBody[14].upgrade] + " lượng với tỷ lệ thành công là " + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2 + "% không?");
-                        break;
-                    }*/
+                    /*
+                     * case 4: {
+                     * if (p.c.isNhanban) {
+                     * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+                     * return;
+                     * }
+                     * 
+                     * if (p.c.ItemBody[14] == null) {
+                     * Service.chatNPC(p, (short) npcid,
+                     * "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
+                     * return;
+                     * }
+                     * 
+                     * if (p.c.ItemBody[14] == null) {
+                     * return;
+                     * }
+                     * 
+                     * if (p.c.ItemBody[14].upgrade >= 10) {
+                     * Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
+                     * return;
+                     * }
+                     * 
+                     * if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
+                     * Service.chatNPC(p, (short) npcid,
+                     * "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
+                     * return;
+                     * }
+                     * 
+                     * data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
+                     * Service.startYesNoDlg(p, (byte) 0, "Bạn có muốn nâng cấp " + data.name +
+                     * " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] +
+                     * " yên hoặc xu với tỷ lệ thành công là " +
+                     * GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] + "% không?");
+                     * break;
+                     * }
+                     * case 5: {
+                     * if (p.c.isNhanban) {
+                     * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+                     * return;
+                     * }
+                     * 
+                     * if (p.c.ItemBody[14] == null) {
+                     * Service.chatNPC(p, (short) npcid,
+                     * "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
+                     * return;
+                     * }
+                     * 
+                     * if (p.c.ItemBody[14].upgrade >= 10) {
+                     * Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
+                     * return;
+                     * }
+                     * 
+                     * if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
+                     * Service.chatNPC(p, (short) npcid,
+                     * "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
+                     * return;
+                     * }
+                     * 
+                     * data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
+                     * Service.startYesNoDlg(p, (byte) 1, "Bạn có muốn nâng cấp " + data.name +
+                     * " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu và " +
+                     * GameSrc.goldUpMat[p.c.ItemBody[14].upgrade] +
+                     * " lượng với tỷ lệ thành công là " +
+                     * GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2 + "% không?");
+                     * break;
+                     * }
+                     */
                     case 4: {
                         if (p.c.isNhanban) {
                             Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                             return;
                         }
 
-                        String nv = "- Hoàn thành nhiệm vụ. Hãy gặp Ameji để trả nhiệm vụ.\n- Hôm nay có thể nhận thêm " + p.c.countTaskDanhVong + " nhiệm vụ trong ngày.\n- Hôm nay có thể sử dụng thêm " + p.c.useDanhVongPhu + " Danh Vọng Phù để nhận thêm 5 lần làm nhiệm vụ.\n- Hoàn thành nhiệm vụ sẽ nhận ngẫu nhiên 1 viên đá danh vọng cấp 1-10.\n- Khi đủ mốc 100 điểm mỗi loại có thể nhận mắt và nâng cấp mắt.";
+                        String nv = "- Hoàn thành nhiệm vụ. Hãy gặp Ameji để trả nhiệm vụ.\n- Hôm nay có thể nhận thêm "
+                                + p.c.countTaskDanhVong + " nhiệm vụ trong ngày.\n- Hôm nay có thể sử dụng thêm "
+                                + p.c.useDanhVongPhu
+                                + " Danh Vọng Phù để nhận thêm 5 lần làm nhiệm vụ.\n- Hoàn thành nhiệm vụ sẽ nhận ngẫu nhiên 1 viên đá danh vọng cấp 1-10.\n- Khi đủ mốc 100 điểm mỗi loại có thể nhận mắt và nâng cấp mắt.";
                         if (p.c.isTaskDanhVong == 1) {
-                            nv = "NHIỆM VỤ LẦN NÀY: \n" + String.format(DanhVongTemplate.nameNV[p.c.taskDanhVong[0]], p.c.taskDanhVong[1], p.c.taskDanhVong[2]) + "\n\n" + nv;
+                            nv = "NHIỆM VỤ LẦN NÀY: \n" + String.format(DanhVongTemplate.nameNV[p.c.taskDanhVong[0]],
+                                    p.c.taskDanhVong[1], p.c.taskDanhVong[2]) + "\n\n" + nv;
                         }
 
                         Server.manager.sendTB(p, "Nhiệm vụ", nv);
@@ -2720,27 +2809,34 @@ public class Menu {
                 switch (b3) {
                     case 0: {
                         if (!ThienDiaBangManager.register) {
-                            Service.chatNPC(p, (short) npcid, "Đang trong thời gian tổng kết. Hiện tại không thể đăng ký.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Đang trong thời gian tổng kết. Hiện tại không thể đăng ký.");
                             return;
                         }
-                        if (ThienDiaBangManager.diaBangList.containsKey(p.c.name) || ThienDiaBangManager.thienBangList.containsKey(p.c.name)) {
+                        if (ThienDiaBangManager.diaBangList.containsKey(p.c.name)
+                                || ThienDiaBangManager.thienBangList.containsKey(p.c.name)) {
                             Service.chatNPC(p, (short) npcid, "Con đã đăng ký trước đó rồi");
                             return;
                         }
                         if (p.c.get().level >= 50 && p.c.get().level < 70) {
-                            ThienDiaBangManager.diaBangList.put(p.c.name, new ThienDiaData(p.c.name, ThienDiaBangManager.rankDiaBang++, 1));
+                            ThienDiaBangManager.diaBangList.put(p.c.name,
+                                    new ThienDiaData(p.c.name, ThienDiaBangManager.rankDiaBang++, 1));
                             Service.chatNPC(p, (short) npcid, "Con đã đăng ký tham gia trang tài Địa bảng thành công.");
                         } else if (p.c.get().level >= 70) {
-                            ThienDiaBangManager.thienBangList.put(p.c.name, new ThienDiaData(p.c.name, ThienDiaBangManager.rankThienBang++, 1));
-                            Service.chatNPC(p, (short) npcid, "Con đã đăng ký tham gia tranh tài Thiên bảng thành công.");
+                            ThienDiaBangManager.thienBangList.put(p.c.name,
+                                    new ThienDiaData(p.c.name, ThienDiaBangManager.rankThienBang++, 1));
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con đã đăng ký tham gia tranh tài Thiên bảng thành công.");
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Trình độ của con không phù hợp để đăng ký tham gia tranh tài.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trình độ của con không phù hợp để đăng ký tham gia tranh tài.");
                         }
                         break;
                     }
                     case 1: {
                         if (!ThienDiaBangManager.register) {
-                            Service.chatNPC(p, (short) npcid, "Đang trong thời gian tổng kết. Hiện tại không thể thi đấu.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Đang trong thời gian tổng kết. Hiện tại không thể thi đấu.");
                             return;
                         }
                         ArrayList<ThienDiaData> list = new ArrayList<>();
@@ -2750,7 +2846,8 @@ public class Menu {
                                 if (data != null) {
                                     if (rank.getRank() < 10 && (data.getRank() - rank.getRank()) < 20) {
                                         list.add(data);
-                                    } else if (data.getRank() < rank.getRank() & (rank.getRank() - data.getRank()) < 10) {
+                                    } else if (data.getRank() < rank.getRank()
+                                            & (rank.getRank() - data.getRank()) < 10) {
                                         list.add(data);
                                     }
                                 }
@@ -2761,7 +2858,8 @@ public class Menu {
                                 if (data != null) {
                                     if (rank.getRank() < 10 && (data.getRank() - rank.getRank()) < 20) {
                                         list.add(data);
-                                    } else if (data.getRank() <= rank.getRank() & (rank.getRank() - data.getRank()) < 10) {
+                                    } else if (data.getRank() <= rank.getRank()
+                                            & (rank.getRank() - data.getRank()) < 10) {
                                         list.add(data);
                                     }
                                 }
@@ -2776,7 +2874,8 @@ public class Menu {
                     case 2: {
                         String res = "";
                         int count = 1;
-                        for (ThienDiaData data : ThienDiaBangManager.getListSortAsc(new ArrayList<ThienDiaData>(ThienDiaBangManager.thienBangList.values()))) {
+                        for (ThienDiaData data : ThienDiaBangManager.getListSortAsc(
+                                new ArrayList<ThienDiaData>(ThienDiaBangManager.thienBangList.values()))) {
                             if (count < 11) {
                                 res += "Hạng " + count + ": " + data.getName() + ".\n";
                                 count++;
@@ -2788,7 +2887,8 @@ public class Menu {
                     case 3: {
                         String res = "";
                         int count = 1;
-                        for (ThienDiaData data : ThienDiaBangManager.getListSortAsc(new ArrayList<ThienDiaData>(ThienDiaBangManager.diaBangList.values()))) {
+                        for (ThienDiaData data : ThienDiaBangManager.getListSortAsc(
+                                new ArrayList<ThienDiaData>(ThienDiaBangManager.diaBangList.values()))) {
                             if (count < 11) {
                                 res += "Hạng " + count + ": " + data.getName() + ".\n";
                                 count++;
@@ -2800,7 +2900,7 @@ public class Menu {
                     case 4: {
                         ResultSet res = null;
                         try {
-                            if (true) {//if(Manager.nhanquatdb == 0){
+                            if (true) {// if(Manager.nhanquatdb == 0){
                                 Service.chatNPC(p, (short) npcid, "Chỉ nhận quà được vào thứ 2.");
                                 return;
                             }
@@ -2813,7 +2913,8 @@ public class Menu {
                                         switch (p.c.rankTDB) {
                                             case 1: {
                                                 if (p.c.getBagNull() < 10) {
-                                                    Service.chatNPC(p, (short) npcid, "Con cần ít nhất 10 chỗ trống trong hành trang để nhận thưởng.");
+                                                    Service.chatNPC(p, (short) npcid,
+                                                            "Con cần ít nhất 10 chỗ trống trong hành trang để nhận thưởng.");
                                                     return;
                                                 }
                                                 Item pl = ItemTemplate.itemDefault(308, false);
@@ -2840,7 +2941,8 @@ public class Menu {
                                             }
                                             case 2: {
                                                 if (p.c.getBagNull() < 7) {
-                                                    Service.chatNPC(p, (short) npcid, "Con cần ít nhất 7 chỗ trống trong hành trang để nhận thưởng.");
+                                                    Service.chatNPC(p, (short) npcid,
+                                                            "Con cần ít nhất 7 chỗ trống trong hành trang để nhận thưởng.");
                                                     return;
                                                 }
                                                 Item pl = ItemTemplate.itemDefault(308, false);
@@ -2864,7 +2966,8 @@ public class Menu {
                                             }
                                             case 3: {
                                                 if (p.c.getBagNull() < 4) {
-                                                    Service.chatNPC(p, (short) npcid, "Con cần ít nhất 4 chỗ trống trong hành trang để nhận thưởng.");
+                                                    Service.chatNPC(p, (short) npcid,
+                                                            "Con cần ít nhất 4 chỗ trống trong hành trang để nhận thưởng.");
                                                     return;
                                                 }
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(540, false));
@@ -2883,7 +2986,8 @@ public class Menu {
                                             case 9:
                                             case 10: {
                                                 if (p.c.getBagNull() < 4) {
-                                                    Service.chatNPC(p, (short) npcid, "Con cần ít nhất 2 chỗ trống trong hành trang để nhận thưởng.");
+                                                    Service.chatNPC(p, (short) npcid,
+                                                            "Con cần ít nhất 2 chỗ trống trong hành trang để nhận thưởng.");
                                                     return;
                                                 }
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
@@ -2915,7 +3019,8 @@ public class Menu {
                                     return;
                                 }
                             } else {
-                                Service.chatNPC(p, (short) npcid, "Tuần trước con chưa tham gia Thiên Địa bảng và chưa có rank, con chưa thể nhận thường.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Tuần trước con chưa tham gia Thiên Địa bảng và chưa có rank, con chưa thể nhận thường.");
                                 return;
                             }
                         } catch (Exception e) {
@@ -2933,23 +3038,24 @@ public class Menu {
                         break;
                     }
                     case 5: {
-                        Server.manager.sendTB(p, "Hướng dẫn", "- Thiên Địa Bảng sẽ được mở hàng tuần. Bắt đầu từ thứ 2 và tổng kết vào chủ nhật.\n"
-                                + "- Thiên Địa Bảng sẽ được mở đăng ký và chính phục từ 00h05' đến 23h45' hàng ngày. Mỗi ngày sẽ có 20p để tổng kết ngày, trong thời gian này sẽ không thể đăng ký và chinh phục\n"
-                                + "- Trong thời gian tổng kết nếu chiến thắng trong Chinh phục sẽ không được tính rank."
-                                + "- Vào ngày thường sẽ không giới hạn lượt thách đấu.\n"
-                                + "- Vào Thứ 7 và Chủ Nhật mỗi Ninja sẽ có 5 lượt thách đấu, Thắng sẽ không bị mất lượt, thua sẽ bị trừ 1 lần thách đấu."
-                                + "- Địa Bảng dành cho ninja từ cấp độ 50-69.\n"
-                                + "- Thiên Bảng dành cho ninja từ cấp độ trên 70\n"
-                                + "- Sau khi đăng ký thành công, hãy Chinh Phục ngay để giành lấy vị trí top đầu.\n"
-                                + "- Mỗi lần chiến thắng, nếu vị trí của đối thủ trước bạn, bạn sẽ đổi vị trí của mình cho đối thủ, còn không vị trí của bạn sẽ được giữ nguyên.\n"
-                                + "- Phần thưởng sẽ được trả thưởng vào mỗi tuần mới (Lưu ý: Hãy nhận thưởng ngay trong tuần mới đó, nếu sang tuần sau phần thưởng sẽ bị reset).\n\n"
-                                + "- PHẦN THƯỞNG: \n"
-                                + "Top 1: Hào quang Rank 1 + 2 Bánh Phong Lôi, 2 Bánh Băng Hoả, 2 Nấm x4, 3 Nấm x3, 1 Rương bạch ngân, 2 Bát bảo, 20,000 Lượng, 20,000,000 xu.\n\n"
-                                + "Top 2: Hào quang Rank 2 + 1 Bánh Phong Lôi, 1 Bánh Băng Hoả, 1 Nấm x4, 2 Nấm x3, 1 Rương bạch ngân, 1 Bát bảo, 10,000 Lượng, 10,000,000 xu.\n\n"
-                                + "Top 3: Hào quang Rank 3 + 1 Nấm x4, 1 Nấm x3, 2 Bát bảo, 5,000 Lượng, 5,000,000 xu.\n\n"
-                                + "Top 4-10: 1 Nấm x3, 1 Bát bảo, 3,000 Lượng, 3,000,000 xu.\n\n"
-                                + "Top 11-20: 1,000 Lượng, 1,000,000 xu.\n\n"
-                                + "Còn lại: 500 Lượng, 500,000 xu.");
+                        Server.manager.sendTB(p, "Hướng dẫn",
+                                "- Thiên Địa Bảng sẽ được mở hàng tuần. Bắt đầu từ thứ 2 và tổng kết vào chủ nhật.\n"
+                                        + "- Thiên Địa Bảng sẽ được mở đăng ký và chính phục từ 00h05' đến 23h45' hàng ngày. Mỗi ngày sẽ có 20p để tổng kết ngày, trong thời gian này sẽ không thể đăng ký và chinh phục\n"
+                                        + "- Trong thời gian tổng kết nếu chiến thắng trong Chinh phục sẽ không được tính rank."
+                                        + "- Vào ngày thường sẽ không giới hạn lượt thách đấu.\n"
+                                        + "- Vào Thứ 7 và Chủ Nhật mỗi Ninja sẽ có 5 lượt thách đấu, Thắng sẽ không bị mất lượt, thua sẽ bị trừ 1 lần thách đấu."
+                                        + "- Địa Bảng dành cho ninja từ cấp độ 50-69.\n"
+                                        + "- Thiên Bảng dành cho ninja từ cấp độ trên 70\n"
+                                        + "- Sau khi đăng ký thành công, hãy Chinh Phục ngay để giành lấy vị trí top đầu.\n"
+                                        + "- Mỗi lần chiến thắng, nếu vị trí của đối thủ trước bạn, bạn sẽ đổi vị trí của mình cho đối thủ, còn không vị trí của bạn sẽ được giữ nguyên.\n"
+                                        + "- Phần thưởng sẽ được trả thưởng vào mỗi tuần mới (Lưu ý: Hãy nhận thưởng ngay trong tuần mới đó, nếu sang tuần sau phần thưởng sẽ bị reset).\n\n"
+                                        + "- PHẦN THƯỞNG: \n"
+                                        + "Top 1: Hào quang Rank 1 + 2 Bánh Phong Lôi, 2 Bánh Băng Hoả, 2 Nấm x4, 3 Nấm x3, 1 Rương bạch ngân, 2 Bát bảo, 20,000 Lượng, 20,000,000 xu.\n\n"
+                                        + "Top 2: Hào quang Rank 2 + 1 Bánh Phong Lôi, 1 Bánh Băng Hoả, 1 Nấm x4, 2 Nấm x3, 1 Rương bạch ngân, 1 Bát bảo, 10,000 Lượng, 10,000,000 xu.\n\n"
+                                        + "Top 3: Hào quang Rank 3 + 1 Nấm x4, 1 Nấm x3, 2 Bát bảo, 5,000 Lượng, 5,000,000 xu.\n\n"
+                                        + "Top 4-10: 1 Nấm x3, 1 Bát bảo, 3,000 Lượng, 3,000,000 xu.\n\n"
+                                        + "Top 11-20: 1,000 Lượng, 1,000,000 xu.\n\n"
+                                        + "Còn lại: 500 Lượng, 500,000 xu.");
                         break;
                     }
                     default: {
@@ -2971,7 +3077,7 @@ public class Menu {
 
             switch (menuId) {
                 case 0:
-                    //p.requestItem(4);
+                    // p.requestItem(4);
                     switch (b3) {
                         case 0: {
                             Service.openMenuBox(p);
@@ -2986,7 +3092,7 @@ public class Menu {
                             break;
                         }
                         case 3: {
-                            //Tháo cải trang
+                            // Tháo cải trang
                             p.c.caiTrang = -1;
                             Message m = new Message(11);
                             m.writer().writeByte(-1);
@@ -3005,7 +3111,9 @@ public class Menu {
                     }
                     break;
                 case 1:
-                    if (p.c.tileMap.map.getXHD() != -1 || p.c.tileMap.map.LangCo() || p.c.tileMap.map.mapBossTuanLoc() || p.c.tileMap.map.mapLDGT() || p.c.tileMap.map.mapGTC() || p.c.tileMap.map.id == 111 || p.c.tileMap.map.id == 113) {
+                    if (p.c.tileMap.map.getXHD() != -1 || p.c.tileMap.map.LangCo() || p.c.tileMap.map.mapBossTuanLoc()
+                            || p.c.tileMap.map.mapLDGT() || p.c.tileMap.map.mapGTC() || p.c.tileMap.map.id == 111
+                            || p.c.tileMap.map.id == 113) {
                         p.c.mapLTD = 22;
                     } else {
                         p.c.mapLTD = p.c.tileMap.map.id;
@@ -3193,7 +3301,8 @@ public class Menu {
                 if (p.c.get().nclass > 0) {
                     Service.chatNPC(p, (short) npcid, "Con đã vào lớp từ trước rồi mà.");
                 } else if (p.c.get().ItemBody[1] != null) {
-                    Service.chatNPC(p, (short) npcid, "Con cần có 1 tâm hồn trong trắng mới có thể nhập học, hãy tháo vũ khí trên người ra!");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con cần có 1 tâm hồn trong trắng mới có thể nhập học, hãy tháo vũ khí trên người ra!");
                 } else if (p.c.getBagNull() < 2) {
                     Service.chatNPC(p, (short) npcid, "Hành trang cần phải có ít nhất 2 ô trống mới có thể nhập học!");
                 } else {
@@ -3212,7 +3321,8 @@ public class Menu {
                 break;
             case 2:
                 if (p.c.get().nclass != 1 && p.c.get().nclass != 2) {
-                    Service.chatNPC(p, (short) npcid, "Con không phải học sinh của trường này, ta không thể giúp con tẩy điểm dược rồi.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con không phải học sinh của trường này, ta không thể giúp con tẩy điểm dược rồi.");
                 } else if (b3 == 0) {
                     if (p.c.get().countTayTiemNang < 1) {
                         Service.chatNPC(p, (short) npcid, "Số lần tẩy điểm kỹ năng của con đã hết.");
@@ -3220,7 +3330,8 @@ public class Menu {
                     }
                     p.restPpoint();
                     --p.c.get().countTayTiemNang;
-                    Service.chatNPC(p, (short) npcid, "Ta đã giúp con tẩy điểm tiềm năng, hãy nâng điểm thật hợp lý nha.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Ta đã giúp con tẩy điểm tiềm năng, hãy nâng điểm thật hợp lý nha.");
                     p.sendAddchatYellow("Tẩy điểm tiềm năng thành công");
                 } else if (b3 == 1) {
                     if (p.c.get().countTayKyNang < 1) {
@@ -3229,12 +3340,14 @@ public class Menu {
                     }
                     p.restSpoint();
                     --p.c.get().countTayKyNang;
-                    Service.chatNPC(p, (short) npcid, "Ta đã giúp con tẩy điểm kỹ năng, hãy nâng điểm thật hợp lý nha.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Ta đã giúp con tẩy điểm kỹ năng, hãy nâng điểm thật hợp lý nha.");
                     p.sendAddchatYellow("Tẩy điểm kỹ năng thành công");
                 }
                 break;
             case 3:
-                Service.chatNPC(p, (short) npcid, "Trường ta là 1 ngôi trường danh giá, chỉ giành cho nhưng ninja tính nóng như kem mà thôi.");
+                Service.chatNPC(p, (short) npcid,
+                        "Trường ta là 1 ngôi trường danh giá, chỉ giành cho nhưng ninja tính nóng như kem mà thôi.");
                 break;
             case 4:
                 Service.chatNPC(p, (short) npcid, "Ta đang hơi mệt xíu, ta sẽ giao chiến với con sau nha! Bye bye...");
@@ -3275,7 +3388,8 @@ public class Menu {
                 if (p.c.get().nclass > 0) {
                     Service.chatNPC(p, (short) npcid, "Con đã vào lớp từ trước rồi mà.");
                 } else if (p.c.get().ItemBody[1] != null) {
-                    Service.chatNPC(p, (short) npcid, "Con cần có 1 tâm hồn trong trắng mới có thể nhập học, hãy tháo vũ khí trên người ra!");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con cần có 1 tâm hồn trong trắng mới có thể nhập học, hãy tháo vũ khí trên người ra!");
                 } else if (p.c.getBagNull() < 2) {
                     Service.chatNPC(p, (short) npcid, "Hành trang cần phải có ít nhất 2 ô trống mới có thể nhập học!");
                 } else {
@@ -3295,7 +3409,8 @@ public class Menu {
                 break;
             case 2:
                 if (p.c.get().nclass != 3 && p.c.get().nclass != 4) {
-                    Service.chatNPC(p, (short) npcid, "Con không phải học sinh của trường này, ta không thể giúp con tẩy điểm dược rồi.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con không phải học sinh của trường này, ta không thể giúp con tẩy điểm dược rồi.");
                 } else if (b3 == 0) {
                     if (p.c.get().countTayTiemNang < 1) {
                         Service.chatNPC(p, (short) npcid, "Số lần tẩy điểm kỹ năng của con đã hết.");
@@ -3303,7 +3418,8 @@ public class Menu {
                     }
                     p.restPpoint();
                     --p.c.get().countTayTiemNang;
-                    Service.chatNPC(p, (short) npcid, "Ta đã giúp con tẩy điểm tiềm năng, hãy nâng điểm thật hợp lý nha.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Ta đã giúp con tẩy điểm tiềm năng, hãy nâng điểm thật hợp lý nha.");
                     p.sendAddchatYellow("Tẩy điểm tiềm năng thành công");
                 } else if (b3 == 1) {
                     if (p.c.get().countTayKyNang < 1) {
@@ -3313,12 +3429,14 @@ public class Menu {
 
                     p.restSpoint();
                     --p.c.get().countTayKyNang;
-                    Service.chatNPC(p, (short) npcid, "Ta đã giúp con tẩy điểm kỹ năng, hãy nâng điểm thật hợp lý nha.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Ta đã giúp con tẩy điểm kỹ năng, hãy nâng điểm thật hợp lý nha.");
                     p.sendAddchatYellow("Tẩy điểm kỹ năng thành công");
                 }
                 break;
             case 3:
-                Service.chatNPC(p, (short) npcid, "Sao hôm nay trời nóng thế nhỉ, hình như biến đổi khí hậu làm tan hết băng trường ta rồi!");
+                Service.chatNPC(p, (short) npcid,
+                        "Sao hôm nay trời nóng thế nhỉ, hình như biến đổi khí hậu làm tan hết băng trường ta rồi!");
                 break;
             case 4:
                 Service.chatNPC(p, (short) npcid, "Ta đang hơi mệt xíu, ta sẽ giao chiến với con sau nha! Bye bye...");
@@ -3358,7 +3476,8 @@ public class Menu {
                 if (p.c.get().nclass > 0) {
                     Service.chatNPC(p, (short) npcid, "Con đã vào lớp từ trước rồi mà.");
                 } else if (p.c.get().ItemBody[1] != null) {
-                    Service.chatNPC(p, (short) npcid, "Con cần có 1 tâm hồn trong trắng mới có thể nhập học, hãy tháo vũ khí trên người ra!");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con cần có 1 tâm hồn trong trắng mới có thể nhập học, hãy tháo vũ khí trên người ra!");
                 } else if (p.c.getBagNull() < 2) {
                     Service.chatNPC(p, (short) npcid, "Hành trang cần phải có ít nhất 2 ô trống mới có thể nhập học!");
                 } else {
@@ -3373,7 +3492,8 @@ public class Menu {
                 break;
             case 2:
                 if (p.c.get().nclass != 5 && p.c.get().nclass != 6) {
-                    Service.chatNPC(p, (short) npcid, "Con không phải học sinh của trường này, ta không thể giúp con tẩy điểm dược rồi.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con không phải học sinh của trường này, ta không thể giúp con tẩy điểm dược rồi.");
                 } else if (b3 == 0) {
                     if (p.c.get().countTayTiemNang < 1) {
                         Service.chatNPC(p, (short) npcid, "Số lần tẩy điểm tiềm năng của con đã hết.");
@@ -3381,7 +3501,8 @@ public class Menu {
                     }
                     p.restPpoint();
                     --p.c.get().countTayTiemNang;
-                    Service.chatNPC(p, (short) npcid, "Ta đã giúp con tẩy điểm tiềm năng, hãy nâng điểm thật hợp lý nha.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Ta đã giúp con tẩy điểm tiềm năng, hãy nâng điểm thật hợp lý nha.");
                     p.sendAddchatYellow("Tẩy điểm tiềm năng thành công");
                 } else if (b3 == 1) {
                     if (p.c.get().countTayKyNang < 1) {
@@ -3390,12 +3511,14 @@ public class Menu {
                     }
                     p.restSpoint();
                     --p.c.get().countTayKyNang;
-                    Service.chatNPC(p, (short) npcid, "Ta đã giúp con tẩy điểm kỹ năng, hãy nâng điểm thật hợp lý nha.");
+                    Service.chatNPC(p, (short) npcid,
+                            "Ta đã giúp con tẩy điểm kỹ năng, hãy nâng điểm thật hợp lý nha.");
                     p.sendAddchatYellow("Tẩy điểm kỹ năng thành công");
                 }
                 break;
             case 3:
-                Service.chatNPC(p, (short) npcid, "Ngươi là người thổi tan băng của trường Ookaza và mang kem về cho trường Hirosaki đúng không?");
+                Service.chatNPC(p, (short) npcid,
+                        "Ngươi là người thổi tan băng của trường Ookaza và mang kem về cho trường Hirosaki đúng không?");
                 break;
             case 4:
                 Service.chatNPC(p, (short) npcid, "Ta đang hơi mệt xíu, ta sẽ giao chiến với con sau nha! Bye bye...");
@@ -3515,7 +3638,8 @@ public class Menu {
     public static void npcOkanechan(Player p, byte npcid, byte menuId, byte b3) throws IOException {
         switch (menuId) {
             case 0:
-                Server.manager.sendTB(p, "Hướng dẫn", "- Để nạp tiền hoặc mua đồ, con hãy lên Website hoặc THAM GIA BOX ZALO của game để nạp nhé!");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "- Để nạp tiền hoặc mua đồ, con hãy lên Website hoặc THAM GIA BOX ZALO của game để nạp nhé!");
                 break;
             case 1:
                 if (p.c.isNhanban) {
@@ -3750,7 +3874,7 @@ public class Menu {
                     Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     return;
                 }
-                if(p.c.level <80) {
+                if (p.c.level < 80) {
                     Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
                     return;
                 }
@@ -3764,7 +3888,7 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
                     }
-                    break;
+                        break;
                     case 1: {
                         if (p.luong < 1000) {
                             Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
@@ -3774,7 +3898,7 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
                     }
-                    break;
+                        break;
                     case 2: {
                         if (p.luong < 1000) {
                             Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
@@ -3784,10 +3908,10 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang yên thành công");
                         }
                     }
-                    break;
+                        break;
                 }
             }
-            break;
+                break;
             case 3:
                 Service.chatNPC(p, (short) npcid, "Hãy rèn luyện thật chăm chỉ rồi quay lại chỗ ta nhận thưởng nha!");
                 break;
@@ -3886,7 +4010,8 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ 2 tỷ xu");
                             break;
                         } else {
-                            Manager.chatKTG("Chúc Mừng người chơi " + p.c.name + " Đã Đổi Thành Công 1 lúc 10 Thỏi Bạc Thật Dubai");
+                            Manager.chatKTG("Chúc Mừng người chơi " + p.c.name
+                                    + " Đã Đổi Thành Công 1 lúc 10 Thỏi Bạc Thật Dubai");
                             p.c.upxuMessage(-2000000000);
                             Item it = new Item();
                             it.id = 247;
@@ -3977,7 +4102,8 @@ public class Menu {
                         }
 
                         if (p.c.countTaskHangNgay >= 20) {
-                            Service.chatNPC(p, (short) npcid, "Con đã hoàn thành hết nhiệm vụ ngày hôm nay rồi, ngày mai hãy quay lại nha.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con đã hoàn thành hết nhiệm vụ ngày hôm nay rồi, ngày mai hãy quay lại nha.");
                             return;
                         }
 
@@ -3993,7 +4119,8 @@ public class Menu {
                                 p.c.isTaskHangNgay = 1;
                                 p.c.countTaskHangNgay++;
                                 Service.getTaskOrder(p.c, (byte) 0);
-                                Service.chatNPC(p, (short) npcid, "Đây là nhiệm vụ thứ " + p.c.countTaskHangNgay + "/20 trong ngày của con.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Đây là nhiệm vụ thứ " + p.c.countTaskHangNgay + "/20 trong ngày của con.");
                             }
                         }
                         break;
@@ -4012,7 +4139,7 @@ public class Menu {
 
                         p.c.isTaskHangNgay = 0;
                         p.c.countTaskHangNgay--;
-                        p.c.taskHangNgay = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay};
+                        p.c.taskHangNgay = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay };
                         Service.clearTaskOrder(p.c, (byte) 0);
                         Service.chatNPC(p, (short) npcid, "Con đã huỷ nhiệm vụ lần này.");
                         break;
@@ -4040,7 +4167,7 @@ public class Menu {
                         }
 
                         p.c.isTaskHangNgay = 0;
-                        p.c.taskHangNgay = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay};
+                        p.c.taskHangNgay = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskHangNgay };
                         Service.clearTaskOrder(p.c, (byte) 0);
                         long luongUp = Util.nextInt(500, 1000);
                         if (p.c.vip < 1) {
@@ -4120,7 +4247,8 @@ public class Menu {
                         }
 
                         if (p.c.countTaskTaThu >= 2) {
-                            Service.chatNPC(p, (short) npcid, "Con đã hoàn thành hết nhiệm vụ ngày hôm nay rồi, ngày mai hãy quay lại nha.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con đã hoàn thành hết nhiệm vụ ngày hôm nay rồi, ngày mai hãy quay lại nha.");
                             return;
                         }
                         mob = Service.getMobIdTaThu(p.c.level);
@@ -4154,7 +4282,7 @@ public class Menu {
                         Service.clearTaskOrder(p.c, (byte) 1);
                         p.c.isTaskTaThu = 0;
                         --p.c.countTaskTaThu;
-                        p.c.taskTaThu = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskTaThu};
+                        p.c.taskTaThu = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskTaThu };
                         Service.chatNPC(p, (short) npcid, "Con đã huỷ nhiệm vụ lần này.");
                         break;
                     }
@@ -4181,7 +4309,7 @@ public class Menu {
                         }
 
                         p.c.isTaskTaThu = 0;
-                        p.c.taskTaThu = new int[]{-1, -1, -1, -1, -1, 0, p.c.countTaskTaThu};
+                        p.c.taskTaThu = new int[] { -1, -1, -1, -1, -1, 0, p.c.countTaskTaThu };
                         Service.clearTaskOrder(p.c, (byte) 1);
                         if (p.c.pointUydanh < 5000) {
                             p.c.pointUydanh += 3;
@@ -4230,10 +4358,12 @@ public class Menu {
                         }
                         if (ChienTruong.chienTruong != null) {
                             if (ChienTruong.chienTruong30 && (p.c.level < 30 || p.c.level >= 50)) {
-                                Service.chatNPC(p, (short) npcid, "Bây giờ là thời gian chiến trường cho cấp độ từ 30 đến 49. Trình độ của con không phù hợp để tham gia.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Bây giờ là thời gian chiến trường cho cấp độ từ 30 đến 49. Trình độ của con không phù hợp để tham gia.");
                                 return;
                             } else if (ChienTruong.chienTruong50 && p.c.level < 50) {
-                                Service.chatNPC(p, (short) npcid, "Bây giờ là thời gian chiến trường cho cấp độ lớn hơn hoặc bằng 50. Trình độ của con không phù hợp để tham gia.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Bây giờ là thời gian chiến trường cho cấp độ lớn hơn hoặc bằng 50. Trình độ của con không phù hợp để tham gia.");
                                 return;
                             }
                             if ((ChienTruong.chienTruong30 || ChienTruong.chienTruong50) && p.c.pheCT == 1) {
@@ -4305,10 +4435,12 @@ public class Menu {
                         }
                         if (ChienTruong.chienTruong != null) {
                             if (ChienTruong.chienTruong30 && (p.c.level < 30 || p.c.level >= 50)) {
-                                Service.chatNPC(p, (short) npcid, "Bây giờ là thời gian chiến trường cho cấp độ từ 30 đến 49. Trình độ của con không phù hợp để tham gia.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Bây giờ là thời gian chiến trường cho cấp độ từ 30 đến 49. Trình độ của con không phù hợp để tham gia.");
                                 return;
                             } else if (ChienTruong.chienTruong50 && p.c.level < 50) {
-                                Service.chatNPC(p, (short) npcid, "Bây giờ là thời gian chiến trường cho cấp độ lớn hơn hoặc bằng 50. Trình độ của con không phù hợp để tham gia.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Bây giờ là thời gian chiến trường cho cấp độ lớn hơn hoặc bằng 50. Trình độ của con không phù hợp để tham gia.");
                                 return;
                             }
                             if (ChienTruong.start && p.c.pheCT == -1) {
@@ -4467,20 +4599,23 @@ public class Menu {
                         }
                         case 87: {
                             p.c.tileMap.map.lanhDiaGiaToc.openMap(8, p);
-                            Server.manager.sendTB(p, "Ghi chú", "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
-                                    + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
+                            Server.manager.sendTB(p, "Ghi chú",
+                                    "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
+                                            + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
                             break;
                         }
                         case 88: {
                             p.c.tileMap.map.lanhDiaGiaToc.openMap(9, p);
-                            Server.manager.sendTB(p, "Ghi chú", "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
-                                    + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
+                            Server.manager.sendTB(p, "Ghi chú",
+                                    "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
+                                            + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
                             break;
                         }
                         case 89: {
                             p.c.tileMap.map.lanhDiaGiaToc.openMap(10, p);
-                            Server.manager.sendTB(p, "Ghi chú", "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
-                                    + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
+                            Server.manager.sendTB(p, "Ghi chú",
+                                    "Con đường này sẽ dẫn đến cánh cửa nơi ở của một nhân vật huyền bí đã bị lời nguyền cổ "
+                                            + "xưa yểm bùa rằng sẽ không ai có thể đánh bại được nhân vật huyền bí này. Bạn hãy mau tìm cách hoá giải lời nguyền.");
                             break;
                         }
                         default: {
@@ -4556,7 +4691,8 @@ public class Menu {
                             item = itemShinwas.get(i);
                             if (item != null && item.getSeller().equals(p.c.name)) {
                                 if (p.c.getBagNull() == 0) {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang không đủ chỗ trống để nhận thêm vật phẩm!");
+                                    Service.chatNPC(p, (short) npcid,
+                                            "Hành trang không đủ chỗ trống để nhận thêm vật phẩm!");
                                     break;
                                 }
                                 p.c.addItemBag(true, item.getItem());
@@ -4616,7 +4752,8 @@ public class Menu {
                         return;
                     }
                     case 2: {
-                        Server.manager.sendTB(p, "Vòng xoay vip", "Hãy đặt cược xu và thử vận may của mình trong 2 phút nha.");
+                        Server.manager.sendTB(p, "Vòng xoay vip",
+                                "Hãy đặt cược xu và thử vận may của mình trong 2 phút nha.");
                         return;
                     }
                     default: {
@@ -4632,7 +4769,8 @@ public class Menu {
                         return;
                     }
                     case 2: {
-                        Server.manager.sendTB(p, "Vòng xoay thường", "Hãy đặt cược xu và thử vận may của mình trong 2 phút nha.");
+                        Server.manager.sendTB(p, "Vòng xoay thường",
+                                "Hãy đặt cược xu và thử vận may của mình trong 2 phút nha.");
                         return;
                     }
                     default: {
@@ -4671,7 +4809,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.clan != null && p.c.clan.typeclan != 4) {
-                            Service.chatNPC(p, (short) npcid, "Con không phải tộc trưởng, không thể mời gia tộc chiến.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Con không phải tộc trưởng, không thể mời gia tộc chiến.");
                             return;
                         }
                         Service.sendInputDialog(p, (short) 5, "Nhập tên gia tộc đối phương");
@@ -4799,14 +4938,15 @@ public class Menu {
         if (p.typemenu == 33) {
             Item it;
             switch (Server.manager.event) {
-                //Hè
+                // Hè
                 case 1: {
                     if (p.c.isNhanban) {
                         Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     } else {
                         switch (menuId) {
                             case 0: {
-                                if (p.c.quantityItemyTotal(432) >= 1 && p.c.quantityItemyTotal(428) >= 3 && p.c.quantityItemyTotal(429) >= 2 && p.c.quantityItemyTotal(430) >= 3) {
+                                if (p.c.quantityItemyTotal(432) >= 1 && p.c.quantityItemyTotal(428) >= 3
+                                        && p.c.quantityItemyTotal(429) >= 2 && p.c.quantityItemyTotal(430) >= 3) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4825,7 +4965,8 @@ public class Menu {
                                 break;
                             }
                             case 1: {
-                                if (p.c.quantityItemyTotal(433) >= 1 && p.c.quantityItemyTotal(428) >= 2 && p.c.quantityItemyTotal(429) >= 3 && p.c.quantityItemyTotal(431) >= 2) {
+                                if (p.c.quantityItemyTotal(433) >= 1 && p.c.quantityItemyTotal(428) >= 2
+                                        && p.c.quantityItemyTotal(429) >= 3 && p.c.quantityItemyTotal(431) >= 2) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4845,14 +4986,16 @@ public class Menu {
                     }
                     break;
                 }
-                //Trung thu
+                // Trung thu
                 case 2: {
                     if (p.c.isNhanban) {
                         Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     } else {
                         switch (menuId) {
                             case 0: {
-                                if (p.c.quantityItemyTotal(304) >= 1 && p.c.quantityItemyTotal(298) >= 1 && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1 && p.c.quantityItemyTotal(301) >= 1) {
+                                if (p.c.quantityItemyTotal(304) >= 1 && p.c.quantityItemyTotal(298) >= 1
+                                        && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1
+                                        && p.c.quantityItemyTotal(301) >= 1) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4872,7 +5015,9 @@ public class Menu {
                                 break;
                             }
                             case 1: {
-                                if (p.c.quantityItemyTotal(305) >= 1 && p.c.quantityItemyTotal(298) >= 1 && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1 && p.c.quantityItemyTotal(301) >= 1) {
+                                if (p.c.quantityItemyTotal(305) >= 1 && p.c.quantityItemyTotal(298) >= 1
+                                        && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1
+                                        && p.c.quantityItemyTotal(301) >= 1) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4892,7 +5037,8 @@ public class Menu {
                                 break;
                             }
                             case 2: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 3 && p.c.quantityItemyTotal(293) >= 2 && p.c.quantityItemyTotal(294) >= 3) {
+                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 3
+                                        && p.c.quantityItemyTotal(293) >= 2 && p.c.quantityItemyTotal(294) >= 3) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4911,7 +5057,8 @@ public class Menu {
                                 break;
                             }
                             case 3: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2 && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(294) >= 2) {
+                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
+                                        && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(294) >= 2) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4930,7 +5077,8 @@ public class Menu {
                                 break;
                             }
                             case 4: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2 && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(297) >= 3) {
+                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
+                                        && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(297) >= 3) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4949,7 +5097,8 @@ public class Menu {
                                 break;
                             }
                             case 5: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2 && p.c.quantityItemyTotal(296) >= 2 && p.c.quantityItemyTotal(297) >= 3) {
+                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
+                                        && p.c.quantityItemyTotal(296) >= 2 && p.c.quantityItemyTotal(297) >= 3) {
                                     if (p.c.getBagNull() == 0) {
                                         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                                     } else {
@@ -4970,7 +5119,7 @@ public class Menu {
                     break;
                 }
 
-                //Noel
+                // Noel
                 case 3: {
                     if (p.c.isNhanban) {
                         Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
@@ -5001,7 +5150,8 @@ public class Menu {
                         }
                         case 3: {
                             if (p.c.pointNoel < 5000) {
-                                Service.chatNPC(p, (short) npcid, "Con cần ít nhất 5000 điểm để đổi pet Hoả long 7 ngày.");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Con cần ít nhất 5000 điểm để đổi pet Hoả long 7 ngày.");
                                 return;
                             }
                             p.c.pointNoel -= 5000;
@@ -5025,7 +5175,8 @@ public class Menu {
                             break;
                         }
                         case 5: {
-                            Server.manager.sendTB(p, "Hướng dẫn", "- Số điểm hiện tại của bạn là: " + p.c.pointNoel + "\n"
+                            Server.manager.sendTB(p, "Hướng dẫn", "- Số điểm hiện tại của bạn là: " + p.c.pointNoel
+                                    + "\n"
                                     + "- Kiểm điểm sự kiện bằng cách nhận quà hàng ngày tại Cây thông (+1 điểm), trang trí cây thông (+10 điểm), giết boss Tuần lộc (+1 điểm).\n"
                                     + "- Dùng điểm để dổi lấy vật phẩm quý giá: Mặt nạ Super Broly/Onna Bugeisha 7 ngày (3500 điểm), Pet Hoả long 7 ngày (5000 điểm).\n"
                                     + "- Bánh Chocolate: 2 Bơ + 2 Kem + 3 Đường + 1 Chocolate + 5000 yên.\n"
@@ -5038,7 +5189,7 @@ public class Menu {
                     }
                     break;
                 }
-                //Tết
+                // Tết
                 case 4: {
                     if (p.c.isNhanban) {
                         Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
@@ -5055,10 +5206,11 @@ public class Menu {
                         }
 
                         case 2: {
-                            Server.manager.sendTB(p, "Hướng dẫn", "----------------- Luyện Đan cao cấp -----------------\n +, 3 riềng + 5 xả + 1 linh chi đỏ + 3  mắm tôm + 2 ớt + 50.000 xu + 50.000 yên.\n"
-                                    + "----------------- luyện đan thường -----------------\n +,  2 riềng + 4 xả + 2 mắm tôm + 4 ớt + 40.000 xu + 40.000 yên.\n"
-                                    + "----------------- đan thường  -----------------\n +, ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân.\n"
-                                    + "----------------- đan cao cấp -----------------\n +,ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân và đan này sẽ đc tính đua top .\n");
+                            Server.manager.sendTB(p, "Hướng dẫn",
+                                    "----------------- Luyện Đan cao cấp -----------------\n +, 3 riềng + 5 xả + 1 linh chi đỏ + 3  mắm tôm + 2 ớt + 50.000 xu + 50.000 yên.\n"
+                                            + "----------------- luyện đan thường -----------------\n +,  2 riềng + 4 xả + 2 mắm tôm + 4 ớt + 40.000 xu + 40.000 yên.\n"
+                                            + "----------------- đan thường  -----------------\n +, ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân.\n"
+                                            + "----------------- đan cao cấp -----------------\n +,ăn vào sẽ nhận ngẫu nhiên vật phẩm nếu may mắn sẽ có đan dược nhục thân và đan này sẽ đc tính đua top .\n");
 
                             break;
                         }
@@ -5108,10 +5260,11 @@ public class Menu {
                             break;
 
                         case 8: {
-                            Server.manager.sendTB(p, "Hướng dẫn", "Cách ghép hoa: \n  - Bó hoa hồng đỏ = 8 Hoa hồng đỏ + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
-                                    + " - Bó hoa hồng vàng = 8 Hoa hồng vàng + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
-                                    + " - Bó hoa hồng xanh = 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
-                                    + " - Giỏ hoa = 8 Hoa hồng đỏ + 8 Hoa hồng vàng + 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n");
+                            Server.manager.sendTB(p, "Hướng dẫn",
+                                    "Cách ghép hoa: \n  - Bó hoa hồng đỏ = 8 Hoa hồng đỏ + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
+                                            + " - Bó hoa hồng vàng = 8 Hoa hồng vàng + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
+                                            + " - Bó hoa hồng xanh = 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n"
+                                            + " - Giỏ hoa = 8 Hoa hồng đỏ + 8 Hoa hồng vàng + 8 Hoa hồng xanh + 1 Giấy màu + 1 Ruy băng + 1 Khung tre\n");
                         }
                     }
                 }
@@ -5256,7 +5409,8 @@ public class Menu {
                     Service.chatNPC(p, (short) npcid, "Hiện tại không trong thời gian diễn ra sự kiện Noel");
                     return;
                 }
-                Server.manager.sendTB(p, "Hướng dẫn", "- Kiếm hoa tuyết bằng cách sử dụng Bánh khúc cây chocolate, Bánh khúc cây dâu tây hoặc trang trí cây thông.\n- Dùng 1000 bông hoa tuyết để đổi lấy mặt nạ Satan với chỉ số khủng.");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "- Kiếm hoa tuyết bằng cách sử dụng Bánh khúc cây chocolate, Bánh khúc cây dâu tây hoặc trang trí cây thông.\n- Dùng 1000 bông hoa tuyết để đổi lấy mặt nạ Satan với chỉ số khủng.");
                 break;
             }
             default: {
@@ -5276,18 +5430,20 @@ public class Menu {
                 Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
                 break;
             }
-            /* case 0: {
-                Service.sendInputDialog(p, (short) 9, "Nhập số COIN muốn đổi.");
-                break;
-            }
-            case 1: {
-                Service.sendInputDialog(p, (short) 1234, "Nhập số lượng muốn đổi ra coin :");
-                break;
-            }
-            default: {
-                Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
-                break;
-            }*/
+            /*
+             * case 0: {
+             * Service.sendInputDialog(p, (short) 9, "Nhập số COIN muốn đổi.");
+             * break;
+             * }
+             * case 1: {
+             * Service.sendInputDialog(p, (short) 1234, "Nhập số lượng muốn đổi ra coin :");
+             * break;
+             * }
+             * default: {
+             * Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
+             * break;
+             * }
+             */
         }
     }
 
@@ -5323,7 +5479,8 @@ public class Menu {
                 Service.sendInputDialog(p, (short) 3, "Đặt tiền cược (lớn hơn 1000 xu và chia hết cho 50)");
                 break;
             case 2:
-                Server.manager.sendTB(p, "Hướng dẫn", "- Mời đối thủ vào lôi đài\n\n- Đặt tiền cược (Lớn hơn 1000 xu và chia hết cho 50)\n\n- Khi cả 2 đã đặt tiền cược, và số tiền phải thống nhất bằng nhau thì trận so tài mới có thể bắt đầu.\n\n- Khi đã đặt tiền cược, nhưng thoát, mất kết nối hoặc thua cuộc, thì người chơi còn lại sẽ giành chiến thắng\n\n- Số tiền thắng sẽ nhận được sẽ bị trừ phí 5%\n\n- Nếu hết thời gian mà chưa có ai giành chiến thắng thì cuộc so tài sẽ tính hoà, và mỗi người sẽ nhận lại số tiền của mình với mức phí bị trừ 1%");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "- Mời đối thủ vào lôi đài\n\n- Đặt tiền cược (Lớn hơn 1000 xu và chia hết cho 50)\n\n- Khi cả 2 đã đặt tiền cược, và số tiền phải thống nhất bằng nhau thì trận so tài mới có thể bắt đầu.\n\n- Khi đã đặt tiền cược, nhưng thoát, mất kết nối hoặc thua cuộc, thì người chơi còn lại sẽ giành chiến thắng\n\n- Số tiền thắng sẽ nhận được sẽ bị trừ phí 5%\n\n- Nếu hết thời gian mà chưa có ai giành chiến thắng thì cuộc so tài sẽ tính hoà, và mỗi người sẽ nhận lại số tiền của mình với mức phí bị trừ 1%");
                 break;
             default: {
                 Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
@@ -5351,7 +5508,8 @@ public class Menu {
                     p.c.isDiemDanh = 1;
                     Service.chatNPC(p, (short) npcid, "Điểm danh thành công, con nhận được 500 lượng.");
                 } else {
-                    Service.chatNPC(p, (short) npcid, "Hôm nay con đã điểm danh rồi, hãy quay lại vào ngày hôm sau nha!");
+                    Service.chatNPC(p, (short) npcid,
+                            "Hôm nay con đã điểm danh rồi, hãy quay lại vào ngày hôm sau nha!");
                 }
                 break;
             }
@@ -5373,7 +5531,8 @@ public class Menu {
                 }
 
                 else if (p.c.countHangDong < 2) {
-                    Service.chatNPC(p, (short) npcid, "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay lại gặp ta đã nhận thường");
+                    Service.chatNPC(p, (short) npcid,
+                            "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay lại gặp ta đã nhận thường");
                 }
                 break;
             }
@@ -5388,33 +5547,37 @@ public class Menu {
                     return;
                 }
 
-                if (p.c.level == 10) {
+                // if (p.c.level == 10) {
+                if (p.c.level <= 10) {
                     p.updateExp(Level.getMaxExp(20));
-                    if (p.status == 1) {
-                        p.upluongMessage(10000L);
-                        p.c.upxuMessage(25000000L);
-                        p.c.upyenMessage(25000000L);
-                        p.c.luongTN += 10000;
-                        p.c.yenTN += 50000000;
-                        p.c.xuTN += 50000000;
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                    } else {
-                        p.upluongMessage(20000000L);
-                        p.c.upxuMessage(10000000L);
-                        p.c.upyenMessage(500000000L);
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                    }
-                    Service.chatNPC(p, (short) npcid, "Con đã nhận quà tân thủ thành công, chúc con trải nghiệm game vui vẻ.");
-                } else {
-                    Service.chatNPC(p, (short) npcid, "Con đã nhận quà tân thủ trước đó rồi, không thể nhận lại lần nữa!");
                 }
+                if (p.status == 1) {
+                    p.upluongMessage(10000L);
+                    p.c.upxuMessage(25000000L);
+                    p.c.upyenMessage(25000000L);
+                    p.c.luongTN += 10000;
+                    p.c.yenTN += 50000000;
+                    p.c.xuTN += 50000000;
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                } else {
+                    p.upluongMessage(20000000L);
+                    p.c.upxuMessage(10000000L);
+                    p.c.upyenMessage(500000000L);
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                }
+                Service.chatNPC(p, (short) npcid,
+                        "Con đã nhận quà tân thủ thành công, chúc con trải nghiệm game vui vẻ.");
+                // } else {
+                // Service.chatNPC(p, (short) npcid, "Con đã nhận quà tân thủ trước đó rồi,
+                // không thể nhận lại lần nữa!");
+                // }
                 break;
             }
             case 2: {
@@ -5437,7 +5600,8 @@ public class Menu {
                 break;
             }
             case 3: {
-                Server.manager.sendTB(p, "Hướng dẫn", "- Vừa vào chơi, hãy đến chỗ ta nhận quà tân thủ bao gồm: 100tr xu, 20k lượng, 100tr yên \n- Mỗi ngày con được điềm danh hàng ngày 1 lần và nhận 500 lượng \n- Nếu mỗi ngày hoàn thành hang động đủ 2 lần con hãy đến chỗ ta và Nhận quà hang động để nhận 1000 lượng\n\n** Lưu ý, nếu là tài khoản trải nghiệm, con chỉ có thể nhận được 1 nửa phần thường từ ta.");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "- Vừa vào chơi, hãy đến chỗ ta nhận quà tân thủ bao gồm: 100tr xu, 20k lượng, 100tr yên \n- Mỗi ngày con được điềm danh hàng ngày 1 lần và nhận 500 lượng \n- Nếu mỗi ngày hoàn thành hang động đủ 2 lần con hãy đến chỗ ta và Nhận quà hang động để nhận 1000 lượng\n\n** Lưu ý, nếu là tài khoản trải nghiệm, con chỉ có thể nhận được 1 nửa phần thường từ ta.");
                 break;
             }
         }
@@ -5524,13 +5688,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 5000000) {
-                    p.conn.sendMessageLog("Không đủ 5 triệu EXP kinh mạch để nâng, hãy đi đánh tinh anh thủ lĩnh boss rồi quay lại đây tao chỉ cho");
+                    p.conn.sendMessageLog(
+                            "Không đủ 5 triệu EXP kinh mạch để nâng, hãy đi đánh tinh anh thủ lĩnh boss rồi quay lại đây tao chỉ cho");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-100000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-100000);
@@ -5540,7 +5706,8 @@ public class Menu {
                         p.c.get().potential1 += 10000;
                         p.c.get().potential2 += 10000;
                         p.c.get().potential3 += 10000;
-                        p.conn.sendMessageLog("con đã học thành công kinh mạch hiện tại đang là lv1 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã học thành công kinh mạch hiện tại đang là lv1 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5551,13 +5718,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 10000000) {
-                    p.conn.sendMessageLog("Không đủ 10 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 10 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-200000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-200000);
@@ -5567,7 +5736,8 @@ public class Menu {
                         p.c.get().potential1 += 20000;
                         p.c.get().potential2 += 20000;
                         p.c.get().potential3 += 20000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv2 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv2 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5578,13 +5748,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 15000000) {
-                    p.conn.sendMessageLog("Không đủ 15 triệu EXP kinh mạch để nâng, hãy đi đánh cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 15 triệu EXP kinh mạch để nâng, hãy đi đánh cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-300000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-300000);
@@ -5594,7 +5766,8 @@ public class Menu {
                         p.c.get().potential1 += 30000;
                         p.c.get().potential2 += 30000;
                         p.c.get().potential3 += 30000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv3 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv3 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5605,13 +5778,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 20000000) {
-                    p.conn.sendMessageLog("Không đủ 20 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 20 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-400000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-400000);
@@ -5621,7 +5796,8 @@ public class Menu {
                         p.c.get().potential1 += 40000;
                         p.c.get().potential2 += 40000;
                         p.c.get().potential3 += 40000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv4 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv4 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5632,13 +5808,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 25000000) {
-                    p.conn.sendMessageLog("Không đủ 25 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 25 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-500000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-500000);
@@ -5648,7 +5826,8 @@ public class Menu {
                         p.c.get().potential1 += 50000;
                         p.c.get().potential2 += 50000;
                         p.c.get().potential3 += 50000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv5 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv5 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5659,13 +5838,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 30000000) {
-                    p.conn.sendMessageLog("Không đủ 30 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 30 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-600000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-600000);
@@ -5675,7 +5856,8 @@ public class Menu {
                         p.c.get().potential1 += 60000;
                         p.c.get().potential2 += 60000;
                         p.c.get().potential3 += 60000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv6 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv6 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5686,13 +5868,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 35000000) {
-                    p.conn.sendMessageLog("Không đủ 35 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 35 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-700000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-700000);
@@ -5702,7 +5886,8 @@ public class Menu {
                         p.c.get().potential1 += 70000;
                         p.c.get().potential2 += 70000;
                         p.c.get().potential3 += 70000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv7 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv7 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5713,13 +5898,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 40000000) {
-                    p.conn.sendMessageLog("Không đủ 40 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 40 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-800000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-800000);
@@ -5729,7 +5916,8 @@ public class Menu {
                         p.c.get().potential1 += 80000;
                         p.c.get().potential2 += 80000;
                         p.c.get().potential3 += 80000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv8 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv8 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
@@ -5740,13 +5928,15 @@ public class Menu {
                     return;
                 }
                 if (p.c.expkm < 50000000) {
-                    p.conn.sendMessageLog("Không đủ 50 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                    p.conn.sendMessageLog(
+                            "Không đủ 50 triệu EXP kinh mạch để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                     return;
                 } else {
                     byte pkoolvn = (byte) Util.nextInt(1, 100);
                     if (pkoolvn <= 70) {
                         p.upluongMessage(-1000000);
-                        p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                        p.conn.sendMessageLog(
+                                "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                         return;
                     } else {
                         p.upluongMessage(-1000000);
@@ -5756,31 +5946,32 @@ public class Menu {
                         p.c.get().potential1 += 90000;
                         p.c.get().potential2 += 90000;
                         p.c.get().potential3 += 90000;
-                        p.conn.sendMessageLog("con đã nâng thành công kinh mạch hiện tại đang là lv9 thoát game để cập nhập tiềm năng");
+                        p.conn.sendMessageLog(
+                                "con đã nâng thành công kinh mạch hiện tại đang là lv9 thoát game để cập nhập tiềm năng");
                     }
                 }
                 break;
             }
 
             case 11: {
-                Server.manager.sendTB(p, "Điều Kiện học kinh mạch", "Bạn phải tích đủ exp kinh mạch thông qua việc đánh boss lấy sách KINH MACH"
-                        + "\n>Kinh mạch<"
-                        + "\n-lv1 cần 5 triệu exp Kinh mạch và 100k lượng"
-                        + "\n-lv2 cần 10 triệu exp Kinh mạch và 200k lượng"
-                        + "\n-lv3 cần 15 triệu exp Kinh mạch và 300k lượng"
-                        + "\n-lv4 cần 20 triệu exp Kinh mạch và 400k lượng"
-                        + "\n-lv5 cần 25 triệu exp Kinh mạch và 500k lượng"
-                        + "\n-lv6 cần 30 triệu exp Kinh mạch và 600k lượng"
-                        + "\n-lv7 cần 35 triệu exp Kinh mạch và 700k lượng"
-                        + "\n-lv8 cần 40 triệu exp Kinh mạch và 800k lượng"
-                        + "\n-lv9 cần 50 triệu exp Kinh mạch và 1 triệu lượng"
-                        + "\n-thành công Kinh mạch sẽ lên lv và nhận đc hiệu ứng tương ứng"
-                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                        + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
-                        + "\n-BẢNG TÍNH ĐIỂM "
-                        + "\n-Tầng 1:10k + Tầng 2:20k + Tầng 3:30k + Tầng 4:40k\n"
-                        + "Tầng 5:+50k + Tầng 6:60k + Tầng 7:70k + Tầng 8:80k + Tầng 9:90k"
-                );
+                Server.manager.sendTB(p, "Điều Kiện học kinh mạch",
+                        "Bạn phải tích đủ exp kinh mạch thông qua việc đánh boss lấy sách KINH MACH"
+                                + "\n>Kinh mạch<"
+                                + "\n-lv1 cần 5 triệu exp Kinh mạch và 100k lượng"
+                                + "\n-lv2 cần 10 triệu exp Kinh mạch và 200k lượng"
+                                + "\n-lv3 cần 15 triệu exp Kinh mạch và 300k lượng"
+                                + "\n-lv4 cần 20 triệu exp Kinh mạch và 400k lượng"
+                                + "\n-lv5 cần 25 triệu exp Kinh mạch và 500k lượng"
+                                + "\n-lv6 cần 30 triệu exp Kinh mạch và 600k lượng"
+                                + "\n-lv7 cần 35 triệu exp Kinh mạch và 700k lượng"
+                                + "\n-lv8 cần 40 triệu exp Kinh mạch và 800k lượng"
+                                + "\n-lv9 cần 50 triệu exp Kinh mạch và 1 triệu lượng"
+                                + "\n-thành công Kinh mạch sẽ lên lv và nhận đc hiệu ứng tương ứng"
+                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
+                                + "\n-BẢNG TÍNH ĐIỂM "
+                                + "\n-Tầng 1:10k + Tầng 2:20k + Tầng 3:30k + Tầng 4:40k\n"
+                                + "Tầng 5:+50k + Tầng 6:60k + Tầng 7:70k + Tầng 8:80k + Tầng 9:90k");
                 break;
             }
             case 9: {
@@ -5808,17 +5999,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 5000000) {
-                            p.conn.sendMessageLog("Không đủ 5 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách rồi quay lại đây tao chỉ cho");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách rồi quay lại đây tao chỉ cho");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.expttd -= 5000000;
                                 p.c.lvttd = 1;
@@ -5827,7 +6020,8 @@ public class Menu {
                                 p.c.get().potential2 += 5000;
                                 p.c.get().potential3 += 5000;
 
-                                Service.chatNPC(p, (short) npcid, "con đã học thành công Thôn Thiên Địa hiện tại đang là lv1 thoát game để cập nhập tiềm năng");
+                                Service.chatNPC(p, (short) npcid,
+                                        "con đã học thành công Thôn Thiên Địa hiện tại đang là lv1 thoát game để cập nhập tiềm năng");
 
                             }
 
@@ -5844,17 +6038,19 @@ public class Menu {
                             break;
                         }
                         if (p.c.expttd < 10000000) {
-                            p.conn.sendMessageLog("Không đủ 10 triệu EXP Thôn Thiên ĐịaThôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 10 triệu EXP Thôn Thiên ĐịaThôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.expttd -= 10000000;
                                 p.c.lvttd = 2;
@@ -5863,7 +6059,8 @@ public class Menu {
                                 p.c.get().potential2 += 10000;
                                 p.c.get().potential3 += 10000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv2 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv2 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -5878,17 +6075,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 15000000) {
-                            p.conn.sendMessageLog("Không đủ 15 triệu EXP Thôn Thiên Địa để nâng, hãy đi đánh cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 15 triệu EXP Thôn Thiên Địa để nâng, hãy đi đánh cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.c.expttd -= 15000000;
                                 p.c.lvttd = 3;
@@ -5897,7 +6096,8 @@ public class Menu {
                                 p.c.get().potential2 += 15000;
                                 p.c.get().potential3 += 15000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv3 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv3 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -5912,17 +6112,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 20000000) {
-                            p.conn.sendMessageLog("Không đủ 20 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 20 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
                                 p.c.expttd -= 20000000;
                                 p.c.lvttd = 4;
@@ -5931,7 +6133,8 @@ public class Menu {
                                 p.c.get().potential2 += 20000;
                                 p.c.get().potential3 += 20000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv4 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv4 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -5946,17 +6149,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 25000000) {
-                            p.conn.sendMessageLog("Không đủ 25 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 25 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.c.expttd -= 25000000;
                                 p.c.lvttd = 5;
@@ -5965,7 +6170,8 @@ public class Menu {
                                 p.c.get().potential2 += 25000;
                                 p.c.get().potential3 += 25000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv5 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv5 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -5980,17 +6186,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 30000000) {
-                            p.conn.sendMessageLog("Không đủ 30 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 30 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 600000;
+                                p.c.luongTN = -600000;
                                 p.upluongMessage(-600000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 600000;
+                                p.c.luongTN = -600000;
                                 p.upluongMessage(-600000);
                                 p.c.expttd -= 30000000;
                                 p.c.lvttd = 6;
@@ -5999,7 +6207,8 @@ public class Menu {
                                 p.c.get().potential2 += 30000;
                                 p.c.get().potential3 += 30000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv6 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv6 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6014,17 +6223,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 35000000) {
-                            p.conn.sendMessageLog("Không đủ 35 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 35 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 700000;
+                                p.c.luongTN = -700000;
                                 p.upluongMessage(-700000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 700000;
+                                p.c.luongTN = -700000;
                                 p.upluongMessage(-700000);
                                 p.c.expttd -= 35000000;
                                 p.c.lvttd = 7;
@@ -6033,7 +6244,8 @@ public class Menu {
                                 p.c.get().potential2 += 35000;
                                 p.c.get().potential3 += 35000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv7 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv7 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6048,17 +6260,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 40000000) {
-                            p.conn.sendMessageLog("Không đủ 40 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 40 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 800000;
+                                p.c.luongTN = -800000;
                                 p.upluongMessage(-800000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 800000;
+                                p.c.luongTN = -800000;
                                 p.upluongMessage(-800000);
                                 p.c.expttd -= 40000000;
                                 p.c.lvttd = 8;
@@ -6067,7 +6281,8 @@ public class Menu {
                                 p.c.get().potential2 += 40000;
                                 p.c.get().potential3 += 40000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv8 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv8 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6082,17 +6297,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 45000000) {
-                            p.conn.sendMessageLog("Không đủ 45 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 45 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 45000000;
                                 p.c.lvttd = 9;
@@ -6101,7 +6318,8 @@ public class Menu {
                                 p.c.get().potential2 += 45000;
                                 p.c.get().potential3 += 45000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv9 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv9 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6116,17 +6334,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 50000000) {
-                            p.conn.sendMessageLog("Không đủ 50 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 50 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 50000000;
                                 p.c.lvttd = 10;
@@ -6135,7 +6355,8 @@ public class Menu {
                                 p.c.get().potential2 += 50000;
                                 p.c.get().potential3 += 50000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv10 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv10 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6150,17 +6371,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 55000000) {
-                            p.conn.sendMessageLog("Không đủ 55 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 55 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 55000000;
                                 p.c.lvttd = 11;
@@ -6169,7 +6392,8 @@ public class Menu {
                                 p.c.get().potential2 += 55000;
                                 p.c.get().potential3 += 55000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv11 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv11 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6184,17 +6408,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 60000000) {
-                            p.conn.sendMessageLog("Không đủ 60 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 60 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 60000000;
                                 p.c.lvttd = 12;
@@ -6203,7 +6429,8 @@ public class Menu {
                                 p.c.get().potential2 += 60000;
                                 p.c.get().potential3 += 60000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv12 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv12 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6218,17 +6445,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 65000000) {
-                            p.conn.sendMessageLog("Không đủ 65 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 65 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 65000000;
                                 p.c.lvttd = 13;
@@ -6237,7 +6466,8 @@ public class Menu {
                                 p.c.get().potential2 += 65000;
                                 p.c.get().potential3 += 65000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv13 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv13 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6252,17 +6482,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 70000000) {
-                            p.conn.sendMessageLog("Không đủ 70 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 70 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 70000000;
                                 p.c.lvttd = 14;
@@ -6271,7 +6503,8 @@ public class Menu {
                                 p.c.get().potential2 += 70000;
                                 p.c.get().potential3 += 70000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv14 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv14 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6286,17 +6519,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 75000000) {
-                            p.conn.sendMessageLog("Không đủ 75 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 75 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 75000000;
                                 p.c.lvttd = 15;
@@ -6305,7 +6540,8 @@ public class Menu {
                                 p.c.get().potential2 += 75000;
                                 p.c.get().potential3 += 75000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv15 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv15 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6320,17 +6556,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 80000000) {
-                            p.conn.sendMessageLog("Không đủ 80 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 80 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 80000000;
                                 p.c.lvttd = 16;
@@ -6339,7 +6577,8 @@ public class Menu {
                                 p.c.get().potential2 += 80000;
                                 p.c.get().potential3 += 80000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv16 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv16 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6354,17 +6593,19 @@ public class Menu {
                         }
 
                         if (p.c.expttd < 85000000) {
-                            p.conn.sendMessageLog("Không đủ 85 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 85 triệu EXP Thôn Thiên Địa để nâng, hãy đi cắn sách đi rồi đến đây gặp ta");
                             return;
                         } else {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
-                                p.conn.sendMessageLog("tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
+                                p.conn.sendMessageLog(
+                                        "tư chất con còn kém lắm về luyện thêm đi rồi đến đây nhé, ta xin tiền học phí");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expttd -= 85000000;
                                 p.c.lvttd = 17;
@@ -6373,7 +6614,8 @@ public class Menu {
                                 p.c.get().potential2 += 85000;
                                 p.c.get().potential3 += 85000;
 
-                                p.conn.sendMessageLog("con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv17 thoát game để cập nhập tiềm năng");
+                                p.conn.sendMessageLog(
+                                        "con đã nâng thành công Thôn Thiên Địa hiện tại đang là lv17 thoát game để cập nhập tiềm năng");
                             }
                         }
                         break;
@@ -6388,34 +6630,34 @@ public class Menu {
                     }
 
                     case 19: {
-                        Server.manager.sendTB(p, "Điều Kiện học Thôn Thiên Địa", "Bạn phải tích đủ exp Thôn Thiên Địa thông qua việc đánh boss lấy sách Thôn Thiên Địa"
-                                + "\n>Thôn Thiên Địa<"
-                                + "\n-lv1 cần 5 triệu exp Thôn Thiên Địa và 100k lượng"
-                                + "\n-lv2 cần 10 triệu exp Thôn Thiên Địa và 200k lượng"
-                                + "\n-lv3 cần 15 triệu exp Thôn Thiên Địavà 300k lượng"
-                                + "\n-lv4 cần 20 triệu exp Thôn Thiên Địa và 400k lượng"
-                                + "\n-lv5 cần 25 triệu exp Thôn Thiên Địa và 500k lượng"
-                                + "\n-lv6 cần 30 triệu exp Thôn Thiên Địa và 600k lượng"
-                                + "\n-lv7 cần 35 triệu exp Thôn Thiên Địa và 700k lượng"
-                                + "\n-lv8 cần 40 triệu exp Thôn Thiên Địa và 800k lượng"
-                                + "\n-lv9 cần 45 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv10 cần 50 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv11 cần 55 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv12 cần 60 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv13 cần 65 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv14 cần 70 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv15 cần 75 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv16 cần 80 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-lv17 cần 85 triệu exp Thôn Thiên Địa và 1 triệu lượng"
-                                + "\n-thành công Thôn Thiên Địa sẽ lên lv và nhận đc hiệu ứng tương ứng"
-                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
-                                + "\n-BẢNG TÍNH ĐIỂM "
-                                + "\n-Tầng 1:5k + Tầng 2:10k + Tầng 3:15k + Tầng 4:20k "
-                                + "\nTầng 5:+25k + Tầng 6:30k + Tầng 7:35k + Tầng 8:40k + Tầng 9:45k"
-                                + "\nTầng 10:+50k + Tầng 11:55k + Tầng 12:60k + Tầng 13:65k + Tầng 14:70k"
-                                + "\nTầng 15:+75k + Tầng 16:80k + Tầng 17:85k  "
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện học Thôn Thiên Địa",
+                                "Bạn phải tích đủ exp Thôn Thiên Địa thông qua việc đánh boss lấy sách Thôn Thiên Địa"
+                                        + "\n>Thôn Thiên Địa<"
+                                        + "\n-lv1 cần 5 triệu exp Thôn Thiên Địa và 100k lượng"
+                                        + "\n-lv2 cần 10 triệu exp Thôn Thiên Địa và 200k lượng"
+                                        + "\n-lv3 cần 15 triệu exp Thôn Thiên Địavà 300k lượng"
+                                        + "\n-lv4 cần 20 triệu exp Thôn Thiên Địa và 400k lượng"
+                                        + "\n-lv5 cần 25 triệu exp Thôn Thiên Địa và 500k lượng"
+                                        + "\n-lv6 cần 30 triệu exp Thôn Thiên Địa và 600k lượng"
+                                        + "\n-lv7 cần 35 triệu exp Thôn Thiên Địa và 700k lượng"
+                                        + "\n-lv8 cần 40 triệu exp Thôn Thiên Địa và 800k lượng"
+                                        + "\n-lv9 cần 45 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv10 cần 50 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv11 cần 55 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv12 cần 60 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv13 cần 65 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv14 cần 70 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv15 cần 75 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv16 cần 80 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-lv17 cần 85 triệu exp Thôn Thiên Địa và 1 triệu lượng"
+                                        + "\n-thành công Thôn Thiên Địa sẽ lên lv và nhận đc hiệu ứng tương ứng"
+                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                        + "\n-mỗi tầng sẽ nhận cộng dồn điểm tiềm năng  "
+                                        + "\n-BẢNG TÍNH ĐIỂM "
+                                        + "\n-Tầng 1:5k + Tầng 2:10k + Tầng 3:15k + Tầng 4:20k "
+                                        + "\nTầng 5:+25k + Tầng 6:30k + Tầng 7:35k + Tầng 8:40k + Tầng 9:45k"
+                                        + "\nTầng 10:+50k + Tầng 11:55k + Tầng 12:60k + Tầng 13:65k + Tầng 14:70k"
+                                        + "\nTầng 15:+75k + Tầng 16:80k + Tầng 17:85k  ");
                         break;
                     }
                 }
@@ -6434,22 +6676,24 @@ public class Menu {
                             return;
                         }
                         if (p.c.expkm < 5000000) {
-                            p.conn.sendMessageLog("Không đủ 5 triệu EXP đấu khí, hãy đi đánh boss rồi quay lại đây tu luyện");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5 triệu EXP đấu khí, hãy đi đánh boss rồi quay lại đây tu luyện");
                             return;
                         } else {
 
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
 
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
 
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.expkm -= 5000000;
                                 p.c.lvkm = 1;
@@ -6457,8 +6701,10 @@ public class Menu {
                                 p.c.get().potential1 += 10000;
                                 p.c.get().potential2 += 10000;
                                 p.c.get().potential3 += 10000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu khí vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu khí  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu khí vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu khí  ");
                             }
                         }
                         break;
@@ -6479,13 +6725,14 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.expkm -= 10000000;
                                 p.c.lvkm = 2;
@@ -6493,8 +6740,10 @@ public class Menu {
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential2 += 20000;
                                 p.c.get().potential3 += 20000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu giả vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu giả  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu giả vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu giả  ");
                             }
                         }
                         break;
@@ -6515,13 +6764,14 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.expkm -= 15000000;
                                 p.c.lvkm = 3;
@@ -6529,8 +6779,10 @@ public class Menu {
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential2 += 30000;
                                 p.c.get().potential3 += 30000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu sư vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu sư  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu sư vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu sư  ");
                             }
                         }
                         break;
@@ -6553,10 +6805,11 @@ public class Menu {
 
                                 p.upluongMessage(-200000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.expkm -= 20000000;
                                 p.c.lvkm = 4;
@@ -6564,8 +6817,10 @@ public class Menu {
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential2 += 40000;
                                 p.c.get().potential3 += 40000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu linh vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu linh  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu linh vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu linh  ");
                             }
                         }
                         break;
@@ -6586,13 +6841,14 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.c.expkm -= 25000000;
                                 p.c.lvkm = 5;
@@ -6600,8 +6856,10 @@ public class Menu {
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential2 += 50000;
                                 p.c.get().potential3 += 50000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu vương vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu vương  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu vương vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu vương  ");
                             }
                         }
                         break;
@@ -6622,13 +6880,14 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.c.expkm -= 30000000;
                                 p.c.lvkm = 6;
@@ -6636,8 +6895,10 @@ public class Menu {
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential2 += 60000;
                                 p.c.get().potential3 += 60000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu hoàng vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu hoàng  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu hoàng vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu hoàng  ");
                             }
                         }
                         break;
@@ -6658,13 +6919,14 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
                                 p.c.expkm -= 35000000;
                                 p.c.lvkm = 7;
@@ -6672,8 +6934,10 @@ public class Menu {
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential2 += 70000;
                                 p.c.get().potential3 += 70000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu tông vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu tông  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu tông vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu tông  ");
                             }
                         }
                         break;
@@ -6695,10 +6959,11 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 10) {
 
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
                                 p.upluongMessage(-400000);
@@ -6708,8 +6973,10 @@ public class Menu {
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential2 += 80000;
                                 p.c.get().potential3 += 80000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu tôn vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu tôn  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu tôn vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu tôn  ");
                             }
                         }
                         break;
@@ -6730,13 +6997,14 @@ public class Menu {
                             byte pkoolvn = (byte) Util.nextInt(1, 100);
                             if (pkoolvn > 5) {
 
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.conn.sendMessageLog("đột phá thất bại đừng nản chí hay tu luyện lại");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
+                                Server.manager.chatKTG("Người chơi " + p.c.name
+                                        + "đột phá thất bại nhân phẩm của bạn cần xem xét lại ");
                                 return;
                             } else {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.c.expkm -= 50000000;
                                 p.c.lvkm = 9;
@@ -6744,32 +7012,34 @@ public class Menu {
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential2 += 90000;
                                 p.c.get().potential3 += 90000;
-                                p.conn.sendMessageLog("chúc mừng võ giả tu luyện thành công cấp bậc đấu đế vui lòng thoát game để cập nhập tiềm năng");
-                                Server.manager.chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu đế  ");
+                                p.conn.sendMessageLog(
+                                        "chúc mừng võ giả tu luyện thành công cấp bậc đấu đế vui lòng thoát game để cập nhập tiềm năng");
+                                Server.manager
+                                        .chatKTG("Người chơi " + p.c.name + " tu luyện thành công cấp bậc đấu đế  ");
                             }
                         }
                         break;
                     }
 
                     case 11: {
-                        Server.manager.sendTB(p, "Điều Kiện tu luyện đấu khí", "võ giả phải tích đủ exp đấu khí bằng cách đánh boss lấy sách đấu khí"
-                                + "\n>Đấu khí<"
-                                + "\n-lv1 cần 5 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 90%"
-                                + "\n-lv2 cần 10 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 80%"
-                                + "\n-lv3 cần 15 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 70%"
-                                + "\n-lv4 cần 20 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 60%"
-                                + "\n-lv5 cần 25 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 50%"
-                                + "\n-lv6 cần 30 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 35%"
-                                + "\n-lv7 cần 35 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 20%"
-                                + "\n-lv8 cần 40 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 10%"
-                                + "\n-lv9 cần 50 triệu exp đấu khí và 500k lượng với tỉ lệ thành công là 5%"
-                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
-                                + "\n-BẢNG cấp bậc "
-                                + "\n-đấu khí :10k + đấu giả :20k + đấu sư:30k + đấu linh :40k\n"
-                                + "đấu vương:+50k + đấu hoàng:60k + đấu tông:70k + đấu tôn:80k + đấu đế:90k"
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện tu luyện đấu khí",
+                                "võ giả phải tích đủ exp đấu khí bằng cách đánh boss lấy sách đấu khí"
+                                        + "\n>Đấu khí<"
+                                        + "\n-lv1 cần 5 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 90%"
+                                        + "\n-lv2 cần 10 triệu exp đấu khí và 100k lượng với tỉ lệ thành công là 80%"
+                                        + "\n-lv3 cần 15 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 70%"
+                                        + "\n-lv4 cần 20 triệu exp đấu khí và 200k lượng với tỉ lệ thành công là 60%"
+                                        + "\n-lv5 cần 25 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 50%"
+                                        + "\n-lv6 cần 30 triệu exp đấu khí và 300k lượng với tỉ lệ thành công là 35%"
+                                        + "\n-lv7 cần 35 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 20%"
+                                        + "\n-lv8 cần 40 triệu exp đấu khí và 400k lượng với tỉ lệ thành công là 10%"
+                                        + "\n-lv9 cần 50 triệu exp đấu khí và 500k lượng với tỉ lệ thành công là 5%"
+                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                        + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
+                                        + "\n-BẢNG cấp bậc "
+                                        + "\n-đấu khí :10k + đấu giả :20k + đấu sư:30k + đấu linh :40k\n"
+                                        + "đấu vương:+50k + đấu hoàng:60k + đấu tông:70k + đấu tôn:80k + đấu đế:90k");
                         break;
                     }
                     case 9: {
@@ -6788,8 +7058,8 @@ public class Menu {
     }
 
     public static void npcVip(Player p, byte npcid, byte menuId, byte b3) throws IOException, InterruptedException {
-        short[] nam = {712, 713, 746, 747, 748, 749, 750, 751, 752};
-        short[] nu = {715, 716, 753, 754, 755, 756, 757, 758, 759};
+        short[] nam = { 712, 713, 746, 747, 748, 749, 750, 751, 752 };
+        short[] nu = { 715, 716, 753, 754, 755, 756, 757, 758, 759 };
         switch (menuId) {
             case 0: {
                 switch (b3) {
@@ -6924,7 +7194,7 @@ public class Menu {
                         break;
                     }
                     case 4: {
-                        short[] ngokhong = {835, 836};
+                        short[] ngokhong = { 835, 836 };
                         if (p.coinnap >= 900000 && p.c.vip == 4 && p.c.vip < 5) {
                             if (p.c.getBagNull() < 4) {
                                 Service.chatNPC(p, (short) npcid, Language.NOT_ENOUGH_BAG);
@@ -7027,7 +7297,7 @@ public class Menu {
                     }
 
                     case 7: {
-                        short[] set11x = {972, 973};
+                        short[] set11x = { 972, 973 };
                         if (p.coinnap >= 2000000 && p.c.vip == 7 && p.c.vip < 8) {
                             if (p.c.getBagNull() < 4) {
                                 Service.chatNPC(p, (short) npcid, Language.NOT_ENOUGH_BAG);
@@ -7107,7 +7377,8 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Báo danh VIP 1 thành công, con nhận được 50000 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7129,10 +7400,12 @@ public class Menu {
                             p.c.addItemBag(false, itemup);
                             p.upluongMessage(100000L);
                             p.c.isDiemDanh = 1;
-                            Service.chatNPC(p, (short) npcid, "Trùm báo danh VIP 2 thành công, trùm nhận được 100000 lượng.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trùm báo danh VIP 2 thành công, trùm nhận được 100000 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7155,10 +7428,12 @@ public class Menu {
                             p.c.addItemBag(false, itemup);
                             p.upluongMessage(500000L);
                             p.c.isDiemDanh = 1;
-                            Service.chatNPC(p, (short) npcid, "Trùm báo danh VIP 3 thành công, trùm nhận được 500000 lượng.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trùm báo danh VIP 3 thành công, trùm nhận được 500000 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7182,10 +7457,12 @@ public class Menu {
                             p.c.addItemBag(false, itemup);
                             p.upluongMessage(1000000L);
                             p.c.isDiemDanh = 1;
-                            Service.chatNPC(p, (short) npcid, "Trùm báo danh VIP 4 thành công, trùm nhận được 1000000 lượng.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trùm báo danh VIP 4 thành công, trùm nhận được 1000000 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7210,10 +7487,12 @@ public class Menu {
                             p.c.addItemBag(false, itemup);
                             p.upluongMessage(1500000L);
                             p.c.isDiemDanh = 1;
-                            Service.chatNPC(p, (short) npcid, "Trùm báo danh VIP 5 thành công, trùm nhận được 1tr5 lượng.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trùm báo danh VIP 5 thành công, trùm nhận được 1tr5 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7252,10 +7531,12 @@ public class Menu {
                             p.c.addItemBag(false, itemup);
                             p.upluongMessage(2000000L);
                             p.c.isDiemDanh = 1;
-                            Service.chatNPC(p, (short) npcid, "Trùm báo danh VIP 6 thành công, trùm nhận được 2tr lượng.");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Trùm báo danh VIP 6 thành công, trùm nhận được 2tr lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7314,7 +7595,8 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Báo danh VIP 12 thành công, con nhận được 50000 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7409,7 +7691,8 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Báo danh VIP 18 thành công, con nhận được 50000 lượng.");
                             break;
                         } else {
-                            Service.chatNPC(p, (short) npcid, "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hôm nay trùm đã Báo danh VIP, hãy quay lại vào ngày hôm sau nha!");
                         }
                         break;
                     }
@@ -7578,8 +7861,9 @@ public class Menu {
                             if (p.c.maxluggage >= 120) {
                                 Service.chatNPC(p, (short) npcid, "Trùm đã lên 120 ô hành trang rồi");
                                 break;
-                                /*}else if(p.c.levelBag < 3){
-                                p.conn.sendMessageLog("Bạn cần sử dụng túi vải cấp 3 để mở thêm hành trang");
+                                /*
+                                 * }else if(p.c.levelBag < 3){
+                                 * p.conn.sendMessageLog("Bạn cần sử dụng túi vải cấp 3 để mở thêm hành trang");
                                  */
                             } else {
                                 p.c.levelBag = 4;
@@ -7616,7 +7900,7 @@ public class Menu {
                 } else {
                     int tinhfox = Util.nextInt(100);
                     if (tinhfox > 50) {
-                        p.c.luongTN = - 200000;
+                        p.c.luongTN = -200000;
                         p.upluongMessage(-200000);
                         p.c.removeItemBags(1003, 1);
                         p.conn.sendMessageLog("Chuyển Sinh Thất Bại,đen lắm bạn ơi!");
@@ -7624,12 +7908,14 @@ public class Menu {
                     } else {
 
                         p.updateExp(Level.getMaxExp(20) - p.c.exp);
-                        p.c.luongTN = - 200000;
+                        p.c.luongTN = -200000;
                         p.upluongMessage(-200000);
                         p.c.removeItemBags(1003, 2);
                         p.c.chuyenSinh++;
-                        p.conn.sendMessageLog("Bạn đã được chuyển sinh,mất 200k lượng.Vui lòng không tẩy kĩ năng và tiềm năng để tránh mất điểm");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " Vừa Chuyển sinh thành công.giông tố mưa xa anh không sợ chỉ sợ đường về thiếu bóng em ");
+                        p.conn.sendMessageLog(
+                                "Bạn đã được chuyển sinh,mất 200k lượng.Vui lòng không tẩy kĩ năng và tiềm năng để tránh mất điểm");
+                        Server.manager.chatKTG("Người chơi " + p.c.name
+                                + " Vừa Chuyển sinh thành công.giông tố mưa xa anh không sợ chỉ sợ đường về thiếu bóng em ");
                     }
                 }
                 break;
@@ -7637,154 +7923,154 @@ public class Menu {
             case 1: {
                 Service.chatNPC(p, (short) npcid, "chào cu em");
             }
-            if (p.c.isNhanban) {
-                p.conn.sendMessageLog("Chức năng này không dành cho phân thân");
-                return;
-            } else if (p.luong < 500000) {
-                p.conn.sendMessageLog("Chuyển phái cần 500k lượng con nhé!");
-                return;
-            }
-            switch (b3) {
-                case 0: {
-                    if (p.c.nclass == 1) {
-                        p.conn.sendMessageLog("Đang ở phái kiếm chuyển cc");
-                        return;
-                    }
-                    if (p.c.get().ItemBody[1] != null) {
-                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                        return;
-                    }
-                    p.c.nclass = 1;
-                    p.restSpoint();
-                    //  p.restPpoint();
-                    p.loadSkill();
-                    p.upluongMessage(-500000L);
-                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                    int TimeSeconds = 5;
-                    while (TimeSeconds > 0) {
-                        TimeSeconds--;
-                        Thread.sleep(1000);
-                    }
-                    Client.gI().kickSession(p.conn);
+                if (p.c.isNhanban) {
+                    p.conn.sendMessageLog("Chức năng này không dành cho phân thân");
+                    return;
+                } else if (p.luong < 500000) {
+                    p.conn.sendMessageLog("Chuyển phái cần 500k lượng con nhé!");
                     return;
                 }
-                case 1: {
-                    if (p.c.nclass == 2) {
-                        p.conn.sendMessageLog("Đang ở phái tiêu chuyển cc");
+                switch (b3) {
+                    case 0: {
+                        if (p.c.nclass == 1) {
+                            p.conn.sendMessageLog("Đang ở phái kiếm chuyển cc");
+                            return;
+                        }
+                        if (p.c.get().ItemBody[1] != null) {
+                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                            return;
+                        }
+                        p.c.nclass = 1;
+                        p.restSpoint();
+                        // p.restPpoint();
+                        p.loadSkill();
+                        p.upluongMessage(-500000L);
+                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                        int TimeSeconds = 5;
+                        while (TimeSeconds > 0) {
+                            TimeSeconds--;
+                            Thread.sleep(1000);
+                        }
+                        Client.gI().kickSession(p.conn);
                         return;
                     }
-                    if (p.c.get().ItemBody[1] != null) {
-                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                    case 1: {
+                        if (p.c.nclass == 2) {
+                            p.conn.sendMessageLog("Đang ở phái tiêu chuyển cc");
+                            return;
+                        }
+                        if (p.c.get().ItemBody[1] != null) {
+                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                            return;
+                        }
+                        p.c.nclass = 2;
+                        p.restSpoint();
+                        // p.restPpoint();
+                        p.loadSkill();
+                        p.upluongMessage(-500000L);
+                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                        int TimeSeconds = 5;
+                        while (TimeSeconds > 0) {
+                            TimeSeconds--;
+                            Thread.sleep(1000);
+                        }
+                        Client.gI().kickSession(p.conn);
                         return;
                     }
-                    p.c.nclass = 2;
-                    p.restSpoint();
-                    //  p.restPpoint();
-                    p.loadSkill();
-                    p.upluongMessage(-500000L);
-                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                    int TimeSeconds = 5;
-                    while (TimeSeconds > 0) {
-                        TimeSeconds--;
-                        Thread.sleep(1000);
+                    case 2: {
+                        if (p.c.nclass == 3) {
+                            p.conn.sendMessageLog("Đang ở phái kunai chuyển cc");
+                            return;
+                        }
+                        if (p.c.get().ItemBody[1] != null) {
+                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                            return;
+                        }
+                        p.c.nclass = 3;
+                        p.restSpoint();
+                        // p.restPpoint();
+                        p.loadSkill();
+                        p.upluongMessage(-500000L);
+                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                        int TimeSeconds = 5;
+                        while (TimeSeconds > 0) {
+                            TimeSeconds--;
+                            Thread.sleep(1000);
+                        }
+                        Client.gI().kickSession(p.conn);
+                        return;
                     }
-                    Client.gI().kickSession(p.conn);
-                    return;
+                    case 3: {
+                        if (p.c.nclass == 4) {
+                            p.conn.sendMessageLog("Đang ở phái cung chuyển cc");
+                            return;
+                        }
+                        if (p.c.get().ItemBody[1] != null) {
+                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                            return;
+                        }
+                        p.c.nclass = 4;
+                        p.restSpoint();
+                        // p.restPpoint();
+                        p.loadSkill();
+                        p.upluongMessage(-500000L);
+                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                        int TimeSeconds = 5;
+                        while (TimeSeconds > 0) {
+                            TimeSeconds--;
+                            Thread.sleep(1000);
+                        }
+                        Client.gI().kickSession(p.conn);
+                        return;
+                    }
+                    case 4: {
+                        if (p.c.nclass == 5) {
+                            p.conn.sendMessageLog("Đang ở phái đao chuyển cc");
+                            return;
+                        }
+                        if (p.c.get().ItemBody[1] != null) {
+                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                            return;
+                        }
+                        p.c.nclass = 5;
+                        p.restSpoint();
+                        // p.restPpoint();
+                        p.loadSkill();
+                        p.upluongMessage(-500000L);
+                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                        int TimeSeconds = 5;
+                        while (TimeSeconds > 0) {
+                            TimeSeconds--;
+                            Thread.sleep(1000);
+                        }
+                        Client.gI().kickSession(p.conn);
+                        return;
+                    }
+                    case 5: {
+                        if (p.c.nclass == 6) {
+                            p.conn.sendMessageLog("Đang ở phái quạt chuyển cc");
+                            return;
+                        }
+                        if (p.c.get().ItemBody[1] != null) {
+                            p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
+                            return;
+                        }
+                        p.c.nclass = 6;
+                        p.restSpoint();
+                        // p.restPpoint();
+                        p.loadSkill();
+                        p.upluongMessage(-500000L);
+                        Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
+                        int TimeSeconds = 5;
+                        while (TimeSeconds > 0) {
+                            TimeSeconds--;
+                            Thread.sleep(1000);
+                        }
+                        Client.gI().kickSession(p.conn);
+                        return;
+                    }
                 }
-                case 2: {
-                    if (p.c.nclass == 3) {
-                        p.conn.sendMessageLog("Đang ở phái kunai chuyển cc");
-                        return;
-                    }
-                    if (p.c.get().ItemBody[1] != null) {
-                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                        return;
-                    }
-                    p.c.nclass = 3;
-                    p.restSpoint();
-                    //   p.restPpoint();
-                    p.loadSkill();
-                    p.upluongMessage(-500000L);
-                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                    int TimeSeconds = 5;
-                    while (TimeSeconds > 0) {
-                        TimeSeconds--;
-                        Thread.sleep(1000);
-                    }
-                    Client.gI().kickSession(p.conn);
-                    return;
-                }
-                case 3: {
-                    if (p.c.nclass == 4) {
-                        p.conn.sendMessageLog("Đang ở phái cung chuyển cc");
-                        return;
-                    }
-                    if (p.c.get().ItemBody[1] != null) {
-                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                        return;
-                    }
-                    p.c.nclass = 4;
-                    p.restSpoint();
-                    //    p.restPpoint();
-                    p.loadSkill();
-                    p.upluongMessage(-500000L);
-                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                    int TimeSeconds = 5;
-                    while (TimeSeconds > 0) {
-                        TimeSeconds--;
-                        Thread.sleep(1000);
-                    }
-                    Client.gI().kickSession(p.conn);
-                    return;
-                }
-                case 4: {
-                    if (p.c.nclass == 5) {
-                        p.conn.sendMessageLog("Đang ở phái đao chuyển cc");
-                        return;
-                    }
-                    if (p.c.get().ItemBody[1] != null) {
-                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                        return;
-                    }
-                    p.c.nclass = 5;
-                    p.restSpoint();
-                    //   p.restPpoint();
-                    p.loadSkill();
-                    p.upluongMessage(-500000L);
-                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                    int TimeSeconds = 5;
-                    while (TimeSeconds > 0) {
-                        TimeSeconds--;
-                        Thread.sleep(1000);
-                    }
-                    Client.gI().kickSession(p.conn);
-                    return;
-                }
-                case 5: {
-                    if (p.c.nclass == 6) {
-                        p.conn.sendMessageLog("Đang ở phái quạt chuyển cc");
-                        return;
-                    }
-                    if (p.c.get().ItemBody[1] != null) {
-                        p.conn.sendMessageLog("Phải tháo vũ khí trước khi chuyển phái");
-                        return;
-                    }
-                    p.c.nclass = 6;
-                    p.restSpoint();
-                    //   p.restPpoint();
-                    p.loadSkill();
-                    p.upluongMessage(-500000L);
-                    Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
-                    int TimeSeconds = 5;
-                    while (TimeSeconds > 0) {
-                        TimeSeconds--;
-                        Thread.sleep(1000);
-                    }
-                    Client.gI().kickSession(p.conn);
-                    return;
-                }
-            }
-            break;
+                break;
             case 2: {
                 if (p.c.isHuman) {
                     p.conn.sendMessageLog("Chức năng này không dành cho chủ thân");
@@ -7805,7 +8091,7 @@ public class Menu {
                         }
                         p.c.clone.nclass = 1;
                         p.restSpoint();
-                        //        p.restPpoint();
+                        // p.restPpoint();
                         p.loadSkill();
                         p.upluongMessage(-500000L);
                         Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
@@ -7828,7 +8114,7 @@ public class Menu {
                         }
                         p.c.clone.nclass = 2;
                         p.restSpoint();
-                        //      p.restPpoint();
+                        // p.restPpoint();
                         p.loadSkill();
                         p.upluongMessage(-500000L);
                         Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
@@ -7851,7 +8137,7 @@ public class Menu {
                         }
                         p.c.clone.nclass = 3;
                         p.restSpoint();
-                        //       p.restPpoint();
+                        // p.restPpoint();
                         p.loadSkill();
                         p.upluongMessage(-500000L);
                         Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
@@ -7874,7 +8160,7 @@ public class Menu {
                         }
                         p.c.clone.nclass = 4;
                         p.restSpoint();
-                        //       p.restPpoint();
+                        // p.restPpoint();
                         p.loadSkill();
                         p.upluongMessage(-500000L);
                         Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
@@ -7897,7 +8183,7 @@ public class Menu {
                         }
                         p.c.clone.nclass = 5;
                         p.restSpoint();
-                        //      p.restPpoint();
+                        // p.restPpoint();
                         p.loadSkill();
                         p.upluongMessage(-500000L);
                         Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
@@ -7920,7 +8206,7 @@ public class Menu {
                         }
                         p.c.clone.nclass = 6;
                         p.restSpoint();
-                        //     p.restPpoint();
+                        // p.restPpoint();
                         p.loadSkill();
                         p.upluongMessage(-500000L);
                         Service.chatNPC(p, (short) npcid, "Chuyển phái thành công. Tự động thoát sau 5 giây");
@@ -7975,12 +8261,13 @@ public class Menu {
                 break;
             }
             case 5: {
-                Server.manager.sendTB(p, "Hướng dẫn", "Chuyển sinh xong yêu cầu ko tẩy tiềm năng nếu tẩy ad ko chịu trách nhiệm\n"
-                        + "đã vào các phái ngoại công như ĐAO KIẾM KUNAI thì các phái đó chỉ lên chuyển phái qua nhau\n"
-                        + "còn các phái QUẠT CUNG PHI TIÊU thì cũng chỉ chuyển phái qua nhau \n"
-                        + "do chuyển phái số tiềm năng đã cộng sẽ ko đc tẩy lên yêu cầu đọc kĩ\n"
-                        + "chuyển nhầm phái hay tẩy ad ko giải quyết.\n"
-                        + "ĐÁ ngũ sắc có thể kiếm đc ở ước ngọc rồng và đổi dưa hấu ở sứ giả.");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "Chuyển sinh xong yêu cầu ko tẩy tiềm năng nếu tẩy ad ko chịu trách nhiệm\n"
+                                + "đã vào các phái ngoại công như ĐAO KIẾM KUNAI thì các phái đó chỉ lên chuyển phái qua nhau\n"
+                                + "còn các phái QUẠT CUNG PHI TIÊU thì cũng chỉ chuyển phái qua nhau \n"
+                                + "do chuyển phái số tiềm năng đã cộng sẽ ko đc tẩy lên yêu cầu đọc kĩ\n"
+                                + "chuyển nhầm phái hay tẩy ad ko giải quyết.\n"
+                                + "ĐÁ ngũ sắc có thể kiếm đc ở ước ngọc rồng và đổi dưa hấu ở sứ giả.");
                 return;
             }
         }
@@ -8007,7 +8294,7 @@ public class Menu {
 
                 } else {
 
-                    p.c.xuTN = - 500000;
+                    p.c.xuTN = -500000;
                     p.c.upxuMessage(-500000);
                     p.upluongMessage(+100000);
 
@@ -8016,141 +8303,155 @@ public class Menu {
             }
         }
 
-        /*  public static void npcMiNuong(Player p, byte npcid, byte menuId, byte b3) throws IOException {
-        switch(menuId) {
-            case 0: {
-                if (p.c.isNhanban) {
-                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                    return;
-                }
-                if(p.c.quantityItemyTotal(838) < 1){
-                    p.conn.sendMessageLog("Bạn không đủ có Vô Môn Lệnh");
-                    return;
-                }
-                Skill skill2 = new Skill();
-                p.c.skill.add(skill2);
-                p.c.nclass = 0;
-                p.c.KSkill = new byte[3];
-                p.c.OSkill = new byte[5];
-                byte i;
-                for(i = 0; i < p.c.KSkill.length; ++i) {
-                    p.c.clone.KSkill[i] = -1;
-                }
-                for(i = 0; i < p.c.OSkill.length; ++i) {
-                    p.c.OSkill[i] = -1;
-                }
-                p.c.CSkill = -1;
-                p.c.removeItemBags(838, 1);
-                p.conn.sendMessageLog("Bạn chuyển về vô môn phái thành công");
-                break;
-            }
-            
-            case 1:{
-                if (p.c.isNhanban) {
-                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                    return;
-                }
-                Item itemup = p.c.ItemBody[1];
-                if((itemup == null)){
-                    p.conn.sendMessageLog("Bạn chưa mang vũ khí");
-                    return;
-                }
-                if (p.c.getBagNull() < 1) {
-                    Service.chatNPC(p, (short) npcid, "Hành trang không đủ chỗ trống");
-                    return;
-                }
-                if(itemup.VKTop() == 300){
-                    p.c.removeItemBody((byte)1);
-                    Item tang = ItemTemplate.itemDefault(839);
-                    tang.quantity = 300;
-                    p.c.addItemBag(false, tang);
-                    break;
-                }
-                else if(itemup.VKTop() == 500){
-                    p.c.removeItemBody((byte)1);
-                    Item tang = ItemTemplate.itemDefault(839);
-                    tang.quantity = 500;
-                    p.c.addItemBag(false, tang);
-                    break;
-                }
-                else {
-                   p.conn.sendMessageLog("Bạn không đeo đồ top");
-                }
-                break;
-            }
-            case 2: {
-                if (p.c.level < 150) {
-                    Service.chatNPC(p, (short) npcid, "anh em đã đạt cấp 150 đâu???\nKhi nào đủ tự tin hãy quay lại gặp ta nhé.! \nMày hãy cố gắng nhiều lên anh em..!");
-                    return;
-                }
-                if (p.c.expCS < 2000000000){
-                    p.conn.sendMessageLog("Anh em không đủ 2 tỷ exp chuyển sinh");
-                    return;
-                }
-                if(p.c.quantityItemyTotal(843) < 4000){
-                    p.conn.sendMessageLog("Anh em không đủ 4000 bíp cải lão");
-                    return;
-                }
-                if(p.c.quantityItemyTotal(842) < 10){
-                    p.conn.sendMessageLog("Anh em không đủ 10 chuyển sinh đan");
-                    return;
-                }
-                if (p.c.chuyenSinh == 1) {
-                    Service.chatNPC(p, (short) npcid, "server chỉ mới cho chuyển sinh 1, sẽ cập nhật sau");
-                    return;
-                }
-                if (p.luong < 5000000) {
-                    Service.chatNPC(p, (short) npcid, "Hành trang con ko có đủ học phí 5tr lượng để ta mua cafe sáng.\nHãy đi săn boss và kiếm đủ lượng để chuyển sinh nhé anh em yêu quý của ta ơi..!");
-                    return;
-                }
-                if (p.c.xu < 50000000) {
-                    Service.chatNPC(p, (short) npcid, "Hành trang con ko có đủ học phí 100tr xu để ta mua cafe sáng.\nHãy đi săn boss và kiếm đủ lượng để chuyển sinh nhé anh em yêu quý của ta ơi..!");
-                    return;
-                }
-                p.c.removeItemBags(843, 4000);
-                p.c.removeItemBags(842, 10);
-                p.c.expCS -= 2000000000;
-                p.c.chuyenSinh++;
-                p.updateExp(Level.getMaxExp(10) - p.c.exp);
-                p.upluongMessage(-5000000);
-                p.c.upxuMessage(-50000000);
-                Manager.chatKTG("Chúc mừng anh: " + p.c.name + " đã đạt cảnh giới chuyển sinh 1. Chúng ta hãy cùng " + p.c.name + " quay lại tuổi thơ dữ dội và viết lên 1 hành trình mới đầy vẻ vang nào. Anh em nhìn " + p.c.name + " mà học hỏi nhé.!");
-                break;
-            }
-            case 3:{
-                if(p.c.vip < 1){
-                    p.conn.sendMessageLog("Bạn cần tối thiểu vip 1 để tham gia");
-                    break;
-                }
-                    Service.startYesNoDlg(p, (byte) 13, "Trùm sẽ xoá sạch rương đồ của chính mình?");
-                    break;
-            }
-                /*{
-                if(p.luong < 10000){
-                    p.conn.sendMessageLog("Bạn không đủ lượng để tham gia");
-                    return;
-                }
-                byte per = (byte) Util.nextInt(0, 100);
-                short[] arId;
-                short aID = 0;
-                if(per <= 50){
-                    arId = new short[]{840, 838};
-                    aID = arId[Util.nextInt(arId.length)];
-                    Item itemup = ItemTemplate.itemDefault(aID);
-                    p.c.addItemBag(false, itemup);
-                }else{
-                    p.conn.sendMessageLog("Đen lắm con ạ");
-                }
-                p.c.luongTop += 10000;
-                p.upluongMessage(-10000);
-                break;
-            } 
-            default: {
-                Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
-                break;
-            }
-        }       
-    }    */
+        /*
+         * public static void npcMiNuong(Player p, byte npcid, byte menuId, byte b3)
+         * throws IOException {
+         * switch(menuId) {
+         * case 0: {
+         * if (p.c.isNhanban) {
+         * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+         * return;
+         * }
+         * if(p.c.quantityItemyTotal(838) < 1){
+         * p.conn.sendMessageLog("Bạn không đủ có Vô Môn Lệnh");
+         * return;
+         * }
+         * Skill skill2 = new Skill();
+         * p.c.skill.add(skill2);
+         * p.c.nclass = 0;
+         * p.c.KSkill = new byte[3];
+         * p.c.OSkill = new byte[5];
+         * byte i;
+         * for(i = 0; i < p.c.KSkill.length; ++i) {
+         * p.c.clone.KSkill[i] = -1;
+         * }
+         * for(i = 0; i < p.c.OSkill.length; ++i) {
+         * p.c.OSkill[i] = -1;
+         * }
+         * p.c.CSkill = -1;
+         * p.c.removeItemBags(838, 1);
+         * p.conn.sendMessageLog("Bạn chuyển về vô môn phái thành công");
+         * break;
+         * }
+         * 
+         * case 1:{
+         * if (p.c.isNhanban) {
+         * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+         * return;
+         * }
+         * Item itemup = p.c.ItemBody[1];
+         * if((itemup == null)){
+         * p.conn.sendMessageLog("Bạn chưa mang vũ khí");
+         * return;
+         * }
+         * if (p.c.getBagNull() < 1) {
+         * Service.chatNPC(p, (short) npcid, "Hành trang không đủ chỗ trống");
+         * return;
+         * }
+         * if(itemup.VKTop() == 300){
+         * p.c.removeItemBody((byte)1);
+         * Item tang = ItemTemplate.itemDefault(839);
+         * tang.quantity = 300;
+         * p.c.addItemBag(false, tang);
+         * break;
+         * }
+         * else if(itemup.VKTop() == 500){
+         * p.c.removeItemBody((byte)1);
+         * Item tang = ItemTemplate.itemDefault(839);
+         * tang.quantity = 500;
+         * p.c.addItemBag(false, tang);
+         * break;
+         * }
+         * else {
+         * p.conn.sendMessageLog("Bạn không đeo đồ top");
+         * }
+         * break;
+         * }
+         * case 2: {
+         * if (p.c.level < 150) {
+         * Service.chatNPC(p, (short) npcid,
+         * "anh em đã đạt cấp 150 đâu???\nKhi nào đủ tự tin hãy quay lại gặp ta nhé.! \nMày hãy cố gắng nhiều lên anh em..!"
+         * );
+         * return;
+         * }
+         * if (p.c.expCS < 2000000000){
+         * p.conn.sendMessageLog("Anh em không đủ 2 tỷ exp chuyển sinh");
+         * return;
+         * }
+         * if(p.c.quantityItemyTotal(843) < 4000){
+         * p.conn.sendMessageLog("Anh em không đủ 4000 bíp cải lão");
+         * return;
+         * }
+         * if(p.c.quantityItemyTotal(842) < 10){
+         * p.conn.sendMessageLog("Anh em không đủ 10 chuyển sinh đan");
+         * return;
+         * }
+         * if (p.c.chuyenSinh == 1) {
+         * Service.chatNPC(p, (short) npcid,
+         * "server chỉ mới cho chuyển sinh 1, sẽ cập nhật sau");
+         * return;
+         * }
+         * if (p.luong < 5000000) {
+         * Service.chatNPC(p, (short) npcid,
+         * "Hành trang con ko có đủ học phí 5tr lượng để ta mua cafe sáng.\nHãy đi săn boss và kiếm đủ lượng để chuyển sinh nhé anh em yêu quý của ta ơi..!"
+         * );
+         * return;
+         * }
+         * if (p.c.xu < 50000000) {
+         * Service.chatNPC(p, (short) npcid,
+         * "Hành trang con ko có đủ học phí 100tr xu để ta mua cafe sáng.\nHãy đi săn boss và kiếm đủ lượng để chuyển sinh nhé anh em yêu quý của ta ơi..!"
+         * );
+         * return;
+         * }
+         * p.c.removeItemBags(843, 4000);
+         * p.c.removeItemBags(842, 10);
+         * p.c.expCS -= 2000000000;
+         * p.c.chuyenSinh++;
+         * p.updateExp(Level.getMaxExp(10) - p.c.exp);
+         * p.upluongMessage(-5000000);
+         * p.c.upxuMessage(-50000000);
+         * Manager.chatKTG("Chúc mừng anh: " + p.c.name +
+         * " đã đạt cảnh giới chuyển sinh 1. Chúng ta hãy cùng " + p.c.name +
+         * " quay lại tuổi thơ dữ dội và viết lên 1 hành trình mới đầy vẻ vang nào. Anh em nhìn "
+         * + p.c.name + " mà học hỏi nhé.!");
+         * break;
+         * }
+         * case 3:{
+         * if(p.c.vip < 1){
+         * p.conn.sendMessageLog("Bạn cần tối thiểu vip 1 để tham gia");
+         * break;
+         * }
+         * Service.startYesNoDlg(p, (byte) 13,
+         * "Trùm sẽ xoá sạch rương đồ của chính mình?");
+         * break;
+         * }
+         * /*{
+         * if(p.luong < 10000){
+         * p.conn.sendMessageLog("Bạn không đủ lượng để tham gia");
+         * return;
+         * }
+         * byte per = (byte) Util.nextInt(0, 100);
+         * short[] arId;
+         * short aID = 0;
+         * if(per <= 50){
+         * arId = new short[]{840, 838};
+         * aID = arId[Util.nextInt(arId.length)];
+         * Item itemup = ItemTemplate.itemDefault(aID);
+         * p.c.addItemBag(false, itemup);
+         * }else{
+         * p.conn.sendMessageLog("Đen lắm con ạ");
+         * }
+         * p.c.luongTop += 10000;
+         * p.upluongMessage(-10000);
+         * break;
+         * }
+         * default: {
+         * Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
+         * break;
+         * }
+         * }
+         * }
+         */
     }
 
     public static void npcSuKien(Player p, byte npcid, byte menuId, byte b3) throws IOException {
@@ -8160,9 +8461,10 @@ public class Menu {
                     case 0: {
 
                         if (p.luong < 10000) {
-                            p.conn.sendMessageLog("Bạn không đủ 10k lượng để cho ăn xin ăn xin cũng có giá của ăn xin chứ");
+                            p.conn.sendMessageLog(
+                                    "Bạn không đủ 10k lượng để cho ăn xin ăn xin cũng có giá của ăn xin chứ");
                         }
-                        p.c.luongTN = - 10000;
+                        p.c.luongTN = -10000;
                         long luong = 10000;
                         p.c.luongTop += 10000;
                         p.upluongMessage(-10000);
@@ -8170,7 +8472,7 @@ public class Menu {
                     }
                     case 2: {
                         // nếu muốn tiêu lượng nó cộng thì ++ p.c.luongTN += giá trị ;
-                        //trong này nhé
+                        // trong này nhé
                         Server.manager.sendTB(p, "Top tiêu lượng", Rank.getStringBXH(4));
                         break;
                     }
@@ -8180,7 +8482,8 @@ public class Menu {
         }
     }
 
-    public static void npcdichchuyen(Player p, byte npcid, byte menuId, byte b3) throws IOException, InterruptedException {
+    public static void npcdichchuyen(Player p, byte npcid, byte menuId, byte b3)
+            throws IOException, InterruptedException {
         switch (menuId) {
             case 0: {
                 switch (b3) {
@@ -8191,11 +8494,13 @@ public class Menu {
                             return;
                         }
                         if (p.c.pk > 0) {
-                            p.sendAddchatYellow("Không thể dịch chuyển qua hành tinh kamado khi có điểm hiếu chiến lớn hơn 0");
+                            p.sendAddchatYellow(
+                                    "Không thể dịch chuyển qua hành tinh kamado khi có điểm hiếu chiến lớn hơn 0");
                             return;
                         }
                         if (p.c.quantityItemyTotal(993) < 5) {
-                            p.conn.sendMessageLog("muốn đi sangg hành tinh kamado thì đưa tao 5 miếng dưa hấu tao sẽ giúp mày sang đấy");
+                            p.conn.sendMessageLog(
+                                    "muốn đi sangg hành tinh kamado thì đưa tao 5 miếng dưa hấu tao sẽ giúp mày sang đấy");
                             return;
                         } else {
                             p.c.removeItemBags(993, 5);
@@ -8256,7 +8561,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 90) {
-                                p.c.yenTN = - 50000000;
+                                p.c.yenTN = -50000000;
                                 p.c.upyenMessage(-50000000);
                                 p.c.removeItemBags(996, 200);
                                 p.c.removeItemBags(997, 200);
@@ -8265,11 +8570,13 @@ public class Menu {
                                 p.c.removeItemBags(1000, 200);
                                 p.c.removeItemBags(1001, 200);
                                 p.c.removeItemBags(1002, 200);
-                                p.conn.sendMessageLog("tao lạy mày 90% còn để xịt xin mỗi loại ngọc rồng 200 viên lần sau cố gắng hơn");
-                                Server.manager.chatKTG("người chơi " + p.c.name + "ước được nhiều lượng nhưng đen quá nên xịt! ");
+                                p.conn.sendMessageLog(
+                                        "tao lạy mày 90% còn để xịt xin mỗi loại ngọc rồng 200 viên lần sau cố gắng hơn");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + "ước được nhiều lượng nhưng đen quá nên xịt! ");
                                 return;
                             } else {
-                                p.c.yenTN = - 50000000;
+                                p.c.yenTN = -50000000;
                                 p.c.upyenMessage(-50000000);
                                 p.c.removeItemBags(996, 999);
                                 p.c.removeItemBags(997, 999);
@@ -8280,7 +8587,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 999);
                                 p.upluongMessage(5000000);
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước nhiều lượng thành công phát tài rồi! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã ước nhiều lượng thành công phát tài rồi! ");
                             }
                         }
                         break;
@@ -8321,7 +8629,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 90) {
-                                p.c.yenTN = - 50000000;
+                                p.c.yenTN = -50000000;
                                 p.c.upyenMessage(-50000000);
                                 p.c.removeItemBags(996, 200);
                                 p.c.removeItemBags(997, 200);
@@ -8330,11 +8638,13 @@ public class Menu {
                                 p.c.removeItemBags(1000, 200);
                                 p.c.removeItemBags(1001, 200);
                                 p.c.removeItemBags(1002, 200);
-                                p.conn.sendMessageLog("tao lạy mày 90% còn để xịt xin mỗi loại ngọc rồng 200 viên lần sau cố gắng hơn");
-                                Server.manager.chatKTG("người chơi " + p.c.name + "ước được nhiều lượng nhưng đen quá nên xịt! ");
+                                p.conn.sendMessageLog(
+                                        "tao lạy mày 90% còn để xịt xin mỗi loại ngọc rồng 200 viên lần sau cố gắng hơn");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + "ước được nhiều lượng nhưng đen quá nên xịt! ");
                                 return;
                             } else {
-                                p.c.yenTN = - 50000000;
+                                p.c.yenTN = -50000000;
                                 p.c.upyenMessage(-50000000);
                                 p.c.removeItemBags(996, 999);
                                 p.c.removeItemBags(997, 999);
@@ -8345,7 +8655,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 999);
                                 p.c.upxuMessage(20000000);
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước nhiều lượng thành công phát tài rồi! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã ước nhiều lượng thành công phát tài rồi! ");
                             }
                         }
                         break;
@@ -8386,7 +8697,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 1) {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 2);
                                 p.c.removeItemBags(997, 2);
@@ -8399,7 +8710,7 @@ public class Menu {
 
                                 return;
                             } else {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 9);
                                 p.c.removeItemBags(997, 9);
@@ -8410,7 +8721,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 9);
 
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước đẹp trai nhất sever nhưng do xấu quá nên chịu nhá bó tay :))! ");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " đã ước đẹp trai nhất sever nhưng do xấu quá nên chịu nhá bó tay :))! ");
                             }
                         }
                         break;
@@ -8451,7 +8763,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 1) {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 2);
                                 p.c.removeItemBags(997, 2);
@@ -8464,7 +8776,7 @@ public class Menu {
 
                                 return;
                             } else {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 9);
                                 p.c.removeItemBags(997, 9);
@@ -8475,7 +8787,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 9);
 
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước có người yêu nhưng do xâú quá chó nó yêu ! ");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " đã ước có người yêu nhưng do xâú quá chó nó yêu ! ");
                             }
                         }
                         break;
@@ -8516,7 +8829,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 1) {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 2);
                                 p.c.removeItemBags(997, 2);
@@ -8529,7 +8842,7 @@ public class Menu {
 
                                 return;
                             } else {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 9);
                                 p.c.removeItemBags(997, 9);
@@ -8540,7 +8853,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 9);
 
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước có quyền admin nhưng ad bảo đéo thích cho :))! ");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " đã ước có quyền admin nhưng ad bảo đéo thích cho :))! ");
                             }
                         }
                         break;
@@ -8581,7 +8895,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 1) {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 2);
                                 p.c.removeItemBags(997, 2);
@@ -8594,7 +8908,7 @@ public class Menu {
 
                                 return;
                             } else {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 9);
                                 p.c.removeItemBags(997, 9);
@@ -8605,7 +8919,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 9);
 
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước full đồ mua, thầy huấn bảo rồi không cày mà muốn full đồ chỉ có ..... :))! ");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " đã ước full đồ mua, thầy huấn bảo rồi không cày mà muốn full đồ chỉ có ..... :))! ");
                             }
                         }
                         break;
@@ -8646,7 +8961,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 1) {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 2);
                                 p.c.removeItemBags(997, 2);
@@ -8659,7 +8974,7 @@ public class Menu {
 
                                 return;
                             } else {
-                                p.c.yenTN = - 500000000;
+                                p.c.yenTN = -500000000;
                                 p.c.upyenMessage(-500000000);
                                 p.c.removeItemBags(996, 9);
                                 p.c.removeItemBags(997, 9);
@@ -8670,7 +8985,8 @@ public class Menu {
                                 p.c.removeItemBags(1002, 9);
 
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước 2 tỷ coin ad bảo không nạp thì có cái nịt nha :))! ");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " đã ước 2 tỷ coin ad bảo không nạp thì có cái nịt nha :))! ");
                             }
                         }
                         break;
@@ -8711,7 +9027,7 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 50) {
-                                p.c.yenTN = - 50000000;
+                                p.c.yenTN = -50000000;
                                 p.c.upyenMessage(-50000000);
                                 p.c.removeItemBags(996, 200);
                                 p.c.removeItemBags(997, 200);
@@ -8724,7 +9040,7 @@ public class Menu {
 
                                 return;
                             } else {
-                                p.c.yenTN = - 50000000;
+                                p.c.yenTN = -50000000;
                                 p.c.upyenMessage(-50000000);
                                 p.c.removeItemBags(996, 300);
                                 p.c.removeItemBags(997, 300);
@@ -8735,109 +9051,110 @@ public class Menu {
                                 p.c.removeItemBags(1002, 300);
                                 p.c.addItemBag(false, ItemTemplate.itemDefault(1003));
                                 Service.chatNPC(p, (short) npcid, "ước thành công điều ước đã được thực hiện");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã ước thành công đá ngũ sắc :))! ");
+                                Server.manager
+                                        .chatKTG("người chơi " + p.c.name + " đã ước thành công đá ngũ sắc :))! ");
                             }
                         }
                         break;
 
                     }
                     case 8: {
-                        Server.manager.sendTB(p, "Điều Kiện để ước ngọc rồng", "người chơi cần phải đánh quái trong map này để kiếm ngọc rồng từ 1 tới 7 sao"
-                                + "\n>điều ước<"
-                                + "\n-ước đc nhiều lượng sẽ nhận đc 5m lượng"
-                                + "\n-ước nhiều xu sẽ được 20m xu"
-                                + "\n-ước đẹp trai nhất sever thì sẽ nhận được 1 mặt nạ vip"
-                                + "\n-ước có người yêu bạn sẽ có 1 người yêu đi bên cạnh và chiến đấu cùng mình"
-                                + "\n-ước quyền admin bạn sẽ được quyền khóa tk bất kỳ ai trong server"
-                                + "\n-ước full đồ mua bạn sẽ nhận được full đồ đăng có trên wep shop"
-                                + "\n-ước 2 tỷ coin thì bạn sẽ nhận được 2 tỷ coin có thể lên wep để xem số coin"
-                                + "\n-ước đá ngũ sắc sẽ nhận được 1 viên đá ngũ sắc"
-                                + "\n-điều ước càng xịn thì độ khó càng cao"
-                                + "\n-CHÚC CÁC BẠN THÀNH CÔNG"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n"
-                                + "\n- ADMIN MUÔN ĐỜI BỊP TIN ADMIN CHỈ CÓ BÁN NHÀ MÀ ĂN"
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện để ước ngọc rồng",
+                                "người chơi cần phải đánh quái trong map này để kiếm ngọc rồng từ 1 tới 7 sao"
+                                        + "\n>điều ước<"
+                                        + "\n-ước đc nhiều lượng sẽ nhận đc 5m lượng"
+                                        + "\n-ước nhiều xu sẽ được 20m xu"
+                                        + "\n-ước đẹp trai nhất sever thì sẽ nhận được 1 mặt nạ vip"
+                                        + "\n-ước có người yêu bạn sẽ có 1 người yêu đi bên cạnh và chiến đấu cùng mình"
+                                        + "\n-ước quyền admin bạn sẽ được quyền khóa tk bất kỳ ai trong server"
+                                        + "\n-ước full đồ mua bạn sẽ nhận được full đồ đăng có trên wep shop"
+                                        + "\n-ước 2 tỷ coin thì bạn sẽ nhận được 2 tỷ coin có thể lên wep để xem số coin"
+                                        + "\n-ước đá ngũ sắc sẽ nhận được 1 viên đá ngũ sắc"
+                                        + "\n-điều ước càng xịn thì độ khó càng cao"
+                                        + "\n-CHÚC CÁC BẠN THÀNH CÔNG"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n"
+                                        + "\n- ADMIN MUÔN ĐỜI BỊP TIN ADMIN CHỈ CÓ BÁN NHÀ MÀ ĂN");
                         break;
                     }
                 }
@@ -9041,7 +9358,8 @@ public class Menu {
         }
     }
 
-    public static void npcthiensuwhis(Player p, byte npcid, byte menuId, byte b3) throws IOException, InterruptedException {
+    public static void npcthiensuwhis(Player p, byte npcid, byte menuId, byte b3)
+            throws IOException, InterruptedException {
         switch (menuId) {
             case 0: { // mặt nạ
                 ItemTemplate data;
@@ -9058,7 +9376,11 @@ public class Menu {
                     return;
                 }
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[11].id);
-                Service.startYesNoDlg(p, (byte) 11, "Bạn có muốn nâng cấp mặt nạ " + data.name + " cấp " + (p.c.ItemBody[11].upgrade + 1) + " với " + GameSrc.da[p.c.ItemBody[11].upgrade] + " chuyển tinh thạch và " + GameSrc.coinup[p.c.ItemBody[11].upgrade] + " lượng tỷ lệ thành công là " + GameSrc.tile[p.c.ItemBody[11].upgrade] + "% không?");
+                Service.startYesNoDlg(p, (byte) 11,
+                        "Bạn có muốn nâng cấp mặt nạ " + data.name + " cấp " + (p.c.ItemBody[11].upgrade + 1) + " với "
+                                + GameSrc.da[p.c.ItemBody[11].upgrade] + " chuyển tinh thạch và "
+                                + GameSrc.coinup[p.c.ItemBody[11].upgrade] + " lượng tỷ lệ thành công là "
+                                + GameSrc.tile[p.c.ItemBody[11].upgrade] + "% không?");
                 break;
             }
             case 1: { // bíkip
@@ -9076,10 +9398,14 @@ public class Menu {
                     return;
                 }
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[15].id);
-                Service.startYesNoDlg(p, (byte) 15, "Bạn có muốn nâng cấp  " + data.name + " cấp " + (p.c.ItemBody[15].upgrade + 1) + " với " + GameSrc.da[p.c.ItemBody[15].upgrade] + " chuyển tinh thạch và " + GameSrc.coinup[p.c.ItemBody[15].upgrade] + " lượng tỷ lệ thành công là " + GameSrc.tile[p.c.ItemBody[15].upgrade] + "% không?");
+                Service.startYesNoDlg(p, (byte) 15,
+                        "Bạn có muốn nâng cấp  " + data.name + " cấp " + (p.c.ItemBody[15].upgrade + 1) + " với "
+                                + GameSrc.da[p.c.ItemBody[15].upgrade] + " chuyển tinh thạch và "
+                                + GameSrc.coinup[p.c.ItemBody[15].upgrade] + " lượng tỷ lệ thành công là "
+                                + GameSrc.tile[p.c.ItemBody[15].upgrade] + "% không?");
                 break;
             }
-            case 2: { //yoroi
+            case 2: { // yoroi
                 ItemTemplate data;
                 if (p.c.isNhanban) {
                     Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
@@ -9094,10 +9420,14 @@ public class Menu {
                     return;
                 }
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[12].id);
-                Service.startYesNoDlg(p, (byte) 12, "Bạn có muốn nâng cấp  " + data.name + " cấp " + (p.c.ItemBody[12].upgrade + 1) + " với " + GameSrc.da[p.c.ItemBody[12].upgrade] + " chuyển tinh thạch và " + GameSrc.coinup[p.c.ItemBody[12].upgrade] + " lượng tỷ lệ thành công là " + GameSrc.tile[p.c.ItemBody[12].upgrade] + "% không?");
+                Service.startYesNoDlg(p, (byte) 12,
+                        "Bạn có muốn nâng cấp  " + data.name + " cấp " + (p.c.ItemBody[12].upgrade + 1) + " với "
+                                + GameSrc.da[p.c.ItemBody[12].upgrade] + " chuyển tinh thạch và "
+                                + GameSrc.coinup[p.c.ItemBody[12].upgrade] + " lượng tỷ lệ thành công là "
+                                + GameSrc.tile[p.c.ItemBody[12].upgrade] + "% không?");
                 break;
             }
-            case 3: { //nangpet
+            case 3: { // nangpet
                 ItemTemplate data;
                 if (p.c.isNhanban) {
                     Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
@@ -9112,7 +9442,11 @@ public class Menu {
                     return;
                 }
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[10].id);
-                Service.startYesNoDlg(p, (byte) 10, "Bạn có muốn nâng cấp pet " + data.name + " cấp " + (p.c.ItemBody[10].upgrade + 1) + " với " + GameSrc.da[p.c.ItemBody[10].upgrade] + " chuyển tinh thạch và " + GameSrc.coinup[p.c.ItemBody[10].upgrade] + " lượng tỷ lệ thành công là " + GameSrc.tile[p.c.ItemBody[10].upgrade] + "% không?");
+                Service.startYesNoDlg(p, (byte) 10,
+                        "Bạn có muốn nâng cấp pet " + data.name + " cấp " + (p.c.ItemBody[10].upgrade + 1) + " với "
+                                + GameSrc.da[p.c.ItemBody[10].upgrade] + " chuyển tinh thạch và "
+                                + GameSrc.coinup[p.c.ItemBody[10].upgrade] + " lượng tỷ lệ thành công là "
+                                + GameSrc.tile[p.c.ItemBody[10].upgrade] + "% không?");
                 break;
             }
             case 4: {// mắt
@@ -9138,7 +9472,11 @@ public class Menu {
                 }
 
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
-                Service.startYesNoDlg(p, (byte) 1, "Bạn có muốn nâng cấp " + data.name + " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu và " + GameSrc.goldUpMat[p.c.ItemBody[14].upgrade] + " lượng với tỷ lệ thành công là " + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2 + "% không?");
+                Service.startYesNoDlg(p, (byte) 1,
+                        "Bạn có muốn nâng cấp " + data.name + " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade]
+                                + " yên hoặc xu và " + GameSrc.goldUpMat[p.c.ItemBody[14].upgrade]
+                                + " lượng với tỷ lệ thành công là " + GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2
+                                + "% không?");
                 break;
             }
             case 5: {// ntgt
@@ -9156,10 +9494,14 @@ public class Menu {
                     return;
                 }
                 data = ItemTemplate.ItemTemplateId(p.c.ItemBody[13].id);
-                Service.startYesNoDlg(p, (byte) 16, "Bạn có muốn nâng cấp ntgt " + data.name + " cấp " + (p.c.ItemBody[13].upgrade + 1) + " với " + GameSrc.da[p.c.ItemBody[13].upgrade] + " chuyển tinh thạch và " + GameSrc.coinup[p.c.ItemBody[13].upgrade] + " lượng tỷ lệ thành công là " + GameSrc.tile[p.c.ItemBody[13].upgrade] + "% không?");
+                Service.startYesNoDlg(p, (byte) 16,
+                        "Bạn có muốn nâng cấp ntgt " + data.name + " cấp " + (p.c.ItemBody[13].upgrade + 1) + " với "
+                                + GameSrc.da[p.c.ItemBody[13].upgrade] + " chuyển tinh thạch và "
+                                + GameSrc.coinup[p.c.ItemBody[13].upgrade] + " lượng tỷ lệ thành công là "
+                                + GameSrc.tile[p.c.ItemBody[13].upgrade] + "% không?");
                 break;
             }
-            case 6: { //hành trang
+            case 6: { // hành trang
                 if (p.c.maxluggage >= 120) {
                     p.conn.sendMessageLog("Bạn chỉ có thể nâng tối đa 120 ô hành trang");
                     return;
@@ -9174,7 +9516,8 @@ public class Menu {
                 } else {
                     p.c.maxluggage += 5;
                     p.upluongMessage(-10000L);
-                    p.conn.sendMessageLog("Hành trang đã mở thêm 6 ô, Số Ô Hành Trang Của Bạn Là " + p.c.maxluggage + " Vui lòng thoát game vào lại để update hành trang ");
+                    p.conn.sendMessageLog("Hành trang đã mở thêm 6 ô, Số Ô Hành Trang Của Bạn Là " + p.c.maxluggage
+                            + " Vui lòng thoát game vào lại để update hành trang ");
                     Service.chatNPC(p, (short) npcid, "nâng hàng trang thành công. Tự động thoát sau 5 giây");
                     int TimeSeconds = 5;
                     while (TimeSeconds > 0) {
@@ -9269,7 +9612,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemcauca < 700) {
-                            Service.chatNPC(p, (short) npcid, "mày chưa đủ 700 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
+                            Service.chatNPC(p, (short) npcid,
+                                    "mày chưa đủ 700 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
                             break;
                         }
                         if (p.c.getBagNull() < 1) {
@@ -9289,7 +9633,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemcauca < 800) {
-                            Service.chatNPC(p, (short) npcid, "mày chưa đủ 800 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
+                            Service.chatNPC(p, (short) npcid,
+                                    "mày chưa đủ 800 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
                             break;
                         }
                         if (p.c.getBagNull() < 1) {
@@ -9309,7 +9654,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemcauca < 900) {
-                            Service.chatNPC(p, (short) npcid, "mày chưa đủ 900 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
+                            Service.chatNPC(p, (short) npcid,
+                                    "mày chưa đủ 900 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
                             break;
                         }
                         if (p.c.getBagNull() < 1) {
@@ -9329,7 +9675,8 @@ public class Menu {
                             return;
                         }
                         if (p.c.diemcauca < 1000) {
-                            Service.chatNPC(p, (short) npcid, "mày chưa đủ 1000 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
+                            Service.chatNPC(p, (short) npcid,
+                                    "mày chưa đủ 1000 điểm câu cá thì tới đây làm gì\n mau đi câu cá đi\n lượn");
                             break;
                         }
                         if (p.c.getBagNull() < 1) {
@@ -9452,7 +9799,7 @@ public class Menu {
                     }
                 }
             }
-            break;
+                break;
 
             case 1: {
                 switch (b3) {
@@ -9472,8 +9819,10 @@ public class Menu {
                                 p.c.removeItemBags(584, 10);
                                 break;
                             } else {
-                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name + " Vừa Tiến Hóa Hải Mã Con Lên Hải Mã Thiếu Niên! ");
-                                Service.chatNPC(p, (short) npcid, "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận Hải Mã Thiếu Niên");
+                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name
+                                        + " Vừa Tiến Hóa Hải Mã Con Lên Hải Mã Thiếu Niên! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận Hải Mã Thiếu Niên");
                                 final Item itemup = ItemTemplate.itemDefault(585);
 
                                 itemup.upgrade = 14;
@@ -9500,8 +9849,10 @@ public class Menu {
                                 p.c.removeItemBags(585, 10);
                                 break;
                             } else {
-                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name + " Vừa Tiến Hóa Hải Mã Thiếu Niên Lên Hải Mã Trưởng Thành! ");
-                                Service.chatNPC(p, (short) npcid, "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận Hải Mã Trưởng Thành");
+                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name
+                                        + " Vừa Tiến Hóa Hải Mã Thiếu Niên Lên Hải Mã Trưởng Thành! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận Hải Mã Trưởng Thành");
                                 final Item itemup = ItemTemplate.itemDefault(586);
 
                                 itemup.upgrade = 16;
@@ -9514,7 +9865,7 @@ public class Menu {
                     }
                 }
             }
-            break;
+                break;
             case 2: {
                 switch (b3) {
                     case 0: {
@@ -9534,8 +9885,10 @@ public class Menu {
                                 break;
                             } else {
 
-                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name + " Vừa Tiến Hóa Dị Long Con Lên Dị Long Thiếu Niên! ");
-                                Service.chatNPC(p, (short) npcid, "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận Dị Long Thiếu Niên");
+                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name
+                                        + " Vừa Tiến Hóa Dị Long Con Lên Dị Long Thiếu Niên! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận Dị Long Thiếu Niên");
                                 final Item itemup = ItemTemplate.itemDefault(588);
 
                                 itemup.upgrade = 14;
@@ -9562,7 +9915,8 @@ public class Menu {
                                 p.c.removeItemBags(588, 10);
                                 break;
                             } else {
-                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name + " Vừa Tiến Hóa Dị Long Thiếu Niên Con Lên Dị Long Trưởng Thành! ");
+                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name
+                                        + " Vừa Tiến Hóa Dị Long Thiếu Niên Con Lên Dị Long Trưởng Thành! ");
                                 Service.chatNPC(p, (short) npcid, "Chúc mừng bạn đã ấp được Dị Long Trưởng Thành");
                                 final Item itemup = ItemTemplate.itemDefault(589);
 
@@ -9596,8 +9950,10 @@ public class Menu {
                                 break;
                             } else {
 
-                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name + " Vừa Tiến Hóa khủng long Con Lên khủng long Thiếu Niên! ");
-                                Service.chatNPC(p, (short) npcid, "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận khủng Long Thiếu Niên");
+                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name
+                                        + " Vừa Tiến Hóa khủng long Con Lên khủng long Thiếu Niên! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "Chúc mừng bạn Đã Tiến Hóa Thành Công. Nhận khủng Long Thiếu Niên");
                                 final Item itemup = ItemTemplate.itemDefault(773);
 
                                 itemup.upgrade = 14;
@@ -9624,7 +9980,8 @@ public class Menu {
                                 p.c.removeItemBags(773, 10);
                                 break;
                             } else {
-                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name + " Vừa Tiến Hóa Dị Long Thiếu Niên Con Lên Dị Long Trưởng Thành! ");
+                                Manager.chatKTG(" Chúc Mừng người chơi " + p.c.name
+                                        + " Vừa Tiến Hóa Dị Long Thiếu Niên Con Lên Dị Long Trưởng Thành! ");
                                 Service.chatNPC(p, (short) npcid, "Chúc mừng bạn đã ấp được Dị Long Trưởng Thành");
                                 final Item itemup = ItemTemplate.itemDefault(871);
 
@@ -9638,7 +9995,7 @@ public class Menu {
                     }
                 }
             }
-            break;
+                break;
             case 4: {
                 Server.manager.sendTB(p, "Hướng dẫn", "- Trứng Có Thể kiếm được từ việc săn BOSS."
                         + "\n Trứng sẽ có tỷ lệ hỏng Cao."
@@ -9759,17 +10116,20 @@ public class Menu {
                         p.c.addItemBag(false, ItemTemplate.itemDefault(946, false));
                     } else if (percent >= 87 && percent < 95) {
                         p.conn.sendMessageLog("May mắn.Bạn nhận được bình rượu ủ 10 Vạn năm");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " Đã May mắn đổi được bình rượu ủ 10 vạn năm! ");
+                        Server.manager
+                                .chatKTG("Người chơi " + p.c.name + " Đã May mắn đổi được bình rượu ủ 10 vạn năm! ");
                         p.c.removeItemBags(945, 10);
                         p.c.addItemBag(false, ItemTemplate.itemDefault(947, false));
                     } else if (percent >= 95 && percent < 99) {
                         p.conn.sendMessageLog("Nhân Phẩm Tốt.Bạn nhận được bình rượu ủ 20 Vạn năm");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " nhân phẩm tốt,Đã May mắn đổi được bình rượu ủ 20 vạn năm! ");
+                        Server.manager.chatKTG("Người chơi " + p.c.name
+                                + " nhân phẩm tốt,Đã May mắn đổi được bình rượu ủ 20 vạn năm! ");
                         p.c.removeItemBags(945, 10);
                         p.c.addItemBag(false, ItemTemplate.itemDefault(948, false));
                     } else if (percent == 100) {
                         p.conn.sendMessageLog("Nhân Phẩm Thượng Thừa.Bạn nhận được bình rượu ủ 50 Vạn năm");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " Nhân Phẩm Thượng thừa,Đã May mắn đổi được bình rượu ử 50 vạn năm! ");
+                        Server.manager.chatKTG("Người chơi " + p.c.name
+                                + " Nhân Phẩm Thượng thừa,Đã May mắn đổi được bình rượu ử 50 vạn năm! ");
                         p.c.removeItemBags(945, 10);
                         p.c.addItemBag(false, ItemTemplate.itemDefault(949, false));
                         break;
@@ -9779,7 +10139,8 @@ public class Menu {
             }
 
             case 2: {
-                Server.manager.sendTB(p, "Hướng dẫn", "-Oẳn tù tì cùng npc, bạn thắng nhận 500k,thua mất 1 lon bia 333 \n- Bao > Búa > Kéo > Bao \n- Mất 5tr 1 lượt đổi ngẫu nhiên \n Tỉ Lệ :\n Linh chi ngàn năm : 50%.\n Linh chi vạn năm : 22%.\n Linh chi 5 vạn năm : 8%.\n bình rượu ủ 10 vạn năm : 4%.\n bình rượu ủ 20 vạn năm : 3%.\n bình rượu ủ 50 vạn năm : 1%.");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "-Oẳn tù tì cùng npc, bạn thắng nhận 500k,thua mất 1 lon bia 333 \n- Bao > Búa > Kéo > Bao \n- Mất 5tr 1 lượt đổi ngẫu nhiên \n Tỉ Lệ :\n Linh chi ngàn năm : 50%.\n Linh chi vạn năm : 22%.\n Linh chi 5 vạn năm : 8%.\n bình rượu ủ 10 vạn năm : 4%.\n bình rượu ủ 20 vạn năm : 3%.\n bình rượu ủ 50 vạn năm : 1%.");
                 break;
             }
         }
@@ -9880,7 +10241,8 @@ public class Menu {
                 }
                 switch (b3) {
                     case 6: {
-                        Server.manager.sendTB(p, "Hướng dẫn", "-danh thiếp cấp 1 đổi đc 50 hồn hoàn \n- danh thiếp cấp 2 đổi đc 100 hồn hoàn \n- danh thiếp cấp 3 đổi đc 200 hồn hoàn \n danh thiếp cấp 4 đổi đc 400 hồn hoàn\n danh thiếp cấp 5 đổi đc 600 hồn hoàn.\n danh thiếp cấp 6 đổi đc 1k hồn hoàn");
+                        Server.manager.sendTB(p, "Hướng dẫn",
+                                "-danh thiếp cấp 1 đổi đc 50 hồn hoàn \n- danh thiếp cấp 2 đổi đc 100 hồn hoàn \n- danh thiếp cấp 3 đổi đc 200 hồn hoàn \n danh thiếp cấp 4 đổi đc 400 hồn hoàn\n danh thiếp cấp 5 đổi đc 600 hồn hoàn.\n danh thiếp cấp 6 đổi đc 1k hồn hoàn");
                         break;
                     }
                 }
@@ -9908,18 +10270,20 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 15) {
-                                p.c.luongTN = - 50000;
+                                p.c.luongTN = -50000;
                                 p.upluongMessage(-50000);
                                 p.conn.sendMessageLog("hấp thụ hồn cốt 1 vạn năm thất bại ");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " đã hấp thu thất bại hồn cốt 1 vạn năm ! ");
+                                Server.manager
+                                        .chatKTG("Hồn Sư " + p.c.name + " đã hấp thu thất bại hồn cốt 1 vạn năm ! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 50000;
+                                p.c.luongTN = -50000;
                                 p.upluongMessage(-50000);
                                 p.c.addItemBag(false, ItemTemplate.itemDefault(955));
                                 p.c.lvnhc = 2;
                                 p.conn.sendMessageLog("hấp thụ hồn cốt 1 vạn năm thành công ");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " đã hấp thu hồn cốt 1 vạn năm thành công ! ");
+                                Server.manager
+                                        .chatKTG("Hồn Sư " + p.c.name + " đã hấp thu hồn cốt 1 vạn năm thành công ! ");
                             }
                         }
                         break;
@@ -9940,18 +10304,20 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 15) {
-                                p.c.luongTN = - 250000;
+                                p.c.luongTN = -250000;
                                 p.upluongMessage(-250000);
                                 p.conn.sendMessageLog("hấp thụ hồn cốt 7 vạn năm thất bại ");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " đã hấp thu thất bại hồn cốt 7 vạn năm ! ");
+                                Server.manager
+                                        .chatKTG("Hồn Sư " + p.c.name + " đã hấp thu thất bại hồn cốt 7 vạn năm ! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 250000;
+                                p.c.luongTN = -250000;
                                 p.upluongMessage(-250000);
                                 p.c.addItemBag(false, ItemTemplate.itemDefault(956));
                                 p.c.lvnhc = 8;
                                 p.conn.sendMessageLog("hấp thụ hồn cốt 7 vạn năm thành công ");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " đã hấp thu hồn cốt 7 vạn năm thành công ! ");
+                                Server.manager
+                                        .chatKTG("Hồn Sư " + p.c.name + " đã hấp thu hồn cốt 7 vạn năm thành công ! ");
                             }
                         }
                         break;
@@ -9972,19 +10338,21 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.conn.sendMessageLog("hấp thụ hồn cốt 100 vạn năm thất bại ");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " đã hấp thu thất bại hồn cốt 100 vạn năm ! ");
+                                Server.manager
+                                        .chatKTG("Hồn Sư " + p.c.name + " đã hấp thu thất bại hồn cốt 100 vạn năm ! ");
                                 return;
 
                             } else {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.c.addItemBag(false, ItemTemplate.itemDefault(957));
                                 p.c.lvnhc = 15;
                                 p.conn.sendMessageLog("hấp thụ hồn cốt 100 vạn năm thành công ");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " đã hấp thu hồn cốt 100 vạn năm thành công ! ");
+                                Server.manager.chatKTG(
+                                        "Hồn Sư " + p.c.name + " đã hấp thu hồn cốt 100 vạn năm thành công ! ");
 
                             }
                         }
@@ -10108,12 +10476,14 @@ public class Menu {
                         p.c.addItemBag(false, ItemTemplate.itemDefault(962, false));
                     } else if (percent >= 95 && percent < 99) {
                         p.conn.sendMessageLog("Nhân Phẩm Tốt.Bạn nhận được danh thiếp cấp 5");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " nhân phẩm tốt,Đã May mắn đổi được danh thiếp cấp 5! ");
+                        Server.manager.chatKTG(
+                                "Người chơi " + p.c.name + " nhân phẩm tốt,Đã May mắn đổi được danh thiếp cấp 5! ");
                         p.c.removeItemBags(965, 5);
                         p.c.addItemBag(false, ItemTemplate.itemDefault(963, false));
                     } else if (percent == 100) {
                         p.conn.sendMessageLog("Nhân Phẩm Thượng Thừa.Bạn nhận được danh thiếp cấp 6");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " Nhân Phẩm Thượng thừa,Đã May mắn đổi được danh thiếp cấp 6! ");
+                        Server.manager.chatKTG("Người chơi " + p.c.name
+                                + " Nhân Phẩm Thượng thừa,Đã May mắn đổi được danh thiếp cấp 6! ");
                         p.c.removeItemBags(965, 5);
                         p.c.addItemBag(false, ItemTemplate.itemDefault(964, false));
                         break;
@@ -10122,7 +10492,8 @@ public class Menu {
                 break;
             }
             case 2: {
-                Server.manager.sendTB(p, "Hướng dẫn", "-đoán vé giới thiệu cùng Tình fox, bạn đoán đúng nhận vé giới thiệu,k đúng mất 500k \n- 3 ô kiểu gì cũng có 1 cái có \n- Mất 5 vé giới thiệu để  1 lượt đổi ngẫu nhiên \n Tỉ Lệ :\n danh thiếp cấp 1 : 50%.\n danh thiếp cấp 2 : 22%.\n danh thiếp cấp 3 : 8%.\n danh thiếp cấp 4 : 4%.\n danh thiếp cấp 5 : 3%.\n danh thiếp cấp 6 : 1%.");
+                Server.manager.sendTB(p, "Hướng dẫn",
+                        "-đoán vé giới thiệu cùng Tình fox, bạn đoán đúng nhận vé giới thiệu,k đúng mất 500k \n- 3 ô kiểu gì cũng có 1 cái có \n- Mất 5 vé giới thiệu để  1 lượt đổi ngẫu nhiên \n Tỉ Lệ :\n danh thiếp cấp 1 : 50%.\n danh thiếp cấp 2 : 22%.\n danh thiếp cấp 3 : 8%.\n danh thiếp cấp 4 : 4%.\n danh thiếp cấp 5 : 3%.\n danh thiếp cấp 6 : 1%.");
                 break;
             }
         }
@@ -10147,19 +10518,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 5000000) {
-                            p.conn.sendMessageLog("Không đủ 5 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.removeItemBags(954, 50);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.exphl -= 5000000;
                                 p.c.removeItemBags(954, 300);
@@ -10171,7 +10544,8 @@ public class Menu {
                                 p.c.get().potential3 += 5000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 1 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 1 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 1 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10191,19 +10565,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 10000000) {
-                            p.conn.sendMessageLog("Không đủ 10 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 10 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 1200000;
+                                p.c.luongTN = -1200000;
                                 p.upluongMessage(-1200000);
                                 p.c.removeItemBags(954, 100);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 120000;
+                                p.c.luongTN = -120000;
                                 p.upluongMessage(-120000);
                                 p.c.exphl -= 10000000;
                                 p.c.removeItemBags(954, 400);
@@ -10214,7 +10590,8 @@ public class Menu {
                                 p.c.get().potential3 += 10000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 2 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 2 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 2 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10234,19 +10611,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 15000000) {
-                            p.conn.sendMessageLog("Không đủ 15 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 15 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 140000;
+                                p.c.luongTN = -140000;
                                 p.upluongMessage(-140000);
                                 p.c.removeItemBags(954, 150);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 140000;
+                                p.c.luongTN = -140000;
                                 p.upluongMessage(-140000);
                                 p.c.exphl -= 15000000;
                                 p.c.removeItemBags(954, 500);
@@ -10257,7 +10636,8 @@ public class Menu {
                                 p.c.get().potential3 += 15000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 3 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 3 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 3 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10277,19 +10657,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 15000000) {
-                            p.conn.sendMessageLog("Không đủ 15 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 15 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 160000;
+                                p.c.luongTN = -160000;
                                 p.upluongMessage(-160000);
                                 p.c.removeItemBags(954, 200);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 160000;
+                                p.c.luongTN = -160000;
                                 p.upluongMessage(-160000);
                                 p.c.exphl -= 15000000;
                                 p.c.removeItemBags(954, 600);
@@ -10300,7 +10682,8 @@ public class Menu {
                                 p.c.get().potential3 += 20000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 4 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 4 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 4 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10320,19 +10703,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 20000000) {
-                            p.conn.sendMessageLog("Không đủ 20 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 20 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.removeItemBags(954, 200);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.exphl -= 20000000;
                                 p.c.removeItemBags(954, 700);
@@ -10343,7 +10728,8 @@ public class Menu {
                                 p.c.get().potential3 += 30000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 5 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 5 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 5 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10363,19 +10749,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 20000000) {
-                            p.conn.sendMessageLog("Không đủ 20 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 20 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 250000;
+                                p.c.luongTN = -250000;
                                 p.upluongMessage(-250000);
                                 p.c.removeItemBags(954, 200);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 250000;
+                                p.c.luongTN = -250000;
                                 p.upluongMessage(-250000);
                                 p.c.exphl -= 20000000;
                                 p.c.removeItemBags(954, 800);
@@ -10386,7 +10774,8 @@ public class Menu {
                                 p.c.get().potential3 += 50000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 6 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 6 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 6 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10406,19 +10795,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 25000000) {
-                            p.conn.sendMessageLog("Không đủ 25 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 25 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.c.removeItemBags(954, 300);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 300000;
+                                p.c.luongTN = -300000;
                                 p.upluongMessage(-300000);
                                 p.c.exphl -= 25000000;
                                 p.c.removeItemBags(954, 900);
@@ -10430,7 +10821,8 @@ public class Menu {
                                 p.c.get().potential3 += 70000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 7 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 7 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 7 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10450,19 +10842,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 30000000) {
-                            p.conn.sendMessageLog("Không đủ 30 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 30 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 25) {
-                                p.c.luongTN = - 350000;
+                                p.c.luongTN = -350000;
                                 p.upluongMessage(-350000);
                                 p.c.removeItemBags(954, 300);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 350000;
+                                p.c.luongTN = -350000;
                                 p.upluongMessage(-350000);
                                 p.c.exphl -= 30000000;
                                 p.c.removeItemBags(954, 1000);
@@ -10473,7 +10867,8 @@ public class Menu {
                                 p.c.get().potential3 += 90000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 8 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 8 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 8 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10493,19 +10888,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 30000000) {
-                            p.conn.sendMessageLog("Không đủ 30 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 30 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 20) {
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
                                 p.c.removeItemBags(954, 400);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 400000;
+                                p.c.luongTN = -400000;
                                 p.upluongMessage(-400000);
                                 p.c.exphl -= 30000000;
                                 p.c.removeItemBags(954, 1100);
@@ -10516,7 +10913,8 @@ public class Menu {
                                 p.c.get().potential3 += 110000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 9 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 9 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 9 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10536,19 +10934,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 35000000) {
-                            p.conn.sendMessageLog("Không đủ 35 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 35 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.c.removeItemBags(954, 500);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 500000;
+                                p.c.luongTN = -500000;
                                 p.upluongMessage(-500000);
                                 p.c.exphl -= 35000000;
                                 p.c.removeItemBags(954, 1500);
@@ -10559,7 +10959,8 @@ public class Menu {
                                 p.c.get().potential3 += 130000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 10 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 10 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 10 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10579,19 +10980,21 @@ public class Menu {
                         }
 
                         if (p.c.exphl < 35000000) {
-                            p.conn.sendMessageLog("Không đủ 35 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 35 triệu hồn lực để nâng hồn cốt, đi gặp npc tình fox để tu luyện hồn lực");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 5) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(954, 800);
                                 p.conn.sendMessageLog("non và xanh lắm làm lại đi");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt thất bại,ad said còn non và xanh lắm! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.exphl -= 35000000;
                                 p.c.removeItemBags(954, 400);
@@ -10603,7 +11006,8 @@ public class Menu {
                                 p.c.get().potential3 += 150000;
 
                                 Service.chatNPC(p, (short) npcid, "hồn sư đã tu luyện thành công hồn cốt 100 vạn năm");
-                                Server.manager.chatKTG("Hồn Sư " + p.c.name + " tu luyện hồn cốt 100 vạn năm thành công,ad said đúng là con trai của ta! ");
+                                Server.manager.chatKTG("Hồn Sư " + p.c.name
+                                        + " tu luyện hồn cốt 100 vạn năm thành công,ad said đúng là con trai của ta! ");
                             }
                         }
                         break;
@@ -10617,26 +11021,26 @@ public class Menu {
                         break;
                     }
                     case 13: {
-                        Server.manager.sendTB(p, "Điều Kiện tu luyện hồn cốt", "hồn sư phải tích đủ exp hồn lực bằng cách đánh chơi đoán mò với npc tình fox hoặc đánh boss"
-                                + "\n>hồn cốt<"
-                                + "\n-1 vạn năm cần 5 triệu exp hồn lực và 100k lượng và 300 hồn hoàn"
-                                + "\n-2 vạn năm cần 10 triệu exp hồn lực và 120k lượng và 400 hồn hoàn"
-                                + "\n-3 vạn năm cần 15 triệu exp hồn lực và 140k lượng và 500 hồn hoàn"
-                                + "\n-4 vạn năm cần 15 triệu exp hồn lực và 160k lượng và 600 hồn hoàn"
-                                + "\n-5 vạn năm cần 20 triệu exp hồn lực và 180k lượng và 700 hồn hoàn"
-                                + "\n-6 vạn năm cần 20 triệu exp hồn lực và 200k lượng và 800 hồn hoàn"
-                                + "\n-7 vạn năm cần 25 triệu exp hồn lực và 250k lượng và 900 hồn hoàn"
-                                + "\n-8 vạn năm cần 25 triệu exp hồn lực và 300k lượng và 1000 hồn hoàn"
-                                + "\n-9 vạn năm cần 30 triệu exp hồn lực và 350k lượng và 1100 hồn hoàn"
-                                + "\n-10 vạn năm cần 35 triệu exp hồn lực và 500k lượng và 1500 hồn hoàn"
-                                + "\n-100 vạn năm cần 35 triệu exp hồn lực và 1000k lượng và 2000 hồn hoàn"
-                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                                + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
-                                + "\n-BẢNG cấp bậc "
-                                + "\n-1 vạn năm :5k + 2 vạn năm :10k  + 3 vạn năm :15k  + 4 vạn năm :20k \n"
-                                + "5 vạn năm :30k + 6 vạn năm :50k  + 7 vạn năm :70k  + 8 vạn năm :90k  + 9 vạn năm :110k + 10 vạn năm :130k + 100 vạn năm :150k "
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện tu luyện hồn cốt",
+                                "hồn sư phải tích đủ exp hồn lực bằng cách đánh chơi đoán mò với npc tình fox hoặc đánh boss"
+                                        + "\n>hồn cốt<"
+                                        + "\n-1 vạn năm cần 5 triệu exp hồn lực và 100k lượng và 300 hồn hoàn"
+                                        + "\n-2 vạn năm cần 10 triệu exp hồn lực và 120k lượng và 400 hồn hoàn"
+                                        + "\n-3 vạn năm cần 15 triệu exp hồn lực và 140k lượng và 500 hồn hoàn"
+                                        + "\n-4 vạn năm cần 15 triệu exp hồn lực và 160k lượng và 600 hồn hoàn"
+                                        + "\n-5 vạn năm cần 20 triệu exp hồn lực và 180k lượng và 700 hồn hoàn"
+                                        + "\n-6 vạn năm cần 20 triệu exp hồn lực và 200k lượng và 800 hồn hoàn"
+                                        + "\n-7 vạn năm cần 25 triệu exp hồn lực và 250k lượng và 900 hồn hoàn"
+                                        + "\n-8 vạn năm cần 25 triệu exp hồn lực và 300k lượng và 1000 hồn hoàn"
+                                        + "\n-9 vạn năm cần 30 triệu exp hồn lực và 350k lượng và 1100 hồn hoàn"
+                                        + "\n-10 vạn năm cần 35 triệu exp hồn lực và 500k lượng và 1500 hồn hoàn"
+                                        + "\n-100 vạn năm cần 35 triệu exp hồn lực và 1000k lượng và 2000 hồn hoàn"
+                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên"
+                                        + "\n-mỗi cấp bậc sẽ nhận cộng dồn điểm tiềm năng  "
+                                        + "\n-BẢNG cấp bậc "
+                                        + "\n-1 vạn năm :5k + 2 vạn năm :10k  + 3 vạn năm :15k  + 4 vạn năm :20k \n"
+                                        + "5 vạn năm :30k + 6 vạn năm :50k  + 7 vạn năm :70k  + 8 vạn năm :90k  + 9 vạn năm :110k + 10 vạn năm :130k + 100 vạn năm :150k ");
                         break;
                     }
                 }
@@ -10666,14 +11070,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(993, 100);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(993, 250);
@@ -10702,14 +11106,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(993, 10);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(993, 250);
@@ -10733,14 +11137,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 90) {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
 
                                 p.c.removeItemBags(993, 100);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
 
                                 p.c.removeItemBags(993, 150);
@@ -10764,14 +11168,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 90) {
-                                p.c.luongTN = - 10000;
+                                p.c.luongTN = -10000;
                                 p.upluongMessage(-10000);
 
                                 p.c.removeItemBags(457, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000;
+                                p.c.luongTN = -10000;
                                 p.upluongMessage(-10000);
 
                                 p.c.removeItemBags(457, 1);
@@ -10795,14 +11199,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 100) {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 200);
@@ -10826,14 +11230,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 100) {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 200);
@@ -10857,14 +11261,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 100) {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 200);
@@ -10888,14 +11292,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 100) {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 200);
@@ -10919,14 +11323,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 100) {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 200);
@@ -10950,14 +11354,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 100) {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 1);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 10000000;
+                                p.c.luongTN = -10000000;
                                 p.upluongMessage(-10000000);
 
                                 p.c.removeItemBags(1003, 200);
@@ -10970,18 +11374,18 @@ public class Menu {
                         break;
                     }
                     case 10: {
-                        Server.manager.sendTB(p, "Điều Kiện ĐỔI ĐỒ", "người chơi cần đi đánh quái ở map huy chương hoặc map vip để lấy chuyển tinh thạch và mảnh dưa hấu "
-                                + "\n>SỨ GIẢ<"
-                                + "\n-đổi cánh thiên thần cần có 50 viên chuyển tinh thạch và 50 mảnh dưa hấu để đổi với tỉ lệ 30 %"
-                                + "\n-đổi cánh địa ngục cần 50 viên chuyển tinh thạch và 50 mảnh dưa hấu tỉ lệ 30%"
-                                + "\n-đổi đá ngũ sắc cần 150 mảnh dưa hấu tỉ lệ 90%"
-                                + "\n-đổi đá ngũ sắc cần 1 tử tinh thạch cao tỉ lệ 90%"
-                                + "\n-đổi vk thần cần 200 đá ngũ sắc tỉ lệ 100%"
-                                + "\n-mảnh dưa hấu là 1 vật phẩm cực hiếm nên ae phải biết tận dụng"
-                                + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
-                                + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
-                                + "\n-CHÚC CÁC BẠN THÀNH CÔNG"
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện ĐỔI ĐỒ",
+                                "người chơi cần đi đánh quái ở map huy chương hoặc map vip để lấy chuyển tinh thạch và mảnh dưa hấu "
+                                        + "\n>SỨ GIẢ<"
+                                        + "\n-đổi cánh thiên thần cần có 50 viên chuyển tinh thạch và 50 mảnh dưa hấu để đổi với tỉ lệ 30 %"
+                                        + "\n-đổi cánh địa ngục cần 50 viên chuyển tinh thạch và 50 mảnh dưa hấu tỉ lệ 30%"
+                                        + "\n-đổi đá ngũ sắc cần 150 mảnh dưa hấu tỉ lệ 90%"
+                                        + "\n-đổi đá ngũ sắc cần 1 tử tinh thạch cao tỉ lệ 90%"
+                                        + "\n-đổi vk thần cần 200 đá ngũ sắc tỉ lệ 100%"
+                                        + "\n-mảnh dưa hấu là 1 vật phẩm cực hiếm nên ae phải biết tận dụng"
+                                        + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
+                                        + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
+                                        + "\n-CHÚC CÁC BẠN THÀNH CÔNG");
                         break;
                     }
                 }
@@ -11010,14 +11414,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11046,14 +11450,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11082,14 +11486,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11118,14 +11522,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11154,14 +11558,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11190,14 +11594,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11226,14 +11630,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11262,14 +11666,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11298,14 +11702,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.removeItemBags(454, 20);
                                 p.c.removeItemBags(987, 3000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11334,14 +11738,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 200000;
+                                p.c.luongTN = -200000;
                                 p.upluongMessage(-200000);
                                 p.c.removeItemBags(454, 20);
                                 p.c.removeItemBags(987, 3000);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(454, 50);
                                 p.c.removeItemBags(987, 10000);
@@ -11370,21 +11774,22 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.removeItemBags(454, 20);
                                 p.c.removeItemBags(987, 300);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.luongTN = - 100000;
+                                p.c.luongTN = -100000;
                                 p.upluongMessage(-100000);
                                 p.c.removeItemBags(454, 20);
                                 p.c.removeItemBags(987, 300);
                                 Item itemup = ItemTemplate.itemDefault(976);
                                 itemup.quantity = 1;
                                 p.c.addItemBag(false, itemup);
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đổi thành công huy chương câu cá! ");
+                                Server.manager
+                                        .chatKTG("người chơi " + p.c.name + " đổi thành công huy chương câu cá! ");
                             }
                         }
                         break;
@@ -11401,14 +11806,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.yenTN = - 10000000;
+                                p.c.yenTN = -10000000;
                                 p.c.upyenMessage(-10000000);
 
                                 p.c.removeItemBags(598, 200);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.yenTN = - 10000000;
+                                p.c.yenTN = -10000000;
                                 p.c.upyenMessage(-10000000);
 
                                 p.c.removeItemBags(598, 200);
@@ -11432,14 +11837,14 @@ public class Menu {
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.yenTN = - 10000000;
+                                p.c.yenTN = -10000000;
                                 p.c.upyenMessage(-10000000);
 
                                 p.c.removeItemBags(598, 200);
                                 p.conn.sendMessageLog(" tiền hết tình tan đời tàn đổi đồ còn xịt đen lắm");
                                 return;
                             } else {
-                                p.c.yenTN = - 10000000;
+                                p.c.yenTN = -10000000;
                                 p.c.upyenMessage(-10000000);
 
                                 p.c.removeItemBags(598, 200);
@@ -11452,18 +11857,18 @@ public class Menu {
                         break;
                     }
                     case 15: {
-                        Server.manager.sendTB(p, "Điều Kiện ĐỔI ĐỒ", "người chơi cần đi đánh quái lấy chuyển tinh thạch và đạn 7mm để đổi"
-                                + "\n>TẠP HÓA<"
-                                + "\n-đổi đồ cần có 50 viên chuyển tinh thạch và 10k đạn 7mm để đổi với tỉ lệ 30 %"
-                                + "\n-đổi bánh trung thu phong lôi , băng hỏa cần 20 viên chuyển tinh thạch và 3k đạn tỉ lệ 30%"
-                                + "\n-đổi huy chương câu cá cần  20 viên chuyển tinh thạch và 300 đạn 7 mm tỉ lệ 30%"
-                                + "\n-đổi túi 100k xu  cần 200 huyết long ngư tỉ lệ 30%"
-                                + "\n-đổi túi 100k lượng  cần 200 huyết long ngư tỉ lệ 30%"
-                                + "\n-huyết long ngư có thể kiếm trong map huy chương câu cá, nếu may mắn có thể nhặt được mảnh dưa hấu dùng để đổi vk thiên thần , địa ngục"
-                                + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
-                                + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
-                                + "\n-CHÚC CÁC BẠN THÀNH CÔNG"
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện ĐỔI ĐỒ",
+                                "người chơi cần đi đánh quái lấy chuyển tinh thạch và đạn 7mm để đổi"
+                                        + "\n>TẠP HÓA<"
+                                        + "\n-đổi đồ cần có 50 viên chuyển tinh thạch và 10k đạn 7mm để đổi với tỉ lệ 30 %"
+                                        + "\n-đổi bánh trung thu phong lôi , băng hỏa cần 20 viên chuyển tinh thạch và 3k đạn tỉ lệ 30%"
+                                        + "\n-đổi huy chương câu cá cần  20 viên chuyển tinh thạch và 300 đạn 7 mm tỉ lệ 30%"
+                                        + "\n-đổi túi 100k xu  cần 200 huyết long ngư tỉ lệ 30%"
+                                        + "\n-đổi túi 100k lượng  cần 200 huyết long ngư tỉ lệ 30%"
+                                        + "\n-huyết long ngư có thể kiếm trong map huy chương câu cá, nếu may mắn có thể nhặt được mảnh dưa hấu dùng để đổi vk thiên thần , địa ngục"
+                                        + "\n-nếu đổi thành công bạn sẽ đc đồ tương ứng"
+                                        + "\n-nếu xịt thì còn CÁI NỊT NHÉ"
+                                        + "\n-CHÚC CÁC BẠN THÀNH CÔNG");
                         break;
                     }
                 }
@@ -11497,27 +11902,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1500) {
-                            p.conn.sendMessageLog("Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1500;
                                 p.c.removeItemBags(842, 300);
                                 p.c.lvnt = 1;
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential0 += 20000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
                             }
                         }
                         break;
@@ -11541,27 +11950,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1700) {
-                            p.conn.sendMessageLog("Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 350);
                                 p.c.lvnt = 2;
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential0 += 30000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
                             }
                         }
                         break;
@@ -11585,27 +11998,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1900) {
-                            p.conn.sendMessageLog("Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1900;
                                 p.c.removeItemBags(842, 400);
                                 p.c.lvnt = 3;
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential0 += 40000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
                             }
                         }
                         break;
@@ -11629,27 +12046,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2000) {
-                            p.conn.sendMessageLog("Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 450);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 450);
                                 p.c.lvnt = 4;
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential0 += 50000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
                             }
                         }
                         break;
@@ -11673,27 +12094,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2300) {
-                            p.conn.sendMessageLog("Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 500);
                                 p.c.lvnt = 5;
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential0 += 60000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
                             }
                         }
                         break;
@@ -11717,27 +12142,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2700) {
-                            p.conn.sendMessageLog("Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 2700;
                                 p.c.removeItemBags(842, 600);
                                 p.c.lvnt = 6;
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential0 += 70000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
                             }
                         }
                         break;
@@ -11761,27 +12190,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3200) {
-                            p.conn.sendMessageLog("Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3200;
                                 p.c.removeItemBags(842, 700);
                                 p.c.lvnt = 7;
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential0 += 80000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
                             }
                         }
                         break;
@@ -11805,27 +12238,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3700) {
-                            p.conn.sendMessageLog("Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3700;
                                 p.c.removeItemBags(842, 800);
                                 p.c.lvnt = 8;
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential0 += 90000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
                             }
                         }
                         break;
@@ -11849,19 +12286,21 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 5000) {
-                            p.conn.sendMessageLog("Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 5000;
                                 p.c.removeItemBags(842, 900);
@@ -11869,8 +12308,10 @@ public class Menu {
                                 p.role = 10;
                                 p.c.get().potential1 += 100000;
                                 p.c.get().potential0 += 100000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất kiếm! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất kiếm! ");
                             }
                         }
                         break;
@@ -11898,27 +12339,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1500) {
-                            p.conn.sendMessageLog("Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1500;
                                 p.c.removeItemBags(842, 300);
                                 p.c.lvnt = 1;
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential0 += 20000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
                             }
                         }
                         break;
@@ -11942,27 +12387,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1700) {
-                            p.conn.sendMessageLog("Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 350);
                                 p.c.lvnt = 2;
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential0 += 30000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
                             }
                         }
                         break;
@@ -11986,27 +12435,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1900) {
-                            p.conn.sendMessageLog("Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1900;
                                 p.c.removeItemBags(842, 400);
                                 p.c.lvnt = 3;
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential0 += 40000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
                             }
                         }
                         break;
@@ -12030,27 +12483,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2000) {
-                            p.conn.sendMessageLog("Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 450);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 450);
                                 p.c.lvnt = 4;
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential0 += 50000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
                             }
                         }
                         break;
@@ -12074,27 +12531,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2300) {
-                            p.conn.sendMessageLog("Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 500);
                                 p.c.lvnt = 5;
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential0 += 60000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
                             }
                         }
                         break;
@@ -12118,27 +12579,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2700) {
-                            p.conn.sendMessageLog("Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 2700;
                                 p.c.removeItemBags(842, 600);
                                 p.c.lvnt = 6;
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential0 += 70000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
                             }
                         }
                         break;
@@ -12162,27 +12627,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3200) {
-                            p.conn.sendMessageLog("Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3200;
                                 p.c.removeItemBags(842, 700);
                                 p.c.lvnt = 7;
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential0 += 80000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
                             }
                         }
                         break;
@@ -12206,27 +12675,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3700) {
-                            p.conn.sendMessageLog("Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3700;
                                 p.c.removeItemBags(842, 800);
                                 p.c.lvnt = 8;
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential0 += 90000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
                             }
                         }
                         break;
@@ -12250,19 +12723,21 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 5000) {
-                            p.conn.sendMessageLog("Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 5000;
                                 p.c.removeItemBags(842, 900);
@@ -12270,8 +12745,10 @@ public class Menu {
                                 p.role = 11;
                                 p.c.get().potential1 += 100000;
                                 p.c.get().potential0 += 100000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất kunai! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất kunai! ");
                             }
                         }
                         break;
@@ -12298,27 +12775,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1500) {
-                            p.conn.sendMessageLog("Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1500;
                                 p.c.removeItemBags(842, 300);
                                 p.c.lvnt = 1;
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential0 += 20000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
                             }
                         }
                         break;
@@ -12342,27 +12823,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1700) {
-                            p.conn.sendMessageLog("Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 350);
                                 p.c.lvnt = 2;
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential0 += 30000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
                             }
                         }
                         break;
@@ -12386,27 +12871,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1900) {
-                            p.conn.sendMessageLog("Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1900;
                                 p.c.removeItemBags(842, 400);
                                 p.c.lvnt = 3;
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential0 += 40000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
                             }
                         }
                         break;
@@ -12430,27 +12919,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2000) {
-                            p.conn.sendMessageLog("Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 450);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 450);
                                 p.c.lvnt = 4;
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential0 += 50000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
                             }
                         }
                         break;
@@ -12474,27 +12967,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2300) {
-                            p.conn.sendMessageLog("Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 500);
                                 p.c.lvnt = 5;
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential0 += 60000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
                             }
                         }
                         break;
@@ -12518,27 +13015,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2700) {
-                            p.conn.sendMessageLog("Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 2700;
                                 p.c.removeItemBags(842, 600);
                                 p.c.lvnt = 6;
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential0 += 70000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
                             }
                         }
                         break;
@@ -12562,27 +13063,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3200) {
-                            p.conn.sendMessageLog("Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3200;
                                 p.c.removeItemBags(842, 700);
                                 p.c.lvnt = 7;
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential0 += 80000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
                             }
                         }
                         break;
@@ -12606,27 +13111,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3700) {
-                            p.conn.sendMessageLog("Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3700;
                                 p.c.removeItemBags(842, 800);
                                 p.c.lvnt = 8;
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential0 += 90000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
                             }
                         }
                         break;
@@ -12650,19 +13159,21 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 5000) {
-                            p.conn.sendMessageLog("Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 5000;
                                 p.c.removeItemBags(842, 900);
@@ -12670,8 +13181,10 @@ public class Menu {
                                 p.role = 12;
                                 p.c.get().potential1 += 100000;
                                 p.c.get().potential0 += 100000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất đao! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất đao! ");
                             }
                         }
                         break;
@@ -12699,22 +13212,22 @@ public class Menu {
             case 5: {
                 switch (b3) {
                     case 0: {
-                        Server.manager.sendTB(p, "Điều Kiện tu luyện nhục thân", "bạn phải tích đủ exp nhục thân và viên đan dược  bằng cách làm sự kiện tại npc tiên nữ"
-                                + "\n>Nhục Thân<"
-                                + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
-                                + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
-                                + "\n-chúc ae thành công"
-                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện tu luyện nhục thân",
+                                "bạn phải tích đủ exp nhục thân và viên đan dược  bằng cách làm sự kiện tại npc tiên nữ"
+                                        + "\n>Nhục Thân<"
+                                        + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
+                                        + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
+                                        + "\n-chúc ae thành công"
+                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên");
                         break;
                     }
                 }
@@ -12735,18 +13248,18 @@ public class Menu {
                 Service.sendInputDialog(p, (short) 223, "Nhập tiền cược(chia hết cho 10):");
                 break;
             case 3:
-        try {
-                String a = "";
-                int i2 = 1;
-                for (SoiCau check : SoiCau.soicau) {
-                    a = a + i2 + ". " + check.time + " - " + check.ketqua + " - " + check.soramdom + ".\n";
-                    i2++;
+                try {
+                    String a = "";
+                    int i2 = 1;
+                    for (SoiCau check : SoiCau.soicau) {
+                        a = a + i2 + ". " + check.time + " - " + check.ketqua + " - " + check.soramdom + ".\n";
+                        i2++;
+                    }
+                    Server.manager.sendTB(p, "Soi Cầu", a);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                Server.manager.sendTB(p, "Soi Cầu", a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            break;
+                break;
             case 4:
                 Server.manager.sendTB(p, "Hướng dẫn", "Số lượng đặt cược phải là số chia hết cho 10.\n"
                         + "Khi đã đặt cược không được thoát game, nếu thoát game sẽ bị mất số tiền cược và admin sẽ không giải quyết.\n"
@@ -12779,27 +13292,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1500) {
-                            p.conn.sendMessageLog("Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1500;
                                 p.c.removeItemBags(842, 300);
                                 p.c.lvnt = 1;
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential3 += 20000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
                             }
                         }
                         break;
@@ -12823,27 +13340,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1700) {
-                            p.conn.sendMessageLog("Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 350);
                                 p.c.lvnt = 2;
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential3 += 30000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
                             }
                         }
                         break;
@@ -12867,27 +13388,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1900) {
-                            p.conn.sendMessageLog("Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1900;
                                 p.c.removeItemBags(842, 400);
                                 p.c.lvnt = 3;
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential3 += 40000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
                             }
                         }
                         break;
@@ -12911,27 +13436,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2000) {
-                            p.conn.sendMessageLog("Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 450);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 450);
                                 p.c.lvnt = 4;
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential3 += 50000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
                             }
                         }
                         break;
@@ -12955,27 +13484,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2300) {
-                            p.conn.sendMessageLog("Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 500);
                                 p.c.lvnt = 5;
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential3 += 60000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
                             }
                         }
                         break;
@@ -12999,27 +13532,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2700) {
-                            p.conn.sendMessageLog("Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 2700;
                                 p.c.removeItemBags(842, 600);
                                 p.c.lvnt = 6;
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential3 += 70000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
                             }
                         }
                         break;
@@ -13043,27 +13580,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3200) {
-                            p.conn.sendMessageLog("Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3200;
                                 p.c.removeItemBags(842, 700);
                                 p.c.lvnt = 7;
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential3 += 80000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
                             }
                         }
                         break;
@@ -13087,27 +13628,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3700) {
-                            p.conn.sendMessageLog("Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3700;
                                 p.c.removeItemBags(842, 800);
                                 p.c.lvnt = 8;
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential3 += 90000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
                             }
                         }
                         break;
@@ -13131,19 +13676,21 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 5000) {
-                            p.conn.sendMessageLog("Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 5000;
                                 p.c.removeItemBags(842, 900);
@@ -13151,8 +13698,10 @@ public class Menu {
                                 p.role = 13;
                                 p.c.get().potential1 += 100000;
                                 p.c.get().potential3 += 100000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất tiêu! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất tiêu! ");
                             }
                         }
                         break;
@@ -13180,27 +13729,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1500) {
-                            p.conn.sendMessageLog("Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1500;
                                 p.c.removeItemBags(842, 300);
                                 p.c.lvnt = 1;
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential3 += 20000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
                             }
                         }
                         break;
@@ -13224,27 +13777,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1700) {
-                            p.conn.sendMessageLog("Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 350);
                                 p.c.lvnt = 2;
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential3 += 30000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
                             }
                         }
                         break;
@@ -13268,27 +13825,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1900) {
-                            p.conn.sendMessageLog("Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1900;
                                 p.c.removeItemBags(842, 400);
                                 p.c.lvnt = 3;
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential3 += 40000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
                             }
                         }
                         break;
@@ -13312,27 +13873,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2000) {
-                            p.conn.sendMessageLog("Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 450);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 450);
                                 p.c.lvnt = 4;
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential3 += 50000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
                             }
                         }
                         break;
@@ -13356,27 +13921,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2300) {
-                            p.conn.sendMessageLog("Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 500);
                                 p.c.lvnt = 5;
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential0 += 60000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
                             }
                         }
                         break;
@@ -13400,27 +13969,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2700) {
-                            p.conn.sendMessageLog("Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 2700;
                                 p.c.removeItemBags(842, 600);
                                 p.c.lvnt = 6;
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential3 += 70000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
                             }
                         }
                         break;
@@ -13444,27 +14017,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3200) {
-                            p.conn.sendMessageLog("Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3200;
                                 p.c.removeItemBags(842, 700);
                                 p.c.lvnt = 7;
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential3 += 80000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
                             }
                         }
                         break;
@@ -13488,27 +14065,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3700) {
-                            p.conn.sendMessageLog("Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3700;
                                 p.c.removeItemBags(842, 800);
                                 p.c.lvnt = 8;
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential3 += 90000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
                             }
                         }
                         break;
@@ -13532,19 +14113,21 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 5000) {
-                            p.conn.sendMessageLog("Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 5000;
                                 p.c.removeItemBags(842, 900);
@@ -13552,8 +14135,10 @@ public class Menu {
                                 p.role = 14;
                                 p.c.get().potential1 += 100000;
                                 p.c.get().potential3 += 100000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất cung! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất cung! ");
                             }
                         }
                         break;
@@ -13580,27 +14165,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1500) {
-                            p.conn.sendMessageLog("Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1500 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1500;
                                 p.c.removeItemBags(842, 300);
                                 p.c.lvnt = 1;
                                 p.c.get().potential1 += 20000;
                                 p.c.get().potential3 += 20000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 1");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 1! ");
                             }
                         }
                         break;
@@ -13624,27 +14213,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1700) {
-                            p.conn.sendMessageLog("Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 350);
                                 p.c.lvnt = 2;
                                 p.c.get().potential1 += 30000;
                                 p.c.get().potential3 += 30000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 2");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 2! ");
                             }
                         }
                         break;
@@ -13668,27 +14261,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 1900) {
-                            p.conn.sendMessageLog("Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 1900 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1900;
                                 p.c.removeItemBags(842, 400);
                                 p.c.lvnt = 3;
                                 p.c.get().potential1 += 40000;
                                 p.c.get().potential0 += 40000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 3");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 3! ");
                             }
                         }
                         break;
@@ -13712,27 +14309,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2000) {
-                            p.conn.sendMessageLog("Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 450);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 450);
                                 p.c.lvnt = 4;
                                 p.c.get().potential1 += 50000;
                                 p.c.get().potential0 += 50000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 4");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 4! ");
                             }
                         }
                         break;
@@ -13756,27 +14357,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2300) {
-                            p.conn.sendMessageLog("Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2300 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 1700;
                                 p.c.removeItemBags(842, 500);
                                 p.c.lvnt = 5;
                                 p.c.get().potential1 += 60000;
                                 p.c.get().potential3 += 60000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 5");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 5! ");
                             }
                         }
                         break;
@@ -13800,27 +14405,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 2700) {
-                            p.conn.sendMessageLog("Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 2700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 2700;
                                 p.c.removeItemBags(842, 600);
                                 p.c.lvnt = 6;
                                 p.c.get().potential1 += 70000;
                                 p.c.get().potential0 += 70000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 6");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 6! ");
                             }
                         }
                         break;
@@ -13844,27 +14453,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3200) {
-                            p.conn.sendMessageLog("Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3200 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3200;
                                 p.c.removeItemBags(842, 700);
                                 p.c.lvnt = 7;
                                 p.c.get().potential1 += 80000;
                                 p.c.get().potential3 += 80000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 7");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 7! ");
                             }
                         }
                         break;
@@ -13888,27 +14501,31 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 3700) {
-                            p.conn.sendMessageLog("Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 3700 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 3700;
                                 p.c.removeItemBags(842, 800);
                                 p.c.lvnt = 8;
                                 p.c.get().potential1 += 90000;
                                 p.c.get().potential3 += 90000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 8");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 8! ");
                             }
                         }
                         break;
@@ -13932,19 +14549,21 @@ public class Menu {
                         }
 
                         if (p.c.expnt < 5000) {
-                            p.conn.sendMessageLog("Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
+                            p.conn.sendMessageLog(
+                                    "Không đủ 5000 kinh nghiệm để nâng nhục thân, hãy đi làm sk đi rồi kiếm exp rồi quay lại đây");
                             return;
                         } else {
                             byte tinhfox = (byte) Util.nextInt(1, 100);
                             if (tinhfox > 10) {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.removeItemBags(842, 300);
                                 p.conn.sendMessageLog("dễ vậy thì ad đã k thèm npc này");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
+                                Server.manager.chatKTG(
+                                        "người chơi " + p.c.name + " đã tu luyện thất bại dễ lắm lại mà nâng! ");
                                 return;
                             } else {
-                                p.c.luongTN = - 1000000;
+                                p.c.luongTN = -1000000;
                                 p.upluongMessage(-1000000);
                                 p.c.expnt -= 5000;
                                 p.c.removeItemBags(842, 900);
@@ -13952,8 +14571,10 @@ public class Menu {
                                 p.role = 15;
                                 p.c.get().potential1 += 100000;
                                 p.c.get().potential3 += 100000;
-                                Service.chatNPC(p, (short) npcid, "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
-                                Server.manager.chatKTG("người chơi " + p.c.name + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất đao! ");
+                                Service.chatNPC(p, (short) npcid,
+                                        "hên hết phần thiên hạ bạn đã nâng nhục thân lên cấp 9");
+                                Server.manager.chatKTG("người chơi " + p.c.name
+                                        + " hên hết phần thiện hạ đã nâng được nhục thân lên cấp 9 nhận được danh hiệu đệ nhất đao! ");
                             }
                         }
                         break;
@@ -13981,22 +14602,22 @@ public class Menu {
             case 5: {
                 switch (b3) {
                     case 0: {
-                        Server.manager.sendTB(p, "Điều Kiện tu luyện nhục thân", "bạn phải tích đủ exp nhục thân và viên đan dược  bằng cách làm sự kiện tại npc tiên nữ"
-                                + "\n>Nhục Thân<"
-                                + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
-                                + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
-                                + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
-                                + "\n-chúc ae thành công"
-                                + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
-                                + "\n-thất bại sẽ mất lượng exp giữ nguyên"
-                        );
+                        Server.manager.sendTB(p, "Điều Kiện tu luyện nhục thân",
+                                "bạn phải tích đủ exp nhục thân và viên đan dược  bằng cách làm sự kiện tại npc tiên nữ"
+                                        + "\n>Nhục Thân<"
+                                        + "\n-nhục thân cấp 1 cần 300 viên đan dược và 1k5 kinh nghiệm nhục thân và 1000k lượng "
+                                        + "\n-nhục thân cấp 2 cần 350 viên đan dược và 1k7 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 3 cần 400 viên đan dược và 1k9 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 4 cần 450 viên đan dược và 2000 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 5 cần 500 viên đan dược và 2k3 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 6 cần 600 viên đan dược và 2k7 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 7 cần 700 viên đan dược và 3k kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 8 cần 800 viên đan dược và 3k5 kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nhục thân cấp 9 cần 900 viên đan dược và 5k kinh nghiệm nhục thân và 1000k lượng"
+                                        + "\n-nâng nhục thân lên cấp 9 ae sẽ được nhận thêm danh hiệu tương ứng với phái ae đăng học"
+                                        + "\n-chúc ae thành công"
+                                        + "\n-đột phá thành công sẽ cấp bậc và nhận đc hiệu ứng tương ứng"
+                                        + "\n-thất bại sẽ mất lượng exp giữ nguyên");
                         break;
                     }
                 }

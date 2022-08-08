@@ -201,7 +201,12 @@ public class Rank {
                     int nClass;
                     Entry bXHE2;
                     while (red.next()) {
-                        name = red.getString("name");
+//                        try {
+                            name = red.getString("name");
+//                        }
+//                        catch (SQLException e) {
+//                            name = red.getInt("name") + "";
+//                        }
                         exp = red.getLong("exp");
                         level2 = red.getInt("level");
                         nClass = red.getInt("class");
