@@ -2905,7 +2905,7 @@ public class GameSrc {
         try {
             int upPer = GameSrc.percentUpMat[item.upgrade];
             if(type == 1) {
-                upPer *= 2;
+                // upPer *= 2;
             }
             if(Util.nextInt(110) < upPer) {
                 p.c.removeItemBody((byte)14);
@@ -2914,9 +2914,9 @@ public class GameSrc {
                 itemup.upgrade = (byte)(item.upgrade+1);
                 itemup.isLock = true;
 
-                Option op = new Option(6, 5000*itemup.upgrade);
+                Option op = new Option(6, 1000 * itemup.upgrade);
                 itemup.options.add(op);
-                op = new Option(87, 500+(5000*item.upgrade));
+                op = new Option(87, 500+ (250 * item.upgrade));
                 itemup.options.add(op);
 
                 if(itemup.upgrade >= 3) {
@@ -2928,9 +2928,10 @@ public class GameSrc {
                     itemup.options.add(op);
                 }
                 if(itemup.upgrade == 10) {
-                    op = new Option(119, 5000);
-                    op = new Option(120, 5000);
-                    itemup.options.add(op);
+                    Option op1 = new Option(119, 500);
+                    Option op2 = new Option(120, 500);
+                    itemup.options.add(op1);
+                    itemup.options.add(op2);
                 }
                 p.c.addItemBag( false, itemup);
             } else {
@@ -2958,7 +2959,7 @@ public class GameSrc {
             p.conn.sendMessageLog("Mắt đã nâng cấp tối đa");
             return;
         }
-        if(p.c.quantityItemyTotal(694+item.upgrade) < 10) {
+        if(p.c.quantityItemyTotal(695+item.upgrade) < 10) {
             ItemTemplate data = ItemTemplate.ItemTemplateId(694+item.upgrade);
             p.conn.sendMessageLog("Bạn không đủ 10 viên "+data.name+" để nâng cấp");
             return;

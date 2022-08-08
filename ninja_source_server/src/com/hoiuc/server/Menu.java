@@ -543,7 +543,8 @@ public class Menu {
                         break;
                     }
                     case 41: {
-                        Menu.npccaydau(p, npcId, menuId, b3);
+                        Menu.doimk(p, npcId, menuId, b3);
+                        // Menu.npccaydau(p, npcId, menuId, b3);
                         break;
                     }
                     case 42: {
@@ -2527,37 +2528,7 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Hành trang của con không đủ chỗ trống để nhận thưởng");
                             return;
                         }
-                        int point = 0;
-                        switch (p.c.vip) {
-                            case 0: {
-                                point = 3;
-                                break;
-                            }
-                            case 1: {
-                                point = 50;
-                                break;
-                            }
-                            case 2: {
-                                point = 60;
-                                break;
-                            }
-                            case 3: {
-                                point = 70;
-                                break;
-                            }
-                            case 4: {
-                                point = 80;
-                                break;
-                            }
-                            case 5: {
-                                point = 90;
-                                break;
-                            }
-                            case 6: {
-                                point = 100;
-                                break;
-                            }
-                        }
+                        int point = 100;
                         if (p.c.taskDanhVong[0] == 9) {
                             if (p.c.vip < 1) {
                                 point = 5;
@@ -2649,74 +2620,74 @@ public class Menu {
 
                         break;
                     }
-                    /*
-                     * case 4: {
-                     * if (p.c.isNhanban) {
-                     * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                     * return;
-                     * }
-                     * 
-                     * if (p.c.ItemBody[14] == null) {
-                     * Service.chatNPC(p, (short) npcid,
-                     * "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
-                     * return;
-                     * }
-                     * 
-                     * if (p.c.ItemBody[14] == null) {
-                     * return;
-                     * }
-                     * 
-                     * if (p.c.ItemBody[14].upgrade >= 10) {
-                     * Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
-                     * return;
-                     * }
-                     * 
-                     * if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
-                     * Service.chatNPC(p, (short) npcid,
-                     * "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
-                     * return;
-                     * }
-                     * 
-                     * data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
-                     * Service.startYesNoDlg(p, (byte) 0, "Bạn có muốn nâng cấp " + data.name +
-                     * " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] +
-                     * " yên hoặc xu với tỷ lệ thành công là " +
-                     * GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] + "% không?");
-                     * break;
-                     * }
-                     * case 5: {
-                     * if (p.c.isNhanban) {
-                     * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                     * return;
-                     * }
-                     * 
-                     * if (p.c.ItemBody[14] == null) {
-                     * Service.chatNPC(p, (short) npcid,
-                     * "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
-                     * return;
-                     * }
-                     * 
-                     * if (p.c.ItemBody[14].upgrade >= 10) {
-                     * Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
-                     * return;
-                     * }
-                     * 
-                     * if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
-                     * Service.chatNPC(p, (short) npcid,
-                     * "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
-                     * return;
-                     * }
-                     * 
-                     * data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
-                     * Service.startYesNoDlg(p, (byte) 1, "Bạn có muốn nâng cấp " + data.name +
-                     * " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu và " +
-                     * GameSrc.goldUpMat[p.c.ItemBody[14].upgrade] +
-                     * " lượng với tỷ lệ thành công là " +
-                     * GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2 + "% không?");
-                     * break;
-                     * }
-                     */
+
                     case 4: {
+                        if (p.c.isNhanban) {
+                            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+                            return;
+                        }
+
+                        if (p.c.ItemBody[14] == null) {
+                            Service.chatNPC(p, (short) npcid,
+                                    "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
+                            return;
+                        }
+
+                        if (p.c.ItemBody[14] == null) {
+                            return;
+                        }
+
+                        if (p.c.ItemBody[14].upgrade >= 10) {
+                            Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
+                            return;
+                        }
+
+                        // if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
+                        //     Service.chatNPC(p, (short) npcid,
+                        //             "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
+                        //     return;
+                        // }
+
+                        data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
+                        Service.startYesNoDlg(p, (byte) 0, "Bạn có muốn nâng cấp " + data.name +
+                                " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] +
+                                " yên hoặc xu với tỷ lệ thành công là " +
+                                GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] + "% không?");
+                        break;
+                    }
+                    // case 5: {
+                    // if (p.c.isNhanban) {
+                    // Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+                    // return;
+                    // }
+
+                    // if (p.c.ItemBody[14] == null) {
+                    // Service.chatNPC(p, (short) npcid,
+                    // "Hãy đeo mắt vào người trước rồi nâng cấp nhé.");
+                    // return;
+                    // }
+
+                    // if (p.c.ItemBody[14].upgrade >= 10) {
+                    // Service.chatNPC(p, (short) npcid, "Mắt của con đã đạt cấp tối đa");
+                    // return;
+                    // }
+
+                    // if (!p.c.checkPointDanhVong(p.c.ItemBody[14].upgrade)) {
+                    // Service.chatNPC(p, (short) npcid,
+                    // "Con chưa đủ điểm danh vọng để thực hiện nâng cấp");
+                    // return;
+                    // }
+
+                    // data = ItemTemplate.ItemTemplateId(p.c.ItemBody[14].id);
+                    // Service.startYesNoDlg(p, (byte) 1, "Bạn có muốn nâng cấp " + data.name +
+                    // " với " + GameSrc.coinUpMat[p.c.ItemBody[14].upgrade] + " yên hoặc xu và " +
+                    // GameSrc.goldUpMat[p.c.ItemBody[14].upgrade] +
+                    // " lượng với tỷ lệ thành công là " +
+                    // GameSrc.percentUpMat[p.c.ItemBody[14].upgrade] * 2 + "% không?");
+                    // break;
+                    // }
+
+                    case 5: {
                         if (p.c.isNhanban) {
                             Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                             return;
@@ -3660,6 +3631,7 @@ public class Menu {
                         }
 
                         if (p.c.level >= 10 && p.c.checkLevel[0] == 0) {
+                            p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
                             p.c.addItemBag(false, ItemTemplate.itemDefault(223, true));
                             if (p.status == 1) {
                                 p.upluongMessage(1000L);

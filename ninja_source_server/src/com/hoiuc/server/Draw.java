@@ -802,6 +802,28 @@ public class Draw {
                                             ItemTemplate data2;
                                             int i;
                                             for (i = 0; i < itemId.length; i++) {
+                                                if (itemId[i] == 694) {
+                                                    Item itemup = ItemTemplate.itemDefault(694, true);
+                                                    itemup.quantity = 1;
+                                                    itemup.upgrade = (byte) (10);
+                                                    itemup.isLock = true;
+
+                                                    Option op = new Option(6, 10000);
+                                                    itemup.options.add(op);
+                                                    op = new Option(87, 2750);
+                                                    itemup.options.add(op);
+                                                    op = new Option(79, 25);
+                                                    itemup.options.add(op);
+                                                    op = new Option(64, 0);
+                                                    itemup.options.add(op);
+                                                    Option op1 = new Option(119, 500);
+                                                    Option op2 = new Option(120, 500);
+                                                    itemup.options.add(op1);
+                                                    itemup.options.add(op2);
+                                                    p.c.addItemBag(true, itemup);
+                                                    continue;
+                                                }
+
                                                 if (itemId[i] == -4) {
                                                     p.updateExp(itemQuantity[i]);
                                                 } else if (itemId[i] == -3) {
