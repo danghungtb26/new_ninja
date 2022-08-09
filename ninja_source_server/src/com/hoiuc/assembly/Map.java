@@ -181,6 +181,30 @@ public class Map {
         }
     }
 
+    public void refreshBossLC(int area) {
+        System.out.println("area --------------: " + area);
+        int i;
+        short j;
+        TileMap tileMap;
+        for (i = 0; i < this.area.length; ++i) {
+            if (i >= 2) {
+                break;
+            }
+            if (i == area) {
+                tileMap = this.area[i];
+                Mob mob;
+                for (j = 0; j < tileMap.mobs.size(); ++j) {
+                    mob = tileMap.mobs.get(j);
+                    if (mob != null && mob.status == 0 && mob.isboss) {
+                        tileMap.refreshMob(mob.id);
+                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name + ", Khu: " + area);
+                    }
+                }
+                break;
+            }
+        }
+    }
+
     public boolean mapGTC() {
         if (this.id >= 117 && this.id <= 124) {
             return true;

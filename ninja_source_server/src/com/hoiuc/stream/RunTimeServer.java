@@ -26,10 +26,13 @@ public class RunTimeServer extends Thread {
     private static short[] mapBoss55 = new short[] { 44, 67 };
     private static short[] mapBoss65 = new short[] { 24, 41, 45, 59 };
     private static short[] mapBoss75 = new short[] { 18, 36, 54 };
+
     private static final short[] mapBossSKTet = new short[] { 2, 28, 39 };
     private static final int[] hoursRefreshBossSKTet = new int[] { 1, 3, 5, 7, 9, 10, 13, 15, 17, 19, 22, 23 };
     private static final boolean[] isRefreshBossSKTet = new boolean[] { false, false, false, false, false, false, false,
             false, false, false, false, false };
+
+    private static boolean isRefreshBossLC = false;
 
     @Override
     public void run() {
@@ -623,11 +626,28 @@ public class RunTimeServer extends Thread {
                 // }
 
                 // }
+                refreshBossLC();
                 Thread.sleep(1000L);
             }
+            
             return;
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void refreshBossLC() {
+        // if (RunTimeServer.isRefreshBossLC) {
+        //     return;
+        // }
+        
+        // System.out.println("----------------");
+        // RunTimeServer.isRefreshBossLC = true;
+        // for (int i = 0; i < Map.arrLangCo.length; ++i) {
+        //     Map map = Manager.getMapid(Map.arrLangCo[i]);
+        //     map.refreshBossLC((int) Util.nextInt(1, 2));
+        //     String textchat = "Boss đã xuất hiện tại: " + map.template.name;
+        //     Manager.chatKTG(textchat);
+        // }
     }
 }

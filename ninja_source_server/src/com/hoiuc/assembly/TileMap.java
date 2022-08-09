@@ -1267,8 +1267,11 @@ public class TileMap {
 
                     // né
                     long miss = (long) (p.c.get().Exactly() * 10000 / fightChar.Miss());
-                    miss -= fightChar.get().getPramSkill(31) * 100;
-                    if (miss < Util.nextInt(10000)) {
+                    // System.out.println("miss ------------------------: " + miss + " axactly: " + p.c.get().Exactly() + " mis: " + fightChar.Miss());
+                    // miss -= fightChar.get().getPramSkill(31) * 50;
+
+
+                    if (miss < Util.nextInt(10000) || Util.nextInt(1, 100) <= fightChar.get().getPramSkill(31)) {
                         dame = 0;
                     } else {
                         if (p.c.percentFire2() >= Util.nextInt(1, 100)) {

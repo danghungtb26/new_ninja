@@ -731,7 +731,8 @@ public void updatetx() {
                     for(short j = 0; j < jar.size(); ++j) {
                         JSONArray jar2 = (JSONArray)jar.get(j);
                         String nameData = jar2.get(0).toString();
-                        int typeData = Integer.parseInt(jar2.get(1).toString());
+                        // int typeData = Integer.parseInt(jar2.get(1).toString());
+                        int typeData = 1;
                         int rankData = Integer.parseInt(jar2.get(2).toString());
                         if(type == 1) {
                             ThienDiaBangManager.diaBangList.put(nameData, new ThienDiaData(nameData, rankData, typeData));
