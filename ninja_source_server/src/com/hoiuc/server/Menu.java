@@ -3635,6 +3635,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(2000L);
                             }
+                            p.c.upyenMessage(10000000L);
 
                             p.c.checkLevel[0] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
@@ -3662,6 +3663,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(2000L);
                             }
+                            p.c.upyenMessage(20000000L);
                             p.c.checkLevel[1] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -3688,6 +3690,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(2000L);
                             }
+                            p.c.upyenMessage(30000000L);
                             p.c.checkLevel[2] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -3713,6 +3716,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(2000L);
                             }
+                            p.c.upyenMessage(40000000L);
                             p.c.checkLevel[3] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -3739,6 +3743,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(3000L);
                             }
+                            p.c.upyenMessage(50000000L);
                             p.c.checkLevel[4] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -3765,6 +3770,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(3000L);
                             }
+                            p.c.upyenMessage(60000000L);
                             p.c.checkLevel[5] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -3785,6 +3791,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(5000L);
                             }
+                            p.c.upyenMessage(70000000L);
                             p.c.checkLevel[6] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -3805,6 +3812,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(5000L);
                             }
+                            p.c.upyenMessage(80000000L);
                             p.c.checkLevel[7] = 1;
                             Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                         } else {
@@ -3825,6 +3833,7 @@ public class Menu {
                             } else {
                                 p.upluongMessage(7000L);
                             }
+                            p.c.upyenMessage(90000000L);
                             p.c.checkLevel[8] = 1;
                             Service.chatNPC(p, (short) npcid, "Chúc mừng con đã đạt đến cấp độ mới!");
                         } else {
@@ -5513,31 +5522,21 @@ public class Menu {
                     return;
                 }
 
-                if (p.c.level == 10) {
+                if (p.c.level <= 10) {
                     // if (p.c.level <= 10) {
-                    //     p.updateExp(Level.getMaxExp(20));
+                    p.updateExp(Level.getMaxExp(20));
                     // }
-                    if (p.status == 1) {
-                        p.upluongMessage(10000L);
-                        p.c.upxuMessage(25000000L);
-                        p.c.upyenMessage(25000000L);
-                        p.c.luongTN += 10000;
-                        p.c.yenTN += 50000000;
-                        p.c.xuTN += 50000000;
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                    } else {
-                        p.upluongMessage(20000000L);
-                        p.c.upxuMessage(10000000L);
-                        p.c.upyenMessage(500000000L);
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                    }
+                    
+                    p.upluongMessage(30000L);
+                    p.c.upxuMessage(100000L);
+                    p.c.upyenMessage(50000000L);
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(385, true));
+                    p.c.addItemBag(false, ItemTemplate.itemDefault(385, true));
+                    
                     Service.chatNPC(p, (short) npcid,
                             "Con đã nhận quà tân thủ thành công, chúc con trải nghiệm game vui vẻ.");
                 } else {
