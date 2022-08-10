@@ -1565,11 +1565,8 @@ public class TileMap {
                 if (mob3.level > _char.level) {
                     xpnew += (mob3.level - _char.level) * Util.nextInt(100, 1000);
                 }
-
-                if (_char.get().getEffType((byte) 18) != null) {
-                    xpnew *= _char.get().getEffType((byte) 18).param;
-                }
-
+                
+                xpnew *= _char.get().getEffXEXP();
                 if (mob3.lvboss == 1) {
                     xpnew *= 3;
                 } else if (mob3.lvboss == 2) {
@@ -1577,7 +1574,6 @@ public class TileMap {
                 } else if (mob3.lvboss == 3) {
                     xpnew /= 2;
                 }
-
                 if (this.map.LangCo()) {
                     xpnew = xpnew * 100 / 100;
                 } else if (this.map.VDMQ()) {

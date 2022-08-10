@@ -770,7 +770,7 @@ public void datatx() {
                         }
                     }
 
-                    nja.ItemBox = new Item[30];
+                    nja.ItemBox = new Item[120];
                     jar = (JSONArray)JSONValue.parse(red.getString("ItemBox"));
                     if (jar != null) {
                         for(j = 0; j < jar.size(); ++j) {
@@ -781,7 +781,7 @@ public void datatx() {
                         }
                     }
 
-                    nja.ItemBST = new Item[9];
+                    nja.ItemBST = new Item[12];
                     jar = (JSONArray)JSONValue.parse(red.getString("ItemBST"));
                     if (jar != null) {
                         for(j = 0; j < jar.size(); ++j) {

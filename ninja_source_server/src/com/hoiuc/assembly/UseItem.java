@@ -683,17 +683,24 @@ public class UseItem {
                         p.sendAddchatYellow("Số lần tẩy điểm kỹ năng tăng thêm 1");
                         break;
                     }
+                    case 546: {
+                        p.setEffectXEXP(44, 0, 7200000, 2);
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    
                     case 248: {
                         Effect eff = p.c.get().getEffId(22);
                         if (eff != null) {
                             long time = eff.timeRemove + 18000000L;
-                            p.setEffect(22, 0, (int) (time - System.currentTimeMillis()), 2);
+                            p.setEffectXEXP(22, 0, (int) (time - System.currentTimeMillis()), 2);
                         } else {
-                            p.setEffect(22, 0, 18000000, 2);
+                            p.setEffectXEXP(22, 0, 18000000, 2);
                         }
                         p.c.removeItemBag(index, 1);
                         break;
                     }
+                    
                     //giấy vụn
                     case 251: {
                         if (item.quantity < 300) {
@@ -1661,13 +1668,13 @@ case 995: {//lượng
                     }
                     //x3 kinh nghiệm
                     case 539: {
-                        p.setEffect(32, 0, 3600000, 3);
+                        p.setEffectXEXP(32, 0, 3600000, 3);
                         p.c.removeItemBag(index, 1);
                         break;
                     }
                     //x4 kinh nghiệm
                     case 540: {
-                        p.setEffect(33, 0, 3600000, 4);
+                        p.setEffectXEXP(33, 0, 3600000, 4);
                         p.c.removeItemBag(index, 1);
                         break;
                     }

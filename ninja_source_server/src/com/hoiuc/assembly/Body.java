@@ -806,6 +806,35 @@ public float dameDown() {
         }
     }
 
+    public int getEffXEXP() {
+        Effect linhchix2 = this.getEffId(22);
+        Effect nhansamx2 = this.getEffId(44);
+
+        if (linhchix2 != null  && nhansamx2 != null) {
+            return linhchix2.param * nhansamx2.param;
+        }
+
+        Effect linhchix4 = this.getEffId(33);
+        if (linhchix4 != null) {
+            return linhchix4.param;
+        }
+
+        Effect linhchix3 = this.getEffId(32);
+        if (linhchix3 != null) {
+            return linhchix3.param;
+        }
+
+        if (nhansamx2 != null) {
+            return nhansamx2.param;
+        }
+
+        if (linhchix2 != null) {
+            return linhchix2.param;
+        }
+
+        return 1;
+    }
+
     public Effect getEffType(byte efftype) {
         try {
             byte i;

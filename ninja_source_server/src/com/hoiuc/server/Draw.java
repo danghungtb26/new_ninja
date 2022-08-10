@@ -2034,6 +2034,9 @@ public class Draw {
                         break;
                     }
                     case 9989: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2047,6 +2050,9 @@ public class Draw {
                     }
                     // Thay đổi exp
                     case 9990: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2064,6 +2070,9 @@ public class Draw {
 
                     // Thong bao
                     case 9991: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2075,6 +2084,9 @@ public class Draw {
 
                     // kỹ năng
                     case 9992: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2093,6 +2105,9 @@ public class Draw {
 
                     // tiềm năng
                     case 9993: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2111,6 +2126,9 @@ public class Draw {
 
                     // tăng level
                     case 9994: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2139,6 +2157,9 @@ public class Draw {
 
                     // tăng lượng
                     case 9995: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2156,6 +2177,9 @@ public class Draw {
 
                     // tăng xu
                     case 9996: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2173,6 +2197,9 @@ public class Draw {
 
                     // tăng yên
                     case 9997: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;
@@ -2190,6 +2217,9 @@ public class Draw {
 
                     // bảo trì
                     case 9998: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         if (!Util.isNumeric(str) || str.equals("")) {
                             p.conn.sendMessageLog("Giá trị nhập vào không hợp lệ");
                             return;

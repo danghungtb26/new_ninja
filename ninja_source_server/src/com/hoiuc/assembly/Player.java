@@ -1853,6 +1853,29 @@ public class Player extends User {
 
     }
 
+    public void setEffectXEXP(int id, int timeStart, int timeLength, int param) {
+        try {
+            EffectTemplate data = EffectTemplate.entrys.get(id);
+            Effect eff = this.c.get().getEffId(id);
+            if (eff == null) {
+                eff = new Effect(id, timeStart, timeLength, param);
+                this.c.get().veff.add(eff);
+                this.addEffectMessage(eff);
+            } else {
+                eff.template = data;
+                eff.timeLength = timeLength;
+                eff.timeStart = timeStart;
+                eff.param = param;
+                eff.timeRemove = System.currentTimeMillis() - (long) eff.timeStart + (long) eff.timeLength;
+                this.setEffectMessage(eff);
+            }
+        } catch (Exception var7) {
+            var7.printStackTrace();
+            Logger.getLogger(Player.class.getName()).log(java.util.logging.Level.SEVERE, (String) null, var7);
+        }
+
+    }
+
     public void addEffectMessage(Effect eff) {
         Message m = null;
         try {

@@ -2528,14 +2528,14 @@ public class Menu {
                             Service.chatNPC(p, (short) npcid, "Hành trang của con không đủ chỗ trống để nhận thưởng");
                             return;
                         }
-                        int point = 100;
-                        if (p.c.taskDanhVong[0] == 9) {
-                            if (p.c.vip < 1) {
-                                point = 5;
-                            } else {
-                                point = 150;
-                            }
-                        }
+                        int point = (int) Util.nextInt(5, 10);
+                        // if (p.c.taskDanhVong[0] == 9) {
+                        //     if (p.c.vip < 1) {
+                        //         point = 5;
+                        //     } else {
+                        //         point = 150;
+                        //     }
+                        // }
 
                         p.c.isTaskDanhVong = 0;
                         p.c.taskDanhVong = new int[]{-1, -1, -1, 0, p.c.countTaskDanhVong};

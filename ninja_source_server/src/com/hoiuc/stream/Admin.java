@@ -25,7 +25,7 @@ public class Admin implements Runnable{
                 ClanManager.close();
                 ThienDiaBangManager.close();
                 ShinwaManager.close();
-                this.server.close(100L);
+                Server.close(100L);
             }
         } catch (Exception e) {
             e.printStackTrace();
