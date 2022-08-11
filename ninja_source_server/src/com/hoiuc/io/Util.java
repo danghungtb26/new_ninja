@@ -30,6 +30,10 @@ public class Util {
         }
     }
 
+    public static boolean isDebug() {
+        return debug;
+    }
+
     public static Date getDate2(String dateString) {
         try {
             return dateFormatDay.parse(dateString);
@@ -304,4 +308,17 @@ public class Util {
         }
     }
 
+    public static short intToShort(int i) {
+       return (short)Math.min(Math.max(i, Short.MIN_VALUE), Short.MAX_VALUE);
+    }
+
+    public static boolean shortContain(short[] arr, short value) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == value) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

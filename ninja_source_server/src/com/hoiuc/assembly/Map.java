@@ -5,6 +5,7 @@ import com.hoiuc.stream.GiaTocChien;
 import com.hoiuc.stream.Cave;
 import com.hoiuc.stream.ChienTruong;
 import com.hoiuc.stream.LanhDiaGiaToc;
+import com.hoiuc.stream.Boss;
 import com.hoiuc.stream.BossTuanLoc;
 import com.hoiuc.stream.TuTien;
 import com.hoiuc.io.Util;
@@ -17,12 +18,14 @@ import java.io.DataInputStream;
 
 public class Map {
 
-    public static int[] arrLang = new int[]{10, 17, 22, 32, 38, 43, 48};
-    public static int[] arrTruong = new int[]{1, 27, 72};
-    public static int[] arrLangCo = new int[]{134, 135, 136, 137};
-    public static int[] idMapThuong = new int[]{4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 24, 28, 29, 30, 31, 33, 34, 35, 36, 37, 39, 40, 41, 42, 46, 47, 48, 49, 50, 51, 52, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68};
-    public static int[] arrTuTien = new int[]{};
-    public static int[] arrChuyenSinh = new int[]{};
+    public static int[] arrLang = new int[] { 10, 17, 22, 32, 38, 43, 48 };
+    public static int[] arrTruong = new int[] { 1, 27, 72 };
+    public static int[] arrLangCo = new int[] { 134, 135, 136, 137 };
+    public static int[] idMapThuong = new int[] { 4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 24, 28, 29, 30, 31, 33,
+            34, 35, 36, 37, 39, 40, 41, 42, 46, 47, 48, 49, 50, 51, 52, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+            68 };
+    public static int[] arrTuTien = new int[] {};
+    public static int[] arrChuyenSinh = new int[] {};
     public int id;
     public int numBossTL;
     public MapTemplate template;
@@ -46,6 +49,7 @@ public class Map {
         }
 
         ;
+
         public void run() {
             long l1;
             long l2;
@@ -63,7 +67,8 @@ public class Map {
         }
     }
 
-    public Map(int id, Cave cave, Dun dun, ChienTruong chienTruong, BossTuanLoc bossTuanLoc, GiaTocChien giaTocChien, LanhDiaGiaToc lanhDiaGiaToc, TuTien tuTien, ChuyenSinh chuyenSinh) {
+    public Map(int id, Cave cave, Dun dun, ChienTruong chienTruong, BossTuanLoc bossTuanLoc, GiaTocChien giaTocChien,
+            LanhDiaGiaToc lanhDiaGiaToc, TuTien tuTien, ChuyenSinh chuyenSinh) {
         this.LOCK = new Object();
         this.numBossTL = 0;
         this.timeMap = -1L;
@@ -169,16 +174,49 @@ public class Map {
             if (i == area) {
                 tileMap = this.area[i];
                 Mob mob;
+
                 for (j = 0; j < tileMap.mobs.size(); ++j) {
                     mob = tileMap.mobs.get(j);
                     if (mob != null && mob.status == 0 && mob.isboss) {
                         tileMap.refreshMob(mob.id);
-                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name + ", Khu: " + area);
+                        System.out.println("Xuất hiện boss: " + mob.templates.name + ", Lv: " + mob.level + ",  Map: "
+                                + this.template.name + ", Khu: " + area);
+                    }
+                }
+            }
+            break;
+        }
+    }
+
+    public Boss newRefreshBoss(int area, Boss boss3) {
+        int i;
+        TileMap tileMap;
+        for (i = 15; i < this.area.length; ++i) {
+            if (i >= 29) {
+                break;
+            }
+            if (i == area) {
+                tileMap = this.area[i];
+                Mob mob;
+                int random = (int) Util.nextInt(0, tileMap.getBossList().size() - 1);
+                mob = tileMap.getBossList().get(random);
+                if (mob != null && mob.isboss) {
+                    if (mob.status == 0) {
+                        tileMap.refreshMob(mob.id);
+                        boss3.areaId = i;
+                        boss3.mapId = tileMap.map.template.id;
+                        boss3.mobId = mob.templates.id;
+                        System.out.println("Xuất hiện boss: " + mob.templates.name + ", Lv: " + mob.level
+                                + ",  Map: " + this.template.name + ", Khu: " + area + " Lúc: " + System.currentTimeMillis());
+                    } else {
+                        continue;
                     }
                 }
                 break;
             }
         }
+
+        return boss3;
     }
 
     public void refreshBossLC(int area) {
@@ -197,7 +235,8 @@ public class Map {
                     mob = tileMap.mobs.get(j);
                     if (mob != null && mob.status == 0 && mob.isboss) {
                         tileMap.refreshMob(mob.id);
-                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name + ", Khu: " + area);
+                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name
+                                + ", Khu: " + area);
                     }
                 }
                 break;
@@ -237,7 +276,8 @@ public class Map {
     }
 
     public boolean mapChienTruong() {
-        if (this.id == 98 || this.id == 99 || this.id == 100 || this.id == 101 || this.id == 102 || this.id == 103 || this.id == 104) {
+        if (this.id == 98 || this.id == 99 || this.id == 100 || this.id == 101 || this.id == 102 || this.id == 103
+                || this.id == 104) {
             return true;
         }
         return false;
@@ -341,10 +381,11 @@ public class Map {
     }
 
     public void loadMapFromResource() {
-//        if (this.id == 0 || this.id == 56 || (this.id > 72 && this.id < 125) || (this.id > 125 && this.id < 133) ||
-//                (this.id > 133 && this.id < 139) || this.id > 148) {
-//            return;
-//        }
+        // if (this.id == 0 || this.id == 56 || (this.id > 72 && this.id < 125) ||
+        // (this.id > 125 && this.id < 133) ||
+        // (this.id > 133 && this.id < 139) || this.id > 148) {
+        // return;
+        // }
         ByteArrayInputStream bai = null;
         DataInputStream dis = null;
         try {
@@ -371,14 +412,19 @@ public class Map {
     }
 
     public void loadMap(int tileId) {
-        //this.template.types = new int[this.template.tmw * this.template.tmh];
+        // this.template.types = new int[this.template.tmw * this.template.tmh];
         this.template.pxh = (short) (this.template.tmh * 24);
         this.template.pxw = (short) (this.template.tmw * 24);
         try {
             int i;
             for (i = 0; i < this.template.tmh * this.template.tmw; ++i) {
                 if (tileId == 4) {
-                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3 || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 9 || this.template.maps[i] == 10 || this.template.maps[i] == 79 || this.template.maps[i] == 80 || this.template.maps[i] == 13 || this.template.maps[i] == 14 || this.template.maps[i] == 43 || this.template.maps[i] == 44 || this.template.maps[i] == 45 || this.template.maps[i] == 50) {
+                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3
+                            || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6
+                            || this.template.maps[i] == 9 || this.template.maps[i] == 10 || this.template.maps[i] == 79
+                            || this.template.maps[i] == 80 || this.template.maps[i] == 13 || this.template.maps[i] == 14
+                            || this.template.maps[i] == 43 || this.template.maps[i] == 44 || this.template.maps[i] == 45
+                            || this.template.maps[i] == 50) {
                         this.template.types[i] |= MapTemplate.T_TOP;
                     }
                     if (this.template.maps[i] == 9 || this.template.maps[i] == 11) {
@@ -397,13 +443,27 @@ public class Map {
                         }
                     }
                 } else if (tileId == 1) {
-                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3 || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 7 || this.template.maps[i] == 36 || this.template.maps[i] == 37 || this.template.maps[i] == 54 || this.template.maps[i] == 91 || this.template.maps[i] == 92 || this.template.maps[i] == 93 || this.template.maps[i] == 94 || this.template.maps[i] == 73 || this.template.maps[i] == 74 || this.template.maps[i] == 97 || this.template.maps[i] == 98 || this.template.maps[i] == 116 || this.template.maps[i] == 117 || this.template.maps[i] == 118 || this.template.maps[i] == 120 || this.template.maps[i] == 61) {
+                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3
+                            || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6
+                            || this.template.maps[i] == 7 || this.template.maps[i] == 36 || this.template.maps[i] == 37
+                            || this.template.maps[i] == 54 || this.template.maps[i] == 91 || this.template.maps[i] == 92
+                            || this.template.maps[i] == 93 || this.template.maps[i] == 94 || this.template.maps[i] == 73
+                            || this.template.maps[i] == 74 || this.template.maps[i] == 97 || this.template.maps[i] == 98
+                            || this.template.maps[i] == 116 || this.template.maps[i] == 117
+                            || this.template.maps[i] == 118 || this.template.maps[i] == 120
+                            || this.template.maps[i] == 61) {
                         this.template.types[i] |= MapTemplate.T_TOP;
                     }
-                    if (this.template.maps[i] == 2 || this.template.maps[i] == 3 || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 20 || this.template.maps[i] == 21 || this.template.maps[i] == 22 || this.template.maps[i] == 23 || this.template.maps[i] == 36 || this.template.maps[i] == 37 || this.template.maps[i] == 38 || this.template.maps[i] == 39 || this.template.maps[i] == 61) {
+                    if (this.template.maps[i] == 2 || this.template.maps[i] == 3 || this.template.maps[i] == 4
+                            || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 20
+                            || this.template.maps[i] == 21 || this.template.maps[i] == 22 || this.template.maps[i] == 23
+                            || this.template.maps[i] == 36 || this.template.maps[i] == 37 || this.template.maps[i] == 38
+                            || this.template.maps[i] == 39 || this.template.maps[i] == 61) {
                         this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                     }
-                    if (this.template.maps[i] == 8 || this.template.maps[i] == 9 || this.template.maps[i] == 10 || this.template.maps[i] == 12 || this.template.maps[i] == 13 || this.template.maps[i] == 14 || this.template.maps[i] == 30) {
+                    if (this.template.maps[i] == 8 || this.template.maps[i] == 9 || this.template.maps[i] == 10
+                            || this.template.maps[i] == 12 || this.template.maps[i] == 13 || this.template.maps[i] == 14
+                            || this.template.maps[i] == 30) {
                         this.template.types[i] |= MapTemplate.T_TREE;
                     }
                     if (this.template.maps[i] == 17) {
@@ -420,7 +480,8 @@ public class Map {
                     }
                     if (this.template.maps[i] == 19) {
                         this.template.types[i] |= MapTemplate.T_WATERFLOW;
-                        if ((this.template.types[i - this.template.tmw] & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
+                        if ((this.template.types[i - this.template.tmw]
+                                & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
                             this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                         }
                     }
@@ -434,13 +495,38 @@ public class Map {
                         this.template.types[i] |= MapTemplate.T_OUTSIDE;
                     }
                 } else if (tileId == 2) {
-                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3 || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 7 || this.template.maps[i] == 36 || this.template.maps[i] == 37 || this.template.maps[i] == 54 || this.template.maps[i] == 61 || this.template.maps[i] == 73 || this.template.maps[i] == 76 || this.template.maps[i] == 77 || this.template.maps[i] == 78 || this.template.maps[i] == 79 || this.template.maps[i] == 82 || this.template.maps[i] == 83 || this.template.maps[i] == 98 || this.template.maps[i] == 99 || this.template.maps[i] == 100 || this.template.maps[i] == 102 || this.template.maps[i] == 103 || this.template.maps[i] == 108 || this.template.maps[i] == 109 || this.template.maps[i] == 110 || this.template.maps[i] == 112 || this.template.maps[i] == 113 || this.template.maps[i] == 116 || this.template.maps[i] == 117 || this.template.maps[i] == 125 || this.template.maps[i] == 126 || this.template.maps[i] == 127 || this.template.maps[i] == 129 || this.template.maps[i] == 130) {
+                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3
+                            || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6
+                            || this.template.maps[i] == 7 || this.template.maps[i] == 36 || this.template.maps[i] == 37
+                            || this.template.maps[i] == 54 || this.template.maps[i] == 61 || this.template.maps[i] == 73
+                            || this.template.maps[i] == 76 || this.template.maps[i] == 77 || this.template.maps[i] == 78
+                            || this.template.maps[i] == 79 || this.template.maps[i] == 82 || this.template.maps[i] == 83
+                            || this.template.maps[i] == 98 || this.template.maps[i] == 99
+                            || this.template.maps[i] == 100 || this.template.maps[i] == 102
+                            || this.template.maps[i] == 103 || this.template.maps[i] == 108
+                            || this.template.maps[i] == 109 || this.template.maps[i] == 110
+                            || this.template.maps[i] == 112 || this.template.maps[i] == 113
+                            || this.template.maps[i] == 116 || this.template.maps[i] == 117
+                            || this.template.maps[i] == 125 || this.template.maps[i] == 126
+                            || this.template.maps[i] == 127 || this.template.maps[i] == 129
+                            || this.template.maps[i] == 130) {
                         this.template.types[i] |= MapTemplate.T_TOP;
                     }
-                    if (this.template.maps[i] == 1 || this.template.maps[i] == 3 || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 20 || this.template.maps[i] == 21 || this.template.maps[i] == 22 || this.template.maps[i] == 23 || this.template.maps[i] == 36 || this.template.maps[i] == 37 || this.template.maps[i] == 38 || this.template.maps[i] == 39 || this.template.maps[i] == 55 || this.template.maps[i] == 109 || this.template.maps[i] == 111 || this.template.maps[i] == 112 || this.template.maps[i] == 113 || this.template.maps[i] == 114 || this.template.maps[i] == 115 || this.template.maps[i] == 116 || this.template.maps[i] == 127 || this.template.maps[i] == 129 || this.template.maps[i] == 130) {
+                    if (this.template.maps[i] == 1 || this.template.maps[i] == 3 || this.template.maps[i] == 4
+                            || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 20
+                            || this.template.maps[i] == 21 || this.template.maps[i] == 22 || this.template.maps[i] == 23
+                            || this.template.maps[i] == 36 || this.template.maps[i] == 37 || this.template.maps[i] == 38
+                            || this.template.maps[i] == 39 || this.template.maps[i] == 55
+                            || this.template.maps[i] == 109 || this.template.maps[i] == 111
+                            || this.template.maps[i] == 112 || this.template.maps[i] == 113
+                            || this.template.maps[i] == 114 || this.template.maps[i] == 115
+                            || this.template.maps[i] == 116 || this.template.maps[i] == 127
+                            || this.template.maps[i] == 129 || this.template.maps[i] == 130) {
                         this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                     }
-                    if (this.template.maps[i] == 8 || this.template.maps[i] == 9 || this.template.maps[i] == 10 || this.template.maps[i] == 12 || this.template.maps[i] == 13 || this.template.maps[i] == 14 || this.template.maps[i] == 30 || this.template.maps[i] == 135) {
+                    if (this.template.maps[i] == 8 || this.template.maps[i] == 9 || this.template.maps[i] == 10
+                            || this.template.maps[i] == 12 || this.template.maps[i] == 13 || this.template.maps[i] == 14
+                            || this.template.maps[i] == 30 || this.template.maps[i] == 135) {
                         this.template.types[i] |= MapTemplate.T_TREE;
                     }
                     if (this.template.maps[i] == 17) {
@@ -449,21 +535,27 @@ public class Map {
                     if (this.template.maps[i] == 18) {
                         this.template.types[i] |= MapTemplate.T_TOPFALL;
                     }
-                    if (this.template.maps[i] == 61 || this.template.maps[i] == 37 || this.template.maps[i] == 38 || this.template.maps[i] == 127 || this.template.maps[i] == 130 || this.template.maps[i] == 131) {
+                    if (this.template.maps[i] == 61 || this.template.maps[i] == 37 || this.template.maps[i] == 38
+                            || this.template.maps[i] == 127 || this.template.maps[i] == 130
+                            || this.template.maps[i] == 131) {
                         this.template.types[i] |= MapTemplate.T_LEFT;
                     }
-                    if (this.template.maps[i] == 61 || this.template.maps[i] == 36 || this.template.maps[i] == 39 || this.template.maps[i] == 127 || this.template.maps[i] == 129 || this.template.maps[i] == 132) {
+                    if (this.template.maps[i] == 61 || this.template.maps[i] == 36 || this.template.maps[i] == 39
+                            || this.template.maps[i] == 127 || this.template.maps[i] == 129
+                            || this.template.maps[i] == 132) {
                         this.template.types[i] |= MapTemplate.T_RIGHT;
                     }
                     if (this.template.maps[i] == 19) {
                         this.template.types[i] |= MapTemplate.T_WATERFLOW;
-                        if ((this.template.types[i - this.template.tmw] & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
+                        if ((this.template.types[i - this.template.tmw]
+                                & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
                             this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                         }
                     }
                     if (this.template.maps[i] == 134) {
                         this.template.types[i] |= MapTemplate.T_WATERFLOW;
-                        if ((this.template.types[i - this.template.tmw] & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
+                        if ((this.template.types[i - this.template.tmw]
+                                & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
                             this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                         }
                     }
@@ -480,10 +572,30 @@ public class Map {
                         this.template.types[i] |= MapTemplate.T_BOTTOM;
                     }
                 } else if (tileId == 3) {
-                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3 || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6 || this.template.maps[i] == 7 || this.template.maps[i] == 11 || this.template.maps[i] == 14 || this.template.maps[i] == 17 || this.template.maps[i] == 43 || this.template.maps[i] == 51 || this.template.maps[i] == 63 || this.template.maps[i] == 65 || this.template.maps[i] == 67 || this.template.maps[i] == 68 || this.template.maps[i] == 71 || this.template.maps[i] == 72 || this.template.maps[i] == 83 || this.template.maps[i] == 84 || this.template.maps[i] == 85 || this.template.maps[i] == 87 || this.template.maps[i] == 91 || this.template.maps[i] == 94 || this.template.maps[i] == 97 || this.template.maps[i] == 98 || this.template.maps[i] == 106 || this.template.maps[i] == 107 || this.template.maps[i] == 111 || this.template.maps[i] == 113 || this.template.maps[i] == 117 || this.template.maps[i] == 118 || this.template.maps[i] == 119 || this.template.maps[i] == 125 || this.template.maps[i] == 126 || this.template.maps[i] == 129 || this.template.maps[i] == 130 || this.template.maps[i] == 131 || this.template.maps[i] == 133 || this.template.maps[i] == 136 || this.template.maps[i] == 138 || this.template.maps[i] == 139 || this.template.maps[i] == 142) {
+                    if (this.template.maps[i] == 1 || this.template.maps[i] == 2 || this.template.maps[i] == 3
+                            || this.template.maps[i] == 4 || this.template.maps[i] == 5 || this.template.maps[i] == 6
+                            || this.template.maps[i] == 7 || this.template.maps[i] == 11 || this.template.maps[i] == 14
+                            || this.template.maps[i] == 17 || this.template.maps[i] == 43 || this.template.maps[i] == 51
+                            || this.template.maps[i] == 63 || this.template.maps[i] == 65 || this.template.maps[i] == 67
+                            || this.template.maps[i] == 68 || this.template.maps[i] == 71 || this.template.maps[i] == 72
+                            || this.template.maps[i] == 83 || this.template.maps[i] == 84 || this.template.maps[i] == 85
+                            || this.template.maps[i] == 87 || this.template.maps[i] == 91 || this.template.maps[i] == 94
+                            || this.template.maps[i] == 97 || this.template.maps[i] == 98
+                            || this.template.maps[i] == 106 || this.template.maps[i] == 107
+                            || this.template.maps[i] == 111 || this.template.maps[i] == 113
+                            || this.template.maps[i] == 117 || this.template.maps[i] == 118
+                            || this.template.maps[i] == 119 || this.template.maps[i] == 125
+                            || this.template.maps[i] == 126 || this.template.maps[i] == 129
+                            || this.template.maps[i] == 130 || this.template.maps[i] == 131
+                            || this.template.maps[i] == 133 || this.template.maps[i] == 136
+                            || this.template.maps[i] == 138 || this.template.maps[i] == 139
+                            || this.template.maps[i] == 142) {
                         this.template.types[i] |= MapTemplate.T_TOP;
                     }
-                    if (this.template.maps[i] == 124 || this.template.maps[i] == 116 || this.template.maps[i] == 123 || this.template.maps[i] == 44 || this.template.maps[i] == 12 || this.template.maps[i] == 15 || this.template.maps[i] == 15 || this.template.maps[i] == 45 || this.template.maps[i] == 10 || this.template.maps[i] == 9) {
+                    if (this.template.maps[i] == 124 || this.template.maps[i] == 116 || this.template.maps[i] == 123
+                            || this.template.maps[i] == 44 || this.template.maps[i] == 12 || this.template.maps[i] == 15
+                            || this.template.maps[i] == 15 || this.template.maps[i] == 45 || this.template.maps[i] == 10
+                            || this.template.maps[i] == 9) {
                         this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                     }
                     if (this.template.maps[i] == 23) {
@@ -492,15 +604,24 @@ public class Map {
                     if (this.template.maps[i] == 24) {
                         this.template.types[i] |= MapTemplate.T_TOPFALL;
                     }
-                    if (this.template.maps[i] == 6 || this.template.maps[i] == 15 || this.template.maps[i] == 51 || this.template.maps[i] == 95 || this.template.maps[i] == 97 || this.template.maps[i] == 106 || this.template.maps[i] == 111 || this.template.maps[i] == 123 || this.template.maps[i] == 125 || this.template.maps[i] == 138 || this.template.maps[i] == 140) {
+                    if (this.template.maps[i] == 6 || this.template.maps[i] == 15 || this.template.maps[i] == 51
+                            || this.template.maps[i] == 95 || this.template.maps[i] == 97
+                            || this.template.maps[i] == 106 || this.template.maps[i] == 111
+                            || this.template.maps[i] == 123 || this.template.maps[i] == 125
+                            || this.template.maps[i] == 138 || this.template.maps[i] == 140) {
                         this.template.types[i] |= MapTemplate.T_LEFT;
                     }
-                    if (this.template.maps[i] == 7 || this.template.maps[i] == 16 || this.template.maps[i] == 51 || this.template.maps[i] == 96 || this.template.maps[i] == 98 || this.template.maps[i] == 107 || this.template.maps[i] == 111 || this.template.maps[i] == 124 || this.template.maps[i] == 126 || this.template.maps[i] == 139 || this.template.maps[i] == 141) {
+                    if (this.template.maps[i] == 7 || this.template.maps[i] == 16 || this.template.maps[i] == 51
+                            || this.template.maps[i] == 96 || this.template.maps[i] == 98
+                            || this.template.maps[i] == 107 || this.template.maps[i] == 111
+                            || this.template.maps[i] == 124 || this.template.maps[i] == 126
+                            || this.template.maps[i] == 139 || this.template.maps[i] == 141) {
                         this.template.types[i] |= MapTemplate.T_RIGHT;
                     }
                     if (this.template.maps[i] == 25) {
                         this.template.types[i] |= MapTemplate.T_WATERFLOW;
-                        if ((this.template.types[i - this.template.tmw] & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
+                        if ((this.template.types[i - this.template.tmw]
+                                & MapTemplate.T_SOLIDGROUND) == MapTemplate.T_SOLIDGROUND) {
                             this.template.types[i] |= MapTemplate.T_SOLIDGROUND;
                         }
                     }
@@ -510,7 +631,9 @@ public class Map {
                     if (this.template.maps[i] == 17) {
                         this.template.types[i] |= MapTemplate.T_BRIDGE;
                     }
-                    if (this.template.maps[i] == 33 || this.template.maps[i] == 103 || this.template.maps[i] == 104 || this.template.maps[i] == 105 || this.template.maps[i] == 26 || this.template.maps[i] == 33) {
+                    if (this.template.maps[i] == 33 || this.template.maps[i] == 103 || this.template.maps[i] == 104
+                            || this.template.maps[i] == 105 || this.template.maps[i] == 26
+                            || this.template.maps[i] == 33) {
                         this.template.types[i] |= MapTemplate.T_OUTSIDE;
                     }
                     if (this.template.maps[i] == 51 || this.template.maps[i] == 111 || this.template.maps[i] == 68) {
@@ -571,7 +694,7 @@ public class Map {
     }
 
     public void refreshBossTet(int area) {
-        for (int i = 15; i < this.area.length; i++) { //mac dinh 15
+        for (int i = 15; i < this.area.length; i++) { // mac dinh 15
             if (i >= 30) {
                 break;
             }
@@ -581,7 +704,8 @@ public class Map {
                     Mob mob = tileMap.mobs.get(j);
                     if (mob.status == 0 && mob.isboss) {
                         tileMap.refreshMob(mob.id);
-                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name + ", Khu: " + area);
+                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name
+                                + ", Khu: " + area);
                     }
                 }
                 break;

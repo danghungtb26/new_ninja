@@ -16,16 +16,16 @@ import java.util.Date;
 
 public class RunTimeServer extends Thread {
     private static int[] hoursAutoSaveData = new int[] { 1, 5, 7, 11, 15, 19, 21, 23 };
-    private static int[] hoursRefreshBoss = new int[] { 8, 12, 14, 15, 20, 22 };
+    private static int[] hoursRefreshBoss = new int[] { 8, 10, 12, 14, 16, 20, 22 };
     private static int[] hoursRefreshBossVDMQ = new int[] { 1, 3, 9, 11, 13, 15, 17, 19, 21, 23 };
-    private static boolean[] isRefreshBoss = new boolean[] { false, false, false, false, false, false };
+    private static boolean[] isRefreshBoss = new boolean[] { false, false, false, false, false, false, false };
     private static boolean[] isRefreshBossVDMQ = new boolean[] { false, false, false, false, false, false, false, false,
             false, false, false, false };
     private static short[] mapBossVDMQ = new short[] { 141, 142, 143 };
     private static short[] mapBoss45 = new short[] { 14, 15, 16, 34, 35, 52, 68 };
     private static short[] mapBoss55 = new short[] { 44, 67 };
     private static short[] mapBoss65 = new short[] { 24, 41, 45, 59 };
-    private static short[] mapBoss75 = new short[] { 18, 36, 54 };
+    public static short[] mapBoss75 = new short[] { 18, 36, 54 };
 
     private static final short[] mapBossSKTet = new short[] { 2, 28, 39 };
     private static final int[] hoursRefreshBossSKTet = new int[] { 1, 3, 5, 7, 9, 10, 13, 15, 17, 19, 22, 23 };
@@ -47,6 +47,8 @@ public class RunTimeServer extends Thread {
             byte k;
             Map map;
             Player player;
+
+            Boss.initBoss();
             while (Server.running) {
                 synchronized (ClanManager.entrys) {
                     for (i = ClanManager.entrys.size() - 1; i >= 0; --i) {
@@ -512,15 +514,7 @@ public class RunTimeServer extends Thread {
                         // System.out.println(" Clear clone login");
                     }
                 }
-                if ((min == 1 || min == 2 || min == 3 || min == 4 || min == 5 || min == 6 || min == 7 || min == 8
-                        || min == 9 || min == 10 || min == 11 || min == 12 || min == 13 || min == 14 || min == 15
-                        || min == 16 || min == 17 || min == 18 || min == 19 || min == 20 || min == 21 || min == 22
-                        || min == 23 || min == 24 || min == 25 || min == 26 || min == 27 || min == 28 || min == 29
-                        || min == 30 || min == 31 || min == 32 || min == 33 || min == 34 || min == 35 || min == 36
-                        || min == 37 || min == 38 || min == 39 || min == 40 || min == 41 || min == 42 || min == 43
-                        || min == 44 || min == 45 || min == 46 || min == 47 || min == 48 || min == 49 || min == 50
-                        || min == 51 || min == 52 || min == 53 || min == 54 || min == 55 || min == 56 || min == 57
-                        || min == 58 || min == 59 || min == 60) && sec == 0) {
+                if (sec == 0) {
                     // Manager.serverChat("Server", "Gia Đình BOTNET chào ae ghé chơi");
                     SaveData saveData = new SaveData();
                     Thread t1 = new Thread(saveData);
@@ -531,78 +525,78 @@ public class RunTimeServer extends Thread {
                     }
                 }
 
-                for (j = 0; j < this.hoursRefreshBossVDMQ.length; ++j) {
-                    if (this.hoursRefreshBossVDMQ[j] == hour) {
-                        if (!this.isRefreshBossVDMQ[j]) {
-                            String textchat = "BOSS đã xuất hiện tại:";
-                            for (k = 0; k < this.mapBossVDMQ.length; ++k) {
-                                map = Manager.getMapid(this.mapBossVDMQ[k]);
-                                if (map != null) {
-                                    map.refreshBoss((int) Util.nextInt(15, 28));
-                                    if (k == 0) {
-                                        textchat = textchat + " " + map.template.name;
-                                    } else {
-                                        textchat = textchat + ", " + map.template.name;
-                                    }
-                                    this.isRefreshBossVDMQ[j] = true;
-                                }
-                            }
-                            Manager.chatKTG(textchat);
-                        }
-                    } else {
-                        this.isRefreshBossVDMQ[j] = false;
-                    }
-                }
-                for (j = 0; j < this.hoursRefreshBoss.length; ++j) {
-                    if (this.hoursRefreshBoss[j] == hour) {
-                        if (!this.isRefreshBoss[j]) {
-                            String textchat = "Thần thú đã xuất hiện tại:";
-                            for (k = 0; k < Util.nextInt(1, 2); ++k) {
-                                map = Manager.getMapid(this.mapBoss75[Util.nextInt(this.mapBoss75.length)]);
-                                if (map != null) {
-                                    map.refreshBoss((int) Util.nextInt(15, 28));
-                                    textchat = textchat + " " + map.template.name;
-                                    this.isRefreshBoss[j] = true;
-                                }
-                            }
-                            for (k = 0; k < Util.nextInt(1, 2); ++k) {
-                                map = Manager.getMapid(this.mapBoss65[Util.nextInt(this.mapBoss65.length)]);
-                                if (map != null) {
-                                    map.refreshBoss((int) Util.nextInt(15, 28));
-                                    textchat = textchat + ", " + map.template.name;
-                                    this.isRefreshBoss[j] = true;
-                                }
-                            }
-                            for (k = 0; k < Util.nextInt(1, 2); ++k) {
-                                map = Manager.getMapid(this.mapBoss55[Util.nextInt(this.mapBoss55.length)]);
-                                if (map != null) {
-                                    map.refreshBoss((int) Util.nextInt(15, 28));
-                                    textchat = textchat + ", " + map.template.name;
-                                    this.isRefreshBoss[j] = true;
-                                }
-                            }
-                            for (k = 0; k < Util.nextInt(1, 2); ++k) {
-                                map = Manager.getMapid(this.mapBoss45[Util.nextInt(this.mapBoss45.length)]);
-                                if (map != null) {
-                                    map.refreshBoss((int) Util.nextInt(15, 28));
-                                    textchat = textchat + ", " + map.template.name;
-                                    this.isRefreshBoss[j] = true;
-                                }
-                            }
-                            // for (byte k = 0; k < Server.mapBossVDMQ.length; ++k) {
-                            // Map map = Manager.getMapid(Server.mapBossVDMQ[k]);
-                            // if (map != null) {
-                            // map.refreshBoss(util.nextInt(15, 30));
-                            // textchat = textchat + ", " + map.template.name;
-                            // Server.isRefreshBoss[j] = true;
-                            // }
-                            // }
-                            Manager.chatKTG(textchat);
-                        }
-                    } else {
-                        this.isRefreshBoss[j] = false;
-                    }
-                }
+                // for (j = 0; j < this.hoursRefreshBossVDMQ.length; ++j) {
+                //     if (this.hoursRefreshBossVDMQ[j] == hour) {
+                //         if (!this.isRefreshBossVDMQ[j]) {
+                //             String textchat = "BOSS đã xuất hiện tại:";
+                //             for (k = 0; k < this.mapBossVDMQ.length; ++k) {
+                //                 map = Manager.getMapid(this.mapBossVDMQ[k]);
+                //                 if (map != null) {
+                //                     map.refreshBoss((int) Util.nextInt(15, 28));
+                //                     if (k == 0) {
+                //                         textchat = textchat + " " + map.template.name;
+                //                     } else {
+                //                         textchat = textchat + ", " + map.template.name;
+                //                     }
+                //                     this.isRefreshBossVDMQ[j] = true;
+                //                 }
+                //             }
+                //             Manager.chatKTG(textchat);
+                //         }
+                //     } else {
+                //         this.isRefreshBossVDMQ[j] = false;
+                //     }
+                // }
+                // for (j = 0; j < this.hoursRefreshBoss.length; ++j) {
+                //     if (this.hoursRefreshBoss[j] == hour) {
+                //         if (!this.isRefreshBoss[j]) {
+                //             String textchat = "Thần thú đã xuất hiện tại:";
+                //             for (k = 0; k < Util.nextInt(1, 2); ++k) {
+                //                 map = Manager.getMapid(this.mapBoss75[Util.nextInt(this.mapBoss75.length)]);
+                //                 if (map != null) {
+                //                     map.refreshBoss((int) Util.nextInt(15, 28));
+                //                     textchat = textchat + " " + map.template.name;
+                //                     this.isRefreshBoss[j] = true;
+                //                 }
+                //             }
+                //             for (k = 0; k < Util.nextInt(1, 2); ++k) {
+                //                 map = Manager.getMapid(this.mapBoss65[Util.nextInt(this.mapBoss65.length)]);
+                //                 if (map != null) {
+                //                     map.refreshBoss((int) Util.nextInt(15, 28));
+                //                     textchat = textchat + ", " + map.template.name;
+                //                     this.isRefreshBoss[j] = true;
+                //                 }
+                //             }
+                //             for (k = 0; k < Util.nextInt(1, 2); ++k) {
+                //                 map = Manager.getMapid(this.mapBoss55[Util.nextInt(this.mapBoss55.length)]);
+                //                 if (map != null) {
+                //                     map.refreshBoss((int) Util.nextInt(15, 28));
+                //                     textchat = textchat + ", " + map.template.name;
+                //                     this.isRefreshBoss[j] = true;
+                //                 }
+                //             }
+                //             for (k = 0; k < Util.nextInt(1, 2); ++k) {
+                //                 map = Manager.getMapid(this.mapBoss45[Util.nextInt(this.mapBoss45.length)]);
+                //                 if (map != null) {
+                //                     map.refreshBoss((int) Util.nextInt(15, 28));
+                //                     textchat = textchat + ", " + map.template.name;
+                //                     this.isRefreshBoss[j] = true;
+                //                 }
+                //             }
+                //             // for (byte k = 0; k < Server.mapBossVDMQ.length; ++k) {
+                //             // Map map = Manager.getMapid(Server.mapBossVDMQ[k]);
+                //             // if (map != null) {
+                //             // map.refreshBoss(util.nextInt(15, 30));
+                //             // textchat = textchat + ", " + map.template.name;
+                //             // Server.isRefreshBoss[j] = true;
+                //             // }
+                //             // }
+                //             Manager.chatKTG(textchat);
+                //         }
+                //     } else {
+                //         this.isRefreshBoss[j] = false;
+                //     }
+                // }
                 // //thông báo Boss Tết ra ...
                 // for (int i1 = 0; i1 < hoursRefreshBossSKTet.length; i1++) {
                 // if (hoursRefreshBossSKTet[i1] == hour) {
@@ -627,6 +621,7 @@ public class RunTimeServer extends Thread {
 
                 // }
                 refreshBossLC();
+                Boss.refreshBoss();
                 Thread.sleep(1000L);
             }
             

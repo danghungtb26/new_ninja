@@ -473,7 +473,7 @@ public class HandleController {
                     item.y = p.c.get().y;
                     item.itemMapId = itemmapid;
                     item.item = itembag;
-                    item.master = p.c.id;
+                    // item.master = p.c.id;
                     if (tileMap != null) {
                         tileMap.itemMap.add(item);
                     } else if (tdbTileMap != null) {

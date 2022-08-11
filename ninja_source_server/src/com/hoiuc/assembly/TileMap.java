@@ -59,6 +59,16 @@ public class TileMap {
 
     }
 
+    public ArrayList<Mob> getBossList() {
+        ArrayList<Mob> arr = new ArrayList<Mob>();
+        for (int j = 0; j < this.mobs.size(); ++j) {
+            if (this.mobs.get(j).isboss) {
+                arr.add(this.mobs.get(j));
+            } 
+        }
+        return arr;
+    }
+
     public void sendMyMessage(Player p, Message m) {
         try {
             int i;
@@ -1467,10 +1477,13 @@ public class TileMap {
             }
 
             if (this.map.cave == null && mob3.isboss && mob3.templates.id != 230) {
-                if (_char.isNhanban && mob3.isboss && Math.abs(_char.clone.level - mob3.level) > 0) {
+                if (_char.isNhanban && Math.abs(_char.clone.level - mob3.level) > 0) {
                     dame = 1;
-                } else if (_char.isHuman && Math.abs(_char.level - mob3.level) > 0) {
-                    dame = 3000000;
+                } else if (_char.isHuman && Math.abs(_char.level - mob3.level) > 10 && mob3.level < 75 ) {
+                    dame = 1;
+                }
+                if (Util.isDebug()) {
+                    dame = 30000000;
                 }
             }
 
@@ -3572,7 +3585,7 @@ public class TileMap {
                     this.removeItemMapMessage(itemMap.itemMapId);
                     this.itemMap.remove(i);
                     i--;
-                } else if (itemMap.removedelay - System.currentTimeMillis() < 5000L && itemMap.master != -1
+                } else if (itemMap.removedelay - System.currentTimeMillis() < 10000L && itemMap.master != -1
                         && itemMap.item.id != 218) {
                     itemMap.master = -1;
                 }

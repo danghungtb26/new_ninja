@@ -3,6 +3,7 @@ package com.hoiuc.assembly;
 import com.hoiuc.io.Util;
 import com.hoiuc.server.Service;
 import com.hoiuc.server.Session;
+import com.hoiuc.stream.Boss;
 import com.hoiuc.stream.ChienTruong;
 import com.hoiuc.stream.Client;
 import com.hoiuc.stream.Server;
@@ -383,6 +384,7 @@ public class Mob {
             if (this.isboss) {
                 if (this.tileMap.map.cave == null) {
                     Service.chatKTG(_char.name + " đã tiêu diệt " + this.templates.name);
+                    Boss.handleAfterBossDie(this.tileMap, this);
                     int i;
                     for (i = 0; i < 10; i++) {
                         ItemLeave.leaveYen(this.tileMap, this, master);
