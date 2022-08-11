@@ -1106,10 +1106,10 @@ public void updatetx() {
                 p.conn.sendMessageLog("Chờ sau " + (p.chatKTGdelay - System.currentTimeMillis()) / 1000L + "s.");
             } else {
                 p.chatKTGdelay = System.currentTimeMillis() + 5000L;
-                if (p.luong < 10) {
-                    p.conn.sendMessageLog("Bạn không đủ 10 lượng trên người.");
+                if (p.luong < 5) {
+                    p.conn.sendMessageLog("Bạn không đủ 5 lượng trên người.");
                 } else {
-                    p.luongMessage(-10L);
+                    p.luongMessage(-5L);
                     serverChat(p.c.name, chat);
                 }
             }

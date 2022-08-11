@@ -2621,11 +2621,11 @@ public class TileMap {
                                 dame = 6500;
                         }
                     } else {
-                        dame = mob.level * mob.level / 5;
+                        dame = mob.level * mob.level / 6;
                         if (this.map.cave != null && this.map.cave.finsh > 0 && this.map.getXHD() == 6) {
                             dame = dame * (10 * this.map.cave.finsh + 100) / 100;
                         }
-
+                        
                         if (mob.level < 60) {
                             switch (mob.lvboss) {
                                 case 1:
@@ -2643,7 +2643,7 @@ public class TileMap {
                                     dame *= 3;
                                     break;
                                 case 2:
-                                    dame *= 5;
+                                    dame *= 4;
 
                                     break;
                                 case 3:

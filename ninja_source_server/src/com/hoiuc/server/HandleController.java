@@ -292,10 +292,10 @@ public class HandleController {
                     p.conn.sendMessageLog("Chờ sau " + (p.chatKTGdelay - System.currentTimeMillis()) / 1000L + "s.");
                 } else {
                     p.chatKTGdelay = System.currentTimeMillis() + 5000L;
-                    if (p.luong < 10) {
-                        p.conn.sendMessageLog("Bạn không đủ 10 lượng trên người.");
+                    if (p.luong < 5) {
+                        p.conn.sendMessageLog("Bạn không đủ 5 lượng trên người.");
                     } else {
-                        p.luongMessage(-10L);
+                        p.luongMessage(-5L);
                         Service.serverChat(p.c.name, chat);
                     }
                 }
@@ -511,11 +511,11 @@ public class HandleController {
         if (p != null && p.conn != null && p.c != null && p.c.isDie && p.c.tileMap != null) {
             TileMap tileMap = p.c.tileMap;
             if (!tileMap.map.LangCo() && tileMap.map.dun == null) {
-                if (p.luong < 10) {
-                    p.conn.sendMessageLog("Bạn không đủ 10 lượng để hồi sinh!");
+                if (p.luong < 1) {
+                    p.conn.sendMessageLog("Bạn không đủ 1 lượng để hồi sinh!");
                 } else {
                     p.c.get().isDie = false;
-                    p.luongMessage(-10L);
+                    p.luongMessage(-1L);
                     p.c.get().hp = p.c.get().getMaxHP();
                     p.c.get().mp = (long) p.c.get().getMaxMP();
                     p.liveFromDead();
