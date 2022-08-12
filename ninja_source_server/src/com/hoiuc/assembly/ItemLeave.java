@@ -5,7 +5,7 @@ import com.hoiuc.stream.Server;
 
 public class ItemLeave {
     public static short[] arrTrangBiXeSoi = new short[] { 439, 440, 441, 442, 488, 489, 487, 486 };
-    public static short[] arrExpXeSoi = new short[] { 573, 574, 575, 576, 577, 578, 778 };
+    public static short[] arrExpXeSoi = new short[] { 573, 574, 575, 576, 577, 778 };
     public static short[] arrItemOrther = new short[] { -1, -1, -1, -1, -1, -1, 10000, 10000, 10001, 10001, 4, 4, 4, 4,
             4, 4, 4, 4, 5, 5, 5, 5, 6, 38, 38 };
     public static short[] arrItemSuKienHe = new short[] { 428, 429, 430, 431 };
@@ -399,7 +399,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(650);
+            int perCentTB = Util.nextInt(350);
             if (perCentTB == 0) {
                 im = place.LeaveItem((short) 524, mob3.x, mob3.y, mob3.templates.type, false);
             } else if (perCentTB == 1) {
@@ -437,7 +437,7 @@ public class ItemLeave {
     public static void leaveEXPLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentEXP = Util.nextInt(150);
+            int perCentEXP = Util.nextInt(35);
             if (perCentEXP < 7) {
                 im = place.LeaveItem((short) arrExpXeSoi[Util.nextInt(arrExpXeSoi.length)], mob3.x, mob3.y,
                         mob3.templates.type, false);
@@ -473,20 +473,21 @@ public class ItemLeave {
     public static void leaveTTTLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTTT = Util.nextInt(410);
-             if (perCentTTT >= 100 && perCentTTT <= 105) {
+            int perCentTTT = Util.nextInt(250);
+             if (perCentTTT >= 80 && perCentTTT <= 125) {
                 // Tinh thạch sơ
                 im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);
-            } else if (perCentTTT >= 190 && perCentTTT <= 194) {
+            } else if (perCentTTT >= 190 && perCentTTT <= 199) {
                 // tinh thạch trung
                 im = place.LeaveItem((short) 456, mob3.x, mob3.y, mob3.templates.type, false);
-            } else if (perCentTTT <= 30) {
+            } else if (perCentTTT <= 25) {
                 // Chuyển tinh thạch
                 im = place.LeaveItem((short) 454, mob3.x, mob3.y, mob3.templates.type, false);
-            } else if (Util.nextInt(2000) == 1990) {
-                // tinh thạch cao
-                im = place.LeaveItem((short) 457, mob3.x, mob3.y, mob3.templates.type, false);
             }
+            //  else if (Util.nextInt(2000) == 1990) {
+            //     // tinh thạch cao
+            //     im = place.LeaveItem((short) 457, mob3.x, mob3.y, mob3.templates.type, false);
+            // }
         } catch (Exception e) {
             e.printStackTrace();
         }

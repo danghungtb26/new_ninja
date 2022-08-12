@@ -5,13 +5,13 @@ import com.hoiuc.io.Util;
 public class DanhVongTemplate {
     public static int[] idDaDanhVong = new int[]{695, 696, 697, 698, 699, 700, 701, 702, 703, 704};
     public static int[] typeNV = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    public static String[] nameNV = new String[]{"- Tham gia vòng xoay may mắn vip %d/%d lần",
-            "- Tham gia vòng xoay may mắn thường %d/%d lần",
+    public static String[] nameNV = new String[]{"- Giành chiến thắng và nhận xu trong lôi đài %d/%d lần",
+            "- Luyện thành công đá 11: %d/%d lần",
             "- Giành chiến thắng và nhận xu trong lôi đài %d/%d lần",
             "- Luyện thành công đá 11: %d/%d lần",
             "- Lật hình %d/%d lần",
-            "- Tăng điểm hiếu chiến %d/%d lần",
-            "- Hạ gục %d/%d bù nhìn",
+            "- Lật hình %d/%d lần",
+            "- Lật hình %d/%d lần",
             "- Tiêu diệt %d/%d quái thường không lệch quá 10 cấp độ",
             "- Tiêu diệt %d/%d tinh anh không lệch quá 10 cấp độ",
             "- Tiêu diệt %d/%d thủ lĩnh không lệch quá 10 cấp độ"};

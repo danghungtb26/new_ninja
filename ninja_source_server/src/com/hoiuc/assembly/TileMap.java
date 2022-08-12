@@ -3803,19 +3803,19 @@ public class TileMap {
                                     int yenup = 0;
                                     switch (itemmap.checkMob) {
                                         case 0: {
-                                            yenup = 10000;
+                                            yenup = 5000;
                                             break;
                                         }
                                         case 1: {
-                                            yenup = 20000;
+                                            yenup = 10000;
                                             break;
                                         }
                                         case 2: {
-                                            yenup = 50000;
+                                            yenup = 20000;
                                             break;
                                         }
                                         case 4: {
-                                            yenup = 100000;
+                                            yenup = 40000;
                                             break;
                                         }
                                     }

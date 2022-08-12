@@ -384,12 +384,8 @@ public class Mob {
             if (this.isboss) {
                 if (this.tileMap.map.cave == null) {
                     Service.chatKTG(_char.name + " đã tiêu diệt " + this.templates.name);
-                    Boss.handleAfterBossDie(this.tileMap, this);
-                    int i;
-                    for (i = 0; i < 10; i++) {
-                        ItemLeave.leaveYen(this.tileMap, this, master);
-                    }
-                    ItemLeave.leaveItemBOSS(this.tileMap, this, master);
+                    Boss.handleAfterBossDie(this.tileMap, this, master);
+                    // ItemLeave.leaveItemBOSS(this.tileMap, this, master);
                 } else if (this.tileMap.map.cave != null && this.tileMap.map.getXHD() == 9 && ((this.tileMap.map.id == 157 && this.tileMap.map.cave.level == 0) || (this.tileMap.map.id == 158 && this.tileMap.map.cave.level == 1) || (this.tileMap.map.id == 159 && this.tileMap.map.cave.level == 2)) && Util.nextInt(3) < 3) {
                     ItemLeave.leaveYen(this.tileMap, this, master);
                     ItemLeave.leaveYen(this.tileMap, this, master);
