@@ -30,8 +30,8 @@ public class UseItem {
     public static short[] idItemRuongTinhXao = new short[]{4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 9, 436, 437, 242, 242, 280, 280, 280, 283, 436, 437, 437 };
     public static short[] idItemHopBanhThuong = new short[]{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6,6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7,8,8, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419, 436, 436, 436, 436, 436, 437, 437, 443, 485, 524, 549, 550, 551, 568, 569, 570, 571, 577, 742 };
     public static short[] idItemHopBanhThuongHang = new short[]{4, 4, 4, 4, 4, 4, 4, 5, 5, 5,5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7,7,7,7, 8,8,8,9,9,10,10,11,11, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419, 436, 436, 436, 436, 436, 436, 437, 437, 438, 443, 485, 524, 567, 567, 549, 550, 551, 568, 569, 570, 571,308,309 , 577, 742};
-    public static short[] idItemDieuGiay = new short[]{ 4,603, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 8, 9, 275, 276, 277, 278, 289, 289,869,454,455,456,457, 340, 340, 383, 409, 410, 436, 436, 436, 436, 436, 437, 437, 443, 485, 524, 549, 550, 551, 569, 577, 742 };
-    public static short[] idItemDieuVai = new short[]{ 4, 4,603, 5, 5, 6, 6, 7, 7, 8, 9, 10,11, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419,869,454,455,456,457, 436, 436, 436, 436, 436, 436, 437, 437, 438, 443, 485, 524, 567, 567, 549, 550, 551, 569, 577, 742 , 781};
+    public static short[] idItemDieuGiay = DropRate.arrItemDieuGiay();
+    public static short[] idItemDieuVai = DropRate.arrItemDieuVai();
     public static short[] idItemRuongMaQuai = new short[]{ 4,603, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 280, 280, 280, 436, 437, 436, 437, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637 };
     public static short[] idItemPhucNangNhanGia = new short[]{-1,-1,-1,-1,603,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,-1};
     public static short[] idItemBanhChocolate = new short[]{4, 4, 4, 4,4,4,4,4,4,4,4,4,4,4,4,4, 5,5,5,5,5,5,5,5,5,5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7,7,7,7,7,7,7,7,7, 8, 9, 275, 276, 277, 278, 289, 289, 340, 340, 383, 409, 410, 436, 436,5,5,5,5,6,6,6,6,6,6, 7,7,7, 437, 443, 485, 524, 549, 550, 551, 549, 550, 551,569,574,5,5,5,5, 6, 6,6,6,6,6,6,6, 7, 7,7,7, 577,575,578, 742 ,673,775};
@@ -1374,7 +1374,7 @@ case 995: {//lượng
                         }
                         p.c.removeItemBag(index, 1);
                         p.updateExp(1500000L);
-                        if (Util.nextInt(10) != 0) {
+                        if (Util.nextInt(5) != 0) {
                             p.updateExp(3000000L);
                         } else {
                             short idI = UseItem.idItemDieuGiay[Util.nextInt(UseItem.idItemDieuGiay.length)];
@@ -1400,15 +1400,9 @@ case 995: {//lượng
                         }
                         p.c.removeItemBag(index, 1);
                         p.updateExp(2000000L);
-                        int perRuong = Util.nextInt(200);
-                        if (Util.nextInt(10) != 0) {
+                        if (Util.nextInt(5) != 0) {
                             p.updateExp(5000000L);
-                        } else if (perRuong == 50) {
-                            p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(385).name);
-                        } else if (perRuong <= 1) {
-                            p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
-                        } else {
+                        }else {
                             short idI = UseItem.idItemDieuVai[Util.nextInt(UseItem.idItemDieuVai.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;

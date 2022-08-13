@@ -1810,13 +1810,13 @@ public class HandleController {
                         player.c.tdbTileMap.FightNinja(player, m);
                     } else {
                         player.c.tileMap.FightNinja(player, m);
-                    } 
-                } 
+                    }
+                }
 
                 // if (player.conn != null) {
-                //     player.c.tileMap.FightNinja(player, m);
+                // player.c.tileMap.FightNinja(player, m);
                 // } else if (player.c.tdbTileMap != null) {
-                //     player.c.tdbTileMap.FightNinja(player, m);
+                // player.c.tdbTileMap.FightNinja(player, m);
                 // }
 
             }
@@ -2354,7 +2354,6 @@ public class HandleController {
                     player.c.soluongitem++;
                     player.c.ItemBag[index] = null;
                     player.c.upxuMessage(-5000);
-                    player.upluongMessage(-5);
                     Service.sendItemToAuction(player.c, index, xu);
                     Service.CharViewInfo(player, false);
                 } else {
@@ -2416,9 +2415,9 @@ public class HandleController {
                     }
                     Char _char = Client.gI().getNinja(itemShinwa.getSeller());
                     if (_char != null) {
-                        _char.upxuMessage((long) itemShinwa.getPrice() * 99 / 100);
+                        _char.upxuMessage((long) itemShinwa.getPrice() * 95 / 100);
                         _char.p.sendAddchatYellow(
-                                "Bạn vừa nhận được " + itemShinwa.getPrice() * 99 / 100 + " từ đồ đấu giá tại Shinwa.");
+                                "Bạn vừa nhận được " + itemShinwa.getPrice() * 95 / 100 + " từ đồ đấu giá tại Shinwa.");
                     } else {
                         synchronized (Server.LOCK_MYSQL) {
                             try {
@@ -2426,7 +2425,7 @@ public class HandleController {
                                         "SELECT * FROM `ninja` WHERE `name`='" + itemShinwa.getSeller() + "';");
                                 if (res.next()) {
                                     long xuOld = res.getLong("xu");
-                                    xuOld += itemShinwa.getPrice() * 99 / 100;
+                                    xuOld += itemShinwa.getPrice() * 95 / 100;
                                     if (xuOld > 2000000000L) {
                                         xuOld = 2000000000L;
                                     }
@@ -2497,6 +2496,40 @@ public class HandleController {
                     }
                     case 16: {
                         GameSrc.nangntgt(player, player.c.ItemBody[13], 1); // nâng ntgt
+                        break;
+                    }
+                    case 100: {
+                        BiKip.nangbikip(player, player.c.ItemBody[15], false);
+                        break;
+                    }
+                    case 101: {
+                        BiKip.nangbikip(player, player.c.ItemBody[15], true);
+                        break;
+                    }
+                    case 102: {
+                        BiKip.handleMuaBiKkip(player);
+                        break;
+                    }
+                    case 103: {
+                        if (player.c.isNhanban) {
+                            player.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
+                            return;
+                        }
+
+                        if (player.c.maxluggage >= 120) {
+                            player.conn.sendMessageLog("Đã mở 120 ô rồi mà");
+                            return;
+                        }
+                        player.upluongMessage(10000);
+                        player.c.levelBag = 5;
+                        player.c.maxluggage = 120;
+                        Item[] bag = new Item[player.c.maxluggage];
+                        short j;
+                        for (j = 0; j < player.c.ItemBag.length; ++j) {
+                            bag[j] = player.c.ItemBag[j];
+                        }
+                        player.c.ItemBag = bag;
+                        player.openBagLevel((byte) 5);
                         break;
                     }
                     // Mời ldgt
@@ -3602,36 +3635,37 @@ public class HandleController {
                     byte gender = m.reader().readByte();
                     byte head = m.reader().readByte();
                     if (Util.CheckString(name, "^[a-zA-Z0-9]+$") && name.length() >= 6 && name.length() <= 15) {
-                        // if (player.sortNinja[0] != null) {
-                        // player.conn.sendMessageLog("Để tránh tạo nhiều clone gây lag server, không
-                        // tạo thêm nhân vật!");
-                        // } else {
-                        synchronized (Server.LOCK_MYSQL) {
-                            ResultSet red = SQLManager.stat
-                                    .executeQuery("SELECT `id` FROM `ninja` WHERE `name`LIKE'" + name + "';");
-                            if (red != null && red.first()) {
-                                player.conn.sendMessageLog("Tên nhân vật đã tồn tại!");
-                                return;
-                            }
-                            red.close();
-                            SQLManager.stat.executeUpdate(
-                                    "INSERT INTO ninja(`name`,`gender`,`head`,`ItemBag`,`ItemBox`,`ItemBST`,`ItemCaiTrang`,`ItemBody`,`ItemMounts`) VALUES (\""
-                                            + name + "\"," + gender + "," + head + ",'[]','[]','[]','[]','[]','[]');");
-                            byte i = 0;
-                            while (true) {
-                                if (i < player.sortNinja.length) {
-                                    if (player.sortNinja[i] != null) {
-                                        i++;
-                                        continue;
-                                    }
-                                    player.sortNinja[i] = name;
+                        if (player.sortNinja[0] != null) {
+                            player.conn
+                                    .sendMessageLog("Để tránh tạo nhiều clone gây lag server, khôngtạo thêm nhân vật!");
+                        } else {
+                            synchronized (Server.LOCK_MYSQL) {
+                                ResultSet red = SQLManager.stat
+                                        .executeQuery("SELECT `id` FROM `ninja` WHERE `name`LIKE'" + name + "';");
+                                if (red != null && red.first()) {
+                                    player.conn.sendMessageLog("Tên nhân vật đã tồn tại!");
+                                    return;
                                 }
-                                break;
+                                red.close();
+                                SQLManager.stat.executeUpdate(
+                                        "INSERT INTO ninja(`name`,`gender`,`head`,`ItemBag`,`ItemBox`,`ItemBST`,`ItemCaiTrang`,`ItemBody`,`ItemMounts`) VALUES (\""
+                                                + name + "\"," + gender + "," + head
+                                                + ",'[]','[]','[]','[]','[]','[]');");
+                                byte i = 0;
+                                while (true) {
+                                    if (i < player.sortNinja.length) {
+                                        if (player.sortNinja[i] != null) {
+                                            i++;
+                                            continue;
+                                        }
+                                        player.sortNinja[i] = name;
+                                    }
+                                    break;
+                                }
                             }
+                            player.flush();
+                            HandleController.selectNinja(player, null);
                         }
-                        player.flush();
-                        HandleController.selectNinja(player, null);
-                        // }
                     } else {
                         player.conn.sendMessageLog(
                                 "Tên nhân vật chỉ chứa các ký tự từ a-z,0-9 và chiều dài từ 6 đến 15 ký tự!");

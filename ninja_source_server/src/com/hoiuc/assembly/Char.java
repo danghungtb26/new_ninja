@@ -80,7 +80,7 @@ public class Char extends Body {
     public int isDiemDanh = 0;
     public int isQuaHangDong = 0;
     public int countHangDong = 0;
-    public int[] checkLevel = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+    public int[] checkLevel = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public int testCharID = -9999;
     public boolean isTest = false;
     public int KillCharId = -9999;
@@ -91,9 +91,9 @@ public class Char extends Body {
     public int isTaskHangNgay = 0;
     public int isTaskTaThu = 0;
     public int isTaskDanhVong = 0;
-    public int[] taskHangNgay = new int[]{-1, -1, -1, -1, -1, 0, 0};
-    public int[] taskTaThu = new int[]{-1, -1, -1, -1, -1, 0, 0};
-    public int[] taskDanhVong = new int[]{-1, -1, -1, 0, 20};
+    public int[] taskHangNgay = new int[] { -1, -1, -1, -1, -1, 0, 0 };
+    public int[] taskTaThu = new int[] { -1, -1, -1, -1, -1, 0, 0 };
+    public int[] taskDanhVong = new int[] { -1, -1, -1, 0, 20 };
     public int pointUydanh = 0;
     public int pointNon = 0;
     public int pointVukhi = 0;
@@ -105,10 +105,10 @@ public class Char extends Body {
     public int pointNgocboi = 0;
     public int pointGiay = 0;
     public int pointPhu = 0;
-    public int diemtanghoa =0;
-    public short diemhoado =0;
-    public short diemhoavang =0;
-    public short diemhoaxanh =0;
+    public int diemtanghoa = 0;
+    public short diemhoado = 0;
+    public short diemhoavang = 0;
+    public short diemhoaxanh = 0;
     public int countTaskHangNgay = 0;
     public int countTaskTaThu = 0;
     public int countTaskDanhVong = 20;
@@ -156,7 +156,7 @@ public class Char extends Body {
     public long exptutien = 0L;
     public int leveltutien = 0;
     public int pointBossChuot = 0;
-    public int nhanTP = 0; //nhan diem Trang Phao
+    public int nhanTP = 0; // nhan diem Trang Phao
     public int countPhao = 0;
     public long expttd = 0L;
     public int lvttd = 0;
@@ -168,16 +168,18 @@ public class Char extends Body {
     public int lvph = 0;
     public long expnt = 0L;
     public int lvnt = 0;
-    
-    //exp chuyen sinh
+
+    // exp chuyen sinh
     public long expCS = 0;
     public int chuyenSinh = 0;
     public byte cailao = 0;
-    
-    //Đua top vũ khí
+
+    // Đua top vũ khí
     public int luongTop = 0;
 
-    //public HashMap<Short, Skill> idSkillBot = new HashMap<>();
+    public int nhanbikip = 0;
+
+    // public HashMap<Short, Skill> idSkillBot = new HashMap<>();
     public ArrayList<Short> idSkillBot = new ArrayList<>();
     public int soluongitem;
 
@@ -194,13 +196,13 @@ public class Char extends Body {
         if (this.isNhanban) {
             b = this.clone;
         }
-        return (Body)b;
+        return (Body) b;
     }
 
     public byte getBagNull() {
         byte num = 0;
         byte i;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             if (this.ItemBag[i] == null) {
                 ++num;
             }
@@ -209,7 +211,7 @@ public class Char extends Body {
     }
 
     public int getPointDanhVong(int type) {
-        switch(type) {
+        switch (type) {
             case 0:
                 return this.pointNon;
             case 1:
@@ -236,12 +238,13 @@ public class Char extends Body {
     }
 
     public boolean avgPointDanhVong(int point) {
-        int avg = (this.pointNon + this.pointVukhi + this.pointAo + this.pointLien + this.pointGangtay + this.pointNhan + this.pointQuan + this.pointNgocboi + this.pointGiay + this.pointPhu) / 10;
+        int avg = (this.pointNon + this.pointVukhi + this.pointAo + this.pointLien + this.pointGangtay + this.pointNhan
+                + this.pointQuan + this.pointNgocboi + this.pointGiay + this.pointPhu) / 10;
         return point > avg;
     }
 
     public void plusPointDanhVong(int type, int point) {
-        switch(type) {
+        switch (type) {
             case 0:
                 this.pointNon += point;
                 break;
@@ -276,20 +279,25 @@ public class Char extends Body {
     }
 
     public boolean checkPointDanhVong(int type) {
-        return this.pointNon >= 100 * type && this.pointAo >= 100 * type && this.pointGiay >= 100 * type && this.pointGangtay >= 100 * type && this.pointLien >= 100 * type && this.pointNgocboi >= 100 * type && this.pointNhan >= 100 * type && this.pointPhu >= 100 * type && this.pointQuan >= 100 * type && this.pointVukhi >= 100 * type;
+        return this.pointNon >= 100 * type && this.pointAo >= 100 * type && this.pointGiay >= 100 * type
+                && this.pointGangtay >= 100 * type && this.pointLien >= 100 * type && this.pointNgocboi >= 100 * type
+                && this.pointNhan >= 100 * type && this.pointPhu >= 100 * type && this.pointQuan >= 100 * type
+                && this.pointVukhi >= 100 * type;
     }
-public void datatx() {
+
+    public void datatx() {
         if (this.tai == true)
-          this.taixiu = "Tài"; 
+            this.taixiu = "Tài";
         if (this.xiu == true)
-          this.taixiu = "Xỉu"; 
+            this.taixiu = "Xỉu";
         if (!this.tai && !this.xiu)
-          this.taixiu = "Bạn chưa đặt cược."; 
+            this.taixiu = "Bạn chưa đặt cược.";
     }
+
     public byte getBoxNull() {
         byte num = 0;
         byte i;
-        for(i = 0; i < this.ItemBox.length; ++i) {
+        for (i = 0; i < this.ItemBox.length; ++i) {
             if (this.ItemBox[i] == null) {
                 ++num;
             }
@@ -317,7 +325,7 @@ public void datatx() {
         int quantity = 0;
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             item = this.ItemBag[i];
             if (item != null && item.id == id) {
                 quantity += item.quantity;
@@ -330,7 +338,7 @@ public void datatx() {
     public Item getItemIdBag(int id) {
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             item = this.ItemBag[i];
             if (item != null && item.id == id) {
                 return item;
@@ -343,7 +351,7 @@ public void datatx() {
     public byte getIndexBagid(int id, boolean lock) {
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             item = this.ItemBag[i];
             if (item != null && item.id == id && item.isLock == lock) {
                 return i;
@@ -356,7 +364,7 @@ public void datatx() {
     public byte getIndexBoxid(int id, boolean lock) {
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBox.length; ++i) {
+        for (i = 0; i < this.ItemBox.length; ++i) {
             item = this.ItemBox[i];
             if (item != null && item.id == id && item.isLock == lock) {
                 return i;
@@ -369,7 +377,7 @@ public void datatx() {
     protected byte getIndexBagItem(int id, boolean lock) {
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             item = this.ItemBag[i];
             if (item != null && item.id == id && item.isLock == lock) {
                 return i;
@@ -382,7 +390,7 @@ public void datatx() {
     public byte getIndexBagNotItem() {
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             item = this.ItemBag[i];
             if (item == null) {
                 return i;
@@ -395,7 +403,7 @@ public void datatx() {
     public byte getIndexBoxNotItem() {
         byte i;
         Item item;
-        for(i = 0; i < this.ItemBox.length; ++i) {
+        for (i = 0; i < this.ItemBox.length; ++i) {
             item = this.ItemBox[i];
             if (item == null) {
                 return i;
@@ -417,21 +425,22 @@ public void datatx() {
             m.writer().writeLong(this.get().exp);
             m.writer().writeShort(this.get().spoint);
             m.writer().writeShort(this.get().ppoint);
-            m.writer().writeShort((int)this.get().potential0);
-            m.writer().writeShort((int)this.get().potential1);
-            m.writer().writeInt((int)this.get().potential2);
-            m.writer().writeLong((int)this.get().potential3);
+            m.writer().writeShort((int) this.get().potential0);
+            m.writer().writeShort((int) this.get().potential1);
+            m.writer().writeInt((int) this.get().potential2);
+            m.writer().writeLong((int) this.get().potential3);
             m.writer().flush();
             this.p.conn.sendMessage(m);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
 
     }
+
     public boolean addItemBag(Boolean uptoup, Item itemup) {
         try {
             byte index = this.getIndexBagid(itemup.id, itemup.isLock);
@@ -479,7 +488,7 @@ public void datatx() {
 
         Item item;
         byte i;
-        for(i = 0; i < this.ItemBag.length; ++i) {
+        for (i = 0; i < this.ItemBag.length; ++i) {
             item = this.ItemBag[i];
             if (item != null && item.id == id) {
                 if (num + item.quantity >= quantity) {
@@ -492,21 +501,19 @@ public void datatx() {
             }
         }
     }
-    
+
     public void removeItemBox() {
-        byte i;        
-        for(i = 0; i < this.ItemBox.length; ++i) {
+        byte i;
+        for (i = 0; i < this.ItemBox.length; ++i) {
             Item itemup = ItemBox[i];
             if (this.ItemBox[i] == null) {
                 return;
-            }
-            else {
-            this.removeItemBox(i);
+            } else {
+                this.removeItemBox(i);
             }
         }
-        
+
     }
-    
 
     public synchronized void removeItemBag(byte index, int quantity) {
         Item item = this.getIndexBag(index);
@@ -553,7 +560,7 @@ public void datatx() {
         try {
             this.get().ItemBody[index] = null;
             if (index == 10) {
-                this.p.mobMeMessage(0, (byte)0);
+                this.p.mobMeMessage(0, (byte) 0);
             }
             m = new Message(-30);
             m.writer().writeByte(-80);
@@ -561,9 +568,9 @@ public void datatx() {
             m.writer().flush();
             this.p.conn.sendMessage(m);
         } catch (Exception e) {
-            e.printStackTrace( );
+            e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -582,7 +589,7 @@ public void datatx() {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -590,27 +597,27 @@ public void datatx() {
     }
 
     public synchronized int upxu(long x) {
-        long xunew = (long)this.xu + x;
+        long xunew = (long) this.xu + x;
         if (xunew > 2000000000L) {
-            x = (long)(2000000000 - this.xu);
+            x = (long) (2000000000 - this.xu);
         } else if (xunew < -2000000000L) {
-            x = (long)(-2000000000 - this.xu);
+            x = (long) (-2000000000 - this.xu);
         }
 
-        this.xu += (int)x;
-        return (int)x;
+        this.xu += (int) x;
+        return (int) x;
     }
 
     public synchronized int upyen(long x) {
-        long yennew = (long)this.yen + x;
+        long yennew = (long) this.yen + x;
         if (yennew > 2000000000L) {
-            x = (long)(2000000000 - this.yen);
+            x = (long) (2000000000 - this.yen);
         } else if (yennew < -2000000000L) {
-            x = (long)(-2000000000 - this.yen);
+            x = (long) (-2000000000 - this.yen);
         }
 
-        this.yen += (int)x;
-        return (int)x;
+        this.yen += (int) x;
+        return (int) x;
     }
 
     public void upxuMessage(long x) {
@@ -636,9 +643,9 @@ public void datatx() {
             var4.printStackTrace();
         }
     }
-    
-    public boolean checkNoiNgoai(byte nclass){
-        if(nclass == 0 || nclass == 1 || nclass == 3|| nclass == 5){
+
+    public boolean checkNoiNgoai(byte nclass) {
+        if (nclass == 0 || nclass == 1 || nclass == 3 || nclass == 5) {
             return true;
         }
         return false;
@@ -646,7 +653,7 @@ public void datatx() {
 
     public static Char setup(Player p, String name) {
         try {
-            synchronized(Server.LOCK_MYSQL) {
+            synchronized (Server.LOCK_MYSQL) {
                 ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `ninja` WHERE `name`LIKE'" + name + "';");
                 if (red != null && red.first()) {
                     Char nja = new Char();
@@ -676,7 +683,7 @@ public void datatx() {
                     nja.nhanTP = red.getInt("nhanTP");
                     nja.pointBossChuot = red.getInt("pointBossChuot");
                     nja.exptutien = red.getLong("exptutien");
-                    nja.leveltutien = red.getShort("leveltutien");     
+                    nja.leveltutien = red.getShort("leveltutien");
                     nja.countPhao = red.getInt("countPhao");
                     nja.luongTop = red.getInt("luongTN");
                     nja.diemcauca = red.getInt("diemcauca");
@@ -686,34 +693,34 @@ public void datatx() {
                     nja.diemhoavang = red.getShort("diemhoado");
                     nja.diemhoaxanh = red.getShort("diemhoaxanh");
                     nja.diemtanghoa = red.getInt("diemtanghoa");
-                    
-                     
+
                     nja.lvnhc = (int) red.getLong("lvnhc");
-                     nja.expkm = red.getLong("expkm");
-                     nja.lvkm = (int) red.getLong("lvkm");
-                     nja.exphl = red.getLong("exphl");
-                     nja.lvhc = (int) red.getLong("lvhc");
-                     nja.expnt = red.getLong("expnt");
-                     nja.lvnt = (int) red.getLong("lvnt");
-                     nja.lvph = (int) red.getLong("lvph");
-                     nja.expttd = red.getLong("expttd");
-                     nja.lvttd = (int) red.getLong("lvttd");
-                     nja.sachadmin = red.getShort("sachadmin");
-                     nja.dame = red.getLong("dame");
+                    nja.expkm = red.getLong("expkm");
+                    nja.lvkm = (int) red.getLong("lvkm");
+                    nja.exphl = red.getLong("exphl");
+                    nja.lvhc = (int) red.getLong("lvhc");
+                    nja.expnt = red.getLong("expnt");
+                    nja.lvnt = (int) red.getLong("lvnt");
+                    nja.lvph = (int) red.getLong("lvph");
+                    nja.expttd = red.getLong("expttd");
+                    nja.lvttd = (int) red.getLong("lvttd");
+                    nja.sachadmin = red.getShort("sachadmin");
+                    nja.dame = red.getLong("dame");
                     nja.tiemnang = red.getLong("tiemnang");
-                     nja.yeukhi = red.getInt("yeukhi");
+                    nja.yeukhi = red.getInt("yeukhi");
                     nja.theluc = red.getInt("theluc");
                     nja.expgm = red.getInt("expgm");
                     nja.cailao = red.getByte("cailao");
-                    
-                    JSONArray jar = (JSONArray)JSONValue.parse(red.getString("skill"));
+                    nja.nhanbikip = red.getInt("nhanbikip");
+
+                    JSONArray jar = (JSONArray) JSONValue.parse(red.getString("skill"));
                     JSONObject job;
                     Skill skill;
                     byte index;
                     if (jar != null) {
                         job = null;
-                        for(index = 0; index < jar.size(); ++index) {
-                            job = (JSONObject)jar.get(index);
+                        for (index = 0; index < jar.size(); ++index) {
+                            job = (JSONObject) jar.get(index);
                             skill = new Skill();
                             skill.id = Byte.parseByte(job.get("id").toString());
                             skill.point = Byte.parseByte(job.get("point").toString());
@@ -722,30 +729,30 @@ public void datatx() {
                         }
                     }
 
-                    JSONArray jarr2 = (JSONArray)JSONValue.parse(red.getString("KSkill"));
+                    JSONArray jarr2 = (JSONArray) JSONValue.parse(red.getString("KSkill"));
                     nja.KSkill = new byte[jarr2.size()];
                     byte j;
-                    for(j = 0; j < nja.KSkill.length; ++j) {
+                    for (j = 0; j < nja.KSkill.length; ++j) {
                         nja.KSkill[j] = Byte.parseByte(jarr2.get(j).toString());
                     }
 
-                    jarr2 = (JSONArray)JSONValue.parse(red.getString("OSkill"));
+                    jarr2 = (JSONArray) JSONValue.parse(red.getString("OSkill"));
                     nja.OSkill = new byte[jarr2.size()];
-                    for(j = 0; j < nja.OSkill.length; ++j) {
+                    for (j = 0; j < nja.OSkill.length; ++j) {
                         nja.OSkill[j] = Byte.parseByte(jarr2.get(j).toString());
                     }
 
-                    jarr2 = (JSONArray)JSONValue.parseWithException(red.getString("friends"));
+                    jarr2 = (JSONArray) JSONValue.parseWithException(red.getString("friends"));
                     short s;
                     JSONArray jarr3;
                     Friend friend;
-                    for (s = 0; s < jarr2.size(); s = (short)(s + 1)) {
-                        jarr3 = (JSONArray)jarr2.get(s);
+                    for (s = 0; s < jarr2.size(); s = (short) (s + 1)) {
+                        jarr3 = (JSONArray) jarr2.get(s);
                         friend = new Friend(jarr3.get(0).toString(), Byte.parseByte(jarr3.get(1).toString()));
                         nja.vFriend.addElement(friend);
                     }
 
-                    nja.CSkill = (short)Byte.parseByte(red.getString("CSkill"));
+                    nja.CSkill = (short) Byte.parseByte(red.getString("CSkill"));
                     nja.level = red.getShort("level");
                     nja.saveBXH = red.getShort("saveBXH");
                     nja.exp = red.getLong("exp");
@@ -759,11 +766,11 @@ public void datatx() {
                     nja.levelBag = red.getByte("levelBag");
                     JSONObject job2 = null;
                     nja.ItemBag = new Item[nja.maxluggage];
-                    jar = (JSONArray)JSONValue.parse(red.getString("ItemBag"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemBag"));
 
                     if (jar != null) {
-                        for(j = 0; j < jar.size(); ++j) {
-                            job2 = (JSONObject)jar.get(j);
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
                             index = Byte.parseByte(job2.get("index").toString());
                             nja.ItemBag[index] = ItemTemplate.parseItem(jar.get(j).toString());
                             job2.clear();
@@ -771,10 +778,10 @@ public void datatx() {
                     }
 
                     nja.ItemBox = new Item[120];
-                    jar = (JSONArray)JSONValue.parse(red.getString("ItemBox"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemBox"));
                     if (jar != null) {
-                        for(j = 0; j < jar.size(); ++j) {
-                            job2 = (JSONObject)jar.get(j);
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
                             index = Byte.parseByte(job2.get("index").toString());
                             nja.ItemBox[index] = ItemTemplate.parseItem(jar.get(j).toString());
                             job2.clear();
@@ -782,10 +789,10 @@ public void datatx() {
                     }
 
                     nja.ItemBST = new Item[12];
-                    jar = (JSONArray)JSONValue.parse(red.getString("ItemBST"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemBST"));
                     if (jar != null) {
-                        for(j = 0; j < jar.size(); ++j) {
-                            job2 = (JSONObject)jar.get(j);
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
                             index = Byte.parseByte(job2.get("index").toString());
                             nja.ItemBST[index] = ItemTemplate.parseItem(jar.get(j).toString());
                             job2.clear();
@@ -793,10 +800,10 @@ public void datatx() {
                     }
 
                     nja.ItemCaiTrang = new Item[18];
-                    jar = (JSONArray)JSONValue.parse(red.getString("ItemCaiTrang"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemCaiTrang"));
                     if (jar != null) {
-                        for(j = 0; j < jar.size(); ++j) {
-                            job2 = (JSONObject)jar.get(j);
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
                             index = Byte.parseByte(job2.get("index").toString());
                             nja.ItemCaiTrang[index] = ItemTemplate.parseItem(jar.get(j).toString());
                             job2.clear();
@@ -804,10 +811,10 @@ public void datatx() {
                     }
 
                     nja.get().ItemBody = new Item[32];
-                    jar = (JSONArray)JSONValue.parse(red.getString("ItemBody"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemBody"));
                     if (jar != null) {
-                        for(j = 0; j < jar.size(); ++j) {
-                            job2 = (JSONObject)jar.get(j);
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
                             index = Byte.parseByte(job2.get("index").toString());
                             nja.get().ItemBody[index] = ItemTemplate.parseItem(jar.get(j).toString());
                             job2.clear();
@@ -815,30 +822,31 @@ public void datatx() {
                     }
 
                     nja.ItemMounts = new Item[5];
-                    jar = (JSONArray)JSONValue.parse(red.getString("ItemMounts"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemMounts"));
                     if (jar != null) {
-                        for(j = 0; j < jar.size(); ++j) {
-                            job2 = (JSONObject)jar.get(j);
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
                             index = Byte.parseByte(job2.get("index").toString());
                             nja.ItemMounts[index] = ItemTemplate.parseItem(jar.get(j).toString());
                             job2.clear();
                         }
                     }
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("site"));
-                    nja.mapid = Util.UnsignedByte((byte)Integer.parseInt(jar.get(0).toString()));
+                    jar = (JSONArray) JSONValue.parse(red.getString("site"));
+                    nja.mapid = Util.UnsignedByte((byte) Integer.parseInt(jar.get(0).toString()));
                     nja.x = Short.parseShort(jar.get(1).toString());
                     nja.y = Short.parseShort(jar.get(2).toString());
                     nja.mapLTD = Short.parseShort(jar.get(3).toString());
                     Map ma = Manager.getMapid(nja.mapLTD);
-                    if(ma.getXHD() != -1 || ma.LangCo() || ma.mapBossTuanLoc() || ma.mapLDGT() || ma.mapGTC() || ma.id == 111 || ma.id == 113) {
+                    if (ma.getXHD() != -1 || ma.LangCo() || ma.mapBossTuanLoc() || ma.mapLDGT() || ma.mapGTC()
+                            || ma.id == 111 || ma.id == 113) {
                         nja.mapLTD = 22;
                     }
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("effect"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("effect"));
                     JSONArray jar2;
-                    for(j = 0; j < jar.size(); ++j) {
-                        jar2 = (JSONArray)jar.get(j);
+                    for (j = 0; j < jar.size(); ++j) {
+                        jar2 = (JSONArray) jar.get(j);
                         if (jar2 != null) {
                             int effid = Integer.parseInt(jar2.get(0).toString());
                             byte efftype = Byte.parseByte(jar2.get(1).toString());
@@ -850,26 +858,26 @@ public void datatx() {
                                 efftime -= System.currentTimeMillis();
                             }
                             eff.timeRemove = efftime;
-                            eff.timeLength = (int)(eff.timeRemove - System.currentTimeMillis());
-                            eff = new Effect(effid, 0, (int)efftime, param);
+                            eff.timeLength = (int) (eff.timeRemove - System.currentTimeMillis());
+                            eff = new Effect(effid, 0, (int) efftime, param);
                             nja.veff.add(eff);
                         }
                         jar2.clear();
                     }
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("info"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("info"));
                     nja.isDiemDanh = Integer.parseInt(jar.get(0).toString());
                     nja.countHangDong = Integer.parseInt(jar.get(1).toString());
-                    jarr2 = (JSONArray)JSONValue.parse(jar.get(2).toString());
+                    jarr2 = (JSONArray) JSONValue.parse(jar.get(2).toString());
 
-                    for(j = 0; j < jarr2.size(); ++j) {
+                    for (j = 0; j < jarr2.size(); ++j) {
                         nja.checkLevel[j] = Integer.parseInt(jarr2.get(j).toString());
                     }
 
                     nja.isQuaHangDong = Integer.parseInt(jar.get(3).toString());
                     nja.get().countTayTiemNang = Integer.parseInt(jar.get(4).toString());
                     nja.get().countTayKyNang = Integer.parseInt(jar.get(5).toString());
-                    jar = (JSONArray)JSONValue.parse(red.getString("taskHangNgay"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("taskHangNgay"));
                     nja.taskHangNgay[0] = Integer.parseInt(jar.get(0).toString());
                     nja.taskHangNgay[1] = Integer.parseInt(jar.get(1).toString());
                     nja.taskHangNgay[2] = Integer.parseInt(jar.get(2).toString());
@@ -879,7 +887,7 @@ public void datatx() {
                     nja.taskHangNgay[6] = Integer.parseInt(jar.get(6).toString());
                     nja.isTaskHangNgay = nja.taskHangNgay[5];
                     nja.countTaskHangNgay = nja.taskHangNgay[6];
-                    jar = (JSONArray)JSONValue.parse(red.getString("taskTaThu"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("taskTaThu"));
                     nja.taskTaThu[0] = Integer.parseInt(jar.get(0).toString());
                     nja.taskTaThu[1] = Integer.parseInt(jar.get(1).toString());
                     nja.taskTaThu[2] = Integer.parseInt(jar.get(2).toString());
@@ -890,7 +898,7 @@ public void datatx() {
                     nja.isTaskTaThu = nja.taskTaThu[5];
                     nja.countTaskTaThu = nja.taskTaThu[6];
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("taskDanhVong"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("taskDanhVong"));
                     nja.taskDanhVong[0] = Integer.parseInt(jar.get(0).toString());
                     nja.taskDanhVong[1] = Integer.parseInt(jar.get(1).toString());
                     nja.taskDanhVong[2] = Integer.parseInt(jar.get(2).toString());
@@ -900,14 +908,14 @@ public void datatx() {
                     nja.isTaskDanhVong = nja.taskDanhVong[3];
                     nja.countTaskDanhVong = nja.taskDanhVong[4];
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("countUseItem"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("countUseItem"));
                     nja.useTaThuLenh = Integer.parseInt(jar.get(0).toString());
                     nja.get().useKyNang = Integer.parseInt(jar.get(1).toString());
                     nja.get().useTiemNang = Integer.parseInt(jar.get(2).toString());
                     nja.get().useBanhPhongLoi = Integer.parseInt(jar.get(3).toString());
                     nja.get().useBanhBangHoa = Integer.parseInt(jar.get(4).toString());
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("char_info"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("char_info"));
                     nja.pointUydanh = Integer.parseInt(jar.get(0).toString());
                     nja.pointNon = Integer.parseInt(jar.get(1).toString());
                     nja.pointVukhi = Integer.parseInt(jar.get(2).toString());
@@ -921,23 +929,23 @@ public void datatx() {
                     nja.pointPhu = Integer.parseInt(jar.get(10).toString());
                     nja.pointTinhTu = Integer.parseInt(jar.get(11).toString());
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("chien_truong"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("chien_truong"));
                     nja.pheCT = Integer.parseInt(jar.get(0).toString());
                     nja.pointCT = Integer.parseInt(jar.get(1).toString());
 
                     nja.isTakePoint = red.getInt("maxPointCT");
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("sk_noel"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("sk_noel"));
                     nja.isNhanQuaNoel = Integer.parseInt(jar.get(0).toString());
                     nja.pointNoel = Integer.parseInt(jar.get(1).toString());
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("trai_nghiem"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("trai_nghiem"));
                     nja.yenTN = Long.parseLong(jar.get(0).toString());
                     nja.xuTN = Long.parseLong(jar.get(1).toString());
                     nja.luongTN = Long.parseLong(jar.get(2).toString());
                     nja.expTN = Long.parseLong(jar.get(3).toString());
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("thoi-trang"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("thoi-trang"));
                     nja.ID_HAIR = Short.parseShort(jar.get(0).toString());
                     nja.ID_Body = Short.parseShort(jar.get(1).toString());
                     nja.ID_LEG = Short.parseShort(jar.get(2).toString());
@@ -949,7 +957,7 @@ public void datatx() {
                     nja.ID_MAT_NA = Short.parseShort(jar.get(8).toString());
                     nja.ID_Bien_Hinh = Short.parseShort(jar.get(9).toString());
 
-                    jar = (JSONArray)JSONValue.parse(red.getString("clan"));
+                    jar = (JSONArray) JSONValue.parse(red.getString("clan"));
                     if (jar != null && jar.size() == 2) {
                         String clanName = jar.get(0).toString();
                         ClanManager clan = ClanManager.getClanName(clanName);
@@ -968,7 +976,7 @@ public void datatx() {
 
                     nja.denbu = red.getByte("denbu");
                     if (!red.getString("newlogin").equals("")) {
-                        if(Util.getDate(red.getString("newlogin")) == null) {
+                        if (Util.getDate(red.getString("newlogin")) == null) {
                             return null;
                         }
                         nja.newlogin = Util.getDate(red.getString("newlogin"));
@@ -1001,182 +1009,182 @@ public void datatx() {
     public static Char getChar(String name) {
         try {
             Char nja = new Char();
-            synchronized(Server.LOCK_MYSQL) {
-                    ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `ninja` WHERE `name`LIKE'" + name + "';");
-                    if (red != null && red.first()) {
-                         nja.id = red.getInt("id");
-                        nja.name = red.getString("name");
-                        nja.gender = red.getByte("gender");
-                        nja.head = red.getByte("head");
-                        nja.speed = red.getByte("speed");
-                        nja.nclass = red.getByte("class");
-                        nja.ppoint = red.getShort("ppoint");
-                        nja.potential0 = red.getShort("potential0");
-                        nja.potential1 = red.getShort("potential1");
-                        nja.potential2 = red.getInt("potential2");
-                        nja.potential3 = red.getLong("potential3");
-                        nja.spoint = red.getShort("spoint");
-                        nja.yeukhi = red.getInt("yeukhi");
-                        nja.theluc = red.getInt("theluc");
-                        nja.expgm = red.getInt("expgm");
-                        
-                        JSONArray jar = (JSONArray)JSONValue.parse(red.getString("skill"));
-                        JSONObject job;
-                        Skill skill;
-                        byte index;
-                        if (jar != null) {
-                            job = null;
-                            for(index = 0; index < jar.size(); ++index) {
-                                job = (JSONObject)jar.get(index);
-                                skill = new Skill();
-                                skill.id = Byte.parseByte(job.get("id").toString());
-                                skill.point = Byte.parseByte(job.get("point").toString());
-                                nja.get().skill.add(skill);
-                                job.clear();
+            synchronized (Server.LOCK_MYSQL) {
+                ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `ninja` WHERE `name`LIKE'" + name + "';");
+                if (red != null && red.first()) {
+                    nja.id = red.getInt("id");
+                    nja.name = red.getString("name");
+                    nja.gender = red.getByte("gender");
+                    nja.head = red.getByte("head");
+                    nja.speed = red.getByte("speed");
+                    nja.nclass = red.getByte("class");
+                    nja.ppoint = red.getShort("ppoint");
+                    nja.potential0 = red.getShort("potential0");
+                    nja.potential1 = red.getShort("potential1");
+                    nja.potential2 = red.getInt("potential2");
+                    nja.potential3 = red.getLong("potential3");
+                    nja.spoint = red.getShort("spoint");
+                    nja.yeukhi = red.getInt("yeukhi");
+                    nja.theluc = red.getInt("theluc");
+                    nja.expgm = red.getInt("expgm");
+
+                    JSONArray jar = (JSONArray) JSONValue.parse(red.getString("skill"));
+                    JSONObject job;
+                    Skill skill;
+                    byte index;
+                    if (jar != null) {
+                        job = null;
+                        for (index = 0; index < jar.size(); ++index) {
+                            job = (JSONObject) jar.get(index);
+                            skill = new Skill();
+                            skill.id = Byte.parseByte(job.get("id").toString());
+                            skill.point = Byte.parseByte(job.get("point").toString());
+                            nja.get().skill.add(skill);
+                            job.clear();
+                        }
+                    }
+                    for (Skill skl : nja.get().skill) {
+                        if (skl.id != 67 && skl.id != 68 && skl.id != 69 && skl.id != 70 && skl.id != 71
+                                && skl.id != 72) {
+                            SkillTemplate data = SkillTemplate.Templates(skl.id);
+                            if (data.type == 2) {
+                                nja.idSkillBot.add((short) skl.id);
                             }
                         }
-                        for(Skill skl : nja.get().skill) {
-                            if(skl.id != 67 && skl.id != 68 && skl.id != 69 && skl.id != 70 && skl.id != 71 && skl.id != 72) {
-                                SkillTemplate data = SkillTemplate.Templates(skl.id);
-                                if(data.type == 2) {
-                                    nja.idSkillBot.add((short)skl.id);
-                                }
-                            }
+                    }
+
+                    JSONArray jarr2 = (JSONArray) JSONValue.parse(red.getString("KSkill"));
+                    nja.get().KSkill = new byte[jarr2.size()];
+                    byte j;
+                    for (j = 0; j < nja.get().KSkill.length; ++j) {
+                        nja.get().KSkill[j] = Byte.parseByte(jarr2.get(j).toString());
+                    }
+
+                    jarr2 = (JSONArray) JSONValue.parse(red.getString("OSkill"));
+                    nja.get().OSkill = new byte[jarr2.size()];
+                    for (j = 0; j < nja.get().OSkill.length; ++j) {
+                        nja.get().OSkill[j] = Byte.parseByte(jarr2.get(j).toString());
+                    }
+
+                    nja.CSkill = Byte.parseByte(red.getString("CSkill"));
+                    nja.level = red.getShort("level");
+                    nja.exp = red.getLong("exp");
+                    nja.expdown = red.getLong("expdown");
+                    nja.expSkillClone = red.getLong("expSkillClone");
+                    nja.pk = red.getByte("pk");
+                    JSONObject job2 = null;
+
+                    nja.get().ItemBody = new Item[32];
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemBody"));
+                    if (jar != null) {
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
+                            index = Byte.parseByte(job2.get("index").toString());
+                            nja.get().ItemBody[index] = ItemTemplate.parseItem(jar.get(j).toString());
+                            job2.clear();
                         }
+                    }
 
-                        JSONArray jarr2 = (JSONArray)JSONValue.parse(red.getString("KSkill"));
-                        nja.get().KSkill = new byte[jarr2.size()];
-                        byte j;
-                        for(j = 0; j < nja.get().KSkill.length; ++j) {
-                            nja.get().KSkill[j] = Byte.parseByte(jarr2.get(j).toString());
+                    nja.get().ItemMounts = new Item[5];
+                    jar = (JSONArray) JSONValue.parse(red.getString("ItemMounts"));
+                    if (jar != null) {
+                        for (j = 0; j < jar.size(); ++j) {
+                            job2 = (JSONObject) jar.get(j);
+                            index = Byte.parseByte(job2.get("index").toString());
+                            nja.get().ItemMounts[index] = ItemTemplate.parseItem(jar.get(j).toString());
+                            job2.clear();
                         }
+                    }
 
-                        jarr2 = (JSONArray)JSONValue.parse(red.getString("OSkill"));
-                        nja.get().OSkill = new byte[jarr2.size()];
-                        for(j = 0; j < nja.get().OSkill.length; ++j) {
-                            nja.get().OSkill[j] = Byte.parseByte(jarr2.get(j).toString());
-                        }
+                    jar = (JSONArray) JSONValue.parse(red.getString("info"));
+                    nja.isDiemDanh = Integer.parseInt(jar.get(0).toString());
+                    nja.countHangDong = Integer.parseInt(jar.get(1).toString());
+                    jarr2 = (JSONArray) JSONValue.parse(jar.get(2).toString());
+                    for (j = 0; j < jarr2.size(); ++j) {
+                        nja.checkLevel[j] = Integer.parseInt(jarr2.get(j).toString());
+                    }
+                    nja.isQuaHangDong = Integer.parseInt(jar.get(3).toString());
+                    nja.get().countTayTiemNang = Integer.parseInt(jar.get(4).toString());
+                    nja.get().countTayKyNang = Integer.parseInt(jar.get(5).toString());
+                    jar = (JSONArray) JSONValue.parse(red.getString("taskHangNgay"));
+                    nja.taskHangNgay[0] = Integer.parseInt(jar.get(0).toString());
+                    nja.taskHangNgay[1] = Integer.parseInt(jar.get(1).toString());
+                    nja.taskHangNgay[2] = Integer.parseInt(jar.get(2).toString());
+                    nja.taskHangNgay[3] = Integer.parseInt(jar.get(3).toString());
+                    nja.taskHangNgay[4] = Integer.parseInt(jar.get(4).toString());
+                    nja.taskHangNgay[5] = Integer.parseInt(jar.get(5).toString());
+                    nja.taskHangNgay[6] = Integer.parseInt(jar.get(6).toString());
+                    nja.isTaskHangNgay = nja.taskHangNgay[5];
+                    nja.countTaskHangNgay = nja.taskHangNgay[6];
+                    jar = (JSONArray) JSONValue.parse(red.getString("taskTaThu"));
+                    nja.taskTaThu[0] = Integer.parseInt(jar.get(0).toString());
+                    nja.taskTaThu[1] = Integer.parseInt(jar.get(1).toString());
+                    nja.taskTaThu[2] = Integer.parseInt(jar.get(2).toString());
+                    nja.taskTaThu[3] = Integer.parseInt(jar.get(3).toString());
+                    nja.taskTaThu[4] = Integer.parseInt(jar.get(4).toString());
+                    nja.taskTaThu[5] = Integer.parseInt(jar.get(5).toString());
+                    nja.taskTaThu[6] = Integer.parseInt(jar.get(6).toString());
+                    nja.isTaskTaThu = nja.taskTaThu[5];
+                    nja.countTaskTaThu = nja.taskTaThu[6];
 
-                        nja.CSkill = Byte.parseByte(red.getString("CSkill"));
-                        nja.level = red.getShort("level");
-                        nja.exp = red.getLong("exp");
-                        nja.expdown = red.getLong("expdown");
-                        nja.expSkillClone = red.getLong("expSkillClone");
-                        nja.pk = red.getByte("pk");
-                        JSONObject job2 = null;
+                    jar = (JSONArray) JSONValue.parse(red.getString("countUseItem"));
+                    nja.useTaThuLenh = Integer.parseInt(jar.get(0).toString());
+                    nja.get().useKyNang = Integer.parseInt(jar.get(1).toString());
+                    nja.get().useTiemNang = Integer.parseInt(jar.get(2).toString());
+                    nja.get().useBanhPhongLoi = Integer.parseInt(jar.get(3).toString());
+                    nja.get().useBanhBangHoa = Integer.parseInt(jar.get(4).toString());
 
-                        nja.get().ItemBody = new Item[32];
-                        jar = (JSONArray)JSONValue.parse(red.getString("ItemBody"));
-                        if (jar != null) {
-                            for(j = 0; j < jar.size(); ++j) {
-                                job2 = (JSONObject)jar.get(j);
-                                index = Byte.parseByte(job2.get("index").toString());
-                                nja.get().ItemBody[index] = ItemTemplate.parseItem(jar.get(j).toString());
-                                job2.clear();
-                            }
-                        }
+                    jar = (JSONArray) JSONValue.parse(red.getString("char_info"));
+                    nja.pointUydanh = Integer.parseInt(jar.get(0).toString());
+                    nja.pointNon = Integer.parseInt(jar.get(1).toString());
+                    nja.pointVukhi = Integer.parseInt(jar.get(2).toString());
+                    nja.pointAo = Integer.parseInt(jar.get(3).toString());
+                    nja.pointLien = Integer.parseInt(jar.get(4).toString());
+                    nja.pointGangtay = Integer.parseInt(jar.get(5).toString());
+                    nja.pointNhan = Integer.parseInt(jar.get(6).toString());
+                    nja.pointQuan = Integer.parseInt(jar.get(7).toString());
+                    nja.pointNgocboi = Integer.parseInt(jar.get(8).toString());
+                    nja.pointGiay = Integer.parseInt(jar.get(9).toString());
+                    nja.pointPhu = Integer.parseInt(jar.get(10).toString());
+                    nja.pointTinhTu = Integer.parseInt(jar.get(11).toString());
 
-                        nja.get().ItemMounts = new Item[5];
-                        jar = (JSONArray)JSONValue.parse(red.getString("ItemMounts"));
-                        if (jar != null) {
-                            for(j = 0; j < jar.size(); ++j) {
-                                job2 = (JSONObject)jar.get(j);
-                                index = Byte.parseByte(job2.get("index").toString());
-                                nja.get().ItemMounts[index] = ItemTemplate.parseItem(jar.get(j).toString());
-                                job2.clear();
-                            }
-                        }
+                    jar = (JSONArray) JSONValue.parse(red.getString("thoi-trang"));
+                    nja.ID_HAIR = Short.parseShort(jar.get(0).toString());
+                    nja.ID_Body = Short.parseShort(jar.get(1).toString());
+                    nja.ID_LEG = Short.parseShort(jar.get(2).toString());
+                    nja.ID_WEA_PONE = Short.parseShort(jar.get(3).toString());
+                    nja.ID_PP = Short.parseShort(jar.get(4).toString());
+                    nja.ID_NAME = Short.parseShort(jar.get(5).toString());
+                    nja.ID_HORSE = Short.parseShort(jar.get(6).toString());
+                    nja.ID_RANK = Short.parseShort(jar.get(7).toString());
+                    nja.ID_MAT_NA = Short.parseShort(jar.get(8).toString());
+                    nja.ID_Bien_Hinh = Short.parseShort(jar.get(9).toString());
 
-                        jar = (JSONArray)JSONValue.parse(red.getString("info"));
-                        nja.isDiemDanh = Integer.parseInt(jar.get(0).toString());
-                        nja.countHangDong = Integer.parseInt(jar.get(1).toString());
-                        jarr2 = (JSONArray)JSONValue.parse(jar.get(2).toString());
-                        for(j = 0; j < jarr2.size(); ++j) {
-                            nja.checkLevel[j] = Integer.parseInt(jarr2.get(j).toString());
-                        }
-                        nja.isQuaHangDong = Integer.parseInt(jar.get(3).toString());
-                        nja.get().countTayTiemNang = Integer.parseInt(jar.get(4).toString());
-                        nja.get().countTayKyNang = Integer.parseInt(jar.get(5).toString());
-                        jar = (JSONArray)JSONValue.parse(red.getString("taskHangNgay"));
-                        nja.taskHangNgay[0] = Integer.parseInt(jar.get(0).toString());
-                        nja.taskHangNgay[1] = Integer.parseInt(jar.get(1).toString());
-                        nja.taskHangNgay[2] = Integer.parseInt(jar.get(2).toString());
-                        nja.taskHangNgay[3] = Integer.parseInt(jar.get(3).toString());
-                        nja.taskHangNgay[4] = Integer.parseInt(jar.get(4).toString());
-                        nja.taskHangNgay[5] = Integer.parseInt(jar.get(5).toString());
-                        nja.taskHangNgay[6] = Integer.parseInt(jar.get(6).toString());
-                        nja.isTaskHangNgay = nja.taskHangNgay[5];
-                        nja.countTaskHangNgay = nja.taskHangNgay[6];
-                        jar = (JSONArray)JSONValue.parse(red.getString("taskTaThu"));
-                        nja.taskTaThu[0] = Integer.parseInt(jar.get(0).toString());
-                        nja.taskTaThu[1] = Integer.parseInt(jar.get(1).toString());
-                        nja.taskTaThu[2] = Integer.parseInt(jar.get(2).toString());
-                        nja.taskTaThu[3] = Integer.parseInt(jar.get(3).toString());
-                        nja.taskTaThu[4] = Integer.parseInt(jar.get(4).toString());
-                        nja.taskTaThu[5] = Integer.parseInt(jar.get(5).toString());
-                        nja.taskTaThu[6] = Integer.parseInt(jar.get(6).toString());
-                        nja.isTaskTaThu = nja.taskTaThu[5];
-                        nja.countTaskTaThu = nja.taskTaThu[6];
-
-                        jar = (JSONArray)JSONValue.parse(red.getString("countUseItem"));
-                        nja.useTaThuLenh = Integer.parseInt(jar.get(0).toString());
-                        nja.get().useKyNang = Integer.parseInt(jar.get(1).toString());
-                        nja.get().useTiemNang = Integer.parseInt(jar.get(2).toString());
-                        nja.get().useBanhPhongLoi = Integer.parseInt(jar.get(3).toString());
-                        nja.get().useBanhBangHoa = Integer.parseInt(jar.get(4).toString());
-
-                        jar = (JSONArray)JSONValue.parse(red.getString("char_info"));
-                        nja.pointUydanh = Integer.parseInt(jar.get(0).toString());
-                        nja.pointNon = Integer.parseInt(jar.get(1).toString());
-                        nja.pointVukhi = Integer.parseInt(jar.get(2).toString());
-                        nja.pointAo = Integer.parseInt(jar.get(3).toString());
-                        nja.pointLien = Integer.parseInt(jar.get(4).toString());
-                        nja.pointGangtay = Integer.parseInt(jar.get(5).toString());
-                        nja.pointNhan = Integer.parseInt(jar.get(6).toString());
-                        nja.pointQuan = Integer.parseInt(jar.get(7).toString());
-                        nja.pointNgocboi = Integer.parseInt(jar.get(8).toString());
-                        nja.pointGiay = Integer.parseInt(jar.get(9).toString());
-                        nja.pointPhu = Integer.parseInt(jar.get(10).toString());
-                        nja.pointTinhTu = Integer.parseInt(jar.get(11).toString());
-
-                        jar = (JSONArray)JSONValue.parse(red.getString("thoi-trang"));
-                        nja.ID_HAIR = Short.parseShort(jar.get(0).toString());
-                        nja.ID_Body = Short.parseShort(jar.get(1).toString());
-                        nja.ID_LEG = Short.parseShort(jar.get(2).toString());
-                        nja.ID_WEA_PONE = Short.parseShort(jar.get(3).toString());
-                        nja.ID_PP = Short.parseShort(jar.get(4).toString());
-                        nja.ID_NAME = Short.parseShort(jar.get(5).toString());
-                        nja.ID_HORSE = Short.parseShort(jar.get(6).toString());
-                        nja.ID_RANK = Short.parseShort(jar.get(7).toString());
-                        nja.ID_MAT_NA = Short.parseShort(jar.get(8).toString());
-                        nja.ID_Bien_Hinh = Short.parseShort(jar.get(9).toString());
-
-                        jar = (JSONArray)JSONValue.parse(red.getString("clan"));
-                        if (jar != null && jar.size() == 2) {
-                            String clanName = jar.get(0).toString();
-                            ClanManager clan = ClanManager.getClanName(clanName);
-                            if (clan != null && clan.getMem(name) != null) {
-                                nja.clan = clan.getMem(name);
-                                nja.clan.nClass = nja.nclass;
-                                nja.clan.clevel = nja.level;
-                            } else {
-                                nja.clan = new ClanMember("", nja);
-                            }
-                            nja.clan.pointClan = Integer.parseInt(jar.get(1).toString());
+                    jar = (JSONArray) JSONValue.parse(red.getString("clan"));
+                    if (jar != null && jar.size() == 2) {
+                        String clanName = jar.get(0).toString();
+                        ClanManager clan = ClanManager.getClanName(clanName);
+                        if (clan != null && clan.getMem(name) != null) {
+                            nja.clan = clan.getMem(name);
+                            nja.clan.nClass = nja.nclass;
+                            nja.clan.clevel = nja.level;
                         } else {
                             nja.clan = new ClanMember("", nja);
                         }
-                        return nja;
+                        nja.clan.pointClan = Integer.parseInt(jar.get(1).toString());
                     } else {
-                        return null;
+                        nja.clan = new ClanMember("", nja);
                     }
+                    return nja;
+                } else {
+                    return null;
                 }
+            }
         } catch (Exception var23) {
             var23.printStackTrace();
             return null;
         }
     }
-
 
     public short getCSkill() {
         if (this.isBot) {
@@ -1189,14 +1197,15 @@ public void datatx() {
     public void flush() {
         JSONArray jarr = new JSONArray();
         try {
-            synchronized(Server.LOCK_MYSQL) {
+            synchronized (Server.LOCK_MYSQL) {
                 if (this.get().level >= Manager.max_level_up) {
                     this.get().level = Manager.max_level_up;
                 }
-                this.get().level = (int)Level.getLevelExp(this.get().exp)[0];
-                if (this.mapid == 133 || this.mapid == 149 || this.mapid == 111 || this.mapid == 129 || Map.mapHD(this.mapid) || (this.mapid >= 80 && this.mapid <= 90)) {
+                this.get().level = (int) Level.getLevelExp(this.get().exp)[0];
+                if (this.mapid == 133 || this.mapid == 149 || this.mapid == 111 || this.mapid == 129
+                        || Map.mapHD(this.mapid) || (this.mapid >= 80 && this.mapid <= 90)) {
                     this.mapid = this.mapKanata;
-                    switch(this.mapKanata) {
+                    switch (this.mapKanata) {
                         case 1:
                             this.x = 613;
                             this.y = 288;
@@ -1209,7 +1218,7 @@ public void datatx() {
                             this.x = 852;
                             this.y = 216;
                     }
-                } else if(this.mapid == 74) {
+                } else if (this.mapid == 74) {
                     this.mapid = this.mapLTD;
                 }
 
@@ -1217,13 +1226,23 @@ public void datatx() {
                 jarr.add(this.x);
                 jarr.add(this.y);
                 jarr.add(this.mapLTD);
-                String sqlSET = "`head`=" + this.head +",`caiTrang`=" + this.caiTrang +",`rankTDB`=" + this.rankTDB +",`countWin`=" + this.countWin +",`countPhao`=" + this.countPhao +",`nhanTP`=" + this.nhanTP +",`countTDB`=" + this.countTDB + ",`isGiftTDB`=" + this.isGiftTDB + ", `taskId`=" + this.taskId + ",`class`=" + this.get().nclass + ",`ppoint`=" + this.get().ppoint + ",`potential0`=" + this.get().potential0 + ",`potential1`=" + this.get().potential1 + ",`potential2`=" + this.get().potential2 + ",`potential3`=" + this.get().potential3 + ",`spoint`=" + this.get().spoint + ",`level`=" + this.get().level + ",`exp`=" + this.exp + ",`expdown`=" + this.expdown + ",`expSkillClone`=" + this.expSkillClone + ",`pk`=" + this.pk + ",`xu`=" + this.xu + ",`yen`=" + this.yen + ",`maxluggage`=" + this.maxluggage + ",`levelBag`=" + this.levelBag + ",`site`='" + jarr.toJSONString() + "', `buyX3` =" + this.countBuyX3;
+                String sqlSET = "`head`=" + this.head + ",`caiTrang`=" + this.caiTrang + ",`rankTDB`=" + this.rankTDB
+                        + ",`countWin`=" + this.countWin + ",`countPhao`=" + this.countPhao + ",`nhanTP`=" + this.nhanTP
+                        + ",`countTDB`=" + this.countTDB + ",`isGiftTDB`=" + this.isGiftTDB + ", `taskId`="
+                        + this.taskId + ",`class`=" + this.get().nclass + ",`ppoint`=" + this.get().ppoint
+                        + ",`potential0`=" + this.get().potential0 + ",`potential1`=" + this.get().potential1
+                        + ",`potential2`=" + this.get().potential2 + ",`potential3`=" + this.get().potential3
+                        + ",`spoint`=" + this.get().spoint + ",`level`=" + this.get().level + ",`exp`=" + this.exp
+                        + ",`expdown`=" + this.expdown + ",`expSkillClone`=" + this.expSkillClone + ",`pk`=" + this.pk
+                        + ",`xu`=" + this.xu + ",`yen`=" + this.yen + ",`maxluggage`=" + this.maxluggage
+                        + ",`levelBag`=" + this.levelBag + ",`site`='" + jarr.toJSONString() + "', `buyX3` ="
+                        + this.countBuyX3 + ",`nhanbikip`=" + this.nhanbikip;
                 jarr.clear();
                 Iterator var4 = this.skill.iterator();
 
                 Skill skill;
-                while(var4.hasNext()) {
-                    skill = (Skill)var4.next();
+                while (var4.hasNext()) {
+                    skill = (Skill) var4.next();
                     jarr.add(SkillTemplate.ObjectSkill(skill));
                 }
                 sqlSET = sqlSET + ",`skill`='" + jarr.toJSONString() + "'";
@@ -1232,7 +1251,7 @@ public void datatx() {
                 jarr = new JSONArray();
                 short s1;
                 JSONArray friend;
-                for (s1 = 0; s1 < this.vFriend.size(); s1 = (short)(s1 + 1)) {
+                for (s1 = 0; s1 < this.vFriend.size(); s1 = (short) (s1 + 1)) {
                     friend = new JSONArray();
                     friend.add((this.vFriend.get(s1)).friendName);
                     friend.add(Byte.valueOf((this.vFriend.get(s1)).type));
@@ -1245,7 +1264,7 @@ public void datatx() {
                 int var13 = var11.length;
                 int var6;
                 byte oid;
-                for(var6 = 0; var6 < var13; ++var6) {
+                for (var6 = 0; var6 < var13; ++var6) {
                     oid = var11[var6];
                     jarr.add(oid);
                 }
@@ -1255,7 +1274,7 @@ public void datatx() {
                 var11 = this.OSkill;
                 var13 = var11.length;
 
-                for(var6 = 0; var6 < var13; ++var6) {
+                for (var6 = 0; var6 < var13; ++var6) {
                     oid = var11[var6];
                     jarr.add(oid);
                 }
@@ -1264,7 +1283,7 @@ public void datatx() {
                 jarr.clear();
 
                 byte j;
-                for(j = 0; j < this.ItemBag.length; ++j) {
+                for (j = 0; j < this.ItemBag.length; ++j) {
                     if (this.ItemBag[j] != null) {
                         jarr.add(ItemTemplate.ObjectItem(this.ItemBag[j], j));
                     }
@@ -1272,7 +1291,7 @@ public void datatx() {
                 sqlSET = sqlSET + ",`ItemBag`='" + jarr.toJSONString() + "'";
                 jarr.clear();
 
-                for(j = 0; j < this.ItemBST.length; ++j) {
+                for (j = 0; j < this.ItemBST.length; ++j) {
                     if (this.ItemBST[j] != null) {
                         jarr.add(ItemTemplate.ObjectItem(this.ItemBST[j], j));
                     }
@@ -1280,7 +1299,7 @@ public void datatx() {
                 sqlSET = sqlSET + ",`ItemBST`='" + jarr.toJSONString() + "'";
                 jarr.clear();
 
-                for(j = 0; j < this.ItemCaiTrang.length; ++j) {
+                for (j = 0; j < this.ItemCaiTrang.length; ++j) {
                     if (this.ItemCaiTrang[j] != null) {
                         jarr.add(ItemTemplate.ObjectItem(this.ItemCaiTrang[j], j));
                     }
@@ -1288,7 +1307,7 @@ public void datatx() {
                 sqlSET = sqlSET + ",`ItemCaiTrang`='" + jarr.toJSONString() + "'";
                 jarr.clear();
 
-                for(j = 0; j < this.ItemBox.length; ++j) {
+                for (j = 0; j < this.ItemBox.length; ++j) {
                     if (this.ItemBox[j] != null) {
                         jarr.add(ItemTemplate.ObjectItem(this.ItemBox[j], j));
                     }
@@ -1296,7 +1315,7 @@ public void datatx() {
                 sqlSET = sqlSET + ",`xuBox`=" + this.xuBox + ",`ItemBox`='" + jarr.toJSONString() + "'";
                 jarr.clear();
 
-                for(j = 0; j < this.get().ItemBody.length; ++j) {
+                for (j = 0; j < this.get().ItemBody.length; ++j) {
                     if (this.get().ItemBody[j] != null) {
                         jarr.add(ItemTemplate.ObjectItem(this.get().ItemBody[j], j));
                     }
@@ -1305,7 +1324,7 @@ public void datatx() {
                 sqlSET = sqlSET + ",`ItemBody`='" + jarr.toJSONString() + "'";
                 jarr.clear();
 
-                for(j = 0; j < this.ItemMounts.length; ++j) {
+                for (j = 0; j < this.ItemMounts.length; ++j) {
                     if (this.ItemMounts[j] != null) {
                         jarr.add(ItemTemplate.ObjectItem(this.ItemMounts[j], j));
                     }
@@ -1316,19 +1335,25 @@ public void datatx() {
 
                 JSONArray jarr2;
                 byte i;
-                for(i = 0; i < this.veff.size(); ++i) {
-                    if (((Effect)this.veff.get(i)).template.type == 0 || ((Effect)this.veff.get(i)).template.type == 18 || ((Effect)this.veff.get(i)).template.type == 25) {
+                for (i = 0; i < this.veff.size(); ++i) {
+                    if (((Effect) this.veff.get(i)).template.type == 0
+                            || ((Effect) this.veff.get(i)).template.type == 18
+                            || ((Effect) this.veff.get(i)).template.type == 25) {
                         jarr2 = new JSONArray();
-                        jarr2.add(((Effect)this.veff.get(i)).template.id);
-                        if (((Effect)this.veff.get(i)).template.id != 36 && ((Effect)this.veff.get(i)).template.id != 42 && ((Effect)this.veff.get(i)).template.id != 37 && ((Effect)this.veff.get(i)).template.id != 38 && ((Effect)this.veff.get(i)).template.id != 39) {
+                        jarr2.add(((Effect) this.veff.get(i)).template.id);
+                        if (((Effect) this.veff.get(i)).template.id != 36
+                                && ((Effect) this.veff.get(i)).template.id != 42
+                                && ((Effect) this.veff.get(i)).template.id != 37
+                                && ((Effect) this.veff.get(i)).template.id != 38
+                                && ((Effect) this.veff.get(i)).template.id != 39) {
                             jarr2.add(0);
-                            jarr2.add(((Effect)this.veff.get(i)).timeRemove - System.currentTimeMillis());
+                            jarr2.add(((Effect) this.veff.get(i)).timeRemove - System.currentTimeMillis());
                         } else {
                             jarr2.add(1);
-                            jarr2.add(((Effect)this.veff.get(i)).timeRemove);
+                            jarr2.add(((Effect) this.veff.get(i)).timeRemove);
                         }
 
-                        jarr2.add(((Effect)this.veff.get(i)).param);
+                        jarr2.add(((Effect) this.veff.get(i)).param);
                         jarr.add(jarr2);
                     }
                 }
@@ -1366,7 +1391,7 @@ public void datatx() {
                 jarr.add(this.countHangDong);
                 jarr2 = new JSONArray();
 
-                for(i = 0; i < this.checkLevel.length; ++i) {
+                for (i = 0; i < this.checkLevel.length; ++i) {
                     jarr2.add(this.checkLevel[i]);
                 }
 
@@ -1430,7 +1455,24 @@ public void datatx() {
                 jarr.clear();
                 jarr.add(this.clan.clanName);
                 jarr.add(this.clan.pointClan);
-                sqlSET = sqlSET + ",`timeRemoveClone` = "+this.timeRemoveClone+  ",`isHangDong6x` = "+this.isHangDong6x+ ",`ldgtID` = "+this.ldgtID+",`pointBossTL` = "+this.pointBossTL+ ",`maxPointCT` = "+this.isTakePoint+",`clan`='" + jarr.toJSONString() + "',`denbu`=" + this.denbu + ",`newlogin`='" + Util.toDateString(this.newlogin) + "',`ddClan`=" + this.ddClan + ",`caveID`=" + this.caveID + ",`nCave`=" + this.nCave + ",`pointCave`=" + this.pointCave + ",`useCave`=" + this.useCave + ",`bagCaveMax`=" + this.bagCaveMax + ",`itemIDCaveMax`=" + this.itemIDCaveMax + ",`saveBXH`=" + this.saveBXH + ",`exptype`=" + this.exptype + ",`diemcauca`=" + this.diemcauca + ",`luongTN`=" + this.luongTop + ",`expCS`=" + this.expCS + ",`diemhoado`=" + this.diemhoado+ ",`diemhoavang`=" + this.diemhoavang+ ",`diemhoaxanh`=" + this.diemhoaxanh +",`diemtanghoa`=" + this.diemtanghoa + ",`exptutien`=" + this.exptutien + ",`leveltutien`=" + this.leveltutien + ",`vip`=" + this.vip +  ",`expttd`=" + this.expttd + ",`lvttd`=" + this.lvttd +  ",`lvnhc`=" + this.lvnhc +  ",`expkm`=" + this.expkm  + ",`exphl`=" + this.exphl + ",`lvnt`=" + this.lvnt+ ",`lvph`=" + this.lvph+ ",`expnt`=" + this.expnt + ",`lvhc`=" + this.lvhc + ",`lvkm`=" + this.lvkm + ",`sachadmin`=" + this.sachadmin + ",`dame`=" + p.c.dameMax() + ",`tiemnang`=" +( this.ppoint + this.potential0+ this.potential1+ this.potential2+ this.potential3) + ",`expgm`=" + this.expgm + ",`theluc`=" + this.theluc + ",`yeukhi`=" + this.yeukhi + ",`cailao`=" + this.cailao +"";
+                sqlSET = sqlSET + ",`timeRemoveClone` = " + this.timeRemoveClone + ",`isHangDong6x` = "
+                        + this.isHangDong6x + ",`ldgtID` = " + this.ldgtID + ",`pointBossTL` = " + this.pointBossTL
+                        + ",`maxPointCT` = " + this.isTakePoint + ",`clan`='" + jarr.toJSONString() + "',`denbu`="
+                        + this.denbu + ",`newlogin`='" + Util.toDateString(this.newlogin) + "',`ddClan`=" + this.ddClan
+                        + ",`caveID`=" + this.caveID + ",`nCave`=" + this.nCave + ",`pointCave`=" + this.pointCave
+                        + ",`useCave`=" + this.useCave + ",`bagCaveMax`=" + this.bagCaveMax + ",`itemIDCaveMax`="
+                        + this.itemIDCaveMax + ",`saveBXH`=" + this.saveBXH + ",`exptype`=" + this.exptype
+                        + ",`diemcauca`=" + this.diemcauca + ",`luongTN`=" + this.luongTop + ",`expCS`=" + this.expCS
+                        + ",`diemhoado`=" + this.diemhoado + ",`diemhoavang`=" + this.diemhoavang + ",`diemhoaxanh`="
+                        + this.diemhoaxanh + ",`diemtanghoa`=" + this.diemtanghoa + ",`exptutien`=" + this.exptutien
+                        + ",`leveltutien`=" + this.leveltutien + ",`vip`=" + this.vip + ",`expttd`=" + this.expttd
+                        + ",`lvttd`=" + this.lvttd + ",`lvnhc`=" + this.lvnhc + ",`expkm`=" + this.expkm + ",`exphl`="
+                        + this.exphl + ",`lvnt`=" + this.lvnt + ",`lvph`=" + this.lvph + ",`expnt`=" + this.expnt
+                        + ",`lvhc`=" + this.lvhc + ",`lvkm`=" + this.lvkm + ",`sachadmin`=" + this.sachadmin
+                        + ",`dame`=" + p.c.dameMax() + ",`tiemnang`="
+                        + (this.ppoint + this.potential0 + this.potential1 + this.potential2 + this.potential3)
+                        + ",`expgm`=" + this.expgm + ",`theluc`=" + this.theluc + ",`yeukhi`=" + this.yeukhi
+                        + ",`cailao`=" + this.cailao + "";
                 SQLManager.stat.executeUpdate("UPDATE `ninja` SET " + sqlSET + " WHERE `id`=" + this.id + " LIMIT 1;");
                 if (jarr != null && !jarr.isEmpty()) {
                     jarr.clear();
@@ -1444,24 +1486,19 @@ public void datatx() {
         }
 
     }
-    
-    public byte getSys(){
-        if(this.nclass == 1){
+
+    public byte getSys() {
+        if (this.nclass == 1) {
             return 1;
-        }
-        else if(this.nclass == 2){
+        } else if (this.nclass == 2) {
             return 1;
-        }
-        else if(this.nclass == 3){
+        } else if (this.nclass == 3) {
             return 2;
-        }
-        else if(this.nclass == 4){
+        } else if (this.nclass == 4) {
             return 2;
-        }
-        else if(this.nclass == 5){
+        } else if (this.nclass == 5) {
             return 3;
-        }
-        else if(this.nclass == 6){
+        } else if (this.nclass == 6) {
             return 3;
         }
         return 0;
@@ -1474,8 +1511,8 @@ public void datatx() {
         try {
             int i;
             PartyPlease Invite;
-            for(i = this.aPartyInvite.size() - 1; i >= 0; --i) {
-                Invite = (PartyPlease)this.aPartyInvite.get(i);
+            for (i = this.aPartyInvite.size() - 1; i >= 0; --i) {
+                Invite = (PartyPlease) this.aPartyInvite.get(i);
                 if (Invite.charID == charId) {
                     return Invite;
                 }
@@ -1490,8 +1527,8 @@ public void datatx() {
         try {
             int i;
             PartyPlease Invite;
-            for(i = this.aPartyInvite.size() - 1; i >= 0; --i) {
-                Invite = (PartyPlease)this.aPartyInvite.get(i);
+            for (i = this.aPartyInvite.size() - 1; i >= 0; --i) {
+                Invite = (PartyPlease) this.aPartyInvite.get(i);
                 if (Invite.charID == charId) {
                     this.aPartyInvite.remove(i);
                     return;
@@ -1508,8 +1545,8 @@ public void datatx() {
         try {
             int i;
             PartyPlease Invate;
-            for(i = this.aPartyInvate.size() - 1; i >= 0; --i) {
-                Invate = (PartyPlease)this.aPartyInvate.get(i);
+            for (i = this.aPartyInvate.size() - 1; i >= 0; --i) {
+                Invate = (PartyPlease) this.aPartyInvate.get(i);
                 if (Invate.charID == charId) {
                     return Invate;
                 }
@@ -1524,7 +1561,7 @@ public void datatx() {
         try {
             int i;
             PartyPlease Invate;
-            for(i = this.aPartyInvate.size() - 1; i >= 0; --i) {
+            for (i = this.aPartyInvate.size() - 1; i >= 0; --i) {
                 Invate = this.aPartyInvate.get(i);
                 if (Invate.charID == charId) {
                     this.aPartyInvate.remove(i);
@@ -1536,6 +1573,14 @@ public void datatx() {
             return;
         }
 
+    }
+
+    public boolean isNhanBiKip() {
+        return this.nhanbikip == 1;
+    }
+
+    public void setNhanBiKip() {
+        this.nhanbikip = 1;
     }
 
     class place {

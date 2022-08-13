@@ -120,11 +120,14 @@ public class DropRate {
         // -1,-1,-1,-1,-1,-1, 509, 510,511, 742, 735,762,
         // 403,403,404,404,407,407,408,408,
         // 316,311,312,313,314,315,375,376,377,378,379,380};
-        
+
         // thẻ bài
         items.add(new DropRate(436, 3));
         items.add(new DropRate(437, 3));
         items.add(new DropRate(438, 3));
+
+        // túi vải c3
+        items.add(new DropRate(283, 3));
 
         // chim tinh anh
         items.add(new DropRate(419, 3));
@@ -257,6 +260,118 @@ public class DropRate {
         items.add(new DropRate(406, 1));
         items.add(new DropRate(407, 1));
         items.add(new DropRate(408, 1));
+
+        // sói đen
+        items.add(new DropRate(523, 2));
+
+        return generateDropItem(items);
+    }
+
+    public static short[] arrItemDieuGiay() {
+        ArrayList<DropRate> items = new ArrayList<DropRate>();
+
+        // ngọc
+        items.add(new DropRate(652, 20));
+        items.add(new DropRate(653, 20));
+
+        // đá
+        items.add(new DropRate(4, 30));
+        items.add(new DropRate(5, 30));
+        items.add(new DropRate(6, 15));
+        items.add(new DropRate(7, 10));
+
+        // thức ăn
+        items.add(new DropRate(30, 3));
+        items.add(new DropRate(249, 3));
+        items.add(new DropRate(250, 3));
+        items.add(new DropRate(409, 3));
+        items.add(new DropRate(410, 3));
+        items.add(new DropRate(567, 3));
+
+        // bát bảo
+        items.add(new DropRate(383, 1));
+
+        // sói
+        items.add(new DropRate(443, 2));
+        items.add(new DropRate(485, 2));
+
+        // đan
+        items.add(new DropRate(275, 3));
+        items.add(new DropRate(276, 3));
+        items.add(new DropRate(277, 3));
+        items.add(new DropRate(278, 3));
+
+        // thẻ bài
+        items.add(new DropRate(436, 10));
+        items.add(new DropRate(437, 10));
+
+        // giày
+        items.add(new DropRate(549, 5));
+        items.add(new DropRate(550, 5));
+
+        return generateDropItem(items);
+    }
+
+    public static short[] arrItemDieuVai() {
+
+        ArrayList<DropRate> items = new ArrayList<DropRate>();
+
+        // thức ăn
+        items.add(new DropRate(30, 3));
+        items.add(new DropRate(249, 3));
+        items.add(new DropRate(250, 3));
+        items.add(new DropRate(409, 3));
+        items.add(new DropRate(410, 3));
+        items.add(new DropRate(567, 3));
+
+        // ngọc
+        items.add(new DropRate(654, 12));
+        items.add(new DropRate(655, 12));
+
+        // giày
+        items.add(new DropRate(549, 5));
+        items.add(new DropRate(550, 5));
+        items.add(new DropRate(551, 5));
+
+        // đá
+        items.add(new DropRate(6, 10));
+        items.add(new DropRate(7, 10));
+        items.add(new DropRate(8, 10));
+        items.add(new DropRate(9, 10));
+        items.add(new DropRate(10, 10));
+        items.add(new DropRate(11, 10));
+
+        // bát bảo
+        items.add(new DropRate(383, 3));
+
+        // sói
+        items.add(new DropRate(523, 2));
+        items.add(new DropRate(524, 2));
+
+        // pet poru
+        items.add(new DropRate(781, 2));
+
+        // Lồng đèn cá chép
+        items.add(new DropRate(569, 2));
+
+        // đan
+        items.add(new DropRate(275, 3));
+        items.add(new DropRate(276, 3));
+        items.add(new DropRate(277, 3));
+        items.add(new DropRate(278, 3));
+
+        // thẻ bài
+        items.add(new DropRate(436, 10));
+        items.add(new DropRate(437, 10));
+        items.add(new DropRate(438, 10));
+
+        // thức ăn sói xe
+        items.add(new DropRate(573, 5));
+        items.add(new DropRate(574, 5));
+        items.add(new DropRate(575, 5));
+        items.add(new DropRate(576, 5));
+        items.add(new DropRate(577, 5));
+        items.add(new DropRate(578, 5));
 
         return generateDropItem(items);
     }

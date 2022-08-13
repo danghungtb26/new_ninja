@@ -90,7 +90,9 @@ public class Menu {
             if (npcId == 33) {
                 switch (Server.manager.event) {
                     case 1: {
-                        Menu.doMenuArray(p, new String[] { "Diều giấy", "Diều vải" });
+                        Menu.doMenuArray(p, new String[] { "Diều giấy", "Diều vải", "10 Diều giấy", "10 Diều vải",
+                                "100 Diều giấy", "100 Diều vải", "1000 Diều giấy", "1000 Diều vải", "10000 Diều giấy",
+                                "10000 Diều vải", });
                         break;
                     }
                     case 2: {
@@ -4969,6 +4971,46 @@ public class Menu {
 
     }
 
+    public static void lamDieuGiay(Player p, byte npcid, byte menuId, byte b3, int soluong) throws IOException {
+        if (p.c.quantityItemyTotal(432) >= 1 * soluong && p.c.quantityItemyTotal(428) >= 3 * soluong
+                && p.c.quantityItemyTotal(429) >= 2 * soluong && p.c.quantityItemyTotal(430) >= 3 * soluong) {
+            if (p.c.getBagNull() == 0) {
+                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+            } else {
+                Item it = ItemTemplate.itemDefault(434);
+                it.quantity = soluong;
+                p.c.addItemBag(true, it);
+                p.c.removeItemBags(432, 1 * soluong);
+                p.c.removeItemBags(428, 3 * soluong);
+                p.c.removeItemBags(429, 2 * soluong);
+                p.c.removeItemBags(430, 3 * soluong);
+            }
+
+            return;
+        } else {
+            Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+        }
+    }
+
+    public static void lamDieuVai(Player p, byte npcid, byte menuId, byte b3, int soluong) throws IOException {
+        if (p.c.quantityItemyTotal(433) >= 1 * soluong && p.c.quantityItemyTotal(428) >= 2 * soluong
+                && p.c.quantityItemyTotal(429) >= 3 * soluong && p.c.quantityItemyTotal(431) >= 2 * soluong) {
+            if (p.c.getBagNull() == 0) {
+                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+            } else {
+                Item it = ItemTemplate.itemDefault(435);
+                it.quantity = soluong;
+                p.c.addItemBag(true, it);
+                p.c.removeItemBags(433, 1 * soluong);
+                p.c.removeItemBags(428, 2 * soluong);
+                p.c.removeItemBags(429, 3 * soluong);
+                p.c.removeItemBags(431, 2 * soluong);
+            }
+        } else {
+            Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+        }
+    }
+
     public static void npcTienNu(Player p, byte npcid, byte menuId, byte b3) throws IOException {
         if (p.typemenu == 33) {
             Item it;
@@ -4980,41 +5022,43 @@ public class Menu {
                     } else {
                         switch (menuId) {
                             case 0: {
-                                if (p.c.quantityItemyTotal(432) >= 1 && p.c.quantityItemyTotal(428) >= 3
-                                        && p.c.quantityItemyTotal(429) >= 2 && p.c.quantityItemyTotal(430) >= 3) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(434);
-                                        p.c.addItemBag(true, it);
-                                        p.c.removeItemBags(432, 1);
-                                        p.c.removeItemBags(428, 3);
-                                        p.c.removeItemBags(429, 2);
-                                        p.c.removeItemBags(430, 3);
-                                    }
-
-                                    return;
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
+                                lamDieuGiay(p, npcid, menuId, b3, 1);
                                 break;
                             }
                             case 1: {
-                                if (p.c.quantityItemyTotal(433) >= 1 && p.c.quantityItemyTotal(428) >= 2
-                                        && p.c.quantityItemyTotal(429) >= 3 && p.c.quantityItemyTotal(431) >= 2) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(435);
-                                        p.c.addItemBag(true, it);
-                                        p.c.removeItemBags(433, 1);
-                                        p.c.removeItemBags(428, 2);
-                                        p.c.removeItemBags(429, 3);
-                                        p.c.removeItemBags(431, 2);
-                                    }
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
+                                lamDieuVai(p, npcid, menuId, b3, 1);
+                                break;
+                            }
+                            case 2: {
+                                lamDieuGiay(p, npcid, menuId, b3, 10);
+                                break;
+                            }
+                            case 3: {
+                                lamDieuVai(p, npcid, menuId, b3, 10);
+                                break;
+                            }
+                            case 4: {
+                                lamDieuGiay(p, npcid, menuId, b3, 100);
+                                break;
+                            }
+                            case 5: {
+                                lamDieuVai(p, npcid, menuId, b3, 100);
+                                break;
+                            }
+                            case 6: {
+                                lamDieuGiay(p, npcid, menuId, b3, 1000);
+                                break;
+                            }
+                            case 7: {
+                                lamDieuVai(p, npcid, menuId, b3, 1000);
+                                break;
+                            }
+                            case 8: {
+                                lamDieuGiay(p, npcid, menuId, b3, 10000);
+                                break;
+                            }
+                            case 9: {
+                                lamDieuVai(p, npcid, menuId, b3, 10000);
                                 break;
                             }
                         }
@@ -5458,7 +5502,11 @@ public class Menu {
     public static void npcVuaHung(Player p, byte npcid, byte menuId, byte b3) throws IOException {
         switch (menuId) {
             case 0: {
-                Service.sendInputDialog(p, (short) 9, "Nhập số COIN muốn đổi.");
+                BiKip.muaBiKip(p, npcid);
+                break;
+            }
+            case 1: {
+                BiKip.nangCapBiKip(p, npcid, b3 == 1);
                 break;
             }
             default: {
@@ -5564,8 +5612,13 @@ public class Menu {
                     Service.chatNPC(p, (short) npcid, "Con đã nhận thưởng hôm nay rồi!");
                     return;
                 } else if (p.c.countHangDong < 2) {
-                    Service.chatNPC(p, (short) npcid,
-                            "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay lại gặp ta đã nhận thường");
+                    p.luongMessage(500);
+                    p.conn.sendMessageLog("Đã điểm danh");
+                    p.c.isQuaHangDong = 1;
+                    // Service.chatNPC(p, (short) npcid,
+                    // "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay
+                    // lại gặp ta đã nhận thường");
+                } else {
                 }
                 break;
             }
@@ -5623,6 +5676,22 @@ public class Menu {
                 break;
             }
             case 3: {
+                if (p.c.isNhanban) {
+                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
+                    return;
+                }
+
+                if (p.c.maxluggage >= 120) {
+                    Service.chatNPC(p, (short) npcid, "Đã mở 120 ô rồi mà");
+                    return;
+                }
+
+                Service.startYesNoDlg(p, (byte) (103),
+                        "Bạn có muốn mở 120 ô hành trang với giá 10000 lượng không? (Sau khi mở, không được sử dụng túi vải nữa.)");
+                break;
+
+            }
+            case 4: {
                 Server.manager.sendTB(p, "Hướng dẫn",
                         "- Vừa vào chơi, hãy đến chỗ ta nhận quà tân thủ bao gồm: 100tr xu, 20k lượng, 100tr yên \n- Mỗi ngày con được điềm danh hàng ngày 1 lần và nhận 500 lượng \n- Nếu mỗi ngày hoàn thành hang động đủ 2 lần con hãy đến chỗ ta và Nhận quà hang động để nhận 1000 lượng\n\n** Lưu ý, nếu là tài khoản trải nghiệm, con chỉ có thể nhận được 1 nửa phần thường từ ta.");
                 break;
