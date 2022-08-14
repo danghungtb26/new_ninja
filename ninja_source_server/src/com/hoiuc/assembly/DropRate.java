@@ -271,8 +271,8 @@ public class DropRate {
         ArrayList<DropRate> items = new ArrayList<DropRate>();
 
         // ngọc
-        items.add(new DropRate(652, 20));
-        items.add(new DropRate(653, 20));
+        items.add(new DropRate(652, 30));
+        items.add(new DropRate(653, 30));
 
         // đá
         items.add(new DropRate(4, 30));
@@ -289,7 +289,7 @@ public class DropRate {
         items.add(new DropRate(567, 3));
 
         // bát bảo
-        items.add(new DropRate(383, 1));
+        // items.add(new DropRate(383, 1));
 
         // sói
         items.add(new DropRate(443, 2));
@@ -325,8 +325,8 @@ public class DropRate {
         items.add(new DropRate(567, 3));
 
         // ngọc
-        items.add(new DropRate(654, 12));
-        items.add(new DropRate(655, 12));
+        items.add(new DropRate(654, 30));
+        items.add(new DropRate(655, 30));
 
         // giày
         items.add(new DropRate(549, 5));
@@ -342,7 +342,7 @@ public class DropRate {
         items.add(new DropRate(11, 10));
 
         // bát bảo
-        items.add(new DropRate(383, 3));
+        // items.add(new DropRate(383, 3));
 
         // sói
         items.add(new DropRate(523, 2));

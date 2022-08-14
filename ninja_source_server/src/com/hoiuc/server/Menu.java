@@ -1429,9 +1429,9 @@ public class Menu {
                             return;
                         }
 
-                        if (p.luong < 100000) {
+                        if (p.luong < 10000) {
                             Service.chatNPC(p, (short) npcid,
-                                    "Để thành lập gia tộc, con phải có ít nhất 100000 lượng trong người.");
+                                    "Để thành lập gia tộc, con phải có ít nhất 10000 lượng trong người.");
                             return;
                         }
                         Menu.sendWrite(p, (short) 50, "Tên gia tộc");
@@ -3853,14 +3853,16 @@ public class Menu {
                     Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     return;
                 }
-                if (p.c.level < 80) {
-                    Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
-                    return;
-                }
+                
                 switch (b3) {
                     case 0: {
+                        if (p.c.level < 80) {
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
+                            return;
+                        }
+
                         if (p.luong < 100) {
-                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 lượng mới đổi được");
                         } else {
                             p.luongMessage(-100);
                             p.c.upxuMessage(20000);
@@ -3869,8 +3871,13 @@ public class Menu {
                     }
                         break;
                     case 1: {
+                        if (p.c.level < 80) {
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
+                            return;
+                        }
+
                         if (p.luong < 1000) {
-                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 1000 lượng mới đổi được");
                         } else {
                             p.luongMessage(-1000);
                             p.c.upxuMessage(200000);
@@ -3880,7 +3887,7 @@ public class Menu {
                         break;
                     case 2: {
                         if (p.luong < 1000) {
-                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 100 mới đổi được");
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 1000 mới đổi được");
                         } else {
                             p.luongMessage(-1000);
                             p.c.upyenMessage(5000000);
@@ -5612,13 +5619,12 @@ public class Menu {
                     Service.chatNPC(p, (short) npcid, "Con đã nhận thưởng hôm nay rồi!");
                     return;
                 } else if (p.c.countHangDong < 2) {
+                    Service.chatNPC(p, (short) npcid,
+                            "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay lại gặp ta đã nhận thường");
+                } else {
                     p.luongMessage(500);
                     p.conn.sendMessageLog("Đã điểm danh");
                     p.c.isQuaHangDong = 1;
-                    // Service.chatNPC(p, (short) npcid,
-                    // "Con chưa hoàn thành đủ 2 lần đi hang động, hãy hoàn thành đủ 2 lần và quay
-                    // lại gặp ta đã nhận thường");
-                } else {
                 }
                 break;
             }
@@ -5638,15 +5644,15 @@ public class Menu {
                     p.updateExp(Level.getMaxExp(20));
                     // }
 
-                    p.upluongMessage(30000L);
-                    p.c.upxuMessage(100000L);
-                    p.c.upyenMessage(50000000L);
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(385, true));
-                    p.c.addItemBag(false, ItemTemplate.itemDefault(385, true));
+                    p.upluongMessage(10000L);
+                    p.c.upxuMessage(10000L);
+                    p.c.upyenMessage(100000000L);
+                    // p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
+                    // p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    // p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    // p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));
+                    // p.c.addItemBag(false, ItemTemplate.itemDefault(385, true));
+                    // p.c.addItemBag(false, ItemTemplate.itemDefault(385, true));
 
                     Service.chatNPC(p, (short) npcid,
                             "Con đã nhận quà tân thủ thành công, chúc con trải nghiệm game vui vẻ.");
@@ -5681,6 +5687,11 @@ public class Menu {
                     return;
                 }
 
+                if (p.luong < 10000) {
+                    Service.chatNPC(p, (short) npcid, "Bạn không đủ lượng");
+                    return;
+                }
+
                 if (p.c.maxluggage >= 120) {
                     Service.chatNPC(p, (short) npcid, "Đã mở 120 ô rồi mà");
                     return;
@@ -5692,8 +5703,12 @@ public class Menu {
 
             }
             case 4: {
-                Server.manager.sendTB(p, "Hướng dẫn",
-                        "- Vừa vào chơi, hãy đến chỗ ta nhận quà tân thủ bao gồm: 100tr xu, 20k lượng, 100tr yên \n- Mỗi ngày con được điềm danh hàng ngày 1 lần và nhận 500 lượng \n- Nếu mỗi ngày hoàn thành hang động đủ 2 lần con hãy đến chỗ ta và Nhận quà hang động để nhận 1000 lượng\n\n** Lưu ý, nếu là tài khoản trải nghiệm, con chỉ có thể nhận được 1 nửa phần thường từ ta.");
+                // Server.manager.sendTB(p, "Hướng dẫn",
+                // "- Vừa vào chơi, hãy đến chỗ ta nhận quà tân thủ bao gồm: 100tr xu, 20k
+                // lượng, 100tr yên \n- Mỗi ngày con được điềm danh hàng ngày 1 lần và nhận 500
+                // lượng \n- Nếu mỗi ngày hoàn thành hang động đủ 2 lần con hãy đến chỗ ta và
+                // Nhận quà hang động để nhận 1000 lượng\n\n** Lưu ý, nếu là tài khoản trải
+                // nghiệm, con chỉ có thể nhận được 1 nửa phần thường từ ta.");
                 break;
             }
         }

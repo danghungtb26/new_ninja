@@ -22,24 +22,54 @@ import java.util.Locale;
 public class UseItem {
     static int[] arrOp = new int[] { 6, 7, 10, 67, 68, 69, 70, 71, 72, 73, 74 };
     static int[] arrParam = new int[] { 50, 50, 10, 5, 10, 10, 5, 5, 5, 100, 50 };
-    private static byte[] arrOpenBag = new byte[] { 0, 6, 6, 12, 24};
+    private static byte[] arrOpenBag = new byte[] { 0, 6, 6, 12, 24 };
     private static Object LOCK = new Object();
-    
-    public static short[] huydat = new short[]{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,654,653,655,652};
-    public static short[] idItemRuongMayMan = new short[]{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7,7,7 , 8, 8,8, 9,9,242,242,242, 280, 436 };
-    public static short[] idItemRuongTinhXao = new short[]{4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 9, 436, 437, 242, 242, 280, 280, 280, 283, 436, 437, 437 };
-    public static short[] idItemHopBanhThuong = new short[]{ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6,6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7,8,8, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419, 436, 436, 436, 436, 436, 437, 437, 443, 485, 524, 549, 550, 551, 568, 569, 570, 571, 577, 742 };
-    public static short[] idItemHopBanhThuongHang = new short[]{4, 4, 4, 4, 4, 4, 4, 5, 5, 5,5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7,7,7,7, 8,8,8,9,9,10,10,11,11, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419, 436, 436, 436, 436, 436, 436, 437, 437, 438, 443, 485, 524, 567, 567, 549, 550, 551, 568, 569, 570, 571,308,309 , 577, 742};
+
+    public static short[] huydat = new short[] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+            -1, -1, -1, -1, -1, -1, 654, 653, 655, 652 };
+    public static short[] idItemRuongMayMan = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7,
+            7, 7, 8, 8, 8, 9, 9, 242, 242, 242, 280, 436 };
+    public static short[] idItemRuongTinhXao = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9,
+            9, 9, 436, 437, 242, 242, 280, 280, 280, 283, 436, 437, 437 };
+    public static short[] idItemHopBanhThuong = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+            6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419,
+            436, 436, 436, 436, 436, 437, 437, 443, 485, 524, 549, 550, 551, 568, 569, 570, 571, 577, 742 };
+    public static short[] idItemHopBanhThuongHang = new short[] { 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6,
+            6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11, 11, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410,
+            419, 436, 436, 436, 436, 436, 436, 437, 437, 438, 443, 485, 524, 567, 567, 549, 550, 551, 568, 569, 570,
+            571, 308, 309, 577, 742 };
     public static short[] idItemDieuGiay = DropRate.arrItemDieuGiay();
     public static short[] idItemDieuVai = DropRate.arrItemDieuVai();
-    public static short[] idItemRuongMaQuai = new short[]{ 4,603, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 280, 280, 280, 436, 437, 436, 437, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637 };
-    public static short[] idItemPhucNangNhanGia = new short[]{-1,-1,-1,-1,603,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,-1};
-    public static short[] idItemBanhChocolate = new short[]{4, 4, 4, 4,4,4,4,4,4,4,4,4,4,4,4,4, 5,5,5,5,5,5,5,5,5,5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7,7,7,7,7,7,7,7,7, 8, 9, 275, 276, 277, 278, 289, 289, 340, 340, 383, 409, 410, 436, 436,5,5,5,5,6,6,6,6,6,6, 7,7,7, 437, 443, 485, 524, 549, 550, 551, 549, 550, 551,569,574,5,5,5,5, 6, 6,6,6,6,6,6,6, 7, 7,7,7, 577,575,578, 742 ,673,775};
-    public static short[] idItemBanhDauTay = new short[]{4, 4,4,4,4,4,4,4,4,4, 5,5,5,5,5,5,5,5,5, 5,5,5,5,5,5, 6, 6,6,6,6,6,6,6,6,6,6,6, 7, 7,7,7,7,7,7,7,7, 8, 9, 10, 275, 276, 277, 278, 289, 340, 340, 383, 409, 410, 419, 436, 436, 436,5,5,5,5,6,6,6,6, 7,7,7, 436, 437, 437, 438, 443, 485, 524, 567, 567, 549, 550, 551, 549,5,5,5,5,5, 6, 6,6, 7, 7,7,7, 550, 551,775, 569,575,5,5,5,6,6,6,6,6, 7, 7,578, 574,577, 742,673,775, 781,828};
-    public static short[] idItemCayThong = new short[]{8,8,8,8,8,8,8,9,9,9,549,549,549,549,550,550,551,551,436,436,437};
-    public static short[] idTangHoa = new short[]{8,8,8,8,8,8,8,9,9,9,8,8,8,8,8,8,8,9,9,9,8,8,8,8,8,8,8,9,9,9,8,8,8,8,8,8,8,9,9,9,8,8,8,8,8,8,8,9,9,9,8,8,8,8,8,8,8,9,9,9,251,251,251,251,251,251,251,251,251,251,251,251,251,275,276,277,278,275,276,277,278,407,408,436,437,438,524,443,485,549,550,551,407,408,436,437,438,524,443,485,549,550,551,573,576};
-    public static short[] idItemTuiQuaGiaToc = new short[]{8,8,8,8,8,8,8,9,9,9,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,242,242,869,454,455,456,457,828,242, 283, 436,436,437};
-    public static short[] idItemHomBlackFriday = new short[]{4, 4, 4, 4,4,4,4,4,4,4,4,4,4,4,4,4, 5,5,5,5,5,5,5,5,5,5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7,7,7,7,7,7,7,7,7, 8, 9, 275, 276, 277, 278, 289, 289, 340, 340, 383, 409, 410, 436, 436,5,5,5,5,6,6,6,6,6,6, 7,7,7, 437, 443, 485, 524, 549, 550, 551, 549, 550, 551,569,574,5,5,5,5, 6, 6,6,6,6,6,6,6, 7, 7,7,7, 577,575,578, 742 ,673,775,828};
+    public static short[] idItemRuongMaQuai = new short[] { 4, 603, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6,
+            6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 280, 280, 280, 436, 437, 436, 437, 618, 619, 620, 621,
+            622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637 };
+    public static short[] idItemPhucNangNhanGia = new short[] { -1, -1, -1, -1, 603, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+            -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5,
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, -1 };
+    public static short[] idItemBanhChocolate = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5,
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9, 275, 276, 277, 278, 289,
+            289, 340, 340, 383, 409, 410, 436, 436, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 437, 443, 485, 524, 549, 550,
+            551, 549, 550, 551, 569, 574, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 577, 575, 578, 742, 673,
+            775 };
+    public static short[] idItemBanhDauTay = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+            5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9, 10, 275, 276, 277, 278,
+            289, 340, 340, 383, 409, 410, 419, 436, 436, 436, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 436, 437, 437, 438, 443,
+            485, 524, 567, 567, 549, 550, 551, 549, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 550, 551, 775, 569, 575, 5, 5,
+            5, 6, 6, 6, 6, 6, 7, 7, 578, 574, 577, 742, 673, 775, 781, 828 };
+    public static short[] idItemCayThong = new short[] { 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 549, 549, 549, 549, 550, 550,
+            551, 551, 436, 436, 437 };
+    public static short[] idTangHoa = new short[] { 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 8, 8, 8,
+            8, 8, 8, 8, 9, 9, 9, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 8, 8, 8, 8, 8, 8, 8, 9, 9,
+            9, 251, 251, 251, 251, 251, 251, 251, 251, 251, 251, 251, 251, 251, 275, 276, 277, 278, 275, 276, 277, 278,
+            407, 408, 436, 437, 438, 524, 443, 485, 549, 550, 551, 407, 408, 436, 437, 438, 524, 443, 485, 549, 550,
+            551, 573, 576 };
+    public static short[] idItemTuiQuaGiaToc = new short[] { 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8,
+            8, 8, 8, 8, 8, 8, 242, 242, 869, 454, 455, 456, 457, 828, 242, 283, 436, 436, 437 };
+    public static short[] idItemHomBlackFriday = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5,
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9, 275, 276, 277, 278, 289,
+            289, 340, 340, 383, 409, 410, 436, 436, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 437, 443, 485, 524, 549, 550,
+            551, 549, 550, 551, 569, 574, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 577, 575, 578, 742, 673, 775,
+            828 };
 
     public static void uesItem(Player p, Item item, byte index) {
         Message m = null;
@@ -78,7 +108,9 @@ public class UseItem {
                 p.sendAddchatYellow("Môn phái không phù hợp.");
                 return;
             }
-            if ((item.id == 420 && GameSrc.SysClass(p.c.get().nclass) != 1) || (item.id == 421 && GameSrc.SysClass(p.c.get().nclass) != 2) || (item.id == 422 && GameSrc.SysClass(p.c.get().nclass) != 3)) {
+            if ((item.id == 420 && GameSrc.SysClass(p.c.get().nclass) != 1)
+                    || (item.id == 421 && GameSrc.SysClass(p.c.get().nclass) != 2)
+                    || (item.id == 422 && GameSrc.SysClass(p.c.get().nclass) != 3)) {
                 p.sendAddchatYellow("Thuộc tính của Yoroi không phù hợp để sử dụng.");
                 return;
             }
@@ -89,11 +121,12 @@ public class UseItem {
             if (ItemTemplate.isTypeBody(item.id)) {
                 item.isLock = true;
                 Item itemb = null;
-                if(ItemTemplate.isIdNewCaiTrang(item.id) || ItemTemplate.checkIdNewWP(item.id) != -1 || ItemTemplate.checkIdNewMatNa(item.id) != -1 || ItemTemplate.checkIdNewBienHinh(item.id) != -1) {
-                    itemb = p.c.get().ItemBody[data.type+16];
-                    p.c.get().ItemBody[data.type+16] = item;
-                }
-                else {
+                if (ItemTemplate.isIdNewCaiTrang(item.id) || ItemTemplate.checkIdNewWP(item.id) != -1
+                        || ItemTemplate.checkIdNewMatNa(item.id) != -1
+                        || ItemTemplate.checkIdNewBienHinh(item.id) != -1) {
+                    itemb = p.c.get().ItemBody[data.type + 16];
+                    p.c.get().ItemBody[data.type + 16] = item;
+                } else {
                     itemb = p.c.get().ItemBody[data.type];
                     p.c.get().ItemBody[data.type] = item;
                 }
@@ -120,7 +153,8 @@ public class UseItem {
                         break;
                     }
                     case 569: {
-                        p.setEffect(36, 0, (int) (item.expires - System.currentTimeMillis()), (int) p.c.get().getPramItem(99));
+                        p.setEffect(36, 0, (int) (item.expires - System.currentTimeMillis()),
+                                (int) p.c.get().getPramItem(99));
                         p.mobMeMessage(206, (byte) 0);
                         break;
                     }
@@ -135,7 +169,8 @@ public class UseItem {
                         break;
                     }
                     case 583: {
-                        p.setEffect(36, 0, (int) (item.expires - System.currentTimeMillis()), (int) p.c.get().getPramItem(99));
+                        p.setEffect(36, 0, (int) (item.expires - System.currentTimeMillis()),
+                                (int) p.c.get().getPramItem(99));
                         p.mobMeMessage(211, (byte) 1);
                         break;
                     }
@@ -187,12 +222,12 @@ public class UseItem {
                 p.conn.sendMessage(m);
                 m.cleanup();
                 Service.CharViewInfo(p, false);
-            } 
-            else if (ItemTemplate.isTypeMounts(item.id)) {
+            } else if (ItemTemplate.isTypeMounts(item.id)) {
                 byte idM = (byte) (data.type - 29);
                 Item itemM = p.c.get().ItemMounts[idM];
                 if (idM == 4) {
-                    if (p.c.get().ItemMounts[0] != null || p.c.get().ItemMounts[1] != null || p.c.get().ItemMounts[2] != null || p.c.get().ItemMounts[3] != null) {
+                    if (p.c.get().ItemMounts[0] != null || p.c.get().ItemMounts[1] != null
+                            || p.c.get().ItemMounts[2] != null || p.c.get().ItemMounts[3] != null) {
                         p.conn.sendMessageLog("Bạn cần phải tháo trang bị thú cưỡi đang sử dụng.");
                         return;
                     }
@@ -211,7 +246,7 @@ public class UseItem {
                                     }
                                 }
                             } while (op == -1);
-                            if(op == -1) {
+                            if (op == -1) {
                                 return;
                             }
                             int par = UseItem.arrParam[op];
@@ -223,25 +258,25 @@ public class UseItem {
                         }
                     }
                     if (p.c.clone != null && p.c.isNhanban) {
-                    if (item.id == 801) {
+                        if (item.id == 801) {
 
-                        p.c.clone.ID_HORSE = 47;
+                            p.c.clone.ID_HORSE = 47;
+                        }
+                        if (item.id == 802) {
+                            p.c.clone.ID_HORSE = 48;
+                        }
+                        if (item.id == 803) {
+                            p.c.clone.ID_HORSE = 49;
+                        }
+                        if (item.id == 798) {
+                            p.c.clone.ID_HORSE = 36;
+                        }
+                        if (item.id == 828) {
+                            p.c.clone.ID_HORSE = 63;
+                        }
+                        Service.CharViewInfo(p, false);
                     }
-                    if (item.id == 802) {
-                        p.c.clone.ID_HORSE = 48;
-                    }
-                    if (item.id == 803) {
-                        p.c.clone.ID_HORSE = 49;
-                    }
-                    if (item.id == 798) {
-                        p.c.clone.ID_HORSE = 36;
-                    }if (item.id == 828) {
-                        p.c.clone.ID_HORSE = 63;
-                    }
-                    Service.CharViewInfo(p, false);
-                    }
-                }
-                else if (p.c.get().ItemMounts[4] == null) {
+                } else if (p.c.get().ItemMounts[4] == null) {
                     p.conn.sendMessageLog("Bạn cần phải tháo trang bị thú cưỡi đang sử dụng.");
                     return;
                 }
@@ -262,23 +297,21 @@ public class UseItem {
 
                 if (ItemTemplate.isTypeMounts(item.id)) {
                     Player player;
-                    for(int i = p.c.tileMap.players.size() - 1; i >= 0; i--) {
+                    for (int i = p.c.tileMap.players.size() - 1; i >= 0; i--) {
                         player = p.c.tileMap.players.get(i);
-                        if(player != null && player.c != null) {
+                        if (player != null && player.c != null) {
                             p.c.tileMap.sendMounts(p.c.get(), player);
                         }
                     }
                 }
-            }             
-            else if (data.skill > 0) {
+            } else if (data.skill > 0) {
                 byte skill = data.skill;
                 if (item.id == 547) {
                     skill += p.c.get().nclass;
                 }
                 p.openBookSkill(index, skill);
                 return;
-            }
-            else {
+            } else {
                 byte numbagnull = p.c.getBagNull();
                 switch (item.id) {
                     case 13: {
@@ -473,16 +506,16 @@ public class UseItem {
                         }
                         break;
                     }
-                    //Nhân sâm
+                    // Nhân sâm
                     case 28: {
-//                        if (p.c.isNhanban) {
-//                            p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
-//                            return;
-//                        }
-                         if (p.c.level > 130){
-                             p.sendAddchatYellow("Nhân sâm chỉ sử dụng được cho level dưới 130!");
-                             return;
-                         }
+                        // if (p.c.isNhanban) {
+                        // p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
+                        // return;
+                        // }
+                        if (p.c.level > 130) {
+                            p.sendAddchatYellow("Nhân sâm chỉ sử dụng được cho level dưới 130!");
+                            return;
+                        }
                         long expup = (Level.getMaxExp(p.c.get().level + 1) - Level.getMaxExp(p.c.get().level)) / 10;
                         p.updateExp(expup);
                         p.sendAddchatYellow("Bạn nhận được " + expup + " kinh nghiệm.");
@@ -510,51 +543,52 @@ public class UseItem {
                     }
                     // cau ca
                     case 548: {
-                item.setLock(true);
-                
-                if (numbagnull == 0) {
-                    p.sendAddchatYellow("Hành trang không đủ ô trống để câu cá");
-                    p.endLoad(true);
-                    return;
-                }
+                        item.setLock(true);
 
-                if (p.c.y == 456 && (p.c.x >= 107 && p.c.x <= 2701)) {
-                    boolean coMoi = false;
-                    for (Item item1 : p.c.ItemBag) {
-                        if (item1 != null && (item1.id == 602 || item1.id == 603)) {
-                            p.c.removeItemBags(item1.id, 1);
-                            coMoi = true;
-                            break;
-                        }
-                    }
-
-                    if (coMoi) {
-                        if (Util.percent(70, 30)) {
-                            
-                            short[] itemcau = new short[]{10,10,11,11,11,599,599,303,599,600,600,600,383,384,659,659,659,545,945,976};
-                            short idI = itemcau[(int)Util.nextInt(itemcau.length)];
-                            Item itemup = ItemTemplate.itemDefault(idI);
-                            int quantity = (int)Util.nextInt(1);
-                            p.c.addItemBag(true, itemup);
-                            p.sendAddchatYellow("Bạn nhận được " + quantity +"và 1 điểm câu cá.");
-                            p.c.diemcauca ++;
+                        if (numbagnull == 0) {
+                            p.sendAddchatYellow("Hành trang không đủ ô trống để câu cá");
                             p.endLoad(true);
+                            return;
+                        }
+
+                        if (p.c.y == 456 && (p.c.x >= 107 && p.c.x <= 2701)) {
+                            boolean coMoi = false;
+                            for (Item item1 : p.c.ItemBag) {
+                                if (item1 != null && (item1.id == 602 || item1.id == 603)) {
+                                    p.c.removeItemBags(item1.id, 1);
+                                    coMoi = true;
+                                    break;
+                                }
+                            }
+
+                            if (coMoi) {
+                                if (Util.percent(70, 30)) {
+
+                                    short[] itemcau = new short[] { 10, 10, 11, 11, 11, 599, 599, 303, 599, 600, 600,
+                                            600, 383, 384, 659, 659, 659, 545, 945, 976 };
+                                    short idI = itemcau[(int) Util.nextInt(itemcau.length)];
+                                    Item itemup = ItemTemplate.itemDefault(idI);
+                                    int quantity = (int) Util.nextInt(1);
+                                    p.c.addItemBag(true, itemup);
+                                    p.sendAddchatYellow("Bạn nhận được " + quantity + "và 1 điểm câu cá.");
+                                    p.c.diemcauca++;
+                                    p.endLoad(true);
+                                } else {
+                                    p.sendAddchatYellow("Không câu được gì cả,có nịt nhé");
+                                    p.endLoad(true);
+                                }
+                            } else {
+                                p.sendAddchatYellow("Không có mồi câu để câu cá");
+                                p.endLoad(true);
+                            }
                         } else {
-                            p.sendAddchatYellow("Không câu được gì cả,có nịt nhé");
+                            p.sendAddchatYellow("Hãy đi đến vùng nước ở làng chài để câu cá");
                             p.endLoad(true);
                         }
-                    } else {
-                        p.sendAddchatYellow("Không có mồi câu để câu cá");
-                        p.endLoad(true);
-                    }
-                } else {
-                    p.sendAddchatYellow("Hãy đi đến vùng nước ở làng chài để câu cá");
-                    p.endLoad(true);
-                }
 
-                break;
-            }
-                    //phúc nang nhẫn giả
+                        break;
+                    }
+                    // phúc nang nhẫn giả
                     case 38: {
                         if (p.c.isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
@@ -567,11 +601,12 @@ public class UseItem {
                             p.c.upyenMessage(yenran);
                             p.sendAddchatYellow("Bạn nhận được " + yenran + " yên.");
                         } else {
-                            p.c.addItemBag(UseItem.idItemPhucNangNhanGia[per] == 28 ? true : false, ItemTemplate.itemDefault(UseItem.idItemPhucNangNhanGia[per]));
+                            p.c.addItemBag(UseItem.idItemPhucNangNhanGia[per] == 28 ? true : false,
+                                    ItemTemplate.itemDefault(UseItem.idItemPhucNangNhanGia[per]));
                         }
                         break;
                     }
-                    //Hiếu chiến
+                    // Hiếu chiến
                     case 257: {
                         if (p.c.get().pk > 0) {
                             p.c.get().pk -= 5;
@@ -585,7 +620,7 @@ public class UseItem {
                         p.sendAddchatYellow("Bạn không có điểm hiếu chiến.");
                         break;
                     }
-                    //Ngọc rồng
+                    // Ngọc rồng
                     case 222:
                     case 223:
                     case 224:
@@ -597,7 +632,10 @@ public class UseItem {
                             p.conn.sendMessageLog("Bạn cần nhập học để sử dụng vật phẩm này.");
                             return;
                         }
-                        if (p.c.quantityItemyTotal(222) < 1 || p.c.quantityItemyTotal(223) < 1 || p.c.quantityItemyTotal(224) < 1 || p.c.quantityItemyTotal(225) < 1 || p.c.quantityItemyTotal(226) < 1 || p.c.quantityItemyTotal(227) < 1 || p.c.quantityItemyTotal(228) < 1) {
+                        if (p.c.quantityItemyTotal(222) < 1 || p.c.quantityItemyTotal(223) < 1
+                                || p.c.quantityItemyTotal(224) < 1 || p.c.quantityItemyTotal(225) < 1
+                                || p.c.quantityItemyTotal(226) < 1 || p.c.quantityItemyTotal(227) < 1
+                                || p.c.quantityItemyTotal(228) < 1) {
                             p.conn.sendMessageLog("Bạn không có đủ 7 viên ngọc rồng 1-7 sao để gọi rồng.");
                             return;
                         }
@@ -641,17 +679,20 @@ public class UseItem {
                         if (p.c.isNhanban) {
                             nClassC = p.c.clone.nclass;
                         }
-                        p.c.addItemBag(false, ItemTemplate.itemDefault(419 + GameSrc.SysClass(nClassC), count == 7 ? false : true));
+                        p.c.addItemBag(false,
+                                ItemTemplate.itemDefault(419 + GameSrc.SysClass(nClassC), count == 7 ? false : true));
                         break;
                     }
-                    //Túi vải
+                    // Túi vải
                     case 215:
                     case 229:
                     case 283:
                     case 829: {
-                        byte level = (byte) ((item.id != 215) ? ((item.id != 229) ? ((item.id != 283)  ? 4 : 3 ) : 2) : 1);
+                        byte level = (byte) ((item.id != 215) ? ((item.id != 229) ? ((item.id != 283) ? 4 : 3) : 2)
+                                : 1);
                         if (level > p.c.levelBag + 1) {
-                            p.sendAddchatYellow("Cần mở Túi vải cấp " + (p.c.levelBag + 1) + " mới có thể mở được túi vải này.");
+                            p.sendAddchatYellow(
+                                    "Cần mở Túi vải cấp " + (p.c.levelBag + 1) + " mới có thể mở được túi vải này.");
                             return;
                         }
                         if (p.c.levelBag >= level) {
@@ -669,14 +710,14 @@ public class UseItem {
                         p.openBagLevel(index);
                         break;
                     }
-                    //Giấy tẩy tiềm năng
+                    // Giấy tẩy tiềm năng
                     case 240: {
                         p.c.removeItemBag(index, 1);
                         p.c.get().countTayTiemNang++;
                         p.sendAddchatYellow("Số lần tẩy điểm tiềm năng tăng thêm 1");
                         break;
                     }
-                    //giấy tẩy kỹ năng
+                    // giấy tẩy kỹ năng
                     case 241: {
                         p.c.removeItemBag(index, 1);
                         p.c.get().countTayKyNang++;
@@ -688,7 +729,7 @@ public class UseItem {
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    
+
                     case 248: {
                         Effect eff = p.c.get().getEffId(22);
                         if (eff != null) {
@@ -700,8 +741,8 @@ public class UseItem {
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    
-                    //giấy vụn
+
+                    // giấy vụn
                     case 251: {
                         if (item.quantity < 300) {
                             p.sendAddchatYellow("Bạn cần ít nhất 300 mảnh giấy vụn mới có thể sử dụng.");
@@ -712,10 +753,10 @@ public class UseItem {
                             return;
                         }
                         p.typemenu = -125;
-                        Menu.doMenuArray(p, new String[]{"Sách kỹ năng sơ", "Sách tiềm năng sơ"});
+                        Menu.doMenuArray(p, new String[] { "Sách kỹ năng sơ", "Sách tiềm năng sơ" });
                         break;
                     }
-                    //sách kỹ năng sơ
+                    // sách kỹ năng sơ
                     case 252: {
                         if (p.c.isNhanban) {
                             p.sendAddchatYellow("Phân thân không thể sử dụng vật phẩm này.");
@@ -732,7 +773,7 @@ public class UseItem {
                         p.sendAddchatYellow("Bạn nhận được 1 điểm kỹ năng.");
                         break;
                     }
-                    //sách tiềm năng sơ
+                    // sách tiềm năng sơ
                     case 253: {
                         if (p.c.isNhanban) {
                             p.sendAddchatYellow("Phân thân không thể sử dụng vật phẩm này.");
@@ -773,7 +814,7 @@ public class UseItem {
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //lam thảo dược
+                    // lam thảo dược
                     case 261: {
                         if (p.c.isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
@@ -787,7 +828,7 @@ public class UseItem {
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //Túi quà gia tộc
+                    // Túi quà gia tộc
                     case 263: {
                         if (p.c.isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
@@ -813,7 +854,7 @@ public class UseItem {
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //Đan dược
+                    // Đan dược
                     case 275: {
                         p.setEffect(24, 0, 600000, 500);
                         p.c.removeItemBag(index, 1);
@@ -837,9 +878,9 @@ public class UseItem {
                         m.writer().writeByte(index);
                         m.writer().writeByte((int) p.c.get().speed());
                         m.writer().writeInt((int) p.c.get().getMaxHP());
-                        m.writer().writeInt((int)p.c.get().getMaxMP());
-                        m.writer().writeShort((int)p.c.get().eff5buffHP());
-                        m.writer().writeShort((int)p.c.get().eff5buffMP());
+                        m.writer().writeInt((int) p.c.get().getMaxMP());
+                        m.writer().writeShort((int) p.c.get().eff5buffHP());
+                        m.writer().writeShort((int) p.c.get().eff5buffMP());
                         m.writer().flush();
                         p.conn.sendMessage(m);
                         m.cleanup();
@@ -853,138 +894,158 @@ public class UseItem {
                         }
                         p.c.nCave++;
                         p.c.useCave--;
-                        p.sendAddchatYellow("Số lần vào hang động tăng thêm 1 lần, hôm nay bạn chỉ cần có thể sử dụng lệnh bài " + p.c.useCave + " lần");
+                        p.sendAddchatYellow(
+                                "Số lần vào hang động tăng thêm 1 lần, hôm nay bạn chỉ cần có thể sử dụng lệnh bài "
+                                        + p.c.useCave + " lần");
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    
-                     //xem tt
-                      case 844: {
+
+                    // xem tt
+                    case 844: {
                         Locale localeEN = new Locale("en", "EN");
                         NumberFormat en = NumberFormat.getInstance(localeEN);
-                        Server.manager.sendTB(p, "NSOBIA333", 
-                                 " - TÀI KHOẢN : " + p.username 
-                                +"\n+ tên nhân vật : " + p.c.name
-                                +"\n+ Level : " + p.c.level
-                                +"\n+ số hành trang có  : " + p.c.maxluggage
-                              +"\n+ Lượng : " +en.format( p.luong)
-                                +"\n+ Xu : "+en.format(p.c.xu)
-                                  +"\n+ Yên : " + en.format(p.c.yen)
-                                + "\n - TIỀN NĂNG\n"
-                                + "    + Sức mạnh : " +en.format( p.c.potential0)
-                                + "\n    + Thân pháp : " +en.format( p.c.potential1)
-                                + "\n    + Thể lực : " + en.format(p.c.potential2)
-                                + "\n    + Charka : " + en.format(p.c.potential3)
-                                + "\n- TẤN CÔNG : " + en.format(p.c.dameMin())+ " - " +en.format(p.c.dameMax())
-                                + "\n+ Hp : " + en.format(p.c.getMaxHP())
-                                + "\n+ Mp : " + en.format(p.c.getMaxMP())
-                                + "\n+ Chính Xác : " + en.format(p.c.Exactly())
-                                + "\n+ Né : " + en.format(p.c.Miss()) 
-                                +"\n+ Điểm Ăn Chuột : : " + p.c.pointBossChuot
-                                                                
-                        
-                        
-                        )
-                                ;
-                                
+                        Server.manager.sendTB(p, "NSOBIA333",
+                                " - TÀI KHOẢN : " + p.username
+                                        + "\n+ tên nhân vật : " + p.c.name
+                                        + "\n+ Level : " + p.c.level
+                                        + "\n+ số hành trang có  : " + p.c.maxluggage
+                                        + "\n+ Lượng : " + en.format(p.luong)
+                                        + "\n+ Xu : " + en.format(p.c.xu)
+                                        + "\n+ Yên : " + en.format(p.c.yen)
+                                        + "\n - TIỀN NĂNG\n"
+                                        + "    + Sức mạnh : " + en.format(p.c.potential0)
+                                        + "\n    + Thân pháp : " + en.format(p.c.potential1)
+                                        + "\n    + Thể lực : " + en.format(p.c.potential2)
+                                        + "\n    + Charka : " + en.format(p.c.potential3)
+                                        + "\n- TẤN CÔNG : " + en.format(p.c.dameMin()) + " - "
+                                        + en.format(p.c.dameMax())
+                                        + "\n+ Hp : " + en.format(p.c.getMaxHP())
+                                        + "\n+ Mp : " + en.format(p.c.getMaxMP())
+                                        + "\n+ Chính Xác : " + en.format(p.c.Exactly())
+                                        + "\n+ Né : " + en.format(p.c.Miss())
+                                        + "\n+ Điểm Ăn Chuột : : " + p.c.pointBossChuot
+
+                        );
+
                         break;
                     }
-                        //sách cải tạo nhân phẩm
+                    // sách cải tạo nhân phẩm
                     case 869: {
                         long luongUp = Util.nextInt(1, 10000);
                         p.upluongMessage(luongUp);
-                        p.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
-                        Server.manager.chatKTG("Người chơi " + p.c.name + " đã cải tạo nhân phẩm nhận được "+ luongUp + " lượng" );
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                    
-                   //nhớ kiểm tra id xem chuẩn chưa
-                   case 868: {//
-                        final int num = (int) Util.nextInt(30000, 50000);
-                            p.c.expkm +=(num);
-                            p.conn.sendMessageLog("Bạn nhận được " + num + " exp Kinh Mach");
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                     case 873: {  //túi quà vip
-                    if (Server.manager.event != 4) {
-                        p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
-                        return;
-                    }
-                     if (p.c.getBagNull() == 0) {
-                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                        return;
-                    }
-                    p.updateExp(10000000);
-                    short[] arId = new short[]{ 695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,697,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,698,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,699,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,695,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,696,700,701,702,703,704,684,700,701,702,703,704,684,700,701,702,703,704,684,700,701,702,703,704,684,700,701,702,703,704,684,700,701,702,703,704,684,700,701,702,703,704,684,700,701,702,703,704,684,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,454,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457,455,456,457};
-                            short idI = arId[Util.nextInt(arId.length)];
-                            Item itemup = ItemTemplate.itemDefault(idI);
-                            itemup.isLock = false;
-                            p.c.removeItemBag(index, 1);
-                            p.c.addItemBag(true, itemup);
+                        p.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
+                        Server.manager.chatKTG(
+                                "Người chơi " + p.c.name + " đã cải tạo nhân phẩm nhận được " + luongUp + " lượng");
+                        p.c.removeItemBag(index, 1);
+                        break;
                     }
 
-                break;
-
-                       case 874: {//exp ttd
+                    // nhớ kiểm tra id xem chuẩn chưa
+                    case 868: {//
                         final int num = (int) Util.nextInt(30000, 50000);
-                            p.c.expttd +=(num);
-                            p.conn.sendMessageLog("Bạn nhận được " + num + " exp Thôn Thiên Địa");
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }     
-                       case 958: {//exp hl
+                        p.c.expkm += (num);
+                        p.conn.sendMessageLog("Bạn nhận được " + num + " exp Kinh Mach");
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    case 873: { // túi quà vip
+                        if (Server.manager.event != 4) {
+                            p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
+                            return;
+                        }
+                        if (p.c.getBagNull() == 0) {
+                            p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                            return;
+                        }
+                        p.updateExp(10000000);
+                        short[] arId = new short[] { 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695,
+                                695, 695, 695, 695, 695, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696,
+                                696, 696, 696, 696, 696, 696, 696, 696, 697, 697, 697, 697, 697, 697, 697, 697, 697,
+                                697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 697, 698,
+                                698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698,
+                                698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 698, 699,
+                                699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699,
+                                699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699, 699,
+                                699, 699, 699, 699, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695,
+                                695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695,
+                                695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695,
+                                695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695, 695,
+                                696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696,
+                                696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696,
+                                696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696,
+                                696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696, 696,
+                                700, 701, 702, 703, 704, 684, 700, 701, 702, 703, 704, 684, 700, 701, 702, 703, 704,
+                                684, 700, 701, 702, 703, 704, 684, 700, 701, 702, 703, 704, 684, 700, 701, 702, 703,
+                                704, 684, 700, 701, 702, 703, 704, 684, 700, 701, 702, 703, 704, 684, 454, 455, 456,
+                                457, 454, 455, 456, 457, 454, 455, 456, 457, 454, 455, 456, 457, 454, 455, 456, 457,
+                                454, 455, 456, 457, 454, 455, 456, 457, 454, 455, 456, 457, 454, 455, 456, 457, 454,
+                                455, 456, 457, 454, 455, 456, 457, 454, 455, 456, 457, 455, 456, 457, 455, 456, 457,
+                                455, 456, 457, 455, 456, 457, 455, 456, 457, 455, 456, 457, 455, 456, 457, 455, 456,
+                                457, 455, 456, 457, 455, 456, 457 };
+                        short idI = arId[Util.nextInt(arId.length)];
+                        Item itemup = ItemTemplate.itemDefault(idI);
+                        itemup.isLock = false;
+                        p.c.removeItemBag(index, 1);
+                        p.c.addItemBag(true, itemup);
+                    }
+
+                        break;
+
+                    case 874: {// exp ttd
+                        final int num = (int) Util.nextInt(30000, 50000);
+                        p.c.expttd += (num);
+                        p.conn.sendMessageLog("Bạn nhận được " + num + " exp Thôn Thiên Địa");
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    case 958: {// exp hl
                         final int num = (int) Util.nextInt(30000, 300000);
-                            p.c.exphl +=(num);
-                            p.conn.sendMessageLog("hồn sư nhận được " + num + " hồn lực");
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }     
-                   case 907: {//lượng
-                       long luongUp = Util.nextInt(1, 10000);
+                        p.c.exphl += (num);
+                        p.conn.sendMessageLog("hồn sư nhận được " + num + " hồn lực");
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    case 907: {// lượng
+                        long luongUp = Util.nextInt(1, 10000);
                         p.upluongMessage(luongUp);
-                        p.conn.sendMessageLog("Bạn nhận được: "+ luongUp + " lượng");
-                        
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                    case 981: {//lượng
-                       
-                        p.upluongMessage(1500000);
-                       
-                       
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                    case 982: {//xu
-                       
-                        p.c.upxuMessage(50000000);
-                       
-                       
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                   //nhớ kiểm tra id xem chuẩn chưa
-case 995: {//lượng
-                       
-                        p.upluongMessage(300000);
-                       
-                       
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                    case 994: {//xu
-                       
-                        p.c.upxuMessage(300000);
-                       
-                       
-                            p.c.removeItemBag(index, 1);
-                       break;
-                    }
-                   //nhớ kiểm tra id xem chuẩn chưa
+                        p.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
 
-  case 910: {
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    case 981: {// lượng
+
+                        p.upluongMessage(1500000);
+
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    case 982: {// xu
+
+                        p.c.upxuMessage(50000000);
+
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    // nhớ kiểm tra id xem chuẩn chưa
+                    case 995: {// lượng
+
+                        p.upluongMessage(300000);
+
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    case 994: {// xu
+
+                        p.c.upxuMessage(300000);
+
+                        p.c.removeItemBag(index, 1);
+                        break;
+                    }
+                    // nhớ kiểm tra id xem chuẩn chưa
+
+                    case 910: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                             return;
@@ -993,7 +1054,7 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 10 ExpGM");
                         p.c.removeItemBag(index, 1);
                     }
-                    break;
+                        break;
                     case 911: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
@@ -1012,7 +1073,7 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 100 ExpGM");
                         p.c.removeItemBag(index, 1);
                     }
-                    break;
+                        break;
                     case 913: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
@@ -1022,7 +1083,7 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 200 ExpGM");
                         p.c.removeItemBag(index, 1);
                     }
-                    break;
+                        break;
                     case 914: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
@@ -1032,7 +1093,7 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 500 ExpGM");
                         p.c.removeItemBag(index, 1);
                     }
-                    break;
+                        break;
                     case 915: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
@@ -1042,16 +1103,16 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 1000 ExpGM");
                         p.c.removeItemBag(index, 1);
                     }
-                    break; 
-                    
+                        break;
+
                     case 916: {
                         p.c.yeukhi += 1;
                         p.sendAddchatYellow("Bạn nhận được 1 Yêu khí");
                         p.c.removeItemBag(index, 1);
                     }
-                    break;
+                        break;
                     case 917: {
-                        if (p.c.theluc > 1000){
+                        if (p.c.theluc > 1000) {
                             p.conn.sendMessageLog("Thể lực đã MAX 1000 rồi không thể sử dụng thêm");
                             return;
                         }
@@ -1059,11 +1120,9 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 10 thể lực");
                         p.c.removeItemBag(index, 1);
                     }
-                    break;
-                   
-                   
-                   
-                    //rương may mắn
+                        break;
+
+                    // rương may mắn
                     case 272: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống.");
@@ -1071,11 +1130,13 @@ case 995: {//lượng
                         }
                         p.c.removeItemBag(index, 1);
                         if (Util.nextInt(3) == 0) {
-                            int num = (int)Util.nextInt(10000, 50000);
+                            int num = (int) Util.nextInt(10000, 50000);
                             p.c.upyenMessage(num);
                             p.sendAddchatYellow("Bạn nhận được " + num + " yên");
-                        // } else if (Util.nextInt(150) == 0) {
-                        //     p.c.addItemBag(false, ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)], false));
+                            // } else if (Util.nextInt(150) == 0) {
+                            // p.c.addItemBag(false,
+                            // ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)],
+                            // false));
                         } else {
                             short idI = UseItem.idItemRuongMayMan[Util.nextInt(UseItem.idItemRuongMayMan.length)];
                             ItemTemplate data2 = ItemTemplate.ItemTemplateId(idI);
@@ -1095,7 +1156,8 @@ case 995: {//lượng
                             int idOp2;
                             for (Option Option : itemup.options) {
                                 idOp2 = Option.id;
-                                Option.param = (int)Util.nextInt(item.getOptionShopMin(idOp2, Option.param), Option.param);
+                                Option.param = (int) Util.nextInt(item.getOptionShopMin(idOp2, Option.param),
+                                        Option.param);
                             }
                             p.c.addItemBag(true, itemup);
                         }
@@ -1105,34 +1167,36 @@ case 995: {//lượng
                     case 564: {
                         final Effect eff = p.c.get().getEffId(34);
                         if (eff != null) {
-//                            final long time = eff.timeRemove + 18000000L;
-//                            p.setEffect(34, 0, (int) (time - System.currentTimeMillis()), 2);
-                              p.sendAddchatYellow("Chỉ sử dụng được 1 cái 1 lần");
-                              return;
+                            // final long time = eff.timeRemove + 18000000L;
+                            // p.setEffect(34, 0, (int) (time - System.currentTimeMillis()), 2);
+                            p.sendAddchatYellow("Chỉ sử dụng được 1 cái 1 lần");
+                            return;
                         } else {
                             p.setEffect(34, 0, 18000000, 2);
                         }
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //rương tinh xảo
+                    // rương tinh xảo
                     case 282: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống.");
                             return;
                         }
                         if (Util.nextInt(3) == 0) {
-                            int num = (int)Util.nextInt(50000, 100000);
+                            int num = (int) Util.nextInt(50000, 100000);
                             p.c.upyenMessage(num);
                             p.sendAddchatYellow("Bạn nhận được " + num + " yên");
-                        // } else if (Util.nextInt(150) == 0) {
-                        //     p.c.addItemBag(false, ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)], false));
-                        // } else if (Util.nextInt(300) == 1) {
-                        //     p.c.addItemBag(true, ItemTemplate.itemDefault(28, false));
-                        // } else if (Util.nextInt(300) == 0) {
-                        //     p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
-                        // } else if (Util.nextInt(130) == 99) {
-                        //     p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
+                            // } else if (Util.nextInt(150) == 0) {
+                            // p.c.addItemBag(false,
+                            // ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)],
+                            // false));
+                            // } else if (Util.nextInt(300) == 1) {
+                            // p.c.addItemBag(true, ItemTemplate.itemDefault(28, false));
+                            // } else if (Util.nextInt(300) == 0) {
+                            // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
+                            // } else if (Util.nextInt(130) == 99) {
+                            // p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
                         } else {
                             short idI = UseItem.idItemRuongTinhXao[Util.nextInt(UseItem.idItemRuongTinhXao.length)];
                             ItemTemplate data2 = ItemTemplate.ItemTemplateId(idI);
@@ -1151,14 +1215,15 @@ case 995: {//lượng
                             itemup.isLock = item.isLock;
                             for (Option Option : itemup.options) {
                                 int idOp2 = Option.id;
-                                Option.param = (int)Util.nextInt(item.getOptionShopMin(idOp2, Option.param), Option.param);
+                                Option.param = (int) Util.nextInt(item.getOptionShopMin(idOp2, Option.param),
+                                        Option.param);
                             }
                             p.c.addItemBag(true, itemup);
                         }
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //bánh pía, đậu xanh
+                    // bánh pía, đậu xanh
                     case 298:
                     case 299:
                     case 300:
@@ -1175,7 +1240,7 @@ case 995: {//lượng
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //Hộp bánh thường
+                    // Hộp bánh thường
                     case 302: {
                         if (Server.manager.event != 2) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1201,7 +1266,7 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Hộp bánh thượng hạng
+                    // Hộp bánh thượng hạng
                     case 303: {
                         if (Server.manager.event != 2) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1220,27 +1285,31 @@ case 995: {//lượng
                         p.updateExp(1000000L);
                         if (Util.nextInt(10) < 3) {
                             p.updateExp(1500000L);
-                        // } else if (perRuong == 50) {
-                        //     p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
-                        //     Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(385).name);
-                        // } else if (perRuong <= 1) {
-                        //     Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(384).name);
-                        //     p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
+                            // } else if (perRuong == 50) {
+                            // p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
+                            // Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã
+                            // nhận được " + ItemTemplate.ItemTemplateId(385).name);
+                            // } else if (perRuong <= 1) {
+                            // Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã
+                            // nhận được " + ItemTemplate.ItemTemplateId(384).name);
+                            // p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
                         } else {
-                            short idI = UseItem.idItemHopBanhThuongHang[Util.nextInt(UseItem.idItemHopBanhThuongHang.length)];
+                            short idI = UseItem.idItemHopBanhThuongHang[Util
+                                    .nextInt(UseItem.idItemHopBanhThuongHang.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
                             p.c.addItemBag(true, itemup);
                             if (itemup.id == 308 || itemup.id == 309) {
                                 ItemTemplate itemD = ItemTemplate.ItemTemplateId(itemup.id);
-                                Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + itemD.name);
+                                Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                        + itemD.name);
                             }
                         }
                         break;
                     }
-                    //Bánh phong lôi
+                    // Bánh phong lôi
                     case 308: {
-                        if(p.c.get().isNhanban) {
+                        if (p.c.get().isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
                             return;
                         }
@@ -1255,9 +1324,9 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 1 điểm kỹ năng.");
                         break;
                     }
-                    //bánh băng hoả
+                    // bánh băng hoả
                     case 309: {
-                        if(p.c.get().isNhanban) {
+                        if (p.c.get().isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
                             return;
                         }
@@ -1272,7 +1341,7 @@ case 995: {//lượng
                         p.sendAddchatYellow("Bạn nhận được 10 điểm tiềm năng.");
                         break;
                     }
-                    //Rương bát bảo, bạch ngân, huyền bí
+                    // Rương bát bảo, bạch ngân, huyền bí
                     case 383:
                     case 384:
                     case 385: {
@@ -1289,22 +1358,22 @@ case 995: {//lượng
                         if (Util.nextInt(2) == 0) {
                             if (p.c.gender == 0) {
                                 if (p.c.get().level < 50 && item.id != 384 && item.id != 385) {
-                                    idI2 = (new short[]{171, 161, 151, 141, 131})[Util.nextInt(5)];
+                                    idI2 = (new short[] { 171, 161, 151, 141, 131 })[Util.nextInt(5)];
                                 } else if (p.c.get().level < 60 && item.id != 385) {
-                                    idI2 = (new short[]{137, 163, 153, 143, 133})[Util.nextInt(5)];
+                                    idI2 = (new short[] { 137, 163, 153, 143, 133 })[Util.nextInt(5)];
                                 } else if (p.c.get().level < 70) {
-                                    idI2 = (new short[]{330, 329, 328, 327, 326})[Util.nextInt(5)];
+                                    idI2 = (new short[] { 330, 329, 328, 327, 326 })[Util.nextInt(5)];
                                 } else {
-                                    idI2 = (new short[]{368, 367, 366, 365, 364})[Util.nextInt(5)];
+                                    idI2 = (new short[] { 368, 367, 366, 365, 364 })[Util.nextInt(5)];
                                 }
                             } else if (p.c.get().level < 50 && item.id != 384 && item.id != 385) {
-                                idI2 = (new short[]{170, 160, 102, 140, 130})[Util.nextInt(5)];
+                                idI2 = (new short[] { 170, 160, 102, 140, 130 })[Util.nextInt(5)];
                             } else if (p.c.get().level < 60 && item.id != 385) {
-                                idI2 = (new short[]{172, 162, 103, 142, 132})[Util.nextInt(5)];
+                                idI2 = (new short[] { 172, 162, 103, 142, 132 })[Util.nextInt(5)];
                             } else if (p.c.get().level < 70) {
-                                idI2 = (new short[]{325, 323, 333, 319, 317})[Util.nextInt(5)];
+                                idI2 = (new short[] { 325, 323, 333, 319, 317 })[Util.nextInt(5)];
                             } else {
-                                idI2 = (new short[]{363, 361, 359, 357, 355})[Util.nextInt(5)];
+                                idI2 = (new short[] { 363, 361, 359, 357, 355 })[Util.nextInt(5)];
                             }
                         } else if (Util.nextInt(2) == 1) {
                             if (p.c.get().nclass == 1 || p.c.get().nclass == 2) {
@@ -1315,22 +1384,22 @@ case 995: {//lượng
                                 sys2 = 3;
                             }
                             if (p.c.get().level < 50 && item.id != 384 && item.id != 385) {
-                                idI2 = (new short[]{97, 117, 102, 112, 107, 122})[p.c.get().nclass - 1];
+                                idI2 = (new short[] { 97, 117, 102, 112, 107, 122 })[p.c.get().nclass - 1];
                             } else if (p.c.get().level < 60 && item.id != 385) {
-                                idI2 = (new short[]{98, 118, 103, 113, 108, 123})[p.c.get().nclass - 1];
+                                idI2 = (new short[] { 98, 118, 103, 113, 108, 123 })[p.c.get().nclass - 1];
                             } else if (p.c.get().level < 70) {
-                                idI2 = (new short[]{331, 332, 333, 334, 335, 336})[p.c.get().nclass - 1];
+                                idI2 = (new short[] { 331, 332, 333, 334, 335, 336 })[p.c.get().nclass - 1];
                             } else {
-                                idI2 = (new short[]{369, 370, 371, 372, 373, 374})[p.c.get().nclass - 1];
+                                idI2 = (new short[] { 369, 370, 371, 372, 373, 374 })[p.c.get().nclass - 1];
                             }
                         } else if (p.c.get().level < 50 && item.id != 384 && item.id != 385) {
-                            idI2 = (new short[]{192, 187, 182, 177})[Util.nextInt(4)];
+                            idI2 = (new short[] { 192, 187, 182, 177 })[Util.nextInt(4)];
                         } else if (p.c.get().level < 60 && item.id != 385) {
-                            idI2 = (new short[]{193, 188, 183, 178})[Util.nextInt(4)];
+                            idI2 = (new short[] { 193, 188, 183, 178 })[Util.nextInt(4)];
                         } else if (p.c.get().level < 70) {
-                            idI2 = (new short[]{324, 322, 320, 318})[Util.nextInt(4)];
+                            idI2 = (new short[] { 324, 322, 320, 318 })[Util.nextInt(4)];
                         } else {
-                            idI2 = (new short[]{362, 360, 358, 356})[Util.nextInt(4)];
+                            idI2 = (new short[] { 362, 360, 358, 356 })[Util.nextInt(4)];
                         }
                         ItemTemplate data2 = ItemTemplate.ItemTemplateId(idI2);
                         Item itemup;
@@ -1358,7 +1427,7 @@ case 995: {//lượng
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //Diều giấy
+                    // Diều giấy
                     case 434: {
                         if (Server.manager.event != 1) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1376,15 +1445,23 @@ case 995: {//lượng
                         p.updateExp(1500000L);
                         if (Util.nextInt(5) != 0) {
                             p.updateExp(3000000L);
-                        } else {
+                        }
+                        else if (Util.nextInt(10000) == 0) {
+                            p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
+                        }
+                        else {
                             short idI = UseItem.idItemDieuGiay[Util.nextInt(UseItem.idItemDieuGiay.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
+                            if (idI == 523) {
+                                itemup.isExpires = true;
+                                itemup.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
+                            }
                             p.c.addItemBag(true, itemup);
                         }
                         break;
                     }
-                    //Diều vải
+                    // Diều vải
                     case 435: {
                         if (Server.manager.event != 1) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1402,15 +1479,29 @@ case 995: {//lượng
                         p.updateExp(2000000L);
                         if (Util.nextInt(5) != 0) {
                             p.updateExp(5000000L);
-                        }else {
+                        } else if (Util.nextInt(8000) == 0) {
+                            p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
+                        }
+                        
+                        else if (Util.nextInt(30000) == 0) {
+                            p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
+                        } else if (Util.nextInt(80000) == 0) {
+                            p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(385).name);
+                        } else {
                             short idI = UseItem.idItemDieuVai[Util.nextInt(UseItem.idItemDieuVai.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
+                            if (idI == 523 || idI == 419) {
+                                itemup.isExpires = true;
+                                itemup.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
+                            }
                             p.c.addItemBag(true, itemup);
                         }
                         break;
                     }
-                    //Lệnh bài kinh nghiệm gia tộc sơ, trung, cao
+                    // Lệnh bài kinh nghiệm gia tộc sơ, trung, cao
                     case 436:
                     case 437:
                     case 438: {
@@ -1424,14 +1515,14 @@ case 995: {//lượng
                                 p.sendAddchatYellow("Yêu cầu gia tộc phải đạt cấp 5");
                                 return;
                             }
-                            p.upExpClan((int)Util.nextInt(100, 200));
+                            p.upExpClan((int) Util.nextInt(100, 200));
                             p.c.removeItemBag(index, 1);
                         } else if (item.id == 437) {
                             if (clan.level < 10) {
                                 p.sendAddchatYellow("Yêu cầu gia tộc phải đạt cấp 10");
                                 return;
                             }
-                            p.upExpClan((int)Util.nextInt(300, 800));
+                            p.upExpClan((int) Util.nextInt(300, 800));
                             p.c.removeItemBag(index, 1);
                         } else {
                             if (item.id != 438) {
@@ -1441,19 +1532,19 @@ case 995: {//lượng
                                 p.sendAddchatYellow("Yêu cầu gia tộc phải đạt cấp 15");
                                 return;
                             }
-                            p.upExpClan((int)Util.nextInt(1000, 2000));
+                            p.upExpClan((int) Util.nextInt(1000, 2000));
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Chuyển tinh thạch
+                    // Chuyển tinh thạch
                     case 454: {
                         if (p.updateSysMounts()) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Túi quà noel
+                    // Túi quà noel
                     case 477: {
                         if (Server.manager.event != 3) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1468,10 +1559,10 @@ case 995: {//lượng
                             return;
                         }
 
-//                        Item itemup = ItemTemplate.itemDefault(Util.nextInt(652,655));
-//                        itemup.isLock = item.isLock;
-//                        p.c.addItemBag(true, itemup);
-//                        return;
+                        // Item itemup = ItemTemplate.itemDefault(Util.nextInt(652,655));
+                        // itemup.isLock = item.isLock;
+                        // p.c.addItemBag(true, itemup);
+                        // return;
 
                         p.c.removeItemBag(index, 1);
                         if (p.status == 1) {
@@ -1491,8 +1582,7 @@ case 995: {//lượng
                             } else {
                                 p.updateExp(1000000L);
                             }
-                        }
-                        else {
+                        } else {
                             short idI = UseItem.idItemBanhChocolate[Util.nextInt(UseItem.idItemBanhChocolate.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
@@ -1500,7 +1590,7 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Hộp quà noel
+                    // Hộp quà noel
                     case 478: {
                         if (Server.manager.event != 3) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1543,8 +1633,10 @@ case 995: {//lượng
                             itemUp.isExpires = false;
                             itemUp.isLock = false;
                             p.c.addItemBag(false, itemUp);
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(385).name);
-                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(385).name, Util.toDateString(Date.from(Instant.now()))));
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(385).name);
+                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(385).name,
+                                    Util.toDateString(Date.from(Instant.now()))));
                             break;
                         } else if (perRuong < 1) {
                             Item itemUp = new Item();
@@ -1553,8 +1645,10 @@ case 995: {//lượng
                             itemUp.isExpires = false;
                             itemUp.isLock = false;
                             p.c.addItemBag(false, itemUp);
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(384).name);
-                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(384).name, Util.toDateString(Date.from(Instant.now()))));
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(384).name);
+                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(384).name,
+                                    Util.toDateString(Date.from(Instant.now()))));
                             break;
                         } else if (perRuong == 1 || perRuong == 2) {
                             Item itemUp = new Item();
@@ -1581,7 +1675,7 @@ case 995: {//lượng
                             p.c.addItemBag(false, itemUp);
                             break;
                         } else if (Util.nextInt(150) <= 1) {
-                            Item itemup = ItemTemplate.itemDefault((int)Util.nextInt(652,655));
+                            Item itemup = ItemTemplate.itemDefault((int) Util.nextInt(652, 655));
                             itemup.isLock = false;
                             p.c.addItemBag(false, itemup);
                             break;
@@ -1598,7 +1692,7 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Cổ lệnh
+                    // Cổ lệnh
                     case 490: {
                         if (p.c.isNhanban) {
                             p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
@@ -1621,7 +1715,7 @@ case 995: {//lượng
                         p.endLoad(true);
                         break;
                     }
-                    //huy chương câu cá
+                    // huy chương câu cá
                     case 976: {
                         if (p.c.isNhanban) {
                             p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
@@ -1644,7 +1738,7 @@ case 995: {//lượng
                         p.endLoad(true);
                         break;
                     }
-                    //Khai nhãn phù
+                    // Khai nhãn phù
                     case 537: {
                         if (p.c.get().getEffId(40) == null) {
                             p.setEffect(41, 0, 7200000, 0);
@@ -1654,25 +1748,25 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Thiên nhãn phù
+                    // Thiên nhãn phù
                     case 538: {
                         p.setEffect(40, 0, 18000000, 0);
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //x3 kinh nghiệm
+                    // x3 kinh nghiệm
                     case 539: {
                         p.setEffectXEXP(32, 0, 3600000, 3);
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //x4 kinh nghiệm
+                    // x4 kinh nghiệm
                     case 540: {
                         p.setEffectXEXP(33, 0, 3600000, 4);
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //Giày rách, bạc, vàng
+                    // Giày rách, bạc, vàng
                     case 549:
                     case 550:
                     case 551: {
@@ -1689,64 +1783,65 @@ case 995: {//lượng
                         p.c.removeItemBag(index, 1);
                         break;
                     }
-                    //Lục thanh hoa
+                    // Lục thanh hoa
                     case 573: {
                         if (p.updateXpMounts(200, (byte) 0)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Tử linh liên hoa
+                    // Tử linh liên hoa
                     case 574: {
                         if (p.updateXpMounts(400, (byte) 0)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Linh lang hồ điệp
+                    // Linh lang hồ điệp
                     case 575: {
                         if (p.updateXpMounts(600, (byte) 0)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Bánh răng
+                    // Bánh răng
                     case 576: {
                         if (p.updateXpMounts(100, (byte) 1)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //IK
+                    // IK
                     case 577: {
                         if (p.updateXpMounts(250, (byte) 1)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Thuốc cải tiến
+                    // Thuốc cải tiến
                     case 578: {
                         if (p.updateXpMounts(500, (byte) 1)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                     case 341: {
+                    case 341: {
                         try {
-                            ResultSet red = SQLManager.stat.executeQuery("SELECT `coin` FROM `player` WHERE `id` = "+p.id+";");
+                            ResultSet red = SQLManager.stat
+                                    .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
                             if (red != null && red.first()) {
                                 int coin = Integer.parseInt(red.getString("coin"));
-                                Server.manager.sendTB(p, "Thông tin", "Coin : "+ coin
-                                                                    +"\ntài khoản : " + p.username 
-                                                                    +"\ntên nhân vật : " + p.c.name
-                                                                    +"\nLevel : " + p.c.level
-                                                                    +"\nsố hành trang có  : " + p.c.maxluggage
-                                                                    +"\nLượng : " + p.luong
-                                                                    +"\nXu : "+p.c.xu
-                                                                    +"\nYên : " + p.c.yen
-                                                                    +"\nĐiểm Ăn Chuột : : " + p.c.pointBossChuot
-                                                                    +"\nZalo admin 0946168325"
-                                                                    +"\n\n- Số người online: " + Client.gI().ninja_size());
+                                Server.manager.sendTB(p, "Thông tin", "Coin : " + coin
+                                        + "\ntài khoản : " + p.username
+                                        + "\ntên nhân vật : " + p.c.name
+                                        + "\nLevel : " + p.c.level
+                                        + "\nsố hành trang có  : " + p.c.maxluggage
+                                        + "\nLượng : " + p.luong
+                                        + "\nXu : " + p.c.xu
+                                        + "\nYên : " + p.c.yen
+                                        + "\nĐiểm Ăn Chuột : : " + p.c.pointBossChuot
+                                        + "\nZalo admin 0946168325"
+                                        + "\n\n- Số người online: " + Client.gI().ninja_size());
                             }
                             red.close();
                         } catch (Exception e) {
@@ -1755,45 +1850,55 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Thiệp Chúc tết Thường
+                    // Thiệp Chúc tết Thường
                     case 908: {
                         Service.sendInputDialog(p, (short) 114, "Nhập tên người cần chúc:");
                         break;
                     }
-                    
-                    //Thiệp Chúc tết Đặc Biệt
+
+                    // Thiệp Chúc tết Đặc Biệt
                     case 909: {
-                         Service.sendInputDialog(p, (short) 115, "Nhập tên người cần chúc:");
+                        Service.sendInputDialog(p, (short) 115, "Nhập tên người cần chúc:");
                         break;
                     }
-                    
-                    
-                     //Tràng pháo
-                     case 675: {
 
-                    if (Server.manager.event != 4) {
-                        p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
-                        return;
-                    }
-                    if (p.c.getBagNull() == 0) {
-                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                        return;
-                    } else {
+                    // Tràng pháo
+                    case 675: {
 
-                        p.updateExp(20000000);
-                        short[] arId = new short[]{12,12,12,8,9,8,9,275,276,277,278,289,290,291,289,290,291,289,290,291,535,535,536,536,535,536,275,276,277,278,548,12,548,381,382,381,382,381,682,682,682,228,227,226,225,224,223,222,283,436,438,437,436,437,419,403,419,403,407,407,12,254,255,256,12,254,255,256,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,7,8,9,436,437,438,682,384,829,745,382,381,222,223,224,225,226,227,228,251, 308,309,548,275,276,277,278,539,540};
-                        short idI = arId[Util.nextInt(arId.length)];
-                        Item itemup = ItemTemplate.itemDefault(idI);
-                        itemup.isLock = false;
-                        p.c.removeItemBag(index, 1);
-                        p.c.addItemBag(true, itemup);
-                         
+                        if (Server.manager.event != 4) {
+                            p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
+                            return;
+                        }
+                        if (p.c.getBagNull() == 0) {
+                            p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                            return;
+                        } else {
+
+                            p.updateExp(20000000);
+                            short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 289, 290, 291, 289,
+                                    290, 291, 289, 290, 291, 535, 535, 536, 536, 535, 536, 275, 276, 277, 278, 548, 12,
+                                    548, 381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283,
+                                    436, 438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254,
+                                    255, 256, 674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735,
+                                    736, 737, 738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768,
+                                    674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737,
+                                    738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695,
+                                    696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739,
+                                    674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 7, 8, 9, 436, 437,
+                                    438, 682, 384, 829, 745, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309,
+                                    548, 275, 276, 277, 278, 539, 540 };
+                            short idI = arId[Util.nextInt(arId.length)];
+                            Item itemup = ItemTemplate.itemDefault(idI);
+                            itemup.isLock = false;
+                            p.c.removeItemBag(index, 1);
+                            p.c.addItemBag(true, itemup);
+
+                        }
+                        break;
                     }
-                    break;
-                     }
-                                
-                    //đan cao cấp
-                    case 643: { 
+
+                    // đan cao cấp
+                    case 643: {
                         if (Server.manager.event != 4) {
                             p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
                             return;
@@ -1803,60 +1908,61 @@ case 995: {//lượng
                             return;
                         }
                         p.updateExp(200000000);
-                        p.c.expnt ++;
-                        
+                        p.c.expnt++;
+
                         byte per = (byte) Util.nextInt(1, 100);
                         short[] arId;
                         short idI = 0;
-                        if(per <= 1){
-                            arId = new short[]{ 585, 588};
-                            if(per <= 9){
-                            arId = new short[]{};
-                            if(per <= 10){
-                            arId = new short[]{584, 587};
-                        }else if(per <= 30){
-                            arId = new short[]{842, 842, 842};
-                        }else if(per <= 50){
-                            arId = new short[]{436, 437, 438, 275, 276, 277, 278};
+                        if (per <= 1) {
+                            arId = new short[] { 585, 588 };
+                            if (per <= 9) {
+                                arId = new short[] {};
+                                if (per <= 10) {
+                                    arId = new short[] { 584, 587 };
+                                } else if (per <= 30) {
+                                    arId = new short[] { 842, 842, 842 };
+                                } else if (per <= 50) {
+                                    arId = new short[] { 436, 437, 438, 275, 276, 277, 278 };
+                                }
+                                idI = arId[Util.nextInt(arId.length)];
+                                Item itemup = ItemTemplate.itemDefault(idI);
+                                itemup.isLock = false;
+                                p.c.removeItemBag(index, 1);
+                                p.c.addItemBag(true, itemup);
+                                break;
+                            }
                         }
-                        idI = arId[Util.nextInt(arId.length)];
-                        Item itemup = ItemTemplate.itemDefault(idI);
-                        itemup.isLock = false;
-                        p.c.removeItemBag(index, 1);
-                        p.c.addItemBag(true, itemup);
-                        break;
-		    }
                     }
-                    }
-		    //bánh tét
-                    case 644: {  
+                    // bánh tét
+                    case 644: {
                         if (Server.manager.event != 4) {
                             p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
                             return;
                         }
-                         if (p.c.getBagNull() == 0) {
+                        if (p.c.getBagNull() == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                             return;
                         }
                         p.updateExp(100000000);
-                        p.c.expnt ++;
+                        p.c.expnt++;
                         byte per = (byte) Util.nextInt(1, 100);
                         short[] arId;
                         short idI = 0;
-                        if(per == 1){
-                            arId = new short[]{ 585, 588,907};
-                        }else if(per <= 5){
-                            arId = new short[]{584, 587};
-                        }else if(per <= 10){
-                            arId = new short[]{947, 948, 949};
-                        }else if(per <= 20){
-                            arId = new short[]{842, 842, 842};
-                        }else if(per <= 30){
-                            arId = new short[]{443, 524, 485};
-                        }else if(per <= 60){
-                            arId = new short[]{575, 578, 778};
-                        }else {
-                            arId = new short[]{760, 761, 762, 763, 764, 765, 766, 767, 768,733,734,735,736,737,738,739,740,741};
+                        if (per == 1) {
+                            arId = new short[] { 585, 588, 907 };
+                        } else if (per <= 5) {
+                            arId = new short[] { 584, 587 };
+                        } else if (per <= 10) {
+                            arId = new short[] { 947, 948, 949 };
+                        } else if (per <= 20) {
+                            arId = new short[] { 842, 842, 842 };
+                        } else if (per <= 30) {
+                            arId = new short[] { 443, 524, 485 };
+                        } else if (per <= 60) {
+                            arId = new short[] { 575, 578, 778 };
+                        } else {
+                            arId = new short[] { 760, 761, 762, 763, 764, 765, 766, 767, 768, 733, 734, 735, 736, 737,
+                                    738, 739, 740, 741 };
                         }
                         idI = arId[Util.nextInt(arId.length)];
                         Item itemup = ItemTemplate.itemDefault(idI);
@@ -1866,46 +1972,68 @@ case 995: {//lượng
                         break;
                     }
 
-                case 381: { //lì xì nhỏ
-                    if (Server.manager.event != 4) {
-                        p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
-                        return;
+                    case 381: { // lì xì nhỏ
+                        if (Server.manager.event != 4) {
+                            p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
+                            return;
+                        }
+                        if (p.c.getBagNull() == 0) {
+                            p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                            return;
+                        }
+                        p.updateExp(5000000);
+                        short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 275, 289, 290, 291,
+                                289, 290, 291, 289, 290, 291, 535, 535, 535, 536, 536, 536, 276, 277, 278, 548, 12, 548,
+                                381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436,
+                                438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256,
+                                674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737,
+                                738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695,
+                                696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739,
+                                674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697,
+                                698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740,
+                                741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 7, 8, 9, 436, 437, 438, 682, 829,
+                                745, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276,
+                                277, 278, 539, 540 };
+                        short idI = arId[Util.nextInt(arId.length)];
+                        Item itemup = ItemTemplate.itemDefault(idI);
+                        itemup.isLock = false;
+                        p.c.removeItemBag(index, 1);
+                        p.c.addItemBag(true, itemup);
                     }
-                    if (p.c.getBagNull() == 0) {
-                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                        return;
-                    }
-                    p.updateExp(5000000);
-                    short[] arId = new short[]{12,12,12,8,9,8,9,275,276,277,278,275,289,290,291,289,290,291,289,290,291,535,535,535,536,536,536,276,277,278,548,12,548,381,382,381,382,381,682,682,682,228,227,226,225,224,223,222,283,436,438,437,436,437,419,403,419,403,407,407,12,254,255,256,12,254,255,256,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,7,8,9,436,437,438,682,829,745,383,382,381,222,223,224,225,226,227,228,251, 308,309,548,275,276,277,278,539,540};
-                            short idI = arId[Util.nextInt(arId.length)];
-                            Item itemup = ItemTemplate.itemDefault(idI);
-                            itemup.isLock = false;
-                            p.c.removeItemBag(index, 1);
-                            p.c.addItemBag(true, itemup);
-                }
-                break;
+                        break;
 
-                    case 382: {  //lì xì lớn
-                    if (Server.manager.event != 4) {
-                        p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
-                        return;
-                    }
-                     if (p.c.getBagNull() == 0) {
-                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                        return;
-                    }
-                    p.updateExp(15000000);
-                    short[] arId = new short[]{12,12,12,8,9,8,9,275,276,277,278,289,290,291,289,290,291,289,290,291,275,535,535,536,536,535,536,276,277,278,548,12,548,381,382,381,382,381,682,682,682,228,227,226,225,224,223,222,283,436,438,437,436,437,419,403,419,403,407,407,12,254,255,256,12,254,255,256,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,674,695,696,697,698,699,674,700,701,702,703,704,733,734,735,736,737,738,739,674,740,741,760,761,762,674,763,764,765,766,767,768,7,8,9,436,437,438,682,829,745,383,382,381,222,223,224,225,226,227,228,251, 308,309,548,275,276,277,278,539,540};
-                            short idI = arId[Util.nextInt(arId.length)];
-                            Item itemup = ItemTemplate.itemDefault(idI);
-                            itemup.isLock = false;
-                            p.c.removeItemBag(index, 1);
-                            p.c.addItemBag(true, itemup);
+                    case 382: { // lì xì lớn
+                        if (Server.manager.event != 4) {
+                            p.sendAddchatYellow("Sự kiện này đã kết thúc không còn sử dụng được vật phẩm này nữa");
+                            return;
+                        }
+                        if (p.c.getBagNull() == 0) {
+                            p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                            return;
+                        }
+                        p.updateExp(15000000);
+                        short[] arId = new short[] { 12, 12, 12, 8, 9, 8, 9, 275, 276, 277, 278, 289, 290, 291, 289,
+                                290, 291, 289, 290, 291, 275, 535, 535, 536, 536, 535, 536, 276, 277, 278, 548, 12, 548,
+                                381, 382, 381, 382, 381, 682, 682, 682, 228, 227, 226, 225, 224, 223, 222, 283, 436,
+                                438, 437, 436, 437, 419, 403, 419, 403, 407, 407, 12, 254, 255, 256, 12, 254, 255, 256,
+                                674, 695, 696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737,
+                                738, 739, 674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695,
+                                696, 697, 698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739,
+                                674, 740, 741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 674, 695, 696, 697,
+                                698, 699, 674, 700, 701, 702, 703, 704, 733, 734, 735, 736, 737, 738, 739, 674, 740,
+                                741, 760, 761, 762, 674, 763, 764, 765, 766, 767, 768, 7, 8, 9, 436, 437, 438, 682, 829,
+                                745, 383, 382, 381, 222, 223, 224, 225, 226, 227, 228, 251, 308, 309, 548, 275, 276,
+                                277, 278, 539, 540 };
+                        short idI = arId[Util.nextInt(arId.length)];
+                        Item itemup = ItemTemplate.itemDefault(idI);
+                        itemup.isLock = false;
+                        p.c.removeItemBag(index, 1);
+                        p.c.addItemBag(true, itemup);
                     }
 
-                break;
-                    
-                    //Rương ma quái
+                        break;
+
+                    // Rương ma quái
                     case 647: {
                         if (numbagnull == 0) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống.");
@@ -1914,27 +2042,31 @@ case 995: {//lượng
 
                         p.c.removeItemBag(index, 1);
                         if (Util.nextInt(3) == 0) {
-                            int num = (int)Util.nextInt(300000, 1000000);
+                            int num = (int) Util.nextInt(300000, 1000000);
                             p.c.upyenMessage(num);
                             p.sendAddchatYellow("Bạn nhận được " + num + " yên");
-                        // } else if (Util.nextInt(130) <= 2) {
-                        //     p.c.addItemBag(false, ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)], false));
+                            // } else if (Util.nextInt(130) <= 2) {
+                            // p.c.addItemBag(false,
+                            // ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)],
+                            // false));
                         } else if (Util.nextInt(800) == 1) {
                             p.c.addItemBag(true, ItemTemplate.itemDefault(28, false));
-                        // } else if (Util.nextInt(300) == 0) {
-                        //     p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
+                            // } else if (Util.nextInt(300) == 0) {
+                            // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
                         } else if (Util.nextInt(100) < 10) {
-                            Item itemupNew = ItemTemplate.itemDefault((int)Util.nextInt(801,802), false);
-                            if(Util.nextInt(5000) == 4999) {
+                            Item itemupNew = ItemTemplate.itemDefault((int) Util.nextInt(801, 802), false);
+                            if (Util.nextInt(5000) == 4999) {
                                 itemupNew.isExpires = false;
                                 itemupNew.expires = -1l;
                             } else {
                                 itemupNew.isExpires = true;
-                                itemupNew.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);;
+                                itemupNew.expires = Util
+                                        .TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
+                                ;
                             }
                             p.c.addItemBag(true, itemupNew);
-                        // } else if (Util.nextInt(12000) == 0) {
-                        //     p.c.addItemBag(true, ItemTemplate.itemDefault(797, false));
+                            // } else if (Util.nextInt(12000) == 0) {
+                            // p.c.addItemBag(true, ItemTemplate.itemDefault(797, false));
                         } else {
                             short idI = UseItem.idItemRuongMaQuai[Util.nextInt(UseItem.idItemRuongMaQuai.length)];
                             ItemTemplate data2 = ItemTemplate.ItemTemplateId(idI);
@@ -1954,13 +2086,14 @@ case 995: {//lượng
                             int idOp2;
                             for (Option Option : itemup.options) {
                                 idOp2 = Option.id;
-                                Option.param = (int)Util.nextInt(item.getOptionShopMin(idOp2, Option.param), Option.param);
+                                Option.param = (int) Util.nextInt(item.getOptionShopMin(idOp2, Option.param),
+                                        Option.param);
                             }
                             p.c.addItemBag(true, itemup);
                         }
                         break;
                     }
-                    //Bánh chocolate
+                    // Bánh chocolate
                     case 671: {
                         if (Server.manager.event != 3) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -1994,11 +2127,11 @@ case 995: {//lượng
                                 p.updateExp(3000000L);
                             }
                         } else if (Util.nextInt(160) <= 1) {
-                            Item itemup = ItemTemplate.itemDefault((int)Util.nextInt(654,655));
+                            Item itemup = ItemTemplate.itemDefault((int) Util.nextInt(654, 655));
                             itemup.isLock = false;
                             p.c.addItemBag(false, itemup);
                             break;
-                        }else {
+                        } else {
                             short idI = UseItem.idItemBanhChocolate[Util.nextInt(UseItem.idItemBanhChocolate.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
@@ -2006,7 +2139,7 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Bánh dâu tây
+                    // Bánh dâu tây
                     case 672: {
                         if (Server.manager.event != 3) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -2033,7 +2166,7 @@ case 995: {//lượng
 
                         int perRuong = Util.nextInt(2000);
                         int rhb = Util.nextInt(15000);
-                        int phuonghoang = Util.nextInt(10000); 
+                        int phuonghoang = Util.nextInt(10000);
                         if (Util.nextInt(10) < 3) {
                             if (p.status == 1) {
                                 p.updateExp(1500000L);
@@ -2045,7 +2178,7 @@ case 995: {//lượng
                             }
                             break;
                         } else if (Util.nextInt(160) <= 1) {
-                            Item itemup = ItemTemplate.itemDefault((int)Util.nextInt(652,653));
+                            Item itemup = ItemTemplate.itemDefault((int) Util.nextInt(652, 653));
                             itemup.isLock = false;
                             p.c.addItemBag(false, itemup);
                             break;
@@ -2056,8 +2189,10 @@ case 995: {//lượng
                             itemUp.isExpires = false;
                             itemUp.isLock = false;
                             p.c.addItemBag(false, itemUp);
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(385).name);
-                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(385).name, Util.toDateString(Date.from(Instant.now()))));
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(385).name);
+                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(385).name,
+                                    Util.toDateString(Date.from(Instant.now()))));
                             return;
                         } else if (perRuong == 0) {
                             Item itemUp = new Item();
@@ -2066,8 +2201,10 @@ case 995: {//lượng
                             itemUp.isExpires = false;
                             itemUp.isLock = false;
                             p.c.addItemBag(false, itemUp);
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(384).name);
-                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(384).name, Util.toDateString(Date.from(Instant.now()))));
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(384).name);
+                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(384).name,
+                                    Util.toDateString(Date.from(Instant.now()))));
                             return;
                         } else if (perRuong == 1 || perRuong == 2) {
                             Item itemUp = new Item();
@@ -2121,7 +2258,7 @@ case 995: {//lượng
                         int rhb = Util.nextInt(15000);
                         if (Util.nextInt(10) < 3) {
                         } else if (Util.nextInt(160) <= 1) {
-                            Item itemup = ItemTemplate.itemDefault((int)Util.nextInt(652,653));
+                            Item itemup = ItemTemplate.itemDefault((int) Util.nextInt(652, 653));
                             itemup.isLock = false;
                             p.c.addItemBag(false, itemup);
                             break;
@@ -2132,8 +2269,10 @@ case 995: {//lượng
                             itemUp.isExpires = false;
                             itemUp.isLock = false;
                             p.c.addItemBag(false, itemUp);
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(385).name);
-                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(385).name, Util.toDateString(Date.from(Instant.now()))));
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(385).name);
+                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(385).name,
+                                    Util.toDateString(Date.from(Instant.now()))));
                             return;
                         } else if (perRuong == 0) {
                             Item itemUp = new Item();
@@ -2142,9 +2281,11 @@ case 995: {//lượng
                             itemUp.isExpires = false;
                             itemUp.isLock = false;
                             p.c.addItemBag(false, itemUp);
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được " + ItemTemplate.ItemTemplateId(384).name);
-                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(384).name, Util.toDateString(Date.from(Instant.now()))));
-                            return;   
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                                    + ItemTemplate.ItemTemplateId(384).name);
+                            CheckRHB.checkRHBArrayList.add(new CheckRHB(p.c.name, ItemTemplate.ItemTemplateId(384).name,
+                                    Util.toDateString(Date.from(Instant.now()))));
+                            return;
                         } else if (perRuong == 1 || perRuong == 2) {
                             Item itemUp = new Item();
                             itemUp.id = 383;
@@ -2182,7 +2323,7 @@ case 995: {//lượng
                         }
                         break;
                     }
-                    //Đá danh vọng
+                    // Đá danh vọng
                     case 695:
                     case 696:
                     case 697:
@@ -2217,7 +2358,7 @@ case 995: {//lượng
                         p.c.addItemBag(true, itemUp);
                         break;
                     }
-                    //Danh vọng phù
+                    // Danh vọng phù
                     case 705: {
                         if (p.c.isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
@@ -2234,7 +2375,7 @@ case 995: {//lượng
                         break;
                     }
 
-                    //Mảnh jirai
+                    // Mảnh jirai
                     case 733:
                     case 734:
                     case 735:
@@ -2244,17 +2385,17 @@ case 995: {//lượng
                     case 739:
                     case 740:
                     case 741: {
-                        if(p.c.isNhanban) {
+                        if (p.c.isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
                             return;
                         }
-                        if(p.c.gender == 0) {
+                        if (p.c.gender == 0) {
                             p.sendAddchatYellow("Giới tính không phù hợp.");
                             return;
                         }
-                        int checkID = item.id-733;
-                        if(p.c.ItemBST[checkID] == null) {
-                            if(p.c.quantityItemyTotal(item.id) < 100) {
+                        int checkID = item.id - 733;
+                        if (p.c.ItemBST[checkID] == null) {
+                            if (p.c.quantityItemyTotal(item.id) < 100) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để ghép.");
                                 return;
                             }
@@ -2262,24 +2403,26 @@ case 995: {//lượng
                             p.c.ItemBST[checkID] = ItemTemplate.itemDefault(ItemTemplate.checkIdJiraiNam(checkID));
                             p.c.ItemBST[checkID].upgrade = 1;
                             p.c.ItemBST[checkID].isLock = true;
-                            p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được thêm vào bộ sưu tập.");
+                            p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name
+                                    + " đã được thêm vào bộ sưu tập.");
                         } else {
-                            if(p.c.ItemBST[checkID].upgrade >= 16) {
+                            if (p.c.ItemBST[checkID].upgrade >= 16) {
                                 p.sendAddchatYellow("Bộ sưu tập này đã đạt điểm tối đa, không thể nâng cấp thêm.");
                                 return;
                             }
-                            if(p.c.quantityItemyTotal(item.id) < (p.c.ItemBST[checkID].upgrade + 1)*100) {
+                            if (p.c.quantityItemyTotal(item.id) < (p.c.ItemBST[checkID].upgrade + 1) * 100) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để nâng cấp.");
                                 return;
                             }
                             p.c.ItemBST[checkID].upgrade += 1;
-                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), p.c.ItemBST[checkID].upgrade*100);
-                            p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được nâng cấp.");
+                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), p.c.ItemBST[checkID].upgrade * 100);
+                            p.sendAddchatYellow(
+                                    ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được nâng cấp.");
                         }
                         break;
                     }
 
-                    //Mảnh jirai
+                    // Mảnh jirai
                     case 760:
                     case 761:
                     case 762:
@@ -2289,55 +2432,57 @@ case 995: {//lượng
                     case 766:
                     case 767:
                     case 768: {
-                        if(p.c.isNhanban) {
+                        if (p.c.isNhanban) {
                             p.sendAddchatYellow(Language.NOT_FOR_PHAN_THAN);
                             return;
                         }
-                        if(p.c.gender == 1) {
+                        if (p.c.gender == 1) {
                             p.sendAddchatYellow("Giới tính không phù hợp.");
                             return;
                         }
-                        int checkID = item.id-760;
-                        if(p.c.ItemBST[checkID] == null) {
-                            if(p.c.quantityItemyTotal(item.id) < 100) {
+                        int checkID = item.id - 760;
+                        if (p.c.ItemBST[checkID] == null) {
+                            if (p.c.quantityItemyTotal(item.id) < 100) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để ghép.");
                                 return;
                             }
                             p.c.removeItemBag(p.c.getIndexBagid(item.id, true), 100);
                             p.c.ItemBST[checkID] = ItemTemplate.itemDefault(ItemTemplate.checkIdJiraiNu(checkID));
                             p.c.ItemBST[checkID].upgrade = 1;
-                            p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được thêm vào bộ sưu tập.");
+                            p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name
+                                    + " đã được thêm vào bộ sưu tập.");
                         } else {
-                            if(p.c.ItemBST[checkID].upgrade >= 16) {
+                            if (p.c.ItemBST[checkID].upgrade >= 16) {
                                 p.sendAddchatYellow("Bộ sưu tập này đã đạt điểm tối đa, không thể nâng cấp thêm.");
                                 return;
                             }
-                            if(p.c.quantityItemyTotal(item.id) < (p.c.ItemBST[checkID].upgrade + 1)*100) {
+                            if (p.c.quantityItemyTotal(item.id) < (p.c.ItemBST[checkID].upgrade + 1) * 100) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để nâng cấp.");
                                 return;
                             }
                             p.c.ItemBST[checkID].upgrade += 1;
-                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), p.c.ItemBST[checkID].upgrade*100);
-                            p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được nâng cấp.");
+                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), p.c.ItemBST[checkID].upgrade * 100);
+                            p.sendAddchatYellow(
+                                    ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được nâng cấp.");
                         }
                         break;
                     }
-                    //Thông linh thảo
-                    case 778:{
-                        if (p.updateXpMounts((int)Util.nextInt(500, 1000), (byte) 3)) {
+                    // Thông linh thảo
+                    case 778: {
+                        if (p.updateXpMounts((int) Util.nextInt(500, 1000), (byte) 3)) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
-                    //Tiến hoá thảo
-                    case 780:{
+                    // Tiến hoá thảo
+                    case 780: {
                         if (p.updateSysMountsPHB()) {
                             p.c.removeItemBag(index, 1);
                         }
                         break;
                     }
 
-                    //Tuần thú lệnh
+                    // Tuần thú lệnh
                     case 743: {
                         if (Server.manager.event != 4) {
                             p.sendAddchatYellow(Language.END_EVENT);
@@ -2348,19 +2493,19 @@ case 995: {//lượng
                             p.conn.sendMessageLog("Trình độ của bạn không đủ để sử dụng vật phẩm này.");
                             return;
                         }
-                        if (p.c.tileMap.map.getXHD() != -1 || p.c.mapid == 111 || p.c.mapid == 133 || p.c.tileMap.map.mapChienTruong()) {
+                        if (p.c.tileMap.map.getXHD() != -1 || p.c.mapid == 111 || p.c.mapid == 133
+                                || p.c.tileMap.map.mapChienTruong()) {
                             p.conn.sendMessageLog("Bạn không thể sử dụng vật phẩm này tại đây.");
                             return;
-                            
+
                         }
-                         if (p.c.isDiemDanh >= 400)
-                         {
+                        if (p.c.isDiemDanh >= 400) {
                             p.conn.sendMessageLog("Hôm nay con đã đánh hết luợt, hãy quay lại vào ngày hôm sau nha!");
                             return;
                         }
-                        
+
                         BossTuanLoc bossTuanLoc = new BossTuanLoc(p.c.level);
-                        if(bossTuanLoc != null && bossTuanLoc.map[0] != null && bossTuanLoc.map[0].area[0] != null) {
+                        if (bossTuanLoc != null && bossTuanLoc.map[0] != null && bossTuanLoc.map[0].area[0] != null) {
                             p.c.removeItemBag(index, 1);
                             p.c.tileMap.leave(p);
                             bossTuanLoc.map[0].area[0].EnterMap0(p.c);
@@ -2386,7 +2531,7 @@ case 995: {//lượng
                         p.sendAddchatYellow("Mày đã nhận được cải trang mới");
                         break;
                     }
-                    
+
                     default: {
                         break;
                     }
@@ -2394,15 +2539,16 @@ case 995: {//lượng
                 return;
             }
 
-            if(ItemTemplate.checkIdNewItems(item.id)) {
+            if (ItemTemplate.checkIdNewItems(item.id)) {
                 if (ItemTemplate.checkIdNewWP(item.id) != -1) {
                     p.c.get().ID_WEA_PONE = ItemTemplate.idNewItemWP[1][ItemTemplate.checkIdNewWP(item.id)];
                 } else if (ItemTemplate.checkIdNewMatNa(item.id) != -1) {
                     p.c.get().ID_MAT_NA = ItemTemplate.idNewItemMatNa[1][ItemTemplate.checkIdNewMatNa(item.id)];
-                }  else if (ItemTemplate.checkIdNewMounts(item.id) != -1) {
+                } else if (ItemTemplate.checkIdNewMounts(item.id) != -1) {
                     p.c.get().ID_HORSE = ItemTemplate.idNewItemMounts[1][ItemTemplate.checkIdNewMounts(item.id)];
-                }  else if (ItemTemplate.checkIdNewBienHinh(item.id) != -1) {
-                    p.c.get().ID_Bien_Hinh = ItemTemplate.idNewItemBienHinh[1][ItemTemplate.checkIdNewBienHinh(item.id)];    
+                } else if (ItemTemplate.checkIdNewBienHinh(item.id) != -1) {
+                    p.c.get().ID_Bien_Hinh = ItemTemplate.idNewItemBienHinh[1][ItemTemplate
+                            .checkIdNewBienHinh(item.id)];
                 } else if (ItemTemplate.checkIdNewCaiTrang(item.id) != -1) {
                     p.c.get().ID_HAIR = ItemTemplate.idNewItemCaiTrang[1][ItemTemplate.checkIdNewCaiTrang(item.id)];
                     p.c.get().ID_Body = ItemTemplate.idNewItemCaiTrang[2][ItemTemplate.checkIdNewCaiTrang(item.id)];
@@ -2416,7 +2562,7 @@ case 995: {//lượng
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }
@@ -2432,13 +2578,13 @@ case 995: {//lượng
                 if (item.id != 37) {
                     p.c.removeItemBag(indexUI);
                 }
-                if(p.c.mapid == 111 || p.c.mapid == 133) {
+                if (p.c.mapid == 111 || p.c.mapid == 133) {
                     p.sendAddchatYellow("Không thể sử dụng chức năng này tại đây");
                     return;
                 }
                 if (indexMenu == 0 || indexMenu == 1 || indexMenu == 2) {
                     Map ma = Manager.getMapid(Map.arrTruong[indexMenu]);
-                    if(ma == null) {
+                    if (ma == null) {
                         return;
                     }
                     for (TileMap area : ma.area) {
@@ -2449,9 +2595,10 @@ case 995: {//lượng
                         }
                     }
                 }
-                if (indexMenu == 3 || indexMenu == 4 || indexMenu == 5 || indexMenu == 6 || indexMenu == 7 || indexMenu == 8 || indexMenu == 9) {
+                if (indexMenu == 3 || indexMenu == 4 || indexMenu == 5 || indexMenu == 6 || indexMenu == 7
+                        || indexMenu == 8 || indexMenu == 9) {
                     Map ma = Manager.getMapid(Map.arrLang[indexMenu - 3]);
-                    if(ma == null) {
+                    if (ma == null) {
                         return;
                     }
                     for (TileMap area : ma.area) {
@@ -2464,11 +2611,10 @@ case 995: {//lượng
                 }
             }
             p.c.get().upDie();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
-            if(m != null) {
+            if (m != null) {
                 m.cleanup();
             }
         }

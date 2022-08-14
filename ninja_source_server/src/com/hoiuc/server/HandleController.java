@@ -2516,11 +2516,16 @@ public class HandleController {
                             return;
                         }
 
+                        if (player.luong < 10000) {
+                            player.conn.sendMessageLog("Không đủ lượng");
+                            return;
+                        }
+
                         if (player.c.maxluggage >= 120) {
                             player.conn.sendMessageLog("Đã mở 120 ô rồi mà");
                             return;
                         }
-                        player.upluongMessage(10000);
+                        player.upluongMessage(-10000);
                         player.c.levelBag = 5;
                         player.c.maxluggage = 120;
                         Item[] bag = new Item[player.c.maxluggage];

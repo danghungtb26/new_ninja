@@ -769,7 +769,7 @@ public class ClanManager {
     public static void createClan(Player p, String name) {
         name = name.toLowerCase();
         if (p.luong < 100000) {
-            p.conn.sendMessageLog("Bạn cần có 100000 lượng để thành lập gia tộc");
+            p.conn.sendMessageLog("Bạn cần có 10000 lượng để thành lập gia tộc");
         }
 
         ClanManager clan = getClanName(name);
@@ -795,7 +795,7 @@ public class ClanManager {
                             entrys.add(clan);
                             clan.flush();
                             p.c.flush();
-                            p.upluong(-100000L);
+                            p.upluong(-10000L);
                             Message m = new Message(-28);
                             m.writer().writeByte(-96);
                             m.writer().writeUTF(clan.name);
