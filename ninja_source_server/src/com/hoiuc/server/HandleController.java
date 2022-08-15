@@ -1592,6 +1592,25 @@ public class HandleController {
 
                         byte i;
                         Item item3;
+
+                        // check item lock
+                        for (i = 0; i < n.tradeIdItem.size(); ++i) {
+                            item3 = n.p.c.getIndexBag((Byte) n.tradeIdItem.get(i));
+                            if (item3 == null || item3.isLock) {
+                                player.conn.sendMessageLog("Mày tính bug hay gì mà đòi gd đồ khoá");
+                                return;
+                            }
+                        }
+
+                        for (i = 0; i < player.c.tradeIdItem.size(); ++i) {
+                            item3 = player.c.getIndexBag((Byte) player.c.tradeIdItem.get(i));
+                            if (item3 == null || item3.isLock) {
+                                player.conn.sendMessageLog("Mày tính bug hay gì mà đòi gd đồ khoá");
+                                return;
+                            }
+                        }
+
+                        // swap item
                         for (i = 0; i < n.tradeIdItem.size(); ++i) {
                             item3 = n.p.c.getIndexBag((Byte) n.tradeIdItem.get(i));
                             if (item3 != null) {

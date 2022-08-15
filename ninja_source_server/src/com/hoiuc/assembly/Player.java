@@ -903,7 +903,7 @@ public class Player extends User {
     }
 
     public void sendTB2x() throws InterruptedException, IOException {
-        this.updateExp(1500000L);
+        // this.updateExp(1500000L);
 
         Char userGF = Client.gI().getNinja(nameUS);
         Manager.chatKTG("Chúc @" + nameUS + " " + messTB);

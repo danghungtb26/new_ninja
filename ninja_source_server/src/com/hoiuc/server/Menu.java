@@ -3852,7 +3852,7 @@ public class Menu {
                     Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     return;
                 }
-                
+
                 switch (b3) {
                     case 0: {
                         if (p.c.level < 80) {
@@ -3867,8 +3867,9 @@ public class Menu {
                             p.c.upxuMessage(20000);
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
-                    }
                         break;
+
+                    }
                     case 1: {
                         if (p.c.level < 80) {
                             Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
@@ -3882,8 +3883,9 @@ public class Menu {
                             p.c.upxuMessage(200000);
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
                         }
-                    }
                         break;
+
+                    }
                     case 2: {
                         if (p.luong < 1000) {
                             Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 1000 mới đổi được");
@@ -3892,8 +3894,18 @@ public class Menu {
                             p.c.upyenMessage(5000000);
                             Service.chatNPC(p, (short) npcid, "Đổi lượng sang yên thành công");
                         }
-                    }
                         break;
+                    }
+                    case 3: {
+                        if (p.luong < 10000) {
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 10000 mới đổi được");
+                        } else {
+                            p.luongMessage(-10000);
+                            p.c.upyenMessage(50000000);
+                            Service.chatNPC(p, (short) npcid, "Đổi lượng sang yên thành công");
+                        }
+                        break;
+                    }
                 }
             }
                 break;

@@ -1102,29 +1102,30 @@ public class GameSrc {
 
         p.endDlg(true);
 
-        if (arrItem.length == 4) {
-            byte i;
-            byte index2;
-            for (i = 0; i < arrItem.length; i++) {
-                index2 = m.reader().readByte();
-                item = p.c.getIndexBag(index2);
-                if (item.id == 455) {
-                    checkTTS++;
-                    checkTTT = 0;
-                } else if (item.id == 456) {
-                    checkTTT++;
-                    checkTTS = 0;
-                }
-                p.c.removeItemBag(index2, 1);
-            }
-            if (checkTTS > 0) {
-                p.c.addItemBag(false, ItemTemplate.itemDefault(456));
-            } else if (checkTTT > 0) {
-                p.c.addItemBag(false, ItemTemplate.itemDefault(457));
-            }
-            return;
+        // if (arrItem.length == 4) {
+        // byte i;
+        // byte index2;
+        // for (i = 0; i < arrItem.length; i++) {
+        // index2 = m.reader().readByte();
+        // item = p.c.getIndexBag(index2);
+        // if (item.id == 455) {
+        // checkTTS++;
+        // checkTTT = 0;
+        // } else if (item.id == 456) {
+        // checkTTT++;
+        // checkTTS = 0;
+        // }
+        // p.c.removeItemBag(index2, 1);
+        // }
+        // if (checkTTS > 0) {
+        // p.c.addItemBag(false, ItemTemplate.itemDefault(456));
+        // } else if (checkTTT > 0) {
+        // p.c.addItemBag(false, ItemTemplate.itemDefault(457));
+        // }
+        // return;
 
-        } else if (arrItem.length == 9) {
+        // } else
+        if (arrItem.length == 9) {
             byte i;
             byte index2;
             for (i = 0; i < arrItem.length; i++) {
@@ -1132,7 +1133,14 @@ public class GameSrc {
                 if (i == 0) {
                     item = p.c.getIndexBag(index2);
                 }
-                p.c.removeItemBag(index2, 1);
+                if (Util.byteContain(arrItem, index2)) {
+                    m.cleanup();
+                    p.endLoad(true);
+                    p.conn.sendMessageLog("Bug cái loz nhé");
+                    return;
+                }
+                arrItem[i] = index2;
+
             }
 
             if (item.id == 455) {
@@ -1140,6 +1148,10 @@ public class GameSrc {
             } else if (item.id == 456) {
                 p.c.addItemBag(false, ItemTemplate.itemDefault(457));
             }
+            for (int j = 0; j < arrItem.length; ++j) {
+                p.c.removeItemBag(arrItem[j], 1);
+            }
+
             return;
         }
         m.cleanup();
@@ -1184,6 +1196,12 @@ public class GameSrc {
                 }
                 if (item.id != 455 && item.id != 456 && item.id != 457) {
                     p.conn.sendMessageLog("Vật phẩm không dùng cho tinh luyện.");
+                    return;
+                }
+                if (Util.byteContain(arit, ind)) {
+                    m.cleanup();
+                    p.endLoad(true);
+                    p.conn.sendMessageLog("Bug cái loz nhé");
                     return;
                 }
                 arit[j] = ind;
@@ -1332,6 +1350,13 @@ public class GameSrc {
                 index2 = m.reader().readByte();
                 item2 = p.c.getIndexBag(index2);
                 if (item2 == null || item2.id != 454) {
+                    return;
+                }
+
+                if (Util.byteContain(arrIndex, index2)) {
+                    m.cleanup();
+                    p.endLoad(true);
+                    p.conn.sendMessageLog("Bug cái loz nhé");
                     return;
                 }
                 arrIndex[i] = index2;
@@ -3343,6 +3368,13 @@ public class GameSrc {
                                 } else if (item2.getUpgrade() == 10) {
                                     exp += 10000;
                                 }
+
+                                if (Util.byteContain(arrIndex, index2)) {
+                                    m.cleanup();
+                                    p.endLoad(true);
+                                    p.conn.sendMessageLog("Bug cái loz nhé");
+                                    return;
+                                }
                                 arrIndex[i] = index2;
                             }
 
@@ -3352,6 +3384,7 @@ public class GameSrc {
 
                             yen = getNextUpgrade((ngocItem.options.get(i2)).param);
                             ngocItem.options.get(i2).param += exp;
+                            ngocItem.isLock = true;
                             int nextUpgrade = getNextUpgrade((ngocItem.options.get(i2)).param);
                             upgradeNgoc(ngocItem, yen, nextUpgrade);
                             ngocItem.setUpgrade((byte) nextUpgrade);
@@ -3509,7 +3542,10 @@ public class GameSrc {
                     if (ItemTemplate.PARAMS.containsKey(op.id)) {
                         if (op.id == ItemTemplate.ST_CHI_MANG_ID || op.id == ItemTemplate.ST_LEN_QUAI_ID) {
                             op.param = (int) (op.param / updateNgocST[j - 1] * updateNgocST[j]);
-                        } else if (op.id == ItemTemplate.CHI_MANG_ID || op.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID || op.id == ItemTemplate.MOI_GIAY_HOI_PHUC_HP_ID || op.id == ItemTemplate.MOI_GIAY_HOI_PHUC_MP_ID) {
+                        } else if (op.id == ItemTemplate.CHI_MANG_ID
+                                || op.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID
+                                || op.id == ItemTemplate.MOI_GIAY_HOI_PHUC_HP_ID
+                                || op.id == ItemTemplate.MOI_GIAY_HOI_PHUC_MP_ID) {
                             op.param = (int) (op.param / updateNgocSTCM[j - 1] * updateNgocSTCM[j]);
                         } else {
                             op.param = (int) (op.param / updateNgoc[j - 1] * updateNgoc[j]);
@@ -3698,7 +3734,7 @@ public class GameSrc {
                     itemup.options.add(op);
                 }
                 p.c.addItemBag(false, itemup);
-                
+
             } else {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }

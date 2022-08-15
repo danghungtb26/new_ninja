@@ -86,7 +86,10 @@ public class BiKip {
         try {
             int coins = (int) (BiKip.yenUpgrade[item.upgrade] * 1000000);
             int upPer = (int) (BiKip.percenUpgrade[item.upgrade] * (vip ? 1.5 : 1));
-            if (Util.nextInt(150) < upPer) {
+            if (!vip && item.upgrade > 8) {
+                upPer = -1;
+            }
+            if (Util.nextInt(150) < upPer && upPer != -1) {
                 
                 Item itemup = ItemTemplate.itemDefault(p.c.ItemBody[15].id);
                 itemup.options.clear();

@@ -177,6 +177,8 @@ public class ItemLeave {
             case 3: {
                 if (map == 1) {
                     leaveTrangBiThuCuoiLangCo(place, mob3, master);
+                } else if (map == 0) {
+                    leaveTrangBiThuCuoiVDMQ(place, mob3, master);
                 }
                 break;
             }
@@ -383,7 +385,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiVDMQ(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(100);
+            int perCentTB = Util.nextInt(500);
             int perCentArr = Util.nextInt(arrTrangBiXeSoi.length);
             if (perCentTB < 1) {
                 im = place.LeaveItem((short) arrTrangBiXeSoi[perCentArr], mob3.x, mob3.y, mob3.templates.type, false);

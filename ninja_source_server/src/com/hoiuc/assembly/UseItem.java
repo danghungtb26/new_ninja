@@ -64,7 +64,7 @@ public class UseItem {
             407, 408, 436, 437, 438, 524, 443, 485, 549, 550, 551, 407, 408, 436, 437, 438, 524, 443, 485, 549, 550,
             551, 573, 576 };
     public static short[] idItemTuiQuaGiaToc = new short[] { 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8,
-            8, 8, 8, 8, 8, 8, 242, 242, 869, 454, 455, 456, 457, 828, 242, 283, 436, 436, 437 };
+            8, 8, 8, 8, 8, 8, 242, 242, 242, 283, 438, 436, 437 };
     public static short[] idItemHomBlackFriday = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5,
             5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9, 275, 276, 277, 278, 289,
             289, 340, 340, 383, 409, 410, 436, 436, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 437, 443, 485, 524, 549, 550,
@@ -597,7 +597,7 @@ public class UseItem {
                         int per = Util.nextInt(UseItem.idItemPhucNangNhanGia.length);
                         p.c.removeItemBag(index, 1);
                         if (UseItem.idItemPhucNangNhanGia[per] == -1) {
-                            long yenran = Util.nextInt(100000, 150000);
+                            long yenran = Util.nextInt(50000, 200000);
                             p.c.upyenMessage(yenran);
                             p.sendAddchatYellow("Bạn nhận được " + yenran + " yên.");
                         } else {
@@ -2042,7 +2042,7 @@ public class UseItem {
 
                         p.c.removeItemBag(index, 1);
                         if (Util.nextInt(3) == 0) {
-                            int num = (int) Util.nextInt(300000, 1000000);
+                            int num = (int) Util.nextInt(300000, 500000);
                             p.c.upyenMessage(num);
                             p.sendAddchatYellow("Bạn nhận được " + num + " yên");
                             // } else if (Util.nextInt(130) <= 2) {
