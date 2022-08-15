@@ -828,10 +828,10 @@ public class Menu {
                     itemup.isLock = false;
                     itemup.isExpires = true;
                     itemup.expires = Util.TimeDay(7);
-                    p.c.removeItemBags(646, 1);
-                    p.c.addItemBag(false, itemup);
-                    p.sendAddchatYellow("Bạn nhận được " + itemup);
-                    p.updateExp(10000000L);
+                    // p.c.removeItemBags(646, 1);
+                    // p.c.addItemBag(false, itemup);
+                    // p.sendAddchatYellow("Bạn nhận được " + itemup);
+                    // p.updateExp(10000000L);
                 }
                 break;
             }
@@ -2890,9 +2890,9 @@ public class Menu {
                                                 pl.quantity = 2;
                                                 p.c.addItemBag(true, pl);
 
-                                                pl = ItemTemplate.itemDefault(309, false);
-                                                pl.quantity = 2;
-                                                p.c.addItemBag(true, pl);
+                                                // pl = ItemTemplate.itemDefault(309, false);
+                                                // pl.quantity = 2;
+                                                // p.c.addItemBag(true, pl);
 
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(540, false));
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(540, false));
@@ -2900,12 +2900,12 @@ public class Menu {
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
 
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(384, false));
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(384, false));
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
 
-                                                p.upluongMessage(20000);
-                                                p.c.upxuMessage(20000000);
+                                                p.upluongMessage(2000);
+                                                p.c.upxuMessage(200000);
                                                 break;
                                             }
                                             case 2: {
@@ -2926,11 +2926,11 @@ public class Menu {
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
 
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(384, false));
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(384, false));
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
 
-                                                p.upluongMessage(10000);
-                                                p.c.upxuMessage(10000000);
+                                                p.upluongMessage(1000);
+                                                p.c.upxuMessage(100000);
                                                 break;
                                             }
                                             case 3: {
@@ -2941,10 +2941,10 @@ public class Menu {
                                                 }
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(540, false));
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                                                p.upluongMessage(5000);
-                                                p.c.upxuMessage(5000000);
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                                                p.upluongMessage(500);
+                                                p.c.upxuMessage(50000);
                                                 break;
                                             }
                                             case 4:
@@ -2960,9 +2960,9 @@ public class Menu {
                                                     return;
                                                 }
                                                 p.c.addItemBag(false, ItemTemplate.itemDefault(539, false));
-                                                p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
-                                                p.upluongMessage(3000);
-                                                p.c.upxuMessage(3000000);
+                                                // p.c.addItemBag(false, ItemTemplate.itemDefault(383, false));
+                                                p.upluongMessage(300);
+                                                p.c.upxuMessage(30000);
                                                 break;
                                             }
                                             case 11:
@@ -2975,8 +2975,8 @@ public class Menu {
                                             case 18:
                                             case 19:
                                             case 20: {
-                                                p.upluongMessage(1000);
-                                                p.c.upxuMessage(1000000);
+                                                p.upluongMessage(100);
+                                                p.c.upxuMessage(10000);
                                                 break;
                                             }
 
@@ -3019,12 +3019,11 @@ public class Menu {
                                         + "- Mỗi lần chiến thắng, nếu vị trí của đối thủ trước bạn, bạn sẽ đổi vị trí của mình cho đối thủ, còn không vị trí của bạn sẽ được giữ nguyên.\n"
                                         + "- Phần thưởng sẽ được trả thưởng vào mỗi tuần mới (Lưu ý: Hãy nhận thưởng ngay trong tuần mới đó, nếu sang tuần sau phần thưởng sẽ bị reset).\n\n"
                                         + "- PHẦN THƯỞNG: \n"
-                                        + "Top 1: Hào quang Rank 1 + 2 Bánh Phong Lôi, 2 Bánh Băng Hoả, 2 Nấm x4, 3 Nấm x3, 1 Rương bạch ngân, 2 Bát bảo, 20,000 Lượng, 20,000,000 xu.\n\n"
-                                        + "Top 2: Hào quang Rank 2 + 1 Bánh Phong Lôi, 1 Bánh Băng Hoả, 1 Nấm x4, 2 Nấm x3, 1 Rương bạch ngân, 1 Bát bảo, 10,000 Lượng, 10,000,000 xu.\n\n"
-                                        + "Top 3: Hào quang Rank 3 + 1 Nấm x4, 1 Nấm x3, 2 Bát bảo, 5,000 Lượng, 5,000,000 xu.\n\n"
-                                        + "Top 4-10: 1 Nấm x3, 1 Bát bảo, 3,000 Lượng, 3,000,000 xu.\n\n"
-                                        + "Top 11-20: 1,000 Lượng, 1,000,000 xu.\n\n"
-                                        + "Còn lại: 500 Lượng, 500,000 xu.");
+                                        + "Top 1: 2 Nấm x4, 3 Nấm x3, 2000 Lượng, 200,000 xu.\n\n"
+                                        + "Top 2: 1 Nấm x4, 2 Nấm x3, 1000 Lượng, 100,000 xu.\n\n"
+                                        + "Top 3: 1 Nấm x4, 1 Nấm x3, 500 Lượng, 50,000 xu.\n\n"
+                                        + "Top 4-10: 1 Nấm x3, 300 Lượng, 30,000 xu.\n\n"
+                                        + "Top 11-20: 100 Lượng, 10000 xu.\n\n");
                         break;
                     }
                     default: {

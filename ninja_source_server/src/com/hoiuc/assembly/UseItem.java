@@ -1852,13 +1852,13 @@ public class UseItem {
                     }
                     // Thiệp Chúc tết Thường
                     case 908: {
-                        Service.sendInputDialog(p, (short) 114, "Nhập tên người cần chúc:");
+                        // Service.sendInputDialog(p, (short) 114, "Nhập tên người cần chúc:");
                         break;
                     }
 
                     // Thiệp Chúc tết Đặc Biệt
                     case 909: {
-                        Service.sendInputDialog(p, (short) 115, "Nhập tên người cần chúc:");
+                        // Service.sendInputDialog(p, (short) 115, "Nhập tên người cần chúc:");
                         break;
                     }
 

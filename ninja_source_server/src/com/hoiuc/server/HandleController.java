@@ -112,24 +112,7 @@ public class HandleController {
                     player.c.addItemBag(false, itemup);
                     return;
                 }
-                if (player.role == 9999 && "ditheo".equals(chat) || "follow".equals(chat)) {
-                    Chat(player, "Ok con theo sư phụ");
-                    player.c.clone.status = 0;
-                    return;
-                }
-                if (player.role == 9999 && "1233331".equals(chat) || "protect".equals(chat)) {
-                    Chat(player, "Ok sư phụ để con sẽ bảo vệ sư phụ");
-                    player.c.clone.status = 1;
-
-                    return;
-                }
-
-                if (player.role == 9999 && "venha".equals(chat) || "gohome".equals(chat)) {
-                    Chat(player, "Ok con về, bibi sư phụ");
-                    Thread.sleep(2000L);
-                    player.c.clone.status = 3;
-                    return;
-                } else if (chat.equals("diemtanghoa")) {
+                if (chat.equals("diemtanghoa")) {
                     player.conn.sendMessageLog("Điểm tặng hoa: " + player.c.diemtanghoa);
                 }
                 if (player.role == 9999 && chat.equals("batu")) {
@@ -192,14 +175,6 @@ public class HandleController {
                 } else if ("sendyen".equals(chat) && player.role == 9999) {
                     player.typemenu = 127;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Yên" });
-                } else if (chat.equals("xptt") && !player.c.isNhanban) {
-                    if (player.c.leveltutien >= 1) {
-                        player.conn.sendMessageLog("Cấp tu tiên của bạn là : " + player.c.leveltutien
-                                + "\nExp tu tiên của bạn là : " + player.c.exptutien + "/"
-                                + (GameSrc.upExpTuTien[player.c.leveltutien - 1] * 1000));
-                    } else {
-                        player.conn.sendMessageLog("Bạn chưa theo con đường tu tiên.");
-                    }
                 } else if (chat.equals("tp")) {
                     String tet = "- Điểm Lôi Đài Win : " + player.c.nhanTP + "\n" + "- Tổng số Mảnh Pháo đã nhận: "
                             + player.c.countPhao;
@@ -207,8 +182,6 @@ public class HandleController {
                 } else if (chat.equals("cct")) {
                     String tet = "- Điểm Ăn Chuột : " + player.c.pointBossChuot;
                     Server.manager.sendTB(player, "Sự kiện Tết", tet);
-                } else if (chat.equals("expcs")) {
-                    player.conn.sendMessageLog("exp chuyển sinh: " + player.c.expCS);
                 } else if (chat.equals("pointhoa") && Server.manager.event == 5) {
                     String diemtanghoa = "- Điểm hoa đỏ của bạn là : " + player.c.diemhoado + "\n" +
                             "-  Điểm hoa vàng của bạn là : " + player.c.diemhoavang + "\n" +

@@ -97,8 +97,8 @@ public class Player extends User {
             itemup.isLock = false;
             itemup.isExpires = true;
             itemup.expires = Util.TimeDay(7);
-            c.addItemBag(true, itemup);
-            userGF.p.updateExp(5000000L);
+            // c.addItemBag(true, itemup);
+            // userGF.p.updateExp(5000000L);
         }
 
     }
@@ -593,8 +593,8 @@ public class Player extends User {
             itemup.isLock = false;
             itemup.isExpires = true;
             itemup.expires = Util.TimeDay(7);
-            c.addItemBag(true, itemup);
-            userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
+            // c.addItemBag(true, itemup);
+            // userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
 
         }
     }
@@ -624,8 +624,8 @@ public class Player extends User {
             itemup.isLock = false;
             itemup.isExpires = true;
             itemup.expires = Util.TimeDay(7);
-            c.addItemBag(true, itemup);
-            userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
+            // c.addItemBag(true, itemup);
+            // userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
 
         }
     }
@@ -714,8 +714,8 @@ public class Player extends User {
             itemup.isLock = false;
             itemup.isExpires = true;
             itemup.expires = Util.TimeDay(7);
-            c.addItemBag(true, itemup);
-            userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
+            // c.addItemBag(true, itemup);
+            // userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
 
         }
     }
@@ -745,8 +745,8 @@ public class Player extends User {
             itemup.isExpires = true;
             itemup.expires = Util.TimeDay(7);
             c.addItemBag(true, itemup);
-            userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
-            userGF.p.updateExp(10000000L);
+            // userGF.p.sendAddchatYellow("Bạn đã nhận được hoa từ " + c.name + "");
+            // userGF.p.updateExp(10000000L);
 
         }
     }
@@ -926,8 +926,8 @@ public class Player extends User {
             Item itemup = ItemTemplate.itemDefault(idI);
             itemup.isLock = false;
             itemup.isExpires = true;
-            itemup.expires = Util.TimeDay(7);
-            c.addItemBag(true, itemup);
+            // itemup.expires = Util.TimeDay(7);
+            // c.addItemBag(true, itemup);
 
         }
         c.removeItemBags(831, 1);

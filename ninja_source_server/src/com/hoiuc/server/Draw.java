@@ -715,14 +715,14 @@ public class Draw {
 
                     // loi nhan thuong
                     case 116:
-                        p.messTB = str;
-                        p.sendTB();
+                        // p.messTB = str;
+                        // p.sendTB();
                         break;
 
                     // loi nhan vip
                     case 117:
-                        p.messTB = str;
-                        p.sendTB2x();
+                        // p.messTB = str;
+                        // p.sendTB2x();
                         break;
 
                     // gift code
