@@ -76,6 +76,10 @@ public class DropRate {
         items.add(new DropRate(573, 10));
         items.add(new DropRate(577, 10));
 
+        // mảnh quần jirai
+        items.add(new DropRate(736, 2));
+        items.add(new DropRate(763, 2));
+
         return generateDropItem(items);
     }
 
@@ -214,12 +218,12 @@ public class DropRate {
         items.add(new DropRate(278, 3));
 
         // đá
-        items.add(new DropRate(4, 30));
-        items.add(new DropRate(5, 30));
-        items.add(new DropRate(6, 15));
-        items.add(new DropRate(7, 10));
-        items.add(new DropRate(8, 10));
-        items.add(new DropRate(9, 10));
+        items.add(new DropRate(4, 50));
+        items.add(new DropRate(5, 50));
+        items.add(new DropRate(6, 10));
+        items.add(new DropRate(7, 5));
+        items.add(new DropRate(8, 5));
+        items.add(new DropRate(9, 5));
 
         // svc 6x
         items.add(new DropRate(311, 1));
@@ -264,21 +268,42 @@ public class DropRate {
         // sói đen
         items.add(new DropRate(523, 2));
 
+        // dơi
+        items.add(new DropRate(246, 10));
+
+        // hoàn cốt
+        items.add(new DropRate(254, 5));
+        items.add(new DropRate(255, 5));
+        items.add(new DropRate(256, 5));
+        items.add(new DropRate(257, 5));
+
         return generateDropItem(items);
     }
 
     public static short[] arrItemDieuGiay() {
         ArrayList<DropRate> items = new ArrayList<DropRate>();
+        // dơi
+        items.add(new DropRate(246, 10));
+
+        // mặt nạ
+        items.add(new DropRate(403, 10));
+        items.add(new DropRate(404, 10));
+
+        // hoàn cốt
+        items.add(new DropRate(254, 5));
+        items.add(new DropRate(255, 5));
+        items.add(new DropRate(256, 5));
+        items.add(new DropRate(257, 5));
 
         // ngọc
         items.add(new DropRate(652, 30));
         items.add(new DropRate(653, 30));
 
         // đá
-        items.add(new DropRate(4, 30));
-        items.add(new DropRate(5, 30));
-        items.add(new DropRate(6, 15));
-        items.add(new DropRate(7, 10));
+        items.add(new DropRate(4, 50));
+        items.add(new DropRate(5, 50));
+        items.add(new DropRate(6, 5));
+        items.add(new DropRate(7, 5));
 
         // thức ăn
         items.add(new DropRate(30, 3));
@@ -292,8 +317,8 @@ public class DropRate {
         // items.add(new DropRate(383, 1));
 
         // sói
-        items.add(new DropRate(443, 2));
-        items.add(new DropRate(485, 2));
+        items.add(new DropRate(443, 5));
+        items.add(new DropRate(485, 5));
 
         // đan
         items.add(new DropRate(275, 3));
@@ -309,12 +334,24 @@ public class DropRate {
         items.add(new DropRate(549, 5));
         items.add(new DropRate(550, 5));
 
+        // exp sói 2x
+        items.add(new DropRate(449, 1));
+        items.add(new DropRate(450, 1));
+        items.add(new DropRate(451, 1));
+        items.add(new DropRate(452, 1));
+        items.add(new DropRate(453, 1));
+        
+
         return generateDropItem(items);
     }
 
     public static short[] arrItemDieuVai() {
 
         ArrayList<DropRate> items = new ArrayList<DropRate>();
+        // exp xe 2x
+        items.add(new DropRate(470, 1));
+        items.add(new DropRate(471, 1));
+        items.add(new DropRate(472, 1));
 
         // thức ăn
         items.add(new DropRate(30, 3));
@@ -325,8 +362,8 @@ public class DropRate {
         items.add(new DropRate(567, 3));
 
         // ngọc
-        items.add(new DropRate(654, 30));
-        items.add(new DropRate(655, 30));
+        items.add(new DropRate(654, 25));
+        items.add(new DropRate(655, 25));
 
         // giày
         items.add(new DropRate(549, 5));
@@ -345,8 +382,8 @@ public class DropRate {
         // items.add(new DropRate(383, 3));
 
         // sói
-        items.add(new DropRate(523, 2));
-        items.add(new DropRate(524, 2));
+        items.add(new DropRate(523, 10));
+        items.add(new DropRate(524, 10));
 
         // pet poru
         items.add(new DropRate(781, 2));
@@ -372,6 +409,22 @@ public class DropRate {
         items.add(new DropRate(576, 5));
         items.add(new DropRate(577, 5));
         items.add(new DropRate(578, 5));
+
+        // dơi
+        items.add(new DropRate(419, 10));
+
+        // mặt nạ
+        items.add(new DropRate(407, 10));
+        items.add(new DropRate(408, 10));
+
+        items.add(new DropRate(269, 10));
+
+        items.add(new DropRate(255, 5));
+        items.add(new DropRate(256, 5));
+
+        // gậy thời trang
+        items.add(new DropRate(799, 1));
+        items.add(new DropRate(800, 5));
 
         return generateDropItem(items);
     }

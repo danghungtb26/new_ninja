@@ -488,7 +488,7 @@ public class RunTimeServer extends Thread {
                     try {
                         m = new Message(38);
                         m.writer().writeShort(38);// thay id npc
-                        m.writer().writeUTF("Nhà tôi 3 đời bịp "); // thay nội dung chat
+                        m.writer().writeUTF("Chơi game không nạp tiền, Thì nghỉ mẹ game đi!"); // thay nội dung chat
                         m.writer().flush();
                         Client.gI().NinjaMessage(m);
                     } catch (Exception e) {

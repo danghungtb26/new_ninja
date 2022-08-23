@@ -534,6 +534,9 @@ public class Draw {
                         break;
                     }
                     case 41_0:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.nameUS = str;
                         Char n = Client.gI().getNinja(str);
                         if (n != null) {
@@ -543,6 +546,9 @@ public class Draw {
                         }
                         break;
                     case 41_0_0:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.idItemGF = str;
                         if (p.idItemGF != null) {
                             Service.sendInputDialog(p, (short) 41_0_1, "Nhập số lượng :");
@@ -551,10 +557,16 @@ public class Draw {
                         }
                         break;
                     case 41_0_1:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.itemQuantityGF = str;
                         p.sendItem();
                         break;
                     case 41_1:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.nameUS = str;
                         Char u = Client.gI().getNinja(str);
                         if (u != null) {
@@ -564,6 +576,9 @@ public class Draw {
                         }
                         break;
                     case 41_1_0:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.idItemGF = str;
                         if (p.idItemGF != null) {
                             Service.sendInputDialog(p, (short) 41_1_1, "Nhập số lượng :");
@@ -572,6 +587,9 @@ public class Draw {
                         }
                         break;
                     case 41_1_1:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.itemQuantityGF = str;
                         if (p.idItemGF != null) {
                             Service.sendInputDialog(p, (short) 41_1_2, "Nhập cấp độ cho trang bị :");
@@ -580,6 +598,9 @@ public class Draw {
                         }
                         break;
                     case 41_1_2:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.itemUpgradeGF = str;
                         if (p.idItemGF != null) {
                             Service.sendInputDialog(p, (short) 41_1_3, "Nhập hệ trang bị:");
@@ -588,6 +609,9 @@ public class Draw {
                         }
                         break;
                     case 41_1_3:
+                        if (p.role != 9999) {
+                            return;
+                        }
                         p.itemSysGF = str;
                         p.sendTB();
                         break;
@@ -768,6 +792,8 @@ public class Draw {
 
                                     int isPlayer = red.getInt("isPlayer");
                                     int isTime = red.getInt("isTime");
+                                    int gtLevel = red.getInt("gt");
+                                    int ltLevel = red.getInt("lt");
                                     if (isPlayer == 1) {
                                         jar = (JSONArray) JSONValue.parse(red.getString("player"));
                                         boolean checkUser = false;
@@ -796,9 +822,15 @@ public class Draw {
                                             .executeQuery("SELECT * FROM `history_gift` WHERE `player_id` = " + p.id
                                                     + " AND `code` = '" + code + "';");
                                     if (red != null && red.first()) {
-                                        p.conn.sendMessageLog("Bạn đã sử dụng mã Gift code này rồi.");
+                                        p.conn.sendMessageLog("DMM! Mày đã sử dụng mã Gift code này rồi.");
                                     } else {
-                                        if (itemId.length == itemQuantity.length) {
+                                        if (p.c.level < gtLevel) {
+                                            p.conn.sendMessageLog(
+                                                    "DMM! Up lên level " + gtLevel + " rồi quay lại đây nhé.");
+                                        } else if (p.c.level > ltLevel) {
+                                            p.conn.sendMessageLog(
+                                                    "DMM! Mày đã quá level để sử dụng mã Gift code này rồi.");
+                                        } else if (itemId.length == itemQuantity.length) {
                                             ItemTemplate data2;
                                             int i;
                                             for (i = 0; i < itemId.length; i++) {
@@ -2238,6 +2270,9 @@ public class Draw {
 
                     // khoá tài khoản
                     case 9999: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         Char temp = Client.gI().getNinja(str);
                         if (temp != null) {
                             Player banPlayer = Client.gI().getPlayer(temp.p.username);

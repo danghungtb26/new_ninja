@@ -174,6 +174,18 @@ public class UseItem {
                         p.mobMeMessage(211, (byte) 1);
                         break;
                     }
+
+                    case 848: {
+                        p.mobMeMessage(211, (byte) 1);
+                        break;
+                    }
+
+                    case 849: {
+                        p.mobMeMessage(209, (byte) 1);
+                        break;
+                    }
+
+                    
                     case 584: {
                         p.mobMeMessage(212, (byte) 1);
                         break;
@@ -1453,7 +1465,7 @@ public class UseItem {
                             short idI = UseItem.idItemDieuGiay[Util.nextInt(UseItem.idItemDieuGiay.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
-                            if (idI == 523) {
+                            if (idI == 523 || idI == 246 || idI == 403 || idI == 404) {
                                 itemup.isExpires = true;
                                 itemup.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
                             }
@@ -1493,7 +1505,7 @@ public class UseItem {
                             short idI = UseItem.idItemDieuVai[Util.nextInt(UseItem.idItemDieuVai.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
-                            if (idI == 523 || idI == 419) {
+                            if (idI == 523 || idI == 419 || idI == 781 || idI == 419 || idI == 407 || idI == 408 || idI == 799 || idI == 800) {
                                 itemup.isExpires = true;
                                 itemup.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
                             }

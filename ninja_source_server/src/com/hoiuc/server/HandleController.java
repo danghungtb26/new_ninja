@@ -1,6 +1,8 @@
 package com.hoiuc.server;
 
 import com.hoiuc.assembly.*;
+import com.hoiuc.assembly.item.Matna;
+import com.hoiuc.assembly.item.Pet;
 import com.hoiuc.io.Message;
 import com.hoiuc.io.SQLManager;
 import com.hoiuc.io.Util;
@@ -1574,15 +1576,7 @@ public class HandleController {
                         player.conn.sendMessage(m);
                         n.p.conn.sendMessage(m);
                         m.cleanup();
-                        // giao dịch xu
-                        if (n.tradeCoin > 0) {
-                            n.upxuMessage((long) (-n.tradeCoin));
-                            player.c.upxuMessage((long) n.tradeCoin);
-                        }
-                        if (player.c.tradeCoin > 0) {
-                            player.c.upxuMessage((long) (-player.c.tradeCoin));
-                            n.upxuMessage((long) player.c.tradeCoin);
-                        }
+                        
 
                         ArrayList<Item> item1 = new ArrayList();
                         ArrayList<Item> item2 = new ArrayList();
@@ -1597,7 +1591,7 @@ public class HandleController {
                         for (i = 0; i < n.tradeIdItem.size(); ++i) {
                             item3 = n.p.c.getIndexBag((Byte) n.tradeIdItem.get(i));
                             if (item3 == null || item3.isLock) {
-                                player.conn.sendMessageLog("Mày tính bug hay gì mà đòi gd đồ khoá");
+                                n.p.conn.sendMessageLog("Mày tính bug hay gì mà đòi gd đồ khoá");
                                 return;
                             }
                         }
@@ -1610,48 +1604,52 @@ public class HandleController {
                             }
                         }
 
+                        // giao dịch xu
+                        if (n.tradeCoin > 0) {
+                            n.upxuMessage((long) (-n.tradeCoin));
+                            player.c.upxuMessage((long) n.tradeCoin);
+                        }
+                        if (player.c.tradeCoin > 0) {
+                            player.c.upxuMessage((long) (-player.c.tradeCoin));
+                            n.upxuMessage((long) player.c.tradeCoin);
+                        }
+
                         // swap item
                         for (i = 0; i < n.tradeIdItem.size(); ++i) {
                             item3 = n.p.c.getIndexBag((Byte) n.tradeIdItem.get(i));
                             if (item3 != null) {
                                 a = a + " " + String.valueOf(item3.id) + " Số lượng : " + String.valueOf(item3.quantity)
                                         + "; ";
-                                if (item3.quantity > 20000) {
-                                    Service.ServerMessage(player.c, "item quá 20k SL ko thể gd");
-                                    return;
-                                }
                                 item1.add(item3);
                                 n.removeItemBag((Byte) n.tradeIdItem.get(i));
+                                player.c.addItemBag(true, item3);
                             }
                         }
 
                         for (i = 0; i < player.c.tradeIdItem.size(); ++i) {
                             item3 = player.c.getIndexBag((Byte) player.c.tradeIdItem.get(i));
                             if (item3 != null) {
-                                item2.add(item3);
                                 b = b + "" + String.valueOf(item3.id) + " Số lượng : " + String.valueOf(item3.quantity)
                                         + ";";
-                                if (item3.quantity > 20000) {
-                                    Service.ServerMessage(player.c, "item quá 20k SL ko thể gd");
-                                    return;
-                                }
+                                item2.add(item3);
+                                n.addItemBag(true, item3);
                                 player.c.removeItemBag((Byte) player.c.tradeIdItem.get(i));
                             }
                         }
 
-                        for (i = 0; i < item1.size(); ++i) {
-                            item3 = (Item) item1.get(i);
-                            if (item3 != null) {
-                                player.c.addItemBag(true, item3);
-                            }
-                        }
+                        // for (i = 0; i < item1.size(); ++i) {
+                        //     item3 = (Item) item1.get(i);
+                        //     if (item3 != null) {
+                        //         player.c.addItemBag(true, item3);
+                        //     }
+                        // }
 
-                        for (i = 0; i < item2.size(); ++i) {
-                            item3 = (Item) item2.get(i);
-                            if (item3 != null) {
-                                n.addItemBag(true, item3);
-                            }
-                        }
+                        // for (i = 0; i < item2.size(); ++i) {
+                        //     item3 = (Item) item2.get(i);
+                        //     if (item3 != null) {
+                        //         n.addItemBag(true, item3);
+                        //     }
+                        // }
 
                         player.hisgd(player.c.name, n.name, b, player.c.tradeCoin, a, n.tradeCoin);
                         player.hisgd(n.name, player.c.name, a, n.tradeCoin, b, player.c.tradeCoin);
@@ -1912,7 +1910,7 @@ public class HandleController {
 
     public static void inviteToParty(Player player, Message msg) {
         try {
-            if (player != null && player.c != null && player.conn != null && player.c.isHuman && !player.c.isDie
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie
                     && msg != null && msg.reader().available() > 0) {
                 Char _char = player.c;
                 if (_char.mapid == 133 || _char.mapid == 111) {
@@ -1979,7 +1977,7 @@ public class HandleController {
 
     public static void accpetInviteToParty(Player player, Message msg) {
         try {
-            if (player != null && player.c != null && player.conn != null && player.c.isHuman && !player.c.isDie
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie
                     && msg != null && msg.reader().available() > 0) {
                 Char _char = player.c;
                 if (_char.mapid == 133 || _char.mapid == 111) {
@@ -2500,6 +2498,40 @@ public class HandleController {
                     }
                     case 102: {
                         BiKip.handleMuaBiKkip(player);
+                        break;
+                    }
+
+                    case 110: {
+                        Matna.nangMatna(player, player.c.ItemBody[11], true);
+                        break;
+                    }
+                    case 111: {
+                        Matna.nangMatna(player, player.c.ItemBody[11], false);
+                        break;
+                    }
+                    case 112: {
+                        Matna.randomChiso(player, player.c.ItemBody[11], true);
+                        break;
+                    }
+                    case 113: {
+                        Matna.randomChiso(player, player.c.ItemBody[11], false);
+                        break;
+                    }
+
+                    case 120: {
+                        Pet.nangMatna(player, player.c.ItemBody[10], true);
+                        break;
+                    }
+                    case 121: {
+                        Pet.nangMatna(player, player.c.ItemBody[10], false);
+                        break;
+                    }
+                    case 122: {
+                        Pet.randomChiso(player, player.c.ItemBody[10], true);
+                        break;
+                    }
+                    case 123: {
+                        Pet.randomChiso(player, player.c.ItemBody[10], false);
                         break;
                     }
                     case 103: {
@@ -3512,17 +3544,17 @@ public class HandleController {
                                 hour = rightNow.get(11);
                                 min = rightNow.get(12);
                                 sec = rightNow.get(13);
-                                if (player.c.tileMap.map.mapTuTien()) {
-                                    player.c.tileMap.leave(player);
-                                    Map ma = Manager.getMapid(player.c.mapLTD);
-                                    byte k;
-                                    for (k = 0; k < ma.area.length; k++) {
-                                        if (ma.area[k].numplayers < ma.template.maxplayers) {
-                                            ma.area[k].EnterMap0(player.c);
-                                            return;
-                                        }
-                                    }
-                                }
+                                // if (player.c.tileMap.map.mapTuTien()) {
+                                //     player.c.tileMap.leave(player);
+                                //     Map ma = Manager.getMapid(player.c.mapLTD);
+                                //     byte k;
+                                //     for (k = 0; k < ma.area.length; k++) {
+                                //         if (ma.area[k].numplayers < ma.template.maxplayers) {
+                                //             ma.area[k].EnterMap0(player.c);
+                                //             return;
+                                //         }
+                                //     }
+                                // }
                                 m.writer().flush();
                                 player.conn.sendMessage(m);
                                 m.cleanup();

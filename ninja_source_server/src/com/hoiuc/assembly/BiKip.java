@@ -24,6 +24,8 @@ public class BiKip {
 
     public static byte BIKIP_VIP_MESSAGE_ID = 101;
 
+    public static int[] bikip = new int[] { 397, 398, 399, 400, 401, 402 };
+
     public static void nangCapBiKip(Player p, byte npcid, boolean vip) {
         if (p.c.isNhanban) {
             Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
@@ -52,9 +54,7 @@ public class BiKip {
                 "Bạn có muốn nâng cấp " + data.name
                         + " với " + (int) (BiKip.yenUpgrade[p.c.ItemBody[15].upgrade] * 1000000)
                         + " yên hoặc xu "
-                        + (vip ? ("và " + BiKip.luongUpgrade[p.c.ItemBody[15].upgrade] + " lượng") : "")
-                        + " với tỷ lệ thành công là "
-                        + (int) (BiKip.percenUpgrade[p.c.ItemBody[15].upgrade] * (vip ? 1.5: 1)) + "% không?");
+                        + (vip ? ("và " + BiKip.luongUpgrade[p.c.ItemBody[15].upgrade] + " lượng") : "") + " không?");
     }
 
     public static void nangbikip(Player p, Item item, boolean vip) throws IOException {
@@ -233,4 +233,15 @@ public class BiKip {
         }
 
     }
+
+    public static boolean isBikip(int id) {
+        for (int i = 0; i < bikip.length; ++i) {
+            if (bikip[id] == id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

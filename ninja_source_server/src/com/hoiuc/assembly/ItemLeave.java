@@ -4,7 +4,7 @@ import com.hoiuc.io.Util;
 import com.hoiuc.stream.Server;
 
 public class ItemLeave {
-    public static short[] arrTrangBiXeSoi = new short[] { 439, 440, 441, 442, 488, 489, 487, 486 };
+    public static short[] arrTrangBiXeSoi = new short[] { 545, 439, 440, 441, 442, 488, 489, 487, 486 };
     public static short[] arrExpXeSoi = new short[] { 573, 574, 575, 576, 577, 778 };
     public static short[] arrItemOrther = new short[] { -1, -1, -1, -1, -1, -1, 10000, 10000, 10001, 10001, 4, 4, 4, 4,
             4, 4, 4, 4, 5, 5, 5, 5, 6, 38, 38 };
@@ -385,7 +385,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiVDMQ(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(500);
+            int perCentTB = Util.nextInt(200);
             int perCentArr = Util.nextInt(arrTrangBiXeSoi.length);
             if (perCentTB < 1) {
                 im = place.LeaveItem((short) arrTrangBiXeSoi[perCentArr], mob3.x, mob3.y, mob3.templates.type, false);

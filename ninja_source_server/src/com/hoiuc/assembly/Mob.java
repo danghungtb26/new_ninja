@@ -356,7 +356,7 @@ public class Mob {
                 }
             }
             if (this.tileMap.map.VDMQ() && (_char.get().getEffId(40) != null || _char.get().getEffId(41) != null) && Math.abs(this.level - _char.get().level) <= 10) {
-                ItemLeave.randomLeave(this.tileMap, this, master, (int) Util.nextInt(1, 2), 0);
+                ItemLeave.randomLeave(this.tileMap, this, master, (int) Util.nextInt(1, 3), 0);
                 // _char.p.upluongMessage(60);
             } else if (this.tileMap.map.id == 75) {
                 ItemLeave.leaveItemmapdong(this.tileMap, this, master);

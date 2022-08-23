@@ -42,55 +42,55 @@ public class SaveData implements Runnable{
                 }
                 Rank.init();
 
-                synchronized (this) {
-                    try {
-                        Runtime backup = Runtime.getRuntime();
-                        String time = String.valueOf(System.currentTimeMillis());
-                        String backUpPart = Manager.backup_part +"\\"+ Manager.mysql_database_ninja + time +".sql";
-                        String command= "cmd.exe /c "
-                                + "\"\""+Manager.mysql_part+"\"  "
-                                + " --user="+Manager.mysql_user
-                                + " --password="+Manager.mysql_pass
-                                + " --host="+Manager.mysql_host
-                                + " --protocol=tcp "
-                                + " --port="+Manager.mysql_port
-                                + " --default-character-set=utf8 "
-                                + " --single-transaction=TRUE "
-                                + " --routines "
-                                + " --events "
-                                + "\""+Manager.mysql_database_ninja
-                                +"\" "
-                                + ">"
-                                + " \""
-                                + backUpPart
-                                + "\""
-                                + " \"";
-                        backup.exec(command);
+                // synchronized (this) {
+                //     try {
+                //         Runtime backup = Runtime.getRuntime();
+                //         String time = String.valueOf(System.currentTimeMillis());
+                //         String backUpPart = Manager.backup_part +"\\"+ Manager.mysql_database_ninja + time +".sql";
+                        // String command= "cmd.exe /c "
+                        //         + "\"\""+Manager.mysql_part+"\"  "
+                        //         + " --user="+Manager.mysql_user
+                        //         + " --password="+Manager.mysql_pass
+                        //         + " --host="+Manager.mysql_host
+                        //         + " --protocol=tcp "
+                        //         + " --port="+Manager.mysql_port
+                        //         + " --default-character-set=utf8 "
+                        //         + " --single-transaction=TRUE "
+                        //         + " --routines "
+                        //         + " --events "
+                        //         + "\""+Manager.mysql_database_ninja
+                        //         +"\" "
+                        //         + ">"
+                        //         + " \""
+                        //         + backUpPart
+                        //         + "\""
+                        //         + " \"";
+                        // backup.exec(command);
 
-                        backUpPart = Manager.backup_part + "\\"+ Manager.mysql_database_data + time +".sql";
-                        command= "cmd.exe /c "
-                                + "\"\""+Manager.mysql_part+"\"  "
-                                + " --user="+Manager.mysql_user
-                                + " --password="+Manager.mysql_pass
-                                + " --host="+Manager.mysql_host
-                                + " --protocol=tcp "
-                                + " --port="+Manager.mysql_port
-                                + " --default-character-set=utf8 "
-                                + " --single-transaction=TRUE "
-                                + " --routines "
-                                + " --events "
-                                + "\""+Manager.mysql_database_data
-                                +"\" "
-                                + ">"
-                                + " \""
-                                + backUpPart
-                                + "\""
-                                + " \"";
-                        backup.exec(command);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                        // backUpPart = Manager.backup_part + "\\"+ Manager.mysql_database_data + time +".sql";
+                        // command= "cmd.exe /c "
+                        //         + "\"\""+Manager.mysql_part+"\"  "
+                        //         + " --user="+Manager.mysql_user
+                        //         + " --password="+Manager.mysql_pass
+                        //         + " --host="+Manager.mysql_host
+                        //         + " --protocol=tcp "
+                        //         + " --port="+Manager.mysql_port
+                        //         + " --default-character-set=utf8 "
+                        //         + " --single-transaction=TRUE "
+                        //         + " --routines "
+                        //         + " --events "
+                        //         + "\""+Manager.mysql_database_data
+                        //         +"\" "
+                        //         + ">"
+                        //         + " \""
+                        //         + backUpPart
+                        //         + "\""
+                        //         + " \"";
+                        // backup.exec(command);
+                //     } catch (Exception e) {
+                //         e.printStackTrace();
+                //     }
+                // }
 
                 Manager.isSaveData = false;
             }

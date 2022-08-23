@@ -2089,7 +2089,7 @@ public class Player extends User {
         } else if (item.upgrade < 99) {
             this.c.p.sendAddchatYellow("Thú cưỡi chưa đạt cấp tối đa");
             return false;
-        } else if (item.sys > 5) {
+        } else if (item.sys >=4) {
             this.c.p.sendAddchatYellow("Không thể nâng thêm sao");
             return false;
         } else {
@@ -2429,6 +2429,7 @@ public class Player extends User {
                     this.mobMeMessage(208, (byte) 0);
                     break;
                 case 583:
+                case 848:
                     this.mobMeMessage(211, (byte) 1);
                     break;
                 case 584:
@@ -2455,7 +2456,7 @@ public class Player extends User {
                 case 781:
                     this.mobMeMessage(235, (byte) 1);
                     break;
-                case 870:
+                case 849:
                     this.mobMeMessage(209, (byte) 1);
                     break;
                 case 871:
@@ -2493,6 +2494,7 @@ public class Player extends User {
                     this.mobMeCloneMessage(208, (byte) 0);
                     break;
                 case 583:
+                case 848:
                     this.mobMeCloneMessage(211, (byte) 1);
                     break;
                 case 584:
@@ -2519,7 +2521,7 @@ public class Player extends User {
                 case 781:
                     this.mobMeCloneMessage(235, (byte) 1);
                     break;
-                case 870:
+                case 849:
                     this.mobMeCloneMessage(209, (byte) 1);
                     break;
                 case 871:

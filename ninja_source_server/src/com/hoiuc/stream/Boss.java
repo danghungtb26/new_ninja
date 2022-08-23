@@ -261,10 +261,128 @@ public class Boss {
                 }
             }
 
+            // rớt tối đa 2 viên mỗi con boss
+            dropDaDanhVong(place, mob3, master);
+            dropDaDanhVong(place, mob3, master);
+
             short[] items = getItems(boss.type);
             dropItem(place, mob3, items, master, 10);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void dropDaDanhVong(TileMap place, Mob mob3, int master) {
+        int random = Util.nextInt(1000);
+
+        // đá danh vọng 10
+        if (random == 999) {
+            ItemMap im = place.LeaveItem((short) 704, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 9
+        if (random > 995) {
+            ItemMap im = place.LeaveItem((short) 703, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 8
+        if (random > 990) {
+            ItemMap im = place.LeaveItem((short) 702, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+        
+        // đá danh vọng 7
+        if (random > 985) {
+            ItemMap im = place.LeaveItem((short) 701, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 6
+        if (random > 980) {
+            ItemMap im = place.LeaveItem((short) 700, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 5
+        if (random > 800) {
+            ItemMap im = place.LeaveItem((short) 699, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 4
+        if (random > 600) {
+            ItemMap im = place.LeaveItem((short) 698, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 3
+        if (random > 450) {
+            ItemMap im = place.LeaveItem((short) 697, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 2
+        if (random > 300) {
+            ItemMap im = place.LeaveItem((short) 696, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
+        }
+
+        // đá danh vọng 1
+        if (random >= 100) {
+            ItemMap im = place.LeaveItem((short) 695, mob3.x, mob3.y,
+                    mob3.templates.type, true);
+            if (im != null) {
+                im.item.quantity = 1;
+                im.item.isLock = false;
+                im.master = master;
+            }
         }
     }
 

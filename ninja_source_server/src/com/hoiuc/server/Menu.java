@@ -19,6 +19,9 @@ import com.hoiuc.assembly.CheckCLLuong;
 import com.hoiuc.assembly.CheckTXCoin;
 import com.hoiuc.assembly.CheckTXLuong;
 import com.hoiuc.assembly.CheckTXXu;
+import com.hoiuc.assembly.item.Matna;
+import com.hoiuc.assembly.item.Pet;
+import com.hoiuc.assembly.npc.NPCShopVip;
 
 public class Menu {
 
@@ -550,164 +553,164 @@ public class Menu {
                         break;
                     }
                     case 42: {
-                        Menu.npccasino(p, npcId, menuId, b3);
+                        NPCShopVip.selected(p, npcId, menuId, b3);
                         break;
                     }
                     case 43: {
                         Menu.npcHoadao(p, npcId, menuId, b3);
                         break;
                     }
-                    case 44: {
-                        Menu.npcVip(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 45: {
-                        Menu.npcMiNuong(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 46: {
-                        Menu.npcCLXTCoin(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 47: {
-                        Menu.npcSuKien(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 48: {
-                        Menu.npcPhoBan(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 49: {
-                        Menu.npcquylao(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 50: {
-                        Menu.npcthiensuwhis(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 51: {
-                        Menu.npcquocvuong(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 52: {
-                        Menu.npcCLXTXu(p, npcId, menuId, b3);
-                        break;
-                    }
+                    // case 44: {
+                    //     Menu.npcVip(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 45: {
+                    //     Menu.npcMiNuong(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 46: {
+                    //     Menu.npcCLXTCoin(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 47: {
+                    //     Menu.npcSuKien(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 48: {
+                    //     Menu.npcPhoBan(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 49: {
+                    //     Menu.npcquylao(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 50: {
+                    //     Menu.npcthiensuwhis(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 51: {
+                    //     Menu.npcquocvuong(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 52: {
+                    //     Menu.npcCLXTXu(p, npcId, menuId, b3);
+                    //     break;
+                    // }
 
-                    case 53: {
-                        Menu.npcCLXTLuong(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 54: {
-                        Menu.npcThanMeo(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 55: {
-                        Menu.npcBulma(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 56: {
-                        Menu.BXH(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 57: {
-                        Menu.luyenma(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 58: {
-                        Menu.npcott(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 59: {
-                        Menu.doimk(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 60: {
-                        Menu.menuDoiVK(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 61: {
-                        Menu.npchoncot(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 62: {
-                        Menu.npctinhfox(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 63: {
-                        Menu.npcbaove(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 64: {
-                        Menu.npcnhanhoncot(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 65: {
-                        Menu.npcmathan(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 66: {
-                        Menu.npcNuoiRong(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 67: {
-                        Menu.npcnhucthan(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 68: {
-                        Menu.npcnhucthan1(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 69: {
-                        Menu.npcphuhao(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 70: {
-                        Menu.npctaphoa(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 71: {
-                        Menu.npcTaiXiu(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 72: {
-                        Menu.npcvkthan(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 73: {
-                        Menu.npcdichchuyen(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 74: {
-                        Menu.npcuocngocrong(p, npcId, menuId, b3);
-                        break;
-                    }
-                    case 92:
-                        p.typemenu = menuId == 0 ? 93 : 94;
-                        doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
-                        break;
-                    case 93:
-                        if (menuId == 0) {
+                    // case 53: {
+                    //     Menu.npcCLXTLuong(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 54: {
+                    //     Menu.npcThanMeo(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 55: {
+                    //     Menu.npcBulma(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 56: {
+                    //     Menu.BXH(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 57: {
+                    //     Menu.luyenma(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 58: {
+                    //     Menu.npcott(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 59: {
+                    //     Menu.doimk(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 60: {
+                    //     Menu.menuDoiVK(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 61: {
+                    //     Menu.npchoncot(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 62: {
+                    //     Menu.npctinhfox(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 63: {
+                    //     Menu.npcbaove(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 64: {
+                    //     Menu.npcnhanhoncot(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 65: {
+                    //     Menu.npcmathan(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 66: {
+                    //     Menu.npcNuoiRong(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 67: {
+                    //     Menu.npcnhucthan(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 68: {
+                    //     Menu.npcnhucthan1(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 69: {
+                    //     Menu.npcphuhao(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 70: {
+                    //     Menu.npctaphoa(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 71: {
+                    //     Menu.npcTaiXiu(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 72: {
+                    //     Menu.npcvkthan(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 73: {
+                    //     Menu.npcdichchuyen(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 74: {
+                    //     Menu.npcuocngocrong(p, npcId, menuId, b3);
+                    //     break;
+                    // }
+                    // case 92:
+                    //     p.typemenu = menuId == 0 ? 93 : 94;
+                    //     doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
+                    //     break;
+                    // case 93:
+                    //     if (menuId == 0) {
 
-                            Server.manager.rotationluck[0].luckMessage(p);
-                        } else if (menuId == 1) {
+                    //         Server.manager.rotationluck[0].luckMessage(p);
+                    //     } else if (menuId == 1) {
 
-                            Server.manager.sendTB(p, "Vòng xoay vip", "Tham gia đi, xem luật làm gì");
-                        }
-                        break;
-                    case 94:
-                        if (menuId == 0) {
-                            Server.manager.rotationluck[1].luckMessage(p);
-                        } else if (menuId == 1) {
-                            Server.manager.sendTB(p, "Vòng xoay thường", "Tham gia đi xem luật lm gì");
-                        }
-                    case 95:
-                        break;
-                    case 120: {
-                        if (menuId > 0 && menuId < 7) {
-                            Admission.Admission(p, (byte) menuId);
-                        }
-                    }
+                    //         Server.manager.sendTB(p, "Vòng xoay vip", "Tham gia đi, xem luật làm gì");
+                    //     }
+                    //     break;
+                    // case 94:
+                    //     if (menuId == 0) {
+                    //         Server.manager.rotationluck[1].luckMessage(p);
+                    //     } else if (menuId == 1) {
+                    //         Server.manager.sendTB(p, "Vòng xoay thường", "Tham gia đi xem luật lm gì");
+                    //     }
+                    // case 95:
+                    //     break;
+                    // case 120: {
+                    //     if (menuId > 0 && menuId < 7) {
+                    //         Admission.Admission(p, (byte) menuId);
+                    //     }
+                    // }
                     default: {
                         Service.chatNPC(p, (short) npcId, "Chức năng này đang được cập nhật");
                         break;
@@ -734,7 +737,7 @@ public class Menu {
                     }
                     // Send xu
                     case 125:
-                        if (p.id != 1) {
+                        if (p.role != 9999) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -743,7 +746,7 @@ public class Menu {
                         }
                         // Send Lượng
                     case 126:
-                        if (p.id != 1) {
+                        if (p.role != 9999) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -752,7 +755,7 @@ public class Menu {
                         }
                         // Send Yên
                     case 127:
-                        if (p.id != 1) {
+                        if (p.role != 9999) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -761,7 +764,7 @@ public class Menu {
                         }
                         // Send Item
                     case 128:
-                        if (p.id != 1) {
+                        if (p.role != 9999) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -770,7 +773,7 @@ public class Menu {
                         }
                         // Send Mess
                     case 129:
-                        if (p.id != 1) {
+                        if (p.role != 9999) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -783,6 +786,9 @@ public class Menu {
                         break;
                     }
                     case 9999: {
+                        if (p.role != 9999) {
+                            return;
+                        }
                         Menu.menuAdmin(p, npcId, menuId, b3);
                         break;
                     }
@@ -979,48 +985,81 @@ public class Menu {
         int i;
         switch (menuId) {
             case 0: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9998, "Nhập số phút muốn bảo trì 0->10 (0: ngay lập tức)");
                 break;
             }
             case 1: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.KhoaTaiKhoan(p);
                 break;
             }
             case 2: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.AutoSaveData();
                 p.sendAddchatYellow("Update thành công");
                 break;
             }
             case 3: {
+                if (p.role != 9999) {
+                    return;
+                }
                 String chat = "MapID: " + p.c.mapid + " - X: " + p.c.get().x + " - Y: " + p.c.get().y;
                 p.conn.sendMessageLog(chat);
                 break;
             }
             case 4: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9996, "Nhập số xu muốn cộng (có thể nhập số âm)");
                 break;
             }
             case 5: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9995, "Nhập số lượng muốn cộng (có thể nhập số âm)");
                 break;
             }
             case 6: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9997, "Nhập số yên muốn cộng (có thể nhập số âm)");
                 break;
             }
             case 7: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9994, "Nhập số level muốn tăng (có thể nhập số âm)");
                 break;
             }
             case 8: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9993, "Nhập số tiềm năng muốn tăng (có thể nhập số âm)");
                 break;
             }
             case 9: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9992, "Nhập số kỹ năng muốn tăng (có thể nhập số âm)");
                 break;
             }
             case 10: {
+                if (p.role != 9999) {
+                    return;
+                }
                 SaveData saveData = new SaveData();
                 saveData.player = p;
                 Thread t1 = new Thread(saveData);
@@ -1033,10 +1072,16 @@ public class Menu {
                 break;
             }
             case 11: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9991, "Nhập nội dung");
                 break;
             }
             case 12: {
+                if (p.role != 9999) {
+                    return;
+                }
                 try {
                     Server.manager.sendTB(p, "Kiểm tra",
                             "- Tổng số kết nối: " + Client.gI().conns_size() + "\n\n- Số người đăng nhập: "
@@ -1048,6 +1093,9 @@ public class Menu {
                 break;
             }
             case 13: {
+                if (p.role != 9999) {
+                    return;
+                }
                 synchronized (Client.gI().conns) {
                     for (i = 0; i < Client.gI().conns.size(); ++i) {
                         Session conn = (Session) Client.gI().conns.get(i);
@@ -1068,6 +1116,9 @@ public class Menu {
                 break;
             }
             case 14: {
+                if (p.role != 9999) {
+                    return;
+                }
                 synchronized (Client.gI().conns) {
                     for (i = 0; i < Client.gI().conns.size(); ++i) {
                         player = ((Session) Client.gI().conns.get(i)).player;
@@ -1080,10 +1131,16 @@ public class Menu {
                 break;
             }
             case 15: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9990, "Nhập giá trị cần thay đổi");
                 break;
             }
             case 16: {
+                if (p.role != 9999) {
+                    return;
+                }
                 try {
                     String a = "";
                     int i2 = 1;
@@ -1098,6 +1155,9 @@ public class Menu {
                 break;
             }
             case 17: {
+                if (p.role != 9999) {
+                    return;
+                }
                 try {
                     ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `alert` WHERE `id` = 1;");
                     if (red != null && red.first()) {
@@ -1113,6 +1173,9 @@ public class Menu {
                 break;
             }
             case 18: {
+                if (p.role != 9999) {
+                    return;
+                }
                 try {
                     Manager.chatKTG("Người chơi " + p.c.name + " sử dụng Bánh khúc cây dâu tây đã nhận được "
                             + ItemTemplate.ItemTemplateId(385).name);
@@ -1122,6 +1185,9 @@ public class Menu {
                 break;
             }
             case 19: {
+                if (p.role != 9999) {
+                    return;
+                }
                 try {
                     Manager.chatKTG("Người chơi " + p.c.name + " sử dụng Bánh khúc cây dâu tây đã nhận được "
                             + ItemTemplate.ItemTemplateId(384).name);
@@ -1131,14 +1197,23 @@ public class Menu {
                 break;
             }
             case 20: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 9989, "Nhập giá trị cần thay đổi");
                 break;
             }
             case 21: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 41_0, "Nhập tên nhân vật :");
                 break;
             }
             case 22: {
+                if (p.role != 9999) {
+                    return;
+                }
                 Service.sendInputDialog(p, (short) 41_1, "Nhập tên nhân vật :");
                 break;
             }
@@ -2543,7 +2618,7 @@ public class Menu {
                         p.c.taskDanhVong = new int[] { -1, -1, -1, 0, p.c.countTaskDanhVong };
                         Item item = ItemTemplate.itemDefault(DanhVongTemplate.randomDaDanhVong(), false);
                         item.quantity = 1;
-                        item.isLock = false;
+                        item.isLock = true;
                         if (p.c.pointUydanh < 5000) {
                             ++p.c.pointUydanh;
                         }
@@ -3631,10 +3706,10 @@ public class Menu {
                             p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
                             p.c.addItemBag(false, ItemTemplate.itemDefault(223, true));
                             if (p.status == 1) {
-                                p.upluongMessage(1000L);
+                                p.upluongMessage(500L);
                                 p.c.luongTN += 1000;
                             } else {
-                                p.upluongMessage(2000L);
+                                p.upluongMessage(500L);
                             }
                             p.c.upyenMessage(10000000L);
 
@@ -3659,10 +3734,10 @@ public class Menu {
                         if (p.c.level >= 20 && p.c.checkLevel[1] == 0) {
                             p.c.addItemBag(false, ItemTemplate.itemDefault(224, true));
                             if (p.status == 1) {
-                                p.upluongMessage(1000L);
+                                p.upluongMessage(500L);
                                 p.c.luongTN += 1000;
                             } else {
-                                p.upluongMessage(2000L);
+                                p.upluongMessage(500L);
                             }
                             p.c.upyenMessage(20000000L);
                             p.c.checkLevel[1] = 1;
@@ -3689,7 +3764,7 @@ public class Menu {
                                 p.upluongMessage(1000L);
                                 p.c.luongTN += 1000;
                             } else {
-                                p.upluongMessage(2000L);
+                                p.upluongMessage(1000L);
                             }
                             p.c.upyenMessage(30000000L);
                             p.c.checkLevel[2] = 1;
@@ -3715,7 +3790,7 @@ public class Menu {
                                 p.upluongMessage(1000L);
                                 p.c.luongTN += 1000;
                             } else {
-                                p.upluongMessage(2000L);
+                                p.upluongMessage(1000L);
                             }
                             p.c.upyenMessage(40000000L);
                             p.c.checkLevel[3] = 1;
@@ -3742,7 +3817,7 @@ public class Menu {
                                 p.upluongMessage(1500L);
                                 p.c.luongTN += 1500;
                             } else {
-                                p.upluongMessage(3000L);
+                                p.upluongMessage(1500L);
                             }
                             p.c.upyenMessage(50000000L);
                             p.c.checkLevel[4] = 1;
@@ -3769,7 +3844,7 @@ public class Menu {
                                 p.upluongMessage(1500L);
                                 p.c.luongTN += 1500;
                             } else {
-                                p.upluongMessage(3000L);
+                                p.upluongMessage(2000L);
                             }
                             p.c.upyenMessage(60000000L);
                             p.c.checkLevel[5] = 1;
@@ -3790,7 +3865,7 @@ public class Menu {
                                 p.upluongMessage(2500L);
                                 p.c.luongTN += 2500;
                             } else {
-                                p.upluongMessage(5000L);
+                                p.upluongMessage(3000L);
                             }
                             p.c.upyenMessage(70000000L);
                             p.c.checkLevel[6] = 1;
@@ -3811,7 +3886,7 @@ public class Menu {
                                 p.upluongMessage(2500L);
                                 p.c.luongTN += 2500;
                             } else {
-                                p.upluongMessage(5000L);
+                                p.upluongMessage(3500L);
                             }
                             p.c.upyenMessage(80000000L);
                             p.c.checkLevel[7] = 1;
@@ -3832,7 +3907,7 @@ public class Menu {
                                 p.upluongMessage(3500L);
                                 p.c.luongTN += 3500;
                             } else {
-                                p.upluongMessage(7000L);
+                                p.upluongMessage(4000L);
                             }
                             p.c.upyenMessage(90000000L);
                             p.c.checkLevel[8] = 1;
@@ -3855,7 +3930,7 @@ public class Menu {
 
                 switch (b3) {
                     case 0: {
-                        if (p.c.level < 80) {
+                        if (p.c.level < 70) {
                             Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
                             return;
                         }
@@ -3871,7 +3946,7 @@ public class Menu {
 
                     }
                     case 1: {
-                        if (p.c.level < 80) {
+                        if (p.c.level < 70) {
                             Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
                             return;
                         }
@@ -5527,6 +5602,22 @@ public class Menu {
                 BiKip.nangCapBiKip(p, npcid, b3 == 1);
                 break;
             }
+            case 2: {
+                Matna.requestRandomChiSo(p, npcid, b3 == 1);
+                break;
+            }
+            case 3: {
+                Matna.nangCap(p, npcid, b3 == 1);
+                break;
+            }
+            case 4: {
+                Pet.requestRandomChiSo(p, npcid, b3 == 1);
+                break;
+            }
+            case 5: {
+                Pet.nangCap(p, npcid, b3 == 1);
+                break;
+            }
             default: {
                 Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
                 break;
@@ -5656,7 +5747,7 @@ public class Menu {
                     // }
 
                     p.upluongMessage(10000L);
-                    p.c.upxuMessage(10000L);
+                    // p.c.upxuMessage(10000L);
                     p.c.upyenMessage(100000000L);
                     // p.c.addItemBag(false, ItemTemplate.itemDefault(222, true));
                     // p.c.addItemBag(false, ItemTemplate.itemDefault(539, true));

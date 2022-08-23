@@ -38,7 +38,7 @@ public class GameSrc {
     public static int[] coinUpMat = new int[] { 250000, 500000, 1250000, 2000000, 4000000, 10000000, 20000000, 35000000,
             50000000, 100000000 };
     public static int[] goldUpMat = new int[] { 10, 40, 60, 85, 120, 150, 190, 235, 285, 350 };
-    public static int[] percentUpMat = new int[] { 100, 50, 35, 25, 20, 15, 10, 7, 5, 2 };
+    public static int[] percentUpMat = new int[] { 100, 50, 30, 20, 15, 10, 7, 5, 3, 1 };
 
     public static int[] nangcapbikip = new int[] { 100, 70, 60, 50, 45, 40, 35, 30, 25, 20, 18, 15, 8, 5, 2 };
     public static int[] arrModIdTaThu30 = new int[] { 30, 33, 35, 37 };
@@ -314,8 +314,7 @@ public class GameSrc {
     public static void ItemInfo(Player p, Message m) throws IOException {
         byte type = m.reader().readByte();
         m.cleanup();
-        Util.Debug("Item info type " + type);
-        Item[] arrItem = null;
+        Item[] arrItem = new Item[] {};
         switch (type) {
             case 2: {
                 arrItem = ItemSell.SellItemType(type).item;
@@ -1306,6 +1305,7 @@ public class GameSrc {
                 p.conn.sendMessageLog("Không đủ yên để Tinh luyện");
                 return;
             }
+            it.isLock = true;
             p.endLoad(true);
             p.c.upyenMessage(-yen);
 
@@ -3647,7 +3647,7 @@ public class GameSrc {
             p.conn.sendMessageLog("Mắt đã nâng cấp tối đa");
             return;
         }
-        if (p.c.quantityItemyTotal(695 + item.upgrade) < 10) {
+        if (p.c.quantityItemyTotal(694 + item.upgrade) < 10) {
             ItemTemplate data = ItemTemplate.ItemTemplateId(694 + item.upgrade);
             p.conn.sendMessageLog("Bạn không đủ 10 viên " + data.name + " để nâng cấp");
             return;
