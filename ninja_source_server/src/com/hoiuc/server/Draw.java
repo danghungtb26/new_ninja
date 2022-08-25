@@ -534,7 +534,7 @@ public class Draw {
                         break;
                     }
                     case 41_0:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.nameUS = str;
@@ -546,7 +546,7 @@ public class Draw {
                         }
                         break;
                     case 41_0_0:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.idItemGF = str;
@@ -557,14 +557,14 @@ public class Draw {
                         }
                         break;
                     case 41_0_1:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.itemQuantityGF = str;
                         p.sendItem();
                         break;
                     case 41_1:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.nameUS = str;
@@ -576,7 +576,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_0:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.idItemGF = str;
@@ -587,7 +587,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_1:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.itemQuantityGF = str;
@@ -598,7 +598,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_2:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.itemUpgradeGF = str;
@@ -609,7 +609,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_3:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         p.itemSysGF = str;
@@ -2066,7 +2066,7 @@ public class Draw {
                         break;
                     }
                     case 9989: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2082,7 +2082,7 @@ public class Draw {
                     }
                     // Thay đổi exp
                     case 9990: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2102,7 +2102,7 @@ public class Draw {
 
                     // Thong bao
                     case 9991: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (str.equals("")) {
@@ -2116,7 +2116,7 @@ public class Draw {
 
                     // kỹ năng
                     case 9992: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2137,7 +2137,7 @@ public class Draw {
 
                     // tiềm năng
                     case 9993: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2158,7 +2158,7 @@ public class Draw {
 
                     // tăng level
                     case 9994: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2189,7 +2189,7 @@ public class Draw {
 
                     // tăng lượng
                     case 9995: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2209,7 +2209,7 @@ public class Draw {
 
                     // tăng xu
                     case 9996: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2229,7 +2229,7 @@ public class Draw {
 
                     // tăng yên
                     case 9997: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2249,7 +2249,7 @@ public class Draw {
 
                     // bảo trì
                     case 9998: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2270,13 +2270,13 @@ public class Draw {
 
                     // khoá tài khoản
                     case 9999: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         Char temp = Client.gI().getNinja(str);
                         if (temp != null) {
                             Player banPlayer = Client.gI().getPlayer(temp.p.username);
-                            if (banPlayer != null && banPlayer.role != 9999) {
+                            if (banPlayer != null && banPlayer.role != 2601) {
                                 Client.gI().kickSession(banPlayer.conn);
                                 try {
                                     SQLManager.stat.executeUpdate(

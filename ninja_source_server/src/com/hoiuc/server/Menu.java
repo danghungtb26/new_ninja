@@ -737,7 +737,7 @@ public class Menu {
                     }
                     // Send xu
                     case 125:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -746,7 +746,7 @@ public class Menu {
                         }
                         // Send Lượng
                     case 126:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -755,7 +755,7 @@ public class Menu {
                         }
                         // Send Yên
                     case 127:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -764,7 +764,7 @@ public class Menu {
                         }
                         // Send Item
                     case 128:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -773,7 +773,7 @@ public class Menu {
                         }
                         // Send Mess
                     case 129:
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             Service.chatNPC(p, (short) npcId, "Bạn Không Có Quyền");
                             break;
                         } else {
@@ -786,7 +786,7 @@ public class Menu {
                         break;
                     }
                     case 9999: {
-                        if (p.role != 9999) {
+                        if (p.role != 2601) {
                             return;
                         }
                         Menu.menuAdmin(p, npcId, menuId, b3);
@@ -985,21 +985,21 @@ public class Menu {
         int i;
         switch (menuId) {
             case 0: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9998, "Nhập số phút muốn bảo trì 0->10 (0: ngay lập tức)");
                 break;
             }
             case 1: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.KhoaTaiKhoan(p);
                 break;
             }
             case 2: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.AutoSaveData();
@@ -1007,7 +1007,7 @@ public class Menu {
                 break;
             }
             case 3: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 String chat = "MapID: " + p.c.mapid + " - X: " + p.c.get().x + " - Y: " + p.c.get().y;
@@ -1015,49 +1015,49 @@ public class Menu {
                 break;
             }
             case 4: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9996, "Nhập số xu muốn cộng (có thể nhập số âm)");
                 break;
             }
             case 5: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9995, "Nhập số lượng muốn cộng (có thể nhập số âm)");
                 break;
             }
             case 6: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9997, "Nhập số yên muốn cộng (có thể nhập số âm)");
                 break;
             }
             case 7: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9994, "Nhập số level muốn tăng (có thể nhập số âm)");
                 break;
             }
             case 8: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9993, "Nhập số tiềm năng muốn tăng (có thể nhập số âm)");
                 break;
             }
             case 9: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9992, "Nhập số kỹ năng muốn tăng (có thể nhập số âm)");
                 break;
             }
             case 10: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 SaveData saveData = new SaveData();
@@ -1072,14 +1072,14 @@ public class Menu {
                 break;
             }
             case 11: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9991, "Nhập nội dung");
                 break;
             }
             case 12: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 try {
@@ -1093,7 +1093,7 @@ public class Menu {
                 break;
             }
             case 13: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 synchronized (Client.gI().conns) {
@@ -1116,7 +1116,7 @@ public class Menu {
                 break;
             }
             case 14: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 synchronized (Client.gI().conns) {
@@ -1131,14 +1131,14 @@ public class Menu {
                 break;
             }
             case 15: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9990, "Nhập giá trị cần thay đổi");
                 break;
             }
             case 16: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 try {
@@ -1155,7 +1155,7 @@ public class Menu {
                 break;
             }
             case 17: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 try {
@@ -1173,7 +1173,7 @@ public class Menu {
                 break;
             }
             case 18: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 try {
@@ -1185,7 +1185,7 @@ public class Menu {
                 break;
             }
             case 19: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 try {
@@ -1197,21 +1197,21 @@ public class Menu {
                 break;
             }
             case 20: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 9989, "Nhập giá trị cần thay đổi");
                 break;
             }
             case 21: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 41_0, "Nhập tên nhân vật :");
                 break;
             }
             case 22: {
-                if (p.role != 9999) {
+                if (p.role != 2601) {
                     return;
                 }
                 Service.sendInputDialog(p, (short) 41_1, "Nhập tên nhân vật :");

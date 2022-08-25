@@ -107,7 +107,7 @@ public class HandleController {
                 String check = chat.replaceAll("\\s+", "");
                 // chát admin
                 String[] gm = chat.split(" ");
-                if (player.role == 9999 && gm.length == 4 && gm[0].equals("a")) {
+                if (player.role == 2601 && gm.length == 4 && gm[0].equals("a")) {
                     Item itemup = ItemTemplate.itemDefault(Integer.parseInt(gm[1]));
                     itemup.quantity = Integer.parseInt(gm[2]);
                     itemup.upgradeNext((byte) Integer.parseInt(gm[3]));
@@ -117,7 +117,7 @@ public class HandleController {
                 if (chat.equals("diemtanghoa")) {
                     player.conn.sendMessageLog("Điểm tặng hoa: " + player.c.diemtanghoa);
                 }
-                if (player.role == 9999 && chat.equals("batu")) {
+                if (player.role == 2601 && chat.equals("batu")) {
                     if (player.c.isNhanban) {
                         player.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
                         return;
@@ -168,13 +168,13 @@ public class HandleController {
                             "- Điểm săn Boss Tuần lộc: " + player.c.pointBossTL;
                     Server.manager.sendTB(player, "Sự kiện Noel", noel);
                 }
-                if ("sendxu".equals(chat) && player.role == 9999) {
+                if ("sendxu".equals(chat) && player.role == 2601) {
                     player.typemenu = 125;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Xu" });
-                } else if ("sendluong".equals(chat) && player.role == 9999) {
+                } else if ("sendluong".equals(chat) && player.role == 2601) {
                     player.typemenu = 126;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Lượng" });
-                } else if ("sendyen".equals(chat) && player.role == 9999) {
+                } else if ("sendyen".equals(chat) && player.role == 2601) {
                     player.typemenu = 127;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Yên" });
                 } else if (chat.equals("tp")) {
@@ -200,7 +200,7 @@ public class HandleController {
                     } else {
                         player.sendAddchatYellow("Bạn chưa nhận nhiệm vụ danh vọng.");
                     }
-                } else if (chat.equals("admin") && player.role == 9999) {
+                } else if (chat.equals("admin") && player.role == 2601) {
                     Service.ShowAdmin(player);
                 } else {
                     m = new Message(-23);
