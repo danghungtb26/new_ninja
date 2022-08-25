@@ -1576,7 +1576,6 @@ public class HandleController {
                         player.conn.sendMessage(m);
                         n.p.conn.sendMessage(m);
                         m.cleanup();
-                        
 
                         ArrayList<Item> item1 = new ArrayList();
                         ArrayList<Item> item2 = new ArrayList();
@@ -1638,17 +1637,17 @@ public class HandleController {
                         }
 
                         // for (i = 0; i < item1.size(); ++i) {
-                        //     item3 = (Item) item1.get(i);
-                        //     if (item3 != null) {
-                        //         player.c.addItemBag(true, item3);
-                        //     }
+                        // item3 = (Item) item1.get(i);
+                        // if (item3 != null) {
+                        // player.c.addItemBag(true, item3);
+                        // }
                         // }
 
                         // for (i = 0; i < item2.size(); ++i) {
-                        //     item3 = (Item) item2.get(i);
-                        //     if (item3 != null) {
-                        //         n.addItemBag(true, item3);
-                        //     }
+                        // item3 = (Item) item2.get(i);
+                        // if (item3 != null) {
+                        // n.addItemBag(true, item3);
+                        // }
                         // }
 
                         player.hisgd(player.c.name, n.name, b, player.c.tradeCoin, a, n.tradeCoin);
@@ -2942,23 +2941,23 @@ public class HandleController {
                 byte point = m.reader().readByte();
                 Skill skill = player.c.get().getSkill(sk);
                 if (skill != null && player.c.get().spoint > 0 && point > 0) {
-                    if ((sk >= 67 && sk <= 72) && player.vip < 3) {
-                        player.conn.sendMessageLog("Dưới vip 3 không thể cộng skill này");
+                    // if ((sk >= 67 && sk <= 72) && player.vip < 3) {
+                    // player.conn.sendMessageLog("Dưới vip 3 không thể cộng skill này");
+                    // } else {
+                    SkillTemplate data = SkillTemplate.Templates(sk);
+                    if (skill.point + point > data.maxPoint) {
+                        player.conn.sendMessageLog("Cấp tối đa là " + data.maxPoint);
+                    } else if (player.c
+                            .get().level < ((SkillOptionTemplate) data.templates.get(skill.point + point)).level) {
+                        player.conn.sendMessageLog("Bạn chưa đủ cấp để cộng điểm kỹ năng này");
                     } else {
-                        SkillTemplate data = SkillTemplate.Templates(sk);
-                        if (skill.point + point > data.maxPoint) {
-                            player.conn.sendMessageLog("Cấp tối đa là " + data.maxPoint);
-                        } else if (player.c
-                                .get().level < ((SkillOptionTemplate) data.templates.get(skill.point + point)).level) {
-                            player.conn.sendMessageLog("Bạn chưa đủ cấp để cộng điểm kỹ năng này");
-                        } else {
-                            skill.point += point;
-                            player.c.get().spoint -= point;
-                            player.c.get().upHP(player.c.get().getMaxHP());
-                            player.c.get().upMP(player.c.get().getMaxMP());
-                            player.loadSkill();
-                        }
+                        skill.point += point;
+                        player.c.get().spoint -= point;
+                        player.c.get().upHP(player.c.get().getMaxHP());
+                        player.c.get().upMP(player.c.get().getMaxMP());
+                        player.loadSkill();
                     }
+                    // }
                 }
             }
         } catch (Exception e) {
@@ -3545,15 +3544,15 @@ public class HandleController {
                                 min = rightNow.get(12);
                                 sec = rightNow.get(13);
                                 // if (player.c.tileMap.map.mapTuTien()) {
-                                //     player.c.tileMap.leave(player);
-                                //     Map ma = Manager.getMapid(player.c.mapLTD);
-                                //     byte k;
-                                //     for (k = 0; k < ma.area.length; k++) {
-                                //         if (ma.area[k].numplayers < ma.template.maxplayers) {
-                                //             ma.area[k].EnterMap0(player.c);
-                                //             return;
-                                //         }
-                                //     }
+                                // player.c.tileMap.leave(player);
+                                // Map ma = Manager.getMapid(player.c.mapLTD);
+                                // byte k;
+                                // for (k = 0; k < ma.area.length; k++) {
+                                // if (ma.area[k].numplayers < ma.template.maxplayers) {
+                                // ma.area[k].EnterMap0(player.c);
+                                // return;
+                                // }
+                                // }
                                 // }
                                 m.writer().flush();
                                 player.conn.sendMessage(m);

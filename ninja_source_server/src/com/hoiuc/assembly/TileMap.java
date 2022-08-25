@@ -1598,6 +1598,11 @@ public class TileMap {
                 mob3.updateHP(-dame, _char.id, true);
             }
 
+            // xử lý phản dame
+            if (!mob3.isDie && mob3.isBossPK()) {
+                this.handlePhanDame(_char.p, mob3, dame * 5 / 100);
+            }
+
             if (dame > 0) {
                 mob3.Fight(_char.p.conn.id, dame);
             }
@@ -1681,6 +1686,49 @@ public class TileMap {
         }
 
         return xpup;
+    }
+
+    public void handlePhanDame(Player player, Mob mob, long dame) {
+        switch (mob.sys) {
+            case 1:
+                dame -= player.c.get().ResFire();
+                break;
+            case 2:
+                dame -= player.c.get().ResIce();
+                break;
+            case 3:
+                dame -= player.c.get().ResWind();
+                break;
+        }
+        dame -= player.c.get().dameDown();
+        dame = Util.nextInt(dame * 90 / 100, dame);
+        if (dame <= 0) {
+            dame = 1;
+        }
+        // long miss = (long) player.c.get().Miss();
+        // if (miss > Util.nextInt(8000)) {
+        //     dame = 0;
+        // }
+        if (player.c.get().getPramItem(134) > 0) {
+            dame -= (dame * player.c.DefendNgoai()) / 100;
+        }
+        int mpdown = 0;
+        if (player.c.get().hp * 100 / player.c.get().getMaxHP() > 10) {
+            Effect eff = player.c.get().getEffId(10);
+            if (eff != null) {
+                long mpold = (long) player.c.get().mp;
+                player.c.get().upMP(-(dame * eff.param / 100));
+                dame -= mpdown = (int) (mpold - player.c.get().mp);
+            }
+            eff = player.c.get().getEffId(5);
+            if (eff != null) {
+                dame *= 2;
+            }
+        }
+       
+        player.c.get().upHP(-dame);
+        this.MobAtkMessage(mob.id, player.c, dame, mpdown, (short) -1, (byte) -1,
+                (byte) -1);
     }
 
     public void handleAfterCloneAttackMob(Mob mob3, CloneCharacter _char) throws IOException {

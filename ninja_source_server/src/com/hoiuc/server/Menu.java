@@ -273,11 +273,11 @@ public class Menu {
                         break;
                     }
                     case 41: {
-                        Menu.npccaydau(p, npcId, menuId, b3);
+                        // Menu.npccaydau(p, npcId, menuId, b3);
                         break;
                     }
                     case 42: {
-                        Menu.npccasino(p, npcId, menuId, b3);
+                        // Menu.npccasino(p, npcId, menuId, b3);
                         break;
                     }
                     case 43: {
@@ -285,7 +285,7 @@ public class Menu {
                         break;
                     }
                     case 44: {
-                        Menu.npcVip(p, npcId, menuId, b3);
+                        // Menu.npcVip(p, npcId, menuId, b3);
                         break;
                     }
                     case 45: {
@@ -293,57 +293,57 @@ public class Menu {
                         break;
                     }
                     case 46: {
-                        Menu.npcCLXTCoin(p, npcId, menuId, b3);
+                        // Menu.npcCLXTCoin(p, npcId, menuId, b3);
                         break;
                     }
                     case 47: {
-                        Menu.npcSuKien(p, npcId, menuId, b3);
+                        // Menu.npcSuKien(p, npcId, menuId, b3);
                         break;
                     }
                     case 48: {
-                        Menu.npcPhoBan(p, npcId, menuId, b3);
+                        // Menu.npcPhoBan(p, npcId, menuId, b3);
                         break;
                     }
                     case 49: {
-                        Menu.npcquylao(p, npcId, menuId, b3);
+                        // Menu.npcquylao(p, npcId, menuId, b3);
                         break;
                     }
 
                     case 50: {
-                        Menu.npcthiensuwhis(p, npcId, menuId, b3);
+                        // Menu.npcthiensuwhis(p, npcId, menuId, b3);
                         break;
                     }
                     case 51: {
-                        Menu.npcquocvuong(p, npcId, menuId, b3);
+                        // Menu.npcquocvuong(p, npcId, menuId, b3);
                         break;
                     }
                     case 52: {
-                        Menu.npcCLXTXu(p, npcId, menuId, b3);
+                        // Menu.npcCLXTXu(p, npcId, menuId, b3);
                         break;
                     }
 
                     case 53: {
-                        Menu.npcCLXTLuong(p, npcId, menuId, b3);
+                        // Menu.npcCLXTLuong(p, npcId, menuId, b3);
                         break;
                     }
                     case 54: {
-                        Menu.npcThanMeo(p, npcId, menuId, b3);
+                        // Menu.npcThanMeo(p, npcId, menuId, b3);
                         break;
                     }
                     case 55: {
-                        Menu.npcBulma(p, npcId, menuId, b3);
+                        // Menu.npcBulma(p, npcId, menuId, b3);
                         break;
                     }
                     case 56: {
-                        Menu.BXH(p, npcId, menuId, b3);
+                        // Menu.BXH(p, npcId, menuId, b3);
                         break;
                     }
                     case 57: {
-                        Menu.luyenma(p, npcId, menuId, b3);
+                        // Menu.luyenma(p, npcId, menuId, b3);
                         break;
                     }
                     case 58: {
-                        Menu.npcott(p, npcId, menuId, b3);
+                        // Menu.npcott(p, npcId, menuId, b3);
                         break;
                     }
                     case 59: {
@@ -351,85 +351,85 @@ public class Menu {
                         break;
                     }
                     case 60: {
-                        Menu.menuDoiVK(p, npcId, menuId, b3);
+                        // Menu.menuDoiVK(p, npcId, menuId, b3);
                         break;
                     }
                     case 61: {
-                        Menu.npchoncot(p, npcId, menuId, b3);
+                        // Menu.npchoncot(p, npcId, menuId, b3);
                         break;
                     }
                     case 62: {
-                        Menu.npctinhfox(p, npcId, menuId, b3);
+                        // Menu.npctinhfox(p, npcId, menuId, b3);
                         break;
                     }
                     case 63: {
-                        Menu.npcbaove(p, npcId, menuId, b3);
+                        // Menu.npcbaove(p, npcId, menuId, b3);
                         break;
                     }
                     case 64: {
-                        Menu.npcnhanhoncot(p, npcId, menuId, b3);
+                        // Menu.npcnhanhoncot(p, npcId, menuId, b3);
                         break;
                     }
                     case 65: {
-                        Menu.npcmathan(p, npcId, menuId, b3);
+                        // Menu.npcmathan(p, npcId, menuId, b3);
                         break;
                     }
                     case 66: {
-                        Menu.npcNuoiRong(p, npcId, menuId, b3);
+                        // Menu.npcNuoiRong(p, npcId, menuId, b3);
                         break;
                     }
                     case 67: {
-                        Menu.npcnhucthan(p, npcId, menuId, b3);
+                        // Menu.npcnhucthan(p, npcId, menuId, b3);
                         break;
                     }
                     case 68: {
-                        Menu.npcnhucthan1(p, npcId, menuId, b3);
+                        // Menu.npcnhucthan1(p, npcId, menuId, b3);
                         break;
                     }
                     case 70: {
-                        Menu.npctaphoa(p, npcId, menuId, b3);
+                        // Menu.npctaphoa(p, npcId, menuId, b3);
                         break;
                     }
                     case 71: {
-                        Menu.npcTaiXiu(p, npcId, menuId, b3);
+                        // Menu.npcTaiXiu(p, npcId, menuId, b3);
                         break;
                     }
                     case 72: {
-                        Menu.npcvkthan(p, npcId, menuId, b3);
+                        // Menu.npcvkthan(p, npcId, menuId, b3);
                         break;
                     }
                     case 73: {
-                        Menu.npcdichchuyen(p, npcId, menuId, b3);
+                        // Menu.npcdichchuyen(p, npcId, menuId, b3);
                         break;
                     }
                     case 74: {
-                        Menu.npcuocngocrong(p, npcId, menuId, b3);
+                        // Menu.npcuocngocrong(p, npcId, menuId, b3);
                         break;
                     }
-                    case 92:
-                        p.typemenu = menuId == 0 ? 93 : 94;
-                        Menu.doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
-                        break;
-                    case 93:
-                        if (menuId == 0) {
-                            Server.manager.rotationluck[0].luckMessage(p);
-                        } else if (menuId == 1) {
-                            Server.manager.sendTB(p, "Vòng xoay vip", "Tham gia đi, xem luật làm gì");
-                        }
-                        break;
-                    case 94:
-                        if (menuId == 0) {
-                            Server.manager.rotationluck[1].luckMessage(p);
-                        } else if (menuId == 1) {
-                            Server.manager.sendTB(p, "Vòng xoay thường", "Tham gia đi xem luật lm gì");
-                        }
-                    case 95:
-                        break;
-                    case 120: {
-                        if (menuId > 0 && menuId < 7) {
-                            Admission.Admission(p, menuId);
-                        }
-                    }
+                    // case 92:
+                    //     p.typemenu = menuId == 0 ? 93 : 94;
+                    //     Menu.doMenuArray(p, new String[] { "Thông tin", "Luật chơi" });
+                    //     break;
+                    // case 93:
+                    //     if (menuId == 0) {
+                    //         Server.manager.rotationluck[0].luckMessage(p);
+                    //     } else if (menuId == 1) {
+                    //         Server.manager.sendTB(p, "Vòng xoay vip", "Tham gia đi, xem luật làm gì");
+                    //     }
+                    //     break;
+                    // case 94:
+                    //     if (menuId == 0) {
+                    //         Server.manager.rotationluck[1].luckMessage(p);
+                    //     } else if (menuId == 1) {
+                    //         Server.manager.sendTB(p, "Vòng xoay thường", "Tham gia đi xem luật lm gì");
+                    //     }
+                    // case 95:
+                    //     break;
+                    // case 120: {
+                    //     if (menuId > 0 && menuId < 7) {
+                    //         Admission.Admission(p, menuId);
+                    //     }
+                    // }
                     default: {
                         Service.chatNPC(p, (short) npcId, "Chức năng này đang được cập nhật");
                         break;

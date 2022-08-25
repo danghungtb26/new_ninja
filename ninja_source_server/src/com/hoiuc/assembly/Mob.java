@@ -80,6 +80,10 @@ public class Mob {
         this.idCharSkill25 = -1;
     }
 
+    public boolean isBossPK() {
+        return this.tileMap.map.template.id == 55 && this.templates.id == 223;
+    }
+
     public boolean checkMobLangCo() {
         int i;
         for (i = 0; i < Mob.arrMobLangCoId.length; i++) {
@@ -156,6 +160,43 @@ public class Mob {
             }
         }
         return idN;
+    }
+
+    public Char sortNinjaFightWithChar() {
+        Char _char = null;
+        int dameMax = 0;
+        int dame;
+        Session conn;
+        for (int value : this.nFight.keySet()) {
+            dame = this.nFight.get(value);
+            conn = Client.gI().getConn(value);
+            if (conn != null && conn.player != null && conn.player.c != null) {
+                if (dame <= dameMax) {
+                    continue;
+                }
+                dameMax = this.nFight.get(value);
+                _char = conn.player.c;
+            }
+        }
+        return _char;
+    }
+
+    public int sortNinjaFightPercen() {
+        int dameMax = 0;
+        int dame;
+        Session conn;
+        for (int value : this.nFight.keySet()) {
+            dame = this.nFight.get(value);
+            conn = Client.gI().getConn(value);
+            if (conn != null && conn.player != null && conn.player.c != null) {
+                if (dame <= dameMax) {
+                    continue;
+                }
+                dameMax = this.nFight.get(value);
+            }
+        }
+
+        return (int) (dameMax / (this.hpmax / 100));
     }
 
     public void Fight(int id, long dame) {
@@ -383,8 +424,13 @@ public class Mob {
 
             if (this.isboss) {
                 if (this.tileMap.map.cave == null) {
-                    Service.chatKTG(_char.name + " đã tiêu diệt " + this.templates.name);
-                    Boss.handleAfterBossDie(this.tileMap, this, master);
+                    if (this.isBossPK()) {
+                        Boss.handleAfterBossPkDie(_char, this.sortNinjaFightWithChar(), this.sortNinjaFightPercen(), this.tileMap, this);
+                    } else {
+                        Service.chatKTG(_char.name + " đã tiêu diệt " + this.templates.name);
+                        Boss.handleAfterBossDie(this.tileMap, this, master);
+                    }
+                    
                     // ItemLeave.leaveItemBOSS(this.tileMap, this, master);
                 } else if (this.tileMap.map.cave != null && this.tileMap.map.getXHD() == 9 && ((this.tileMap.map.id == 157 && this.tileMap.map.cave.level == 0) || (this.tileMap.map.id == 158 && this.tileMap.map.cave.level == 1) || (this.tileMap.map.id == 159 && this.tileMap.map.cave.level == 2)) && Util.nextInt(3) < 3) {
                     ItemLeave.leaveYen(this.tileMap, this, master);

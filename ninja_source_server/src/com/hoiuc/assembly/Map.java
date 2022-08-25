@@ -225,7 +225,7 @@ public class Map {
         short j;
         TileMap tileMap;
         for (i = 0; i < this.area.length; ++i) {
-            if (i >= 2) {
+            if (i >= 28) {
                 break;
             }
             if (i == area) {

@@ -2,14 +2,20 @@ package com.hoiuc.stream;
 
 import java.util.ArrayList;
 
+import com.hoiuc.assembly.Char;
 import com.hoiuc.assembly.DropRate;
+import com.hoiuc.assembly.Item;
 import com.hoiuc.assembly.ItemLeave;
 import com.hoiuc.assembly.ItemMap;
 import com.hoiuc.assembly.Map;
 import com.hoiuc.assembly.Mob;
+import com.hoiuc.assembly.Option;
 import com.hoiuc.assembly.TileMap;
 import com.hoiuc.io.Util;
+import com.hoiuc.server.GameSrc;
 import com.hoiuc.server.Manager;
+import com.hoiuc.server.Service;
+import com.hoiuc.template.ItemTemplate;
 
 public class Boss {
 
@@ -83,7 +89,7 @@ public class Boss {
                     && boss.mapId != -1) {
                 map = Manager.getMapid(boss.mapId);
                 if (map != null) {
-                    boss = map.newRefreshBoss((int) Util.nextInt(10, 28), boss);
+                    boss = map.newRefreshBoss((int) Util.nextInt(16, 28), boss);
                     textchat = textchat + (textchat.length() > "".length() ? ", " : "") + map.template.name;
                 }
             }
@@ -307,7 +313,7 @@ public class Boss {
                 im.master = master;
             }
         }
-        
+
         // đá danh vọng 7
         if (random > 985) {
             ItemMap im = place.LeaveItem((short) 701, mob3.x, mob3.y,
@@ -494,4 +500,100 @@ public class Boss {
         }
         return Util.nextInt(3, 10) * 60000L + System.currentTimeMillis();
     }
+
+    // boss siêu vip
+
+    private static int[] hoursRefreshBossPK = new int[] { 5, 14 };
+    private static boolean[] isRefreshBossPK = new boolean[] { false, false };
+
+    public static void refreshBossPk(int hour) {
+
+        for (int j = 0; j < hoursRefreshBossPK.length; ++j) {
+            if (hoursRefreshBossPK[j] == hour) {
+                if (!isRefreshBossPK[j]) {
+                    Map map = Manager.getMapid(55);
+                    map.refreshBossLC((int) Util.nextInt(16, 28));
+                    String textchat = "Boss than Tiến Đạt đã xuất hiện tại: " + map.template.name;
+                    Manager.chatKTG(textchat);
+                    isRefreshBossPK[j] = true;
+                }
+            } else {
+                isRefreshBossPK[j] = false;
+            }
+        }
+    }
+
+    public static void handleAfterBossPkDie(Char lasthitChar, Char topChar, int percen, TileMap map, Mob mob) {
+        if (mob.isBossPK()) {
+            leaveItemBOSS(map, mob, -1, new Boss(map.map.template.id, Enum.BOSS45));
+            Service.chatKTG(topChar.name + " đã đấm boss " + mob.templates.name + " sml với " + percen + "% hp và "
+                    + lasthitChar.name + "đã chốt hạ boss và quà chạy thẳng vào túi");
+
+            // quaf top dame
+            topChar.upyen(50000000L);
+            topChar.p.upluongMessage(1000L);
+            Item item = dropTrangBi();
+            if (item != null) {
+                topChar.addItemBag(true, item);
+            }
+            topChar.addItemBag(true, dropLinhChi());
+
+            // qua last hit
+            lasthitChar.upyen(50000000L);
+            lasthitChar.p.upluongMessage(1000L);
+            item = dropTrangBi();
+            if (item != null) {
+                lasthitChar.addItemBag(true, item);
+            }
+
+            lasthitChar.addItemBag(true, dropLinhChi());
+
+        }
+    }
+
+    public static short[] trangbi9xnormal = new short[] { 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629,
+            630, 631 };
+    public static short[] trangbi9xvk = new short[] { 632, 633, 634, 635, 636, 637 };
+
+    public static Item dropTrangBi() {
+        Item item = null;
+        if (Util.nextInt(20) == 2) {
+            int id;
+            if (Util.nextInt(10) > 7) {
+                id = trangbi9xvk[Util.nextInt(trangbi9xvk.length)];
+
+            } else {
+                id = trangbi9xnormal[Util.nextInt(trangbi9xnormal.length)];
+            }
+
+            ItemTemplate data2 = ItemTemplate.ItemTemplateId(id);
+            if (data2.type < 10) {
+                if (data2.type == 1) {
+                    item = ItemTemplate.itemDefault(id);
+                    item.sys = GameSrc.SysClass(data2.nclass);
+                } else {
+                    byte sys = (byte) Util.nextInt(1, 3);
+                    item = ItemTemplate.itemDefault(id, sys);
+                }
+            } else {
+                item = ItemTemplate.itemDefault(id);
+            }
+        }
+
+        return item;
+    }
+
+    public static Item dropLinhChi() {
+        Item item;
+        if (Util.nextInt(10) > 7) {
+            item = ItemTemplate.itemDefault(539);
+            item.isLock = true;
+            return item;
+        } else {
+            item = ItemTemplate.itemDefault(540);
+            item.isLock = true;
+            return item;
+        }
+    }
+
 }

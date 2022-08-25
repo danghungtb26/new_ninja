@@ -483,7 +483,7 @@ public class RunTimeServer extends Thread {
                     }
                 }
 
-                if (sec % 5 == 0) {
+                if (sec % 2 == 0) {
                     Message m = null;
                     try {
                         m = new Message(38);
@@ -622,6 +622,7 @@ public class RunTimeServer extends Thread {
                 // }
                 refreshBossLC();
                 Boss.refreshBoss();
+                Boss.refreshBossPk(hour);
                 Thread.sleep(1000L);
             }
             
@@ -644,5 +645,6 @@ public class RunTimeServer extends Thread {
         //     String textchat = "Boss đã xuất hiện tại: " + map.template.name;
         //     Manager.chatKTG(textchat);
         // }
+        
     }
 }
