@@ -1,20 +1,19 @@
 package com.hoiuc.server;
 
 import com.hoiuc.io.Message;
+import com.hoiuc.io.Util;
 
 public class GameCanvas {
     public static void addInfoDlg(Session session, String s) {
         Message msg = null;
         try {
-            msg = Service.messageNotMap((byte)(-86));
+            msg = Service.messageNotMap((byte) (-86));
             msg.writer().writeUTF(s);
             msg.writer().flush();
             session.sendMessage(msg);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (msg != null) {
                 msg.cleanup();
             }
@@ -28,28 +27,26 @@ public class GameCanvas {
             msg.writer().writeUTF(info);
             msg.writer().flush();
             session.sendMessage(msg);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (msg != null) {
                 msg.cleanup();
             }
         }
     }
 
-    public static void addEffect(Session session, byte b, int vId, short id, int timelive, int miliSecondWait, boolean isHead) {
+    public static void addEffect(Session session, byte b, int vId, short id, int timelive, int miliSecondWait,
+            boolean isHead) {
         Message msg = null;
         try {
-            if(session != null) {
+            if (session != null) {
                 msg = new Message(125);
                 msg.writer().writeByte(0);
                 msg.writer().writeByte(b);
                 if (b == 1) {
                     msg.writer().writeByte(vId);
-                }
-                else {
+                } else {
                     msg.writer().writeInt(vId);
                 }
                 msg.writer().writeShort(id);
@@ -59,11 +56,9 @@ public class GameCanvas {
                 msg.writer().flush();
                 session.sendMessage(msg);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (msg != null) {
                 msg.cleanup();
             }
@@ -73,9 +68,10 @@ public class GameCanvas {
     public static void getImgEffect(Session session, short id) {
         Message msg = null;
         try {
-            if(session != null) {
-                //System.out.println("Lấy ảnh " + id);
-                byte[] ab = GameSrc.loadFile("res/Effect/x" + session.zoomLevel + "/ImgEffect/ImgEffect " + id + ".png" ).toByteArray();
+            if (session != null) {
+                // System.out.println("Lấy ảnh " + id);
+                byte[] ab = GameSrc.loadFile("res/Effect/x" + session.zoomLevel + "/ImgEffect/ImgEffect " + id + ".png")
+                        .toByteArray();
                 if (ab != null) {
                     msg = new Message(125);
                     msg.writer().writeByte(1);
@@ -86,11 +82,9 @@ public class GameCanvas {
                     session.sendMessage(msg);
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (msg != null) {
                 msg.cleanup();
             }
@@ -100,39 +94,47 @@ public class GameCanvas {
     public static void getDataEffect(Session session, short id) {
         Message msg = null;
         try {
-            if(session != null) {
-                //System.out.println("Lấy data " + id);
+            if (session != null) {
+                // System.out.println("Lấy data " + id);
                 byte[] ab = GameSrc.loadFile("res/Effect/x" + session.zoomLevel + "/DataEffect/" + id).toByteArray();
                 if (ab != null) {
-                    if(id==21){
-                        ab[6]=127;
-                        ab[8]=127;
-                        ab[9]=127;
-                        ab[11]=127;
-                        ab[12]=127;
-                        ab[13]=127;
-                        ab[14]=127;
-                        ab[18]=127;
-                        ab[19]=127;
-                        ab[22]=127;
-                        ab[23]=127;
-                        ab[24]=127;
-                        ab[29]=-60;
-                        ab[31]=70;
-                        ab[37]=-60;
-                        ab[39]=70;
-                        ab[45]=-60;
-                        ab[47]=70;
-                        ab[53]=-60;
-                        ab[55]=70;
-                        ab[59]=127;
-
+                    if (id == 16) {
+                        ab[14] = -34;
+                        ab[16] = -92;
                         msg = new Message(125);
                         msg.writer().write(ab);
                         msg.writer().flush();
                         session.sendMessage(msg);
                     }
-                    else {
+
+                    else if (id == 21) {
+                        ab[6] = 127;
+                        ab[8] = 127;
+                        ab[9] = 127;
+                        ab[11] = 127;
+                        ab[12] = 127;
+                        ab[13] = 127;
+                        ab[14] = 127;
+                        ab[18] = 127;
+                        ab[19] = 127;
+                        ab[22] = 127;
+                        ab[23] = 127;
+                        ab[24] = 127;
+                        ab[29] = -60;
+                        ab[31] = 70;
+                        ab[37] = -60;
+                        ab[39] = 70;
+                        ab[45] = -60;
+                        ab[47] = 70;
+                        ab[53] = -60;
+                        ab[55] = 70;
+                        ab[59] = 127;
+
+                        msg = new Message(125);
+                        msg.writer().write(ab);
+                        msg.writer().flush();
+                        session.sendMessage(msg);
+                    } else {
                         msg = new Message(125);
                         msg.writer().write(ab);
                         msg.writer().flush();
@@ -140,11 +142,9 @@ public class GameCanvas {
                     }
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (msg != null) {
                 msg.cleanup();
             }

@@ -385,7 +385,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiVDMQ(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(200);
+            int perCentTB = Util.nextInt(1000);
             int perCentArr = Util.nextInt(arrTrangBiXeSoi.length);
             if (perCentTB < 1) {
                 im = place.LeaveItem((short) arrTrangBiXeSoi[perCentArr], mob3.x, mob3.y, mob3.templates.type, false);
@@ -401,7 +401,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(350);
+            int perCentTB = Util.nextInt(750);
             if (perCentTB == 0) {
                 im = place.LeaveItem((short) 524, mob3.x, mob3.y, mob3.templates.type, false);
             } else if (perCentTB == 1) {
@@ -439,7 +439,7 @@ public class ItemLeave {
     public static void leaveEXPLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentEXP = Util.nextInt(35);
+            int perCentEXP = Util.nextInt(70);
             if (perCentEXP < 7) {
                 im = place.LeaveItem((short) arrExpXeSoi[Util.nextInt(arrExpXeSoi.length)], mob3.x, mob3.y,
                         mob3.templates.type, false);
@@ -457,7 +457,7 @@ public class ItemLeave {
     public static void leaveEXPVDMQ(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentEXP = Util.nextInt(375);
+            int perCentEXP = Util.nextInt(400);
             if (perCentEXP < 5) {
                 im = place.LeaveItem(arrExpXeSoi[Util.nextInt(arrExpXeSoi.length)], mob3.x, mob3.y, mob3.templates.type,
                         false);
@@ -475,7 +475,7 @@ public class ItemLeave {
     public static void leaveTTTLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTTT = Util.nextInt(250);
+            int perCentTTT = Util.nextInt(750);
              if (perCentTTT >= 80 && perCentTTT <= 125) {
                 // Tinh thạch sơ
                 im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);
