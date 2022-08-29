@@ -51,7 +51,8 @@ public class CloneCharacter extends Body {
     public static CloneCharacter getClone(Char n) {
         try {
             synchronized(Server.LOCK_MYSQL) {
-                ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `clone_ninja` WHERE `name`LIKE'" + n.name + "';");
+                int id = -10000000 - n.id;
+                ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `clone_ninja` WHERE id = "+ id +";");
                 CloneCharacter cl;
                 if (red != null && red.first()) {
                     cl = new CloneCharacter(n);

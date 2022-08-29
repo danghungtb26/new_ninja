@@ -602,7 +602,7 @@ public class GameSrc {
                 ItemTemplate data1 = ItemTemplate.ItemTemplateId(item1.id);
                 ItemTemplate data2 = ItemTemplate.ItemTemplateId(item2.id);
                 if (item1.upgrade == 0 || item2.upgrade > 0 || (item3.id == 269 && item1.upgrade > 10)
-                        || (item3.id == 270 && item1.upgrade > 13)) {
+                        || (item3.id == 270 && item1.upgrade > 13) || data1.type >= 10) {
                     p.conn.sendMessageLog("Vật phẩm chuyển hoá không hợp lệ");
                     return;
                 }
@@ -862,10 +862,10 @@ public class GameSrc {
                 p.c.upxu(-coin);
             }
             boolean suc = false;
-            if (item.upgrade <= 8) {
+            if (item.upgrade <= 14) {
                 suc = Util.nextInt(1, 100) <= percen;
             } else {
-                suc = Util.nextInt(1, 150) <= percen;
+                suc = Util.nextInt(1, 120) <= percen;
             }
 
             item.isLock = true;
@@ -906,7 +906,7 @@ public class GameSrc {
                 return;
             }
             ItemTemplate data = ItemTemplate.ItemTemplateId(item.id);
-            if (data.type > 10) {
+            if (data.type >= 10) {
                 p.conn.sendMessageLog("Không thể phân tách vật phẩm này");
                 return;
             }

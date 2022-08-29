@@ -1600,7 +1600,7 @@ public class TileMap {
 
             // xử lý phản dame
             if (!mob3.isDie && mob3.isBossPK()) {
-                this.handlePhanDame(_char.p, mob3, dame * 2 / 100);
+                this.handlePhanDame(_char.p, mob3, dame * 5 / 100);
             }
 
             if (dame > 0) {
@@ -3305,13 +3305,13 @@ public class TileMap {
                             }
                         }
 
-                        if (p.c.get().ItemBody[18] != null && System.currentTimeMillis() > p.c.delayEffect) {
-                            p.c.delayEffect = System.currentTimeMillis() + 3000L;
-                            for (k = this.players.size() - 1; k >= 0; k--) {
-                                GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id,
-                                        p.c.gender == 1 ? (short) 34 : (short) 33, 1, 1, false);
-                            }
-                        }
+                        // if (p.c.get().ItemBody[18] != null && System.currentTimeMillis() > p.c.delayEffect) {
+                        //     p.c.delayEffect = System.currentTimeMillis() + 3000L;
+                        //     for (k = this.players.size() - 1; k >= 0; k--) {
+                        //         GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id,
+                        //                 p.c.gender == 1 ? (short) 34 : (short) 33, 1, 1, true);
+                        //     }
+                        // }
                         if (p.c.id == 1 && System.currentTimeMillis() > p.c.delayEffect) {
                             p.c.delayEffect = System.currentTimeMillis() + 3000L;
                             for (k = this.players.size() - 1; k >= 0; k--) {
@@ -3327,7 +3327,7 @@ public class TileMap {
                             p.c.delayEffect = System.currentTimeMillis() + 3000L;
                             for (k = this.players.size() - 1; k >= 0; k--) {
                                 GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 16,
-                                        1000, 1000, true);
+                                        100, 500, true);
                             }
                         }
                         if (p.role == 11 && System.currentTimeMillis() > p.c.delayEffect) {
@@ -3525,7 +3525,7 @@ public class TileMap {
                         if (p.c.get().mobMe != null && p.c.get().mobMe.timeFight <= System.currentTimeMillis()) {
                             this.loadMobMeAtk(p.c);
                         }
-                        if (p.c.isHuman && !p.c.isDie && p.c.clone.islive
+                        if (p.c.isHuman && !p.c.isDie && p.c.clone != null && p.c.clone.islive
                                 && p.c.clone.timeFight <= System.currentTimeMillis()) {
                             this.loadCloneAtk(p);
                         }

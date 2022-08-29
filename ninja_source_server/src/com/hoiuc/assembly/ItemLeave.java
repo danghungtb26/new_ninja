@@ -401,7 +401,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(750);
+            int perCentTB = Util.nextInt(500);
             if (perCentTB == 0) {
                 im = place.LeaveItem((short) 524, mob3.x, mob3.y, mob3.templates.type, false);
             } else if (perCentTB == 1) {
@@ -475,7 +475,7 @@ public class ItemLeave {
     public static void leaveTTTLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTTT = Util.nextInt(750);
+            int perCentTTT = Util.nextInt(500);
              if (perCentTTT >= 80 && perCentTTT <= 125) {
                 // Tinh thạch sơ
                 im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);

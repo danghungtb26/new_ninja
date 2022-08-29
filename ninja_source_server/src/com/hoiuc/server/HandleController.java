@@ -840,6 +840,7 @@ public class HandleController {
                             p.c.ItemCaiTrang[10].isExpires = false;
                             p.c.ItemCaiTrang[10].expires = -1L;
                             p.c.ItemCaiTrang[10].options.add(new Option(100, 5));
+                            p.c.ItemCaiTrang[10].options.add(new Option(58, 25));
                         } else {
                             if (16 <= p.c.ItemCaiTrang[10].upgrade) {
                                 p.sendAddchatYellow("Cải trang đã đạt cấp tối đa.");
@@ -863,7 +864,10 @@ public class HandleController {
                             for (int i = 0; i < upgradeOld; i++) {
                                 p.c.ItemCaiTrang[10].upgrade++;
                                 for (Option op : p.c.ItemCaiTrang[10].options) {
-                                    if (op.id == 100) {
+                                    if (op.id == 58) {
+                                        //
+                                    }
+                                    else if (op.id == 100) {
                                         op.param += op.param * 2 / 10;
                                     } else if (op.id == 84 || op.id == 86) {
                                         if (p.c.ItemCaiTrang[10].upgrade > 5 && p.c.ItemCaiTrang[10].upgrade <= 10) {
