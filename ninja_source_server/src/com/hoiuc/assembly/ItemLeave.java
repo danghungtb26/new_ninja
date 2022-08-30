@@ -1,5 +1,6 @@
 package com.hoiuc.assembly;
 
+import com.hoiuc.assembly.item.UpgradeTemplate;
 import com.hoiuc.io.Util;
 import com.hoiuc.stream.Server;
 
@@ -476,7 +477,7 @@ public class ItemLeave {
         ItemMap im = null;
         try {
             int perCentTTT = Util.nextInt(500);
-             if (perCentTTT >= 80 && perCentTTT <= 125) {
+            if (perCentTTT >= 80 && perCentTTT <= 125) {
                 // Tinh thạch sơ
                 im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);
             } else if (perCentTTT >= 190 && perCentTTT <= 199) {
@@ -485,10 +486,13 @@ public class ItemLeave {
             } else if (perCentTTT <= 25) {
                 // Chuyển tinh thạch
                 im = place.LeaveItem((short) 454, mob3.x, mob3.y, mob3.templates.type, false);
+            } else if (perCentTTT > 200 && perCentTTT <= 220) {
+                im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
             }
-            //  else if (Util.nextInt(2000) == 1990) {
-            //     // tinh thạch cao
-            //     im = place.LeaveItem((short) 457, mob3.x, mob3.y, mob3.templates.type, false);
+            // else if (Util.nextInt(2000) == 1990) {
+            // // tinh thạch cao
+            // im = place.LeaveItem((short) 457, mob3.x, mob3.y, mob3.templates.type,
+            // false);
             // }
         } catch (Exception e) {
             e.printStackTrace();
@@ -497,6 +501,10 @@ public class ItemLeave {
             im.item.isLock = false;
             im.item.quantity = 1;
             im.master = master;
+            if (im.item.id != UpgradeTemplate.daNangCap()) {
+                im.item.isExpires = true;
+                im.item.expires = Util.TimeDay(7);
+            }
         }
     }
 
@@ -555,6 +563,16 @@ public class ItemLeave {
                     im.master = master;
                 }
             }
+
+            // đá mặt trăng
+
+            im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
+            if (im != null) {
+                im.item.isLock = false;
+                im.item.quantity = 1;
+                im.master = master;
+            }
+
             im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);
             if (im != null) {
                 im.item.isLock = false;
@@ -595,6 +613,9 @@ public class ItemLeave {
             } else if (perCentTTT < 5) {
                 // Chuyển tinh thạch
                 im = place.LeaveItem((short) 454, mob3.x, mob3.y, mob3.templates.type, false);
+            } else if (perCentTTT > 2800) {
+                // đá mặt trăng
+                im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -603,6 +624,10 @@ public class ItemLeave {
             im.item.isLock = false;
             im.item.quantity = 1;
             im.master = master;
+            if (im.item.id != UpgradeTemplate.daNangCap()) {
+                im.item.isExpires = true;
+                im.item.expires = Util.TimeDay(7);
+            }
         }
     }
 

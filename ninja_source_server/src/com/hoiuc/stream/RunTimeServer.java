@@ -514,7 +514,7 @@ public class RunTimeServer extends Thread {
                         // System.out.println(" Clear clone login");
                     }
                 }
-                if (sec == 0) {
+                if (sec % 20 == 0) {
                     // Manager.serverChat("Server", "Gia Đình BOTNET chào ae ghé chơi");
                     SaveData saveData = new SaveData();
                     Thread t1 = new Thread(saveData);

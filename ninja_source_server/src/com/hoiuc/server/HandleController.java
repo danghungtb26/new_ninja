@@ -1,6 +1,7 @@
 package com.hoiuc.server;
 
 import com.hoiuc.assembly.*;
+import com.hoiuc.assembly.item.CaiTrang;
 import com.hoiuc.assembly.item.Matna;
 import com.hoiuc.assembly.item.Pet;
 import com.hoiuc.io.Message;
@@ -2537,6 +2538,13 @@ public class HandleController {
                         Pet.randomChiso(player, player.c.ItemBody[10], false);
                         break;
                     }
+
+                    // cai trang jirai
+                    case 50: {
+                        CaiTrang.Jirai.upgrage(player);
+                        break;
+                    }
+
                     case 103: {
                         if (player.c.isNhanban) {
                             player.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);

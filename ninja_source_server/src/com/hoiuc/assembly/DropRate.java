@@ -2,6 +2,12 @@ package com.hoiuc.assembly;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.hoiuc.assembly.item.UpgradeTemplate;
+import com.hoiuc.io.Util;
+import com.hoiuc.stream.Server;
+import com.hoiuc.template.ItemTemplate;
+
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
@@ -317,8 +323,8 @@ public class DropRate {
         // items.add(new DropRate(383, 1));
 
         // sói
-        items.add(new DropRate(443, 5));
-        items.add(new DropRate(485, 5));
+        items.add(new DropRate(443, 4));
+        items.add(new DropRate(485, 4));
 
         // đan
         items.add(new DropRate(275, 3));
@@ -340,6 +346,9 @@ public class DropRate {
         items.add(new DropRate(451, 1));
         items.add(new DropRate(452, 1));
         items.add(new DropRate(453, 1));
+
+        // đá mặt trăng
+        items.add(new DropRate(UpgradeTemplate.daNangCap(), 1));
         
 
         return generateDropItem(items);
@@ -362,8 +371,8 @@ public class DropRate {
         items.add(new DropRate(567, 3));
 
         // ngọc
-        items.add(new DropRate(654, 25));
-        items.add(new DropRate(655, 25));
+        items.add(new DropRate(654, 15));
+        items.add(new DropRate(655, 15));
 
         // giày
         items.add(new DropRate(549, 5));
@@ -382,8 +391,8 @@ public class DropRate {
         // items.add(new DropRate(383, 3));
 
         // sói
-        items.add(new DropRate(523, 10));
-        items.add(new DropRate(524, 10));
+        items.add(new DropRate(523, 6));
+        items.add(new DropRate(524, 6));
 
         // pet poru
         items.add(new DropRate(781, 2));
@@ -426,6 +435,46 @@ public class DropRate {
         items.add(new DropRate(799, 1));
         items.add(new DropRate(800, 5));
 
+        // đá mặt trăng
+        // items.add(new DropRate(UpgradeTemplate.daNangCap(), 2));
+
         return generateDropItem(items);
     }
+
+    // event
+
+    public static int countUseBB =  80000;
+    public static int countUseRBN =  400000;
+    public static int countUseRHB =  2000000;
+    public static int countUseBanhPhongLoi =  10000;
+    public static int countUseBanhBanghoa =  50000;
+
+    public static Item dropSieuVipRuong(boolean vip) {
+        if (Util.isDebug()) {
+            countUseBB = 8;
+            countUseRBN = 20;
+            countUseRHB = 100;
+            countUseBanhPhongLoi = 10;
+            countUseBanhBanghoa = 50;
+        }
+        if (vip) {
+            Server.manager.countVipBoxOpen ++;
+            if (Server.manager.countVipBoxOpen % countUseRHB == 0) {
+                return ItemTemplate.itemDefault(385, false);
+            }
+            if (Server.manager.countVipBoxOpen % countUseRBN == 0) {
+                return ItemTemplate.itemDefault(384, false);
+            }
+            if (Server.manager.countVipBoxOpen % countUseBB == 0) {
+                return ItemTemplate.itemDefault(383, false);
+            }
+        } else {
+            Server.manager.countNormalBoxOpen ++;
+            if ((Server.manager.countNormalBoxOpen % countUseBB) == 0) {
+                return ItemTemplate.itemDefault(383, false);
+            }
+        }
+        return null;
+    }
+
 }

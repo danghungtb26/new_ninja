@@ -19,6 +19,7 @@ import com.hoiuc.assembly.CheckCLLuong;
 import com.hoiuc.assembly.CheckTXCoin;
 import com.hoiuc.assembly.CheckTXLuong;
 import com.hoiuc.assembly.CheckTXXu;
+import com.hoiuc.assembly.item.CaiTrang;
 import com.hoiuc.assembly.item.Matna;
 import com.hoiuc.assembly.item.Pet;
 import com.hoiuc.assembly.npc.NPCShopVip;
@@ -3149,6 +3150,11 @@ public class Menu {
                             m.cleanup();
                             Service.CharViewInfo(p, false);
                             p.endLoad(true);
+                            break;
+                        }
+                        case 4: {
+                            // Nâng cấp cải trang Jirai / Jumito
+                            CaiTrang.Jirai.requestUpgrade(p);
                             break;
                         }
                     }

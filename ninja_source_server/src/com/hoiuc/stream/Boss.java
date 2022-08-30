@@ -11,6 +11,7 @@ import com.hoiuc.assembly.Map;
 import com.hoiuc.assembly.Mob;
 import com.hoiuc.assembly.Option;
 import com.hoiuc.assembly.TileMap;
+import com.hoiuc.assembly.item.UpgradeTemplate;
 import com.hoiuc.io.Util;
 import com.hoiuc.server.GameSrc;
 import com.hoiuc.server.Manager;
@@ -390,6 +391,20 @@ public class Boss {
                 im.master = master;
             }
         }
+
+        // da nang cap
+        for (int i = 0; i < Util.nextInt(5); i++) {
+            if (Util.nextInt(2) == 0) {
+                ItemMap im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y,
+                        mob3.templates.type, true);
+                if (im != null) {
+                    im.item.quantity = 1;
+                    im.item.isLock = false;
+                    im.master = -1;
+                }
+            }
+        }
+
     }
 
     public static void dropItem(TileMap place, Mob mob3, short[] items, int master, int max) {
@@ -508,6 +523,10 @@ public class Boss {
 
     public static void refreshBossPk(int hour) {
 
+        if (Util.isDebug()) {
+            hoursRefreshBossPK = new int[] { 5, 9 };
+        }
+
         for (int j = 0; j < hoursRefreshBossPK.length; ++j) {
             if (hoursRefreshBossPK[j] == hour) {
                 if (!isRefreshBossPK[j]) {
@@ -536,7 +555,9 @@ public class Boss {
             if (item != null) {
                 topChar.addItemBag(true, item);
             }
+
             topChar.addItemBag(true, dropLinhChi());
+            topChar.addItemBag(true, dropDaNangCap());
 
             // qua last hit
             lasthitChar.upyen(50000000L);
@@ -547,6 +568,7 @@ public class Boss {
             }
 
             lasthitChar.addItemBag(true, dropLinhChi());
+            lasthitChar.addItemBag(true, dropDaNangCap());
 
         }
     }
@@ -594,6 +616,14 @@ public class Boss {
             item.isLock = true;
             return item;
         }
+    }
+
+    public static Item dropDaNangCap() {
+        Item item;
+        item = ItemTemplate.itemDefault(UpgradeTemplate.daNangCap());
+        item.isLock = false;
+        item.quantity = 2;
+        return item;
     }
 
 }

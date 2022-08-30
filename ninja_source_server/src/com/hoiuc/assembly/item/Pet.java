@@ -24,6 +24,9 @@ public class Pet {
             150,
             200 };
 
+    // số lượng đá mặt trăng
+    public static int[] daMatTrang = new int[] { 1, 3, 5, 10, 15, 20, 25, 30, 40, 50, 60, 75, 90, 105, 120, 150 };
+
     public static int yenRandom = 100000000;
     public static int xuRandom = 20000;
     public static int luongRandom = 1000;
@@ -56,11 +59,16 @@ public class Pet {
         }
 
         ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.ItemBody[10].id);
+        ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCap());
+
         Service.startYesNoDlg(p, (byte) (vip ? 120 : 121),
                 "Bạn có muốn nâng cấp " + data.name
-                        + " với " + (int) (yen[p.c.ItemBody[10].upgrade] * 1000000)
-                        + " yên hoặc xu "
-                        + (vip ? ("và " + luong[p.c.ItemBody[10].upgrade] + " lượng") : "") + " không?");
+                        + " với "
+                        + daMatTrang[p.c.ItemBody[10].upgrade] + " " + da.name + " và "
+                        + (vip ? ("và " + luong[p.c.ItemBody[10].upgrade] + " lượng")
+                                :("và "+ (int) (yen[p.c.ItemBody[10].upgrade] * 1000000)
+                                        + " yên hoặc xu "))
+                        + " không?");
     }
 
     public static void nangMatna(Player p, Item item, boolean vip) throws IOException {
@@ -78,6 +86,13 @@ public class Pet {
         }
         if (vip && p.luong < luong[item.upgrade]) {
             p.conn.sendMessageLog("Bạn không đủ lượng để nâng cấp pet");
+            return;
+        }
+
+        Item daInBag = p.c.getItemIdBag(UpgradeTemplate.daNangCap());
+        if (daInBag == null || daInBag.quantity < daMatTrang[item.upgrade]) {
+            ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCap());
+            p.conn.sendMessageLog("Mày đéo đủ " + da.name + " để nâng cấp");
             return;
         }
 
@@ -99,7 +114,9 @@ public class Pet {
 
         try {
             int coins = (int) (yen[item.upgrade] * 1000000);
-            
+            int quantity = daMatTrang[item.upgrade];
+            int gold = luong[item.upgrade];
+
             if (UpgradeTemplate.shouldUpgrade(item.upgrade, vip)) {
 
                 Item itemup = ItemTemplate.itemDefault(p.c.ItemBody[10].id);
@@ -111,7 +128,8 @@ public class Pet {
                 itemup.expires = -1L;
                 Option op;
                 for (int i = 0; i < item.options.size(); ++i) {
-                    op = UpgradeTemplate.upgradeOption(item.options.get(i).id, item.options.get(i).param, itemup.upgrade);
+                    op = UpgradeTemplate.upgradeOption(item.options.get(i).id, item.options.get(i).param,
+                            itemup.upgrade);
                     itemup.options.add(op);
                 }
                 p.c.removeItemBody((byte) 10);
@@ -121,15 +139,18 @@ public class Pet {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
 
-            if (coins <= p.c.yen) {
-                p.c.upyen(-coins);
-            } else if (coins >= p.c.yen) {
-                int coin = coins - p.c.yen;
-                p.c.upyen(-p.c.yen);
-                p.c.upxu(-coin);
-            }
+            
+            p.c.removeItemBags(UpgradeTemplate.daNangCap(), quantity);
             if (vip) {
-                p.luong -= luong[item.upgrade];
+                p.luong -= gold;
+            } else {
+                if (coins <= p.c.yen) {
+                    p.c.upyen(-coins);
+                } else if (coins >= p.c.yen) {
+                    int coin = coins - p.c.yen;
+                    p.c.upyen(-p.c.yen);
+                    p.c.upxu(-coin);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

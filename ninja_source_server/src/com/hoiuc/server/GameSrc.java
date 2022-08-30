@@ -2298,7 +2298,7 @@ public class GameSrc {
                 }
                 for (int ai = 0; ai < tempa.length; ai++) {
                     itemNgoc = new Item();
-                    itemNgoc.isLock = false;
+                    itemNgoc.isLock = true;
                     switch (tempa[ai]) {
                         case 112: {
                             indextemp = 0;
@@ -3506,7 +3506,7 @@ public class GameSrc {
                         while (item.ngocs.size() > 0) {
                             itN = item.ngocs.remove(0);
                             if (itN != null) {
-                                itN.isLock = false;
+                                itN.isLock = true;
                                 p.c.addItemBag(false, itN);
                             }
                         }
@@ -3540,7 +3540,73 @@ public class GameSrc {
             for (j = oldUpGrad; j < nextUpgrade; j++) {
                 for (Option op : mainItem.options) {
                     if (ItemTemplate.PARAMS.containsKey(op.id)) {
-                        if (op.id == ItemTemplate.ST_CHI_MANG_ID || op.id == ItemTemplate.ST_LEN_QUAI_ID) {
+                        if (op.param < 0) {
+
+                            // huyet ngoc
+                            // - chi mang
+                            if (op.id == ItemTemplate.CHI_MANG_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.CHI_MANG), ItemTemplate.CHI_MANG);
+                            }
+
+                            // - max tan cong
+                            if (op.id == 73) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.MAX_TAN_CONG), ItemTemplate.MAX_TAN_CONG);
+                            }
+
+                            // - hoi hp
+                            if (op.id == ItemTemplate.MOI_GIAY_HOI_PHUC_MP_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.MOI_GIAY_HOI_PHUC_MP), ItemTemplate.MOI_GIAY_HOI_PHUC_MP);
+                            }
+
+                            // HUYEN_TINH_NGOC
+                            // - NE_DON_ID
+                            if (op.id == ItemTemplate.NE_DON_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.NE_DON), ItemTemplate.NE_DON);
+                            }
+
+                            // - ST_CHI_MANG_ID
+                            if (op.id == ItemTemplate.ST_CHI_MANG_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.ST_CHI_MANG), ItemTemplate.ST_CHI_MANG);
+                            }
+
+                            // - KHANG_TAT_CA
+                            if (op.id == ItemTemplate.KHANG_TAT_CA_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.KHANG_TAT_CA), ItemTemplate.KHANG_TAT_CA);
+                            }
+
+                            // LAM_TINH_NGOC
+                            // - HP_TOI_DA
+                            if (op.id == ItemTemplate.HP_TOI_DA_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.HP_TOI_DA), ItemTemplate.HP_TOI_DA);
+                            }
+
+                            // - MOI_GIAY_HOI_PHUC_HP
+                            if (op.id == ItemTemplate.MOI_GIAY_HOI_PHUC_HP_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.MOI_GIAY_HOI_PHUC_HP), ItemTemplate.MOI_GIAY_HOI_PHUC_HP);
+                            }
+
+                            // - PHAN_DON
+                            if (op.id == ItemTemplate.PHAN_DON_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.PHAN_DON), ItemTemplate.PHAN_DON);
+                            }
+
+                            // LUC_NGOC
+                            // - CHINH_XAC
+                            if (op.id == ItemTemplate.CHINH_XAC_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.CHINH_XAC), ItemTemplate.CHINH_XAC);
+                            }
+
+                            // - MP_TOI_DA
+                            if (op.id == ItemTemplate.MP_TOI_DA_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.MP_TOI_DA), ItemTemplate.MP_TOI_DA);
+                            }
+
+                            // - GIAM_TRU_ST
+                            if (op.id == ItemTemplate.GIAM_TRU_ST_ID) {
+                                op.param -= Util.nextInt((int) (0.8D * (double) ItemTemplate.GIAM_TRU_ST), ItemTemplate.GIAM_TRU_ST);
+                            }
+                        }
+                        else if (op.id == ItemTemplate.ST_CHI_MANG_ID || op.id == ItemTemplate.ST_LEN_QUAI_ID) {
                             op.param = (int) (op.param / updateNgocST[j - 1] * updateNgocST[j]);
                         } else if (op.id == ItemTemplate.CHI_MANG_ID
                                 || op.id == ItemTemplate.KHANG_SAT_THUONG_CHI_MANG_ID

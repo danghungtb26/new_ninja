@@ -31,4 +31,8 @@ public class UpgradeTemplate {
 
         return new Option(id, (int) Math.round(param * increasePer[upgrade - 1]));
     }
+
+    public static int daNangCap() {
+        return 682;
+    }
 }

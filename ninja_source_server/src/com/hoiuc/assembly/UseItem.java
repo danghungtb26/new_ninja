@@ -185,7 +185,6 @@ public class UseItem {
                         break;
                     }
 
-                    
                     case 584: {
                         p.mobMeMessage(212, (byte) 1);
                         break;
@@ -1268,7 +1267,12 @@ public class UseItem {
                         }
                         p.c.removeItemBag(index, 1);
                         p.updateExp(500000L);
-                        if (Util.nextInt(10) < 3) {
+                        Item box = DropRate.dropSieuVipRuong(false);
+                        if (box != null) {
+                            p.c.addItemBag(true, box);
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã  nhận được "
+                                    + ItemTemplate.ItemTemplateId(box.id).name);
+                        } else if (Util.nextInt(10) < 3) {
                             p.updateExp(100000L);
                         } else {
                             short idI = UseItem.idItemHopBanhThuong[Util.nextInt(UseItem.idItemHopBanhThuong.length)];
@@ -1295,7 +1299,12 @@ public class UseItem {
                         p.c.removeItemBag(index, 1);
                         // int perRuong = Util.nextInt(200);
                         p.updateExp(1000000L);
-                        if (Util.nextInt(10) < 3) {
+                        Item box = DropRate.dropSieuVipRuong(false);
+                        if (box != null) {
+                            p.c.addItemBag(true, box);
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã  nhận được "
+                                    + ItemTemplate.ItemTemplateId(box.id).name);
+                        } else if (Util.nextInt(10) < 3) {
                             p.updateExp(1500000L);
                             // } else if (perRuong == 50) {
                             // p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
@@ -1311,11 +1320,11 @@ public class UseItem {
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
                             p.c.addItemBag(true, itemup);
-                            if (itemup.id == 308 || itemup.id == 309) {
-                                ItemTemplate itemD = ItemTemplate.ItemTemplateId(itemup.id);
-                                Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
-                                        + itemD.name);
-                            }
+                            // if (itemup.id == 308 || itemup.id == 309) {
+                            //     ItemTemplate itemD = ItemTemplate.ItemTemplateId(itemup.id);
+                            //     Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
+                            //             + itemD.name);
+                            // }
                         }
                         break;
                     }
@@ -1455,19 +1464,25 @@ public class UseItem {
                         }
                         p.c.removeItemBag(index, 1);
                         p.updateExp(1500000L);
-                        if (Util.nextInt(5) != 0) {
+                        Item box = DropRate.dropSieuVipRuong(false);
+                        if (box != null) {
+                            p.c.addItemBag(true, box);
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã  nhận được "
+                                    + ItemTemplate.ItemTemplateId(box.id).name);
+                        } else if (Util.nextInt(5) != 0) {
                             p.updateExp(3000000L);
                         }
-                        else if (Util.nextInt(10000) == 0) {
-                            p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
-                        }
+                        // else if (Util.nextInt(10000) == 0) {
+                        // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
+                        // }
                         else {
                             short idI = UseItem.idItemDieuGiay[Util.nextInt(UseItem.idItemDieuGiay.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
                             if (idI == 523 || idI == 246 || idI == 403 || idI == 404) {
                                 itemup.isExpires = true;
-                                itemup.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
+                                itemup.expires = Util
+                                        .TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
                             }
                             p.c.addItemBag(true, itemup);
                         }
@@ -1489,25 +1504,35 @@ public class UseItem {
                         }
                         p.c.removeItemBag(index, 1);
                         p.updateExp(2000000L);
-                        if (Util.nextInt(5) != 0) {
+                        Item box = DropRate.dropSieuVipRuong(true);
+                        if (box != null) {
+                            p.c.addItemBag(true, box);
+                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã  nhận được "
+                                    + ItemTemplate.ItemTemplateId(box.id).name);
+                        } else if (Util.nextInt(5) != 0) {
                             p.updateExp(5000000L);
-                        } else if (Util.nextInt(8000) == 0) {
-                            p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
                         }
-                        
-                        else if (Util.nextInt(30000) == 0) {
-                            p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
-                        } else if (Util.nextInt(80000) == 0) {
-                            p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
-                            Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "
-                                    + ItemTemplate.ItemTemplateId(385).name);
-                        } else {
+                        // else if (Util.nextInt(8000) == 0) {
+                        // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
+                        // }
+
+                        // else if (Util.nextInt(30000) == 0) {
+                        // p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
+                        // } else if (Util.nextInt(80000) == 0) {
+                        // p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
+                        // Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã
+                        // nhận được "
+                        // + ItemTemplate.ItemTemplateId(385).name);
+                        // }
+                        else {
                             short idI = UseItem.idItemDieuVai[Util.nextInt(UseItem.idItemDieuVai.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = item.isLock;
-                            if (idI == 523 || idI == 419 || idI == 781 || idI == 419 || idI == 407 || idI == 408 || idI == 799 || idI == 800) {
+                            if (idI == 523 || idI == 419 || idI == 781 || idI == 419 || idI == 407 || idI == 408
+                                    || idI == 799 || idI == 800) {
                                 itemup.isExpires = true;
-                                itemup.expires = Util.TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
+                                itemup.expires = Util
+                                        .TimeDay(GameSrc.ArrdayLuck[Util.nextInt(GameSrc.ArrdayLuck.length)]);
                             }
                             p.c.addItemBag(true, itemup);
                         }
@@ -2061,7 +2086,7 @@ public class UseItem {
                             // p.c.addItemBag(false,
                             // ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)],
                             // false));
-                        } else if (Util.nextInt(800) == 1) {
+                        } else if (Util.nextInt(1000) == 1) {
                             p.c.addItemBag(true, ItemTemplate.itemDefault(28, false));
                             // } else if (Util.nextInt(300) == 0) {
                             // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
@@ -2407,11 +2432,11 @@ public class UseItem {
                         }
                         int checkID = item.id - 733;
                         if (p.c.ItemBST[checkID] == null) {
-                            if (p.c.quantityItemyTotal(item.id) < 100) {
+                            if (p.c.quantityItemyTotal(item.id) < 1000) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để ghép.");
                                 return;
                             }
-                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), 100);
+                            p.c.removeItemBags(item.id, 1000);
                             p.c.ItemBST[checkID] = ItemTemplate.itemDefault(ItemTemplate.checkIdJiraiNam(checkID));
                             p.c.ItemBST[checkID].upgrade = 1;
                             p.c.ItemBST[checkID].isLock = true;
@@ -2422,12 +2447,12 @@ public class UseItem {
                                 p.sendAddchatYellow("Bộ sưu tập này đã đạt điểm tối đa, không thể nâng cấp thêm.");
                                 return;
                             }
-                            if (p.c.quantityItemyTotal(item.id) < (p.c.ItemBST[checkID].upgrade + 1) * 100) {
+                            if (p.c.quantityItemyTotal(item.id) < 1000) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để nâng cấp.");
                                 return;
                             }
                             p.c.ItemBST[checkID].upgrade += 1;
-                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), p.c.ItemBST[checkID].upgrade * 100);
+                            p.c.removeItemBags(item.id, 1000);
                             p.sendAddchatYellow(
                                     ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được nâng cấp.");
                         }
@@ -2454,11 +2479,11 @@ public class UseItem {
                         }
                         int checkID = item.id - 760;
                         if (p.c.ItemBST[checkID] == null) {
-                            if (p.c.quantityItemyTotal(item.id) < 100) {
+                            if (p.c.quantityItemyTotal(item.id) < 1000) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để ghép.");
                                 return;
                             }
-                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), 100);
+                            p.c.removeItemBags(item.id, 1000);
                             p.c.ItemBST[checkID] = ItemTemplate.itemDefault(ItemTemplate.checkIdJiraiNu(checkID));
                             p.c.ItemBST[checkID].upgrade = 1;
                             p.sendAddchatYellow(ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name
@@ -2468,12 +2493,12 @@ public class UseItem {
                                 p.sendAddchatYellow("Bộ sưu tập này đã đạt điểm tối đa, không thể nâng cấp thêm.");
                                 return;
                             }
-                            if (p.c.quantityItemyTotal(item.id) < (p.c.ItemBST[checkID].upgrade + 1) * 100) {
+                            if (p.c.quantityItemyTotal(item.id) < 1000) {
                                 p.sendAddchatYellow("Bạn không đủ mảnh để nâng cấp.");
                                 return;
                             }
                             p.c.ItemBST[checkID].upgrade += 1;
-                            p.c.removeItemBag(p.c.getIndexBagid(item.id, true), p.c.ItemBST[checkID].upgrade * 100);
+                            p.c.removeItemBags(item.id, 1000);
                             p.sendAddchatYellow(
                                     ItemTemplate.ItemTemplateId(p.c.ItemBST[checkID].id).name + " đã được nâng cấp.");
                         }

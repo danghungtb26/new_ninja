@@ -1349,7 +1349,7 @@ public class TileMap {
                         }
 
                         // if (fightChar.name.equals("loveyou")) {
-                        dame -= (dame * 30) / 100;
+                        dame = (dame * 30) / 100;
                         // }
 
                         if (p.c.percentWind2() >= Util.nextInt(1, 100)) {
@@ -3188,7 +3188,6 @@ public class TileMap {
                     p.c.timeKickSession -= 100L;
                     if (p.c.timeKickSession <= System.currentTimeMillis()) {
                     } else {
-
                         if (this.map.LangCo() && p.c.pk > 0) {
                             p.c.tileMap.leave(p);
                             Map ma = Manager.getMapid(p.c.mapLTD);
@@ -3559,9 +3558,9 @@ public class TileMap {
                             }
                         }
 
-                        if (this.map.LangCo() && !p.c.isTest && (p.c.isDie || p.c.expdown > 0L)) {
-                            this.DieReturn(p);
-                        }
+                        // if (this.map.LangCo() && !p.c.isTest && (p.c.isDie || p.c.expdown > 0L)) {
+                        //     this.DieReturn(p);
+                        // }
                         if (p.c.get().isDie && p.c.isTest) {
                             p.liveFromDead();
                             Char player = this.getNinja(p.c.testCharID);

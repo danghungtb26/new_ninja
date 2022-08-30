@@ -75,6 +75,9 @@ public class Manager {
     public static SkillOptionTemplates[] sOptionTemplates;
     public static int[] idMapLoad = new int[]{4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 24, 28, 29, 30, 31, 33, 34, 35, 36, 37, 39, 40, 41, 42, 46, 47, 48, 49, 50, 51, 52, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68};
 
+    public int countNormalBoxOpen = 0;
+    public int countVipBoxOpen = 0;
+
     public Manager() {
         npcs = new ArrayList();
         parts = new ArrayList();
@@ -647,6 +650,14 @@ public void updatetx() {
                 }
                 ItemSell.entrys.add(sell);
             }
+
+            // lấy dòng hút máu người
+            res = SQLManager.stat.executeQuery("SELECT * FROM `event_setting` WHERE id=" + this.event);
+            if (res.first()) {
+                this.countNormalBoxOpen = res.getInt("normal_box");
+                this.countVipBoxOpen = res.getInt("vip_box");
+            }
+
             res.close();
         } catch (Exception var14) {
             System.out.println("Error i:" + i);

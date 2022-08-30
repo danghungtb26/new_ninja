@@ -14,7 +14,7 @@ import com.hoiuc.template.ItemTemplate;
 
 public class Matna {
     public static int[] percen = new int[] { 50, 45, 40, 35, 30, 25, 20, 15, 10, 10, 8, 7, 6, 5, 4,
-        3 };
+            3 };
 
     public static int[] luong = new int[] { 45, 120, 200, 400, 600, 800, 1000, 1500, 2000, 3000, 3500, 4000,
             4500, 5000,
@@ -26,6 +26,9 @@ public class Matna {
 
     public static double[] increasePer = new double[] { 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.1, 2.3, 2.5, 3,
             3.5, 4, 5 };
+
+    // số lượng đá mặt trăng
+    public static int[] daMatTrang = new int[] { 1, 3, 5, 10, 15, 20, 25, 30, 40, 50, 60, 75, 90, 105, 120, 150 };
 
     public static int yenRandom = 100000000;
     public static int xuRandom = 20000;
@@ -59,11 +62,16 @@ public class Matna {
         }
 
         ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.ItemBody[11].id);
+        ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCap());
+
         Service.startYesNoDlg(p, (byte) (vip ? 110 : 111),
                 "Bạn có muốn nâng cấp " + data.name
-                        + " với " + (int) (yen[p.c.ItemBody[11].upgrade] * 1000000)
-                        + " yên hoặc xu "
-                        + (vip ? ("và " + luong[p.c.ItemBody[11].upgrade] + " lượng") : "") + " không?");
+                        + " với "
+                        + daMatTrang[p.c.ItemBody[11].upgrade] + " " + da.name + " và "
+                        + (vip ? ("và " + luong[p.c.ItemBody[11].upgrade] + " lượng")
+                                : ("và " + (int) (yen[p.c.ItemBody[11].upgrade] * 1000000)
+                                        + " yên hoặc xu "))
+                        + " không?");
     }
 
     public static void nangMatna(Player p, Item item, boolean vip) throws IOException {
@@ -81,6 +89,13 @@ public class Matna {
         }
         if (vip && p.luong < luong[item.upgrade]) {
             p.conn.sendMessageLog("Bạn không đủ lượng để nâng cấp mặt nạ");
+            return;
+        }
+
+        Item daInBag = p.c.getItemIdBag(UpgradeTemplate.daNangCap());
+        if (daInBag == null || daInBag.quantity < daMatTrang[item.upgrade]) {
+            ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCap());
+            p.conn.sendMessageLog("Mày đéo đủ " + da.name + " để nâng cấp");
             return;
         }
 
@@ -102,6 +117,9 @@ public class Matna {
 
         try {
             int coins = (int) (yen[item.upgrade] * 1000000);
+            int quantity = daMatTrang[item.upgrade];
+            int gold = luong[item.upgrade];
+
             if (UpgradeTemplate.shouldUpgrade(item.upgrade, vip)) {
 
                 Item itemup = ItemTemplate.itemDefault(p.c.ItemBody[11].id);
@@ -114,7 +132,8 @@ public class Matna {
                 itemup.expires = -1L;
                 Option op;
                 for (int i = 0; i < item.options.size(); ++i) {
-                    op = UpgradeTemplate.upgradeOption(item.options.get(i).id, item.options.get(i).param, itemup.upgrade);
+                    op = UpgradeTemplate.upgradeOption(item.options.get(i).id, item.options.get(i).param,
+                            itemup.upgrade);
                     itemup.options.add(op);
                 }
                 p.c.addItemBag(false, itemup);
@@ -122,15 +141,17 @@ public class Matna {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
 
-            if (coins <= p.c.yen) {
-                p.c.upyen(-coins);
-            } else if (coins >= p.c.yen) {
-                int coin = coins - p.c.yen;
-                p.c.upyen(-p.c.yen);
-                p.c.upxu(-coin);
-            }
+            p.c.removeItemBags(UpgradeTemplate.daNangCap(), quantity);
             if (vip) {
-                p.luong -= luong[item.upgrade];
+                p.luong -= gold;
+            } else {
+                if (coins <= p.c.yen) {
+                    p.c.upyen(-coins);
+                } else if (coins >= p.c.yen) {
+                    int coin = coins - p.c.yen;
+                    p.c.upyen(-p.c.yen);
+                    p.c.upxu(-coin);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -201,7 +222,6 @@ public class Matna {
         m.cleanup();
     }
 
-    
     private static void handleRandomChiso(Player p, Item item, boolean vip) {
         try {
             if (!check(p, p.c.ItemBody[11], 36)) {
