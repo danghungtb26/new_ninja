@@ -518,13 +518,17 @@ public class Boss {
 
     // boss siêu vip
 
-    private static int[] hoursRefreshBossPK = new int[] { 5, 14 };
+    private static int[] hoursRefreshBossPK = new int[] { 12, 21 };
     private static boolean[] isRefreshBossPK = new boolean[] { false, false };
+
+    private static int[] hoursRefreshBossKyLan = new int[] { 14, 19, 21, 23 };
+    private static boolean[] isRefreshBossKyLan = new boolean[] { false, false, false, false };
+    private static int[] mapsBossKyLan = new int[] { 4, 2, 8, 15 };
 
     public static void refreshBossPk(int hour) {
 
         if (Util.isDebug()) {
-            hoursRefreshBossPK = new int[] { 5, 9 };
+            hoursRefreshBossPK = new int[] { 12, 21 };
         }
 
         for (int j = 0; j < hoursRefreshBossPK.length; ++j) {
@@ -538,6 +542,25 @@ public class Boss {
                 }
             } else {
                 isRefreshBossPK[j] = false;
+            }
+        }
+
+        if (Server.manager.event == 2) {
+            for (int j = 0; j < hoursRefreshBossKyLan.length; ++j) {
+                if (hoursRefreshBossKyLan[j] == hour) {
+                    if (!isRefreshBossKyLan[j]) {
+                        String textchat = "Boss Hoả kỳ lân đã xuất hiện tại: ";
+                        for (int k = 0; k < mapsBossKyLan.length; ++k) {
+                            Map map = Manager.getMapid(mapsBossKyLan[k]);
+                            map.refreshBossWithId((int) Util.nextInt(16, 28), 162);
+                            textchat += map.template.name;
+                        }
+                        Manager.chatKTG(textchat);
+                        isRefreshBossKyLan[j] = true;
+                    }
+                } else {
+                    isRefreshBossKyLan[j] = false;
+                }
             }
         }
     }
@@ -569,7 +592,30 @@ public class Boss {
 
             lasthitChar.addItemBag(true, dropLinhChi());
             lasthitChar.addItemBag(true, dropDaNangCap());
+            return;
+        }
 
+        if (Server.manager.event == 2 && mob.isBossHoaKyLan()) {
+            leaveItemBOSS(map, mob, -1, new Boss(map.map.template.id, Enum.BOSS45));
+            Service.chatKTG(topChar.name + " đã đấm boss " + mob.templates.name + " sml với " + percen + "% hp và "
+                    + lasthitChar.name + "đã chốt hạ boss và quà chạy thẳng vào túi");
+
+            Item item = dropTrangBi();
+            if (item != null) {
+                topChar.addItemBag(true, item);
+            }
+
+            topChar.addItemBag(true, dropDaNangCap());
+
+            item = dropTrangBi();
+            if (item != null) {
+                lasthitChar.addItemBag(true, item);
+            }
+
+            lasthitChar.addItemBag(true, dropDaNangCap());
+
+            lasthitChar.countBossEvent += 1;
+            lasthitChar.flush();
         }
     }
 

@@ -225,7 +225,7 @@ public class Map {
         short j;
         TileMap tileMap;
         for (i = 0; i < this.area.length; ++i) {
-            if (i >= 28) {
+            if (i > 28) {
                 break;
             }
             if (i == area) {
@@ -234,6 +234,31 @@ public class Map {
                 for (j = 0; j < tileMap.mobs.size(); ++j) {
                     mob = tileMap.mobs.get(j);
                     if (mob != null && mob.status == 0 && mob.isboss) {
+                        tileMap.refreshMob(mob.id);
+                        System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name
+                                + ", Khu: " + area);
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public void refreshBossWithId(int area, int id) {
+        System.out.println("area --------------: " + area);
+        int i;
+        short j;
+        TileMap tileMap;
+        for (i = 0; i < this.area.length; ++i) {
+            if (i > 28) {
+                break;
+            }
+            if (i == area) {
+                tileMap = this.area[i];
+                Mob mob;
+                for (j = 0; j < tileMap.mobs.size(); ++j) {
+                    mob = tileMap.mobs.get(j);
+                    if (mob != null && mob.status == 0 && mob.isboss && mob.templates.id == id) {
                         tileMap.refreshMob(mob.id);
                         System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name
                                 + ", Khu: " + area);

@@ -78,6 +78,8 @@ public class Manager {
     public int countNormalBoxOpen = 0;
     public int countVipBoxOpen = 0;
 
+    public int timezone = 0;
+
     public Manager() {
         npcs = new ArrayList();
         parts = new ArrayList();
@@ -299,6 +301,10 @@ public void updatetx() {
             max_level_up = Integer.parseInt((String)configMap.get("max-level-up"));
         } else {
             max_level_up = 130;
+        }
+
+        if (configMap.containsKey("timezone")) {
+            this.timezone = Integer.parseInt((String)configMap.get("timezone"));
         }
     }
 

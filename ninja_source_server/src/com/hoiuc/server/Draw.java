@@ -1,6 +1,7 @@
 package com.hoiuc.server;
 
 import com.hoiuc.assembly.*;
+import com.hoiuc.assembly.npc.NPCTienNu;
 import com.hoiuc.io.Message;
 import com.hoiuc.io.SQLManager;
 import com.hoiuc.io.Util;
@@ -2063,6 +2064,15 @@ public class Draw {
                     case 102: {
                         p.typemenu = 92;
                         Menu.doMenuArray(p, new String[] { "Vòng xoay vip", "Vòng xoay thường" });
+                        break;
+                    }
+                    case 3321:
+                    case 3322:
+                    case 3323:
+                    case 3324: 
+                    case 3326:
+                    case 3325: {
+                        NPCTienNu.TrungThu.handleLambanh(p, str, menuId);
                         break;
                     }
                     case 9989: {

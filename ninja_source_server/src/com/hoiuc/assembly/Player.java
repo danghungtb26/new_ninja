@@ -69,6 +69,10 @@ public class Player extends User {
         this.passnew = "";
     }
 
+    public boolean isAdmin() {
+        return this.role == 2601;
+    }
+
     public void cleanup() {
         this.conn = null;
     }

@@ -349,7 +349,6 @@ public class DropRate {
 
         // đá mặt trăng
         items.add(new DropRate(UpgradeTemplate.daNangCap(), 1));
-        
 
         return generateDropItem(items);
     }
@@ -443,11 +442,11 @@ public class DropRate {
 
     // event
 
-    public static int countUseBB =  80000;
-    public static int countUseRBN =  400000;
-    public static int countUseRHB =  2000000;
-    public static int countUseBanhPhongLoi =  10000;
-    public static int countUseBanhBanghoa =  50000;
+    public static int countUseBB = 80000;
+    public static int countUseRBN = 400000;
+    public static int countUseRHB = 2000000;
+    public static int countUseBanhPhongLoi = 10000;
+    public static int countUseBanhBanghoa = 12000;
 
     public static Item dropSieuVipRuong(boolean vip) {
         if (Util.isDebug()) {
@@ -458,7 +457,7 @@ public class DropRate {
             countUseBanhBanghoa = 50;
         }
         if (vip) {
-            Server.manager.countVipBoxOpen ++;
+            Server.manager.countVipBoxOpen++;
             if (Server.manager.countVipBoxOpen % countUseRHB == 0) {
                 return ItemTemplate.itemDefault(385, false);
             }
@@ -468,13 +467,230 @@ public class DropRate {
             if (Server.manager.countVipBoxOpen % countUseBB == 0) {
                 return ItemTemplate.itemDefault(383, false);
             }
+            if (Server.manager.countVipBoxOpen % countUseBanhPhongLoi == 0) {
+                return ItemTemplate.itemDefault(308, false);
+            }
+            if (Server.manager.countVipBoxOpen % countUseBanhBanghoa == 0) {
+                return ItemTemplate.itemDefault(309, false);
+            }
         } else {
-            Server.manager.countNormalBoxOpen ++;
+            Server.manager.countNormalBoxOpen++;
             if ((Server.manager.countNormalBoxOpen % countUseBB) == 0) {
                 return ItemTemplate.itemDefault(383, false);
             }
+            if (Server.manager.countNormalBoxOpen % countUseBanhPhongLoi == 0) {
+                return ItemTemplate.itemDefault(308, false);
+            }
         }
         return null;
+    }
+
+    public static ArrayList<DropRate> defaultItemVip() {
+        ArrayList<DropRate> items = new ArrayList<DropRate>();
+        // exp xe 2x
+        items.add(new DropRate(470, 1));
+        items.add(new DropRate(471, 1));
+        items.add(new DropRate(472, 1));
+
+        // thức ăn
+        items.add(new DropRate(30, 3));
+        items.add(new DropRate(249, 3));
+        items.add(new DropRate(250, 3));
+        items.add(new DropRate(409, 3));
+        items.add(new DropRate(410, 3));
+        items.add(new DropRate(567, 3));
+
+        // giày
+        items.add(new DropRate(549, 5));
+        items.add(new DropRate(550, 5));
+        items.add(new DropRate(551, 5));
+
+        // đá
+        items.add(new DropRate(6, 10));
+        items.add(new DropRate(7, 10));
+        items.add(new DropRate(8, 10));
+        items.add(new DropRate(9, 10));
+        items.add(new DropRate(10, 10));
+        items.add(new DropRate(11, 10));
+
+        // bát bảo
+        // items.add(new DropRate(383, 3));
+
+        // sói
+        items.add(new DropRate(523, 6));
+        items.add(new DropRate(524, 6));
+
+        // đan
+        items.add(new DropRate(275, 3));
+        items.add(new DropRate(276, 3));
+        items.add(new DropRate(277, 3));
+        items.add(new DropRate(278, 3));
+
+        // thẻ bài
+        items.add(new DropRate(436, 10));
+        items.add(new DropRate(437, 10));
+        items.add(new DropRate(438, 10));
+
+        // thức ăn sói xe
+        items.add(new DropRate(573, 5));
+        items.add(new DropRate(574, 5));
+        items.add(new DropRate(575, 5));
+        items.add(new DropRate(576, 5));
+        items.add(new DropRate(577, 5));
+        items.add(new DropRate(578, 5));
+
+        // linh tinh
+        items.add(new DropRate(269, 10));
+
+        items.add(new DropRate(255, 5));
+        items.add(new DropRate(256, 5));
+
+        // gậy thời trang
+        items.add(new DropRate(799, 1));
+        items.add(new DropRate(800, 5));
+
+        return items;
+    }
+
+    public static ArrayList<DropRate> defaultItemNormal() {
+        ArrayList<DropRate> items = new ArrayList<DropRate>();
+
+        // hoàn cốt
+        items.add(new DropRate(254, 5));
+        items.add(new DropRate(255, 5));
+        items.add(new DropRate(256, 5));
+        items.add(new DropRate(257, 5));
+
+        // đá
+        items.add(new DropRate(4, 50));
+        items.add(new DropRate(5, 50));
+        items.add(new DropRate(6, 5));
+        items.add(new DropRate(7, 5));
+
+        // thức ăn
+        items.add(new DropRate(30, 3));
+        items.add(new DropRate(249, 3));
+        items.add(new DropRate(250, 3));
+        items.add(new DropRate(409, 3));
+        items.add(new DropRate(410, 3));
+        items.add(new DropRate(567, 3));
+
+        // sói
+        items.add(new DropRate(443, 4));
+        // items.add(new DropRate(485, 4));
+
+        // đan
+        items.add(new DropRate(275, 3));
+        items.add(new DropRate(276, 3));
+        items.add(new DropRate(277, 3));
+        items.add(new DropRate(278, 3));
+
+        // thẻ bài
+        items.add(new DropRate(436, 10));
+        items.add(new DropRate(437, 10));
+
+        // giày
+        items.add(new DropRate(549, 5));
+        items.add(new DropRate(550, 5));
+
+        // exp sói 2x
+        items.add(new DropRate(449, 1));
+        items.add(new DropRate(450, 1));
+        items.add(new DropRate(451, 1));
+        items.add(new DropRate(452, 1));
+        items.add(new DropRate(453, 1));
+
+
+        return items;
+    }
+
+    public static short[] arrItemHopBanhThuongHang() {
+
+        ArrayList<DropRate> items = new ArrayList<DropRate>();
+        items.addAll(DropRate.defaultItemVip());
+
+        // Lồng đèn cá chép
+        items.add(new DropRate(568, 2));
+        items.add(new DropRate(569, 2));
+        items.add(new DropRate(570, 2));
+        items.add(new DropRate(571, 2));
+
+        // hakai + lân
+        items.add(new DropRate(797, 5));
+        items.add(new DropRate(798, 5));
+
+        // mặt nạ thỏ
+        items.add(new DropRate(337, 5));
+        items.add(new DropRate(338, 5));
+
+         
+        // đá mặt trăng
+        items.add(new DropRate(UpgradeTemplate.daNangCap(), 1));
+
+        return generateDropItem(items);
+    }
+
+    public static short[] arrItemHopBanhThuong() {
+        ArrayList<DropRate> items = new ArrayList<DropRate>();
+        items.addAll(DropRate.defaultItemNormal());
+
+        // Lồng đèn cá chép
+        items.add(new DropRate(568, 2));
+        items.add(new DropRate(569, 2));
+        items.add(new DropRate(570, 2));
+        items.add(new DropRate(571, 2));
+
+       
+
+        return generateDropItem(items);
+    }
+
+    public static void exprieItem(Item item) {
+        switch (item.id) {
+            // mặt nạ
+            case 403:
+            case 404:
+            // hakairo
+            case 797:
+            // lân sư vũ
+            case 798:
+            // dơi
+            case 246:
+            // lồng đèn
+            case 568:
+            case 569:
+            case 570:
+            case 571:
+            // mặt nạ thỏ
+            case 337:
+            case 338:
+            // sói đen
+            case 523: {
+                item.isExpires = true;
+                item.expires = Util.TimeDay(7);
+                break;
+            }
+
+            default:
+                break;
+        }
+    }
+
+    public static void dropHopBanhThuong(Player p, boolean lock) {
+        short idI = DropRate.arrItemHopBanhThuong()[Util.nextInt(DropRate.arrItemHopBanhThuong().length)];
+        Item itemup = ItemTemplate.itemDefault(idI);
+        itemup.isLock = lock;
+        exprieItem(itemup);
+        p.c.addItemBag(true, itemup);
+
+    }
+
+    public static void dropHopBanhThuongHang(Player p, boolean lock) {
+        short idI = DropRate.arrItemHopBanhThuongHang()[Util.nextInt(DropRate.arrItemHopBanhThuongHang().length)];
+        Item itemup = ItemTemplate.itemDefault(idI);
+        itemup.isLock = lock;
+        exprieItem(itemup);
+        p.c.addItemBag(true, itemup);
     }
 
 }

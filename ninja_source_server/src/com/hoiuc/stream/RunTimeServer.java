@@ -72,7 +72,7 @@ public class RunTimeServer extends Thread {
                 }
 
                 rightNow = Calendar.getInstance();
-                hour = rightNow.get(11);
+                hour = rightNow.get(11) + Server.manager.timezone;
                 min = rightNow.get(12);
                 sec = rightNow.get(13);
 
@@ -116,15 +116,7 @@ public class RunTimeServer extends Thread {
                     } catch (Exception e) {
                     }
                 }
-                /*
-                 * if (sec %5 == 0) {
-                 * Manager.serverChat("Bố Bách", "Đạt óc cặc");
-                 * }
-                 * if (sec %5 == 0) {
-                 * Manager.serverChat("Bố Bách",
-                 * "Đạt ngu mãi mãi ngu có dòng code dễ vcl k viết dc");
-                 * }
-                 */
+                
                 if (hour == 19 && min == 00 && sec == 0) {
                     if (ChienTruong.chienTruong != null) {
                         ChienTruong.chienTruong.finish();

@@ -183,6 +183,9 @@ public class Char extends Body {
     public ArrayList<Short> idSkillBot = new ArrayList<>();
     public int soluongitem;
 
+    public int countEvent = 0;
+    public int countBossEvent = 0;
+
     public Char() {
         this.seNinja(this);
     }
@@ -555,6 +558,12 @@ public class Char extends Body {
         }
     }
 
+    public synchronized void removeAllItemBag() {
+        for (int i = 0; i < this.ItemBag.length; ++i) {
+            this.removeItemBag((byte) i);
+        }
+    }
+
     public void removeItemBody(byte index) {
         Message m = null;
         try {
@@ -654,11 +663,14 @@ public class Char extends Body {
     public static Char setup(Player p, String name) {
         try {
             synchronized (Server.LOCK_MYSQL) {
+                int id = -1;
+
                 ResultSet red = SQLManager.stat.executeQuery("SELECT * FROM `ninja` WHERE `name`LIKE'" + name + "';");
                 if (red != null && red.first()) {
                     Char nja = new Char();
                     nja.p = p;
                     nja.id = red.getInt("id");
+                    id = nja.id;
                     nja.name = red.getString("name");
                     nja.gender = red.getByte("gender");
                     nja.head = red.getByte("head");
@@ -975,6 +987,7 @@ public class Char extends Body {
                     }
 
                     nja.denbu = red.getByte("denbu");
+
                     if (!red.getString("newlogin").equals("")) {
                         if (Util.getDate(red.getString("newlogin")) == null) {
                             return null;
@@ -990,6 +1003,18 @@ public class Char extends Body {
                         nja.exptype = red.getByte("exptype");
                         nja.isHuman = true;
                         nja.isNhanban = false;
+
+                        red = SQLManager.stat.executeQuery("SELECT * FROM bxh_event where ninja_id = " + id
+                                + " and event_id = " + Server.manager.event + ";");
+
+                        if (red.first()) {
+                            nja.countEvent = red.getInt("count");
+                            nja.countBossEvent = red.getInt("count_boss");
+                        } else {
+                            SQLManager.stat.executeUpdate("insert into bxh_event(ninja_id, event_id) values (" + id
+                                    + "," + Server.manager.event + ");");
+                        }
+
                         red.close();
                         return nja;
                     } else {
@@ -1198,6 +1223,9 @@ public class Char extends Body {
         JSONArray jarr = new JSONArray();
         try {
             synchronized (Server.LOCK_MYSQL) {
+                SQLManager.stat.executeUpdate("update bxh_event set count = " + this.countEvent + ", count_boss = "
+                        + this.countBossEvent + " where ninja_id = "
+                        + this.id + " and event_id = " + Server.manager.event + ";");
                 if (this.get().level >= Manager.max_level_up) {
                     this.get().level = Manager.max_level_up;
                 }

@@ -202,7 +202,7 @@ public class ItemLeave {
 
     public static void leaveItemSuKien(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
-        int per = Util.nextInt(5);
+        int per = Util.nextInt(40);
         try {
             switch (Server.manager.event) {
                 case 1: {
@@ -213,7 +213,7 @@ public class ItemLeave {
                     break;
                 }
                 case 2: {
-                    if (per < 2) {
+                    if (per == 0) {
                         im = place.LeaveItem(arrItemSuKienTrungThu[Util.nextInt(arrItemSuKienTrungThu.length)], mob3.x,
                                 mob3.y, mob3.templates.type, false);
                     }
@@ -301,7 +301,9 @@ public class ItemLeave {
                         break;
                     }
                     case 38: {
-                        im = place.LeaveItem((short) 38, mob3.x, mob3.y, mob3.templates.type, false);
+                        if (Util.nextInt(10) <= 7) {
+                            im = place.LeaveItem((short) 38, mob3.x, mob3.y, mob3.templates.type, false);
+                        }
                         break;
                     }
                 }
@@ -402,7 +404,7 @@ public class ItemLeave {
     public static void leaveTrangBiThuCuoiLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTB = Util.nextInt(500);
+            int perCentTB = Util.nextInt(600);
             if (perCentTB == 0) {
                 im = place.LeaveItem((short) 524, mob3.x, mob3.y, mob3.templates.type, false);
             } else if (perCentTB == 1) {
@@ -476,7 +478,7 @@ public class ItemLeave {
     public static void leaveTTTLangCo(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTTT = Util.nextInt(500);
+            int perCentTTT = Util.nextInt(600);
             if (perCentTTT >= 80 && perCentTTT <= 125) {
                 // Tinh thạch sơ
                 im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);
@@ -552,6 +554,10 @@ public class ItemLeave {
                     im.item.isLock = false;
                     im.item.quantity = 1;
                     im.master = master;
+                    if (im.item.id != UpgradeTemplate.daNangCap()) {
+                        im.item.isExpires = true;
+                        im.item.expires = Util.TimeDay(7);
+                    }
                 }
             }
             if (Util.nextInt(10) < 2) {
@@ -561,6 +567,10 @@ public class ItemLeave {
                     im.item.isLock = false;
                     im.item.quantity = 1;
                     im.master = master;
+                    if (im.item.id != UpgradeTemplate.daNangCap()) {
+                        im.item.isExpires = true;
+                        im.item.expires = Util.TimeDay(7);
+                    }
                 }
             }
 
@@ -603,7 +613,7 @@ public class ItemLeave {
     public static void leaveTTTVDMQ(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
         try {
-            int perCentTTT = Util.nextInt(2850);
+            int perCentTTT = Util.nextInt(3000);
             if (perCentTTT >= 100 && perCentTTT <= 115) {
                 // tinh thạch sơ
                 im = place.LeaveItem((short) 455, mob3.x, mob3.y, mob3.templates.type, false);
@@ -613,10 +623,11 @@ public class ItemLeave {
             } else if (perCentTTT < 5) {
                 // Chuyển tinh thạch
                 im = place.LeaveItem((short) 454, mob3.x, mob3.y, mob3.templates.type, false);
-            } else if (perCentTTT > 2800) {
-                // đá mặt trăng
-                im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
-            }
+            } 
+            // else if (perCentTTT > 2840) {
+            //     // đá mặt trăng
+            //     im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
+            // }
         } catch (Exception e) {
             e.printStackTrace();
         }

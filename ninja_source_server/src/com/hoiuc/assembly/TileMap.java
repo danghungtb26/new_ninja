@@ -1599,7 +1599,7 @@ public class TileMap {
             }
 
             // xử lý phản dame
-            if (!mob3.isDie && mob3.isBossPK()) {
+            if (!mob3.isDie && mob3.isBossPhanDame() && !_char.p.isAdmin()) {
                 this.handlePhanDame(_char.p, mob3, dame * 5 / 100);
             }
 
@@ -3325,7 +3325,7 @@ public class TileMap {
                         if (p.role == 2601 && System.currentTimeMillis() > p.c.delayEffect) {
                             p.c.delayEffect = System.currentTimeMillis() + 3000L;
                             for (k = this.players.size() - 1; k >= 0; k--) {
-                                GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 16,
+                                GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 30,
                                         100, 500, true);
                             }
                         }

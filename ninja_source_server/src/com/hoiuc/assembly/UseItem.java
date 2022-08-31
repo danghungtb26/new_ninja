@@ -1266,19 +1266,16 @@ public class UseItem {
                             return;
                         }
                         p.c.removeItemBag(index, 1);
-                        p.updateExp(500000L);
+                        p.updateExp(5000000L);
                         Item box = DropRate.dropSieuVipRuong(false);
                         if (box != null) {
                             p.c.addItemBag(true, box);
                             Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã  nhận được "
                                     + ItemTemplate.ItemTemplateId(box.id).name);
                         } else if (Util.nextInt(10) < 3) {
-                            p.updateExp(100000L);
+                            p.updateExp(10000000L);
                         } else {
-                            short idI = UseItem.idItemHopBanhThuong[Util.nextInt(UseItem.idItemHopBanhThuong.length)];
-                            Item itemup = ItemTemplate.itemDefault(idI);
-                            itemup.isLock = item.isLock;
-                            p.c.addItemBag(true, itemup);
+                            DropRate.dropHopBanhThuong(p, item.isLock);
                         }
                         break;
                     }
@@ -1298,14 +1295,14 @@ public class UseItem {
                         }
                         p.c.removeItemBag(index, 1);
                         // int perRuong = Util.nextInt(200);
-                        p.updateExp(1000000L);
-                        Item box = DropRate.dropSieuVipRuong(false);
+                        p.updateExp(10000000L);
+                        Item box = DropRate.dropSieuVipRuong(true);
                         if (box != null) {
                             p.c.addItemBag(true, box);
                             Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã  nhận được "
                                     + ItemTemplate.ItemTemplateId(box.id).name);
                         } else if (Util.nextInt(10) < 3) {
-                            p.updateExp(1500000L);
+                            p.updateExp(15000000L);
                             // } else if (perRuong == 50) {
                             // p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
                             // Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã
@@ -1315,11 +1312,12 @@ public class UseItem {
                             // nhận được " + ItemTemplate.ItemTemplateId(384).name);
                             // p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
                         } else {
-                            short idI = UseItem.idItemHopBanhThuongHang[Util
-                                    .nextInt(UseItem.idItemHopBanhThuongHang.length)];
-                            Item itemup = ItemTemplate.itemDefault(idI);
-                            itemup.isLock = item.isLock;
-                            p.c.addItemBag(true, itemup);
+                            DropRate.dropHopBanhThuongHang(p, item.isLock);
+                            // short idI = UseItem.idItemHopBanhThuongHang[Util
+                            //         .nextInt(UseItem.idItemHopBanhThuongHang.length)];
+                            // Item itemup = ItemTemplate.itemDefault(idI);
+                            // itemup.isLock = item.isLock;
+                            // p.c.addItemBag(true, itemup);
                             // if (itemup.id == 308 || itemup.id == 309) {
                             //     ItemTemplate itemD = ItemTemplate.ItemTemplateId(itemup.id);
                             //     Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã nhận được "

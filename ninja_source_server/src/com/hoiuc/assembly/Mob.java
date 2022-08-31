@@ -84,6 +84,14 @@ public class Mob {
         return this.tileMap.map.template.id == 55 && this.templates.id == 223;
     }
 
+    public boolean isBossHoaKyLan() {
+        return this.templates.id == 162;
+    }
+
+    public boolean isBossPhanDame() {
+        return this.isBossHoaKyLan() || this.isBossPK();
+    }
+
     public boolean checkMobLangCo() {
         int i;
         for (i = 0; i < Mob.arrMobLangCoId.length; i++) {
@@ -424,7 +432,7 @@ public class Mob {
 
             if (this.isboss) {
                 if (this.tileMap.map.cave == null) {
-                    if (this.isBossPK()) {
+                    if (this.isBossPK() || this.isBossHoaKyLan()) {
                         Boss.handleAfterBossPkDie(_char, this.sortNinjaFightWithChar(), this.sortNinjaFightPercen(), this.tileMap, this);
                     } else {
                         Service.chatKTG(_char.name + " đã tiêu diệt " + this.templates.name);

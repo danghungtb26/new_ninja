@@ -169,7 +169,10 @@ public class HandleController {
                             "- Điểm săn Boss Tuần lộc: " + player.c.pointBossTL;
                     Server.manager.sendTB(player, "Sự kiện Noel", noel);
                 }
-                if ("sendxu".equals(chat) && player.role == 2601) {
+                if ("delldo".equals(chat) && player.role == 2601) {
+                    player.c.removeAllItemBag();
+                }
+                else if ("sendxu".equals(chat) && player.role == 2601) {
                     player.typemenu = 125;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Xu" });
                 } else if ("sendluong".equals(chat) && player.role == 2601) {

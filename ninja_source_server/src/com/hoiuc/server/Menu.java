@@ -23,6 +23,7 @@ import com.hoiuc.assembly.item.CaiTrang;
 import com.hoiuc.assembly.item.Matna;
 import com.hoiuc.assembly.item.Pet;
 import com.hoiuc.assembly.npc.NPCShopVip;
+import com.hoiuc.assembly.npc.NPCTienNu;
 
 public class Menu {
 
@@ -101,7 +102,7 @@ public class Menu {
                     }
                     case 2: {
                         Menu.doMenuArray(p, new String[] { "Hộp bánh thường", "Hộp bánh thượng hạng", "Bánh thập cẩm",
-                                "Bánh dẻo", "Bánh đậu xanh", "Bánh pía" });
+                                "Bánh dẻo", "Bánh đậu xanh", "Bánh pía", "BXH Làm Bánh", "BXH Giết BOSS", "Hướng dẫn" });
                         break;
                     }
                     case 3: {
@@ -3987,6 +3988,16 @@ public class Menu {
                         }
                         break;
                     }
+                    case 4: {
+                        if (p.luong < 20000) {
+                            Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 20000 mới đổi được");
+                        } else {
+                            p.luongMessage(-20000);
+                            p.c.upxuMessage(4000000);
+                            Service.chatNPC(p, (short) npcid, "Đổi lượng sang xu thành công");
+                        }
+                        break;
+                    }
                 }
             }
                 break;
@@ -5169,130 +5180,131 @@ public class Menu {
                     if (p.c.isNhanban) {
                         Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     } else {
-                        switch (menuId) {
-                            case 0: {
-                                if (p.c.quantityItemyTotal(304) >= 1 && p.c.quantityItemyTotal(298) >= 1
-                                        && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1
-                                        && p.c.quantityItemyTotal(301) >= 1) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(302);
-                                        p.c.addItemBag(true, it);
-                                        p.c.removeItemBags(304, 1);
-                                        p.c.removeItemBags(298, 1);
-                                        p.c.removeItemBags(299, 1);
-                                        p.c.removeItemBags(300, 1);
-                                        p.c.removeItemBags(301, 1);
-                                    }
+                        NPCTienNu.TrungThu.requestLamBanh(p, menuId + 1);
+                        // switch (menuId) {
+                        //     case 0: {
+                        //         if (p.c.quantityItemyTotal(304) >= 1 && p.c.quantityItemyTotal(298) >= 1
+                        //                 && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1
+                        //                 && p.c.quantityItemyTotal(301) >= 1) {
+                        //             if (p.c.getBagNull() == 0) {
+                        //                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //             } else {
+                        //                 it = ItemTemplate.itemDefault(302);
+                        //                 p.c.addItemBag(true, it);
+                        //                 p.c.removeItemBags(304, 1);
+                        //                 p.c.removeItemBags(298, 1);
+                        //                 p.c.removeItemBags(299, 1);
+                        //                 p.c.removeItemBags(300, 1);
+                        //                 p.c.removeItemBags(301, 1);
+                        //             }
 
-                                    return;
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
-                                break;
-                            }
-                            case 1: {
-                                if (p.c.quantityItemyTotal(305) >= 1 && p.c.quantityItemyTotal(298) >= 1
-                                        && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1
-                                        && p.c.quantityItemyTotal(301) >= 1) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(303);
-                                        p.c.addItemBag(true, it);
-                                        p.c.removeItemBags(305, 1);
-                                        p.c.removeItemBags(298, 1);
-                                        p.c.removeItemBags(299, 1);
-                                        p.c.removeItemBags(300, 1);
-                                        p.c.removeItemBags(301, 1);
-                                    }
+                        //             return;
+                        //         } else {
+                        //             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+                        //         }
+                        //         break;
+                        //     }
+                        //     case 1: {
+                        //         if (p.c.quantityItemyTotal(305) >= 1 && p.c.quantityItemyTotal(298) >= 1
+                        //                 && p.c.quantityItemyTotal(299) >= 1 && p.c.quantityItemyTotal(300) >= 1
+                        //                 && p.c.quantityItemyTotal(301) >= 1) {
+                        //             if (p.c.getBagNull() == 0) {
+                        //                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //             } else {
+                        //                 it = ItemTemplate.itemDefault(303);
+                        //                 p.c.addItemBag(true, it);
+                        //                 p.c.removeItemBags(305, 1);
+                        //                 p.c.removeItemBags(298, 1);
+                        //                 p.c.removeItemBags(299, 1);
+                        //                 p.c.removeItemBags(300, 1);
+                        //                 p.c.removeItemBags(301, 1);
+                        //             }
 
-                                    return;
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
-                                break;
-                            }
-                            case 2: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 3
-                                        && p.c.quantityItemyTotal(293) >= 2 && p.c.quantityItemyTotal(294) >= 3) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(298);
-                                        p.c.addItemBag(true, it);
-                                        p.c.upyenMessage(-10000L);
-                                        p.c.removeItemBags(292, 3);
-                                        p.c.removeItemBags(293, 2);
-                                        p.c.removeItemBags(294, 3);
-                                    }
+                        //             return;
+                        //         } else {
+                        //             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+                        //         }
+                        //         break;
+                        //     }
+                        //     case 2: {
+                        //         if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 3
+                        //                 && p.c.quantityItemyTotal(293) >= 2 && p.c.quantityItemyTotal(294) >= 3) {
+                        //             if (p.c.getBagNull() == 0) {
+                        //                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //             } else {
+                        //                 it = ItemTemplate.itemDefault(298);
+                        //                 p.c.addItemBag(true, it);
+                        //                 p.c.upyenMessage(-10000L);
+                        //                 p.c.removeItemBags(292, 3);
+                        //                 p.c.removeItemBags(293, 2);
+                        //                 p.c.removeItemBags(294, 3);
+                        //             }
 
-                                    return;
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
-                                break;
-                            }
-                            case 3: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
-                                        && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(294) >= 2) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(299);
-                                        p.c.addItemBag(true, it);
-                                        p.c.upyenMessage(-10000L);
-                                        p.c.removeItemBags(292, 2);
-                                        p.c.removeItemBags(295, 3);
-                                        p.c.removeItemBags(294, 2);
-                                    }
+                        //             return;
+                        //         } else {
+                        //             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+                        //         }
+                        //         break;
+                        //     }
+                        //     case 3: {
+                        //         if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
+                        //                 && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(294) >= 2) {
+                        //             if (p.c.getBagNull() == 0) {
+                        //                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //             } else {
+                        //                 it = ItemTemplate.itemDefault(299);
+                        //                 p.c.addItemBag(true, it);
+                        //                 p.c.upyenMessage(-10000L);
+                        //                 p.c.removeItemBags(292, 2);
+                        //                 p.c.removeItemBags(295, 3);
+                        //                 p.c.removeItemBags(294, 2);
+                        //             }
 
-                                    return;
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
-                                break;
-                            }
-                            case 4: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
-                                        && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(297) >= 3) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(300);
-                                        p.c.addItemBag(true, it);
-                                        p.c.upyenMessage(-10000L);
-                                        p.c.removeItemBags(292, 2);
-                                        p.c.removeItemBags(295, 3);
-                                        p.c.removeItemBags(297, 3);
-                                    }
+                        //             return;
+                        //         } else {
+                        //             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+                        //         }
+                        //         break;
+                        //     }
+                        //     case 4: {
+                        //         if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
+                        //                 && p.c.quantityItemyTotal(295) >= 3 && p.c.quantityItemyTotal(297) >= 3) {
+                        //             if (p.c.getBagNull() == 0) {
+                        //                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //             } else {
+                        //                 it = ItemTemplate.itemDefault(300);
+                        //                 p.c.addItemBag(true, it);
+                        //                 p.c.upyenMessage(-10000L);
+                        //                 p.c.removeItemBags(292, 2);
+                        //                 p.c.removeItemBags(295, 3);
+                        //                 p.c.removeItemBags(297, 3);
+                        //             }
 
-                                    return;
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
-                                break;
-                            }
-                            case 5: {
-                                if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
-                                        && p.c.quantityItemyTotal(296) >= 2 && p.c.quantityItemyTotal(297) >= 3) {
-                                    if (p.c.getBagNull() == 0) {
-                                        p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                                    } else {
-                                        it = ItemTemplate.itemDefault(301);
-                                        p.c.addItemBag(true, it);
-                                        p.c.upyenMessage(-10000L);
-                                        p.c.removeItemBags(292, 2);
-                                        p.c.removeItemBags(296, 2);
-                                        p.c.removeItemBags(297, 3);
-                                    }
-                                } else {
-                                    Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
-                                }
-                                break;
-                            }
-                        }
+                        //             return;
+                        //         } else {
+                        //             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+                        //         }
+                        //         break;
+                        //     }
+                        //     case 5: {
+                        //         if (p.c.yen >= 10000 && p.c.quantityItemyTotal(292) >= 2
+                        //                 && p.c.quantityItemyTotal(296) >= 2 && p.c.quantityItemyTotal(297) >= 3) {
+                        //             if (p.c.getBagNull() == 0) {
+                        //                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //             } else {
+                        //                 it = ItemTemplate.itemDefault(301);
+                        //                 p.c.addItemBag(true, it);
+                        //                 p.c.upyenMessage(-10000L);
+                        //                 p.c.removeItemBags(292, 2);
+                        //                 p.c.removeItemBags(296, 2);
+                        //                 p.c.removeItemBags(297, 3);
+                        //             }
+                        //         } else {
+                        //             Service.chatNPC(p, (short) npcid, "Hành trang của con không có đủ nguyên liệu");
+                        //         }
+                        //         break;
+                        //     }
+                        // }
                     }
                     break;
                 }

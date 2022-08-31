@@ -1,6 +1,7 @@
 package com.hoiuc.server;
 
 import com.hoiuc.assembly.ClanManager;
+import com.hoiuc.assembly.npc.NPCTienNu;
 import com.hoiuc.io.SQLManager;
 import com.hoiuc.io.Util;
 import com.hoiuc.stream.Server;
@@ -154,6 +155,7 @@ public class Rank {
     public static void init() {
         Rank.updateCaoThu();
         Rank.updateBossTL();
+        NPCTienNu.TrungThu.initBXH();
         for (int i = 0; i < Rank.bangXH.length; ++i) {
             Rank.bangXH[i] = new ArrayList<Entry>();
         }
@@ -733,9 +735,9 @@ public class Rank {
 
     public static class Entry3
     {
-        int index;
-        String name;
-        int point;
+        public int index;
+        public String name;
+        public int point;
     }
     
     public static class Entry4
