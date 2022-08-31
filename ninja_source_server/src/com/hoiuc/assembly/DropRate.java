@@ -517,8 +517,8 @@ public class DropRate {
         // items.add(new DropRate(383, 3));
 
         // sói
-        items.add(new DropRate(523, 6));
-        items.add(new DropRate(524, 6));
+        items.add(new DropRate(523, 3));
+        items.add(new DropRate(524, 3));
 
         // đan
         items.add(new DropRate(275, 3));
@@ -576,7 +576,7 @@ public class DropRate {
         items.add(new DropRate(567, 3));
 
         // sói
-        items.add(new DropRate(443, 4));
+        items.add(new DropRate(443, 3));
         // items.add(new DropRate(485, 4));
 
         // đan

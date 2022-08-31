@@ -202,7 +202,7 @@ public class ItemLeave {
 
     public static void leaveItemSuKien(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
-        int per = Util.nextInt(40);
+        int per = Util.nextInt(10);
         try {
             switch (Server.manager.event) {
                 case 1: {
@@ -560,19 +560,19 @@ public class ItemLeave {
                     }
                 }
             }
-            if (Util.nextInt(10) < 2) {
-                // tinh thạch trung
-                im = place.LeaveItem((short) 780, mob3.x, mob3.y, mob3.templates.type, false);
-                if (im != null) {
-                    im.item.isLock = false;
-                    im.item.quantity = 1;
-                    im.master = master;
-                    if (im.item.id != UpgradeTemplate.daNangCap()) {
-                        im.item.isExpires = true;
-                        im.item.expires = Util.TimeDay(7);
-                    }
-                }
-            }
+            // if (Util.nextInt(10) < 2) {
+            //     // tinh thạch trung
+            //     im = place.LeaveItem((short) 780, mob3.x, mob3.y, mob3.templates.type, false);
+            //     if (im != null) {
+            //         im.item.isLock = false;
+            //         im.item.quantity = 1;
+            //         im.master = master;
+            //         if (im.item.id != UpgradeTemplate.daNangCap()) {
+            //             im.item.isExpires = true;
+            //             im.item.expires = Util.TimeDay(7);
+            //         }
+            //     }
+            // }
 
             // đá mặt trăng
 

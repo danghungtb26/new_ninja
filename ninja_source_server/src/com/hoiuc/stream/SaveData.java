@@ -3,6 +3,7 @@ package com.hoiuc.stream;
 import com.hoiuc.assembly.ClanManager;
 import com.hoiuc.assembly.Player;
 import com.hoiuc.io.SQLManager;
+import com.hoiuc.io.Util;
 import com.hoiuc.server.Manager;
 import com.hoiuc.server.Rank;
 import com.hoiuc.server.ThienDiaBangManager;
@@ -93,7 +94,9 @@ public class SaveData implements Runnable{
                 //     }
                 // }
 
-                SQLManager.stat.execute("update `event_setting` set normal_box = "+ Server.manager.countNormalBoxOpen +", vip_box = "+ Server.manager.countVipBoxOpen +" where id = " + Server.manager.event + ";");
+                if (!Util.isDebug()) {
+                    SQLManager.stat.execute("update `event_setting` set normal_box = "+ Server.manager.countNormalBoxOpen +", vip_box = "+ Server.manager.countVipBoxOpen +" where id = " + Server.manager.event + ";");
+                }
 
                 Manager.isSaveData = false;
             }

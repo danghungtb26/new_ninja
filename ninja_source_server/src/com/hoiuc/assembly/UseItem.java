@@ -1874,9 +1874,8 @@ public class UseItem {
                                         + "\nLượng : " + p.luong
                                         + "\nXu : " + p.c.xu
                                         + "\nYên : " + p.c.yen
-                                        + "\nĐiểm Ăn Chuột : : " + p.c.pointBossChuot
                                         + "\nZalo admin 0946168325"
-                                        + "\n\n- Số người online: " + Client.gI().ninja_size());
+                                        + (p.isAdmin() ? "\n\n- Số người online: " + Client.gI().ninja_size() : " " ));
                             }
                             red.close();
                         } catch (Exception e) {

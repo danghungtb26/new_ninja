@@ -1222,13 +1222,14 @@ public class Char extends Body {
     public void flush() {
         JSONArray jarr = new JSONArray();
         try {
+            SQLManager.stat.executeUpdate("update bxh_event set count = " + this.countEvent + ", count_boss = "
+                    + this.countBossEvent + " where ninja_id = "
+                    + this.id + " and event_id = " + Server.manager.event + ";");
+            if (this.get().level >= Manager.max_level_up) {
+                this.get().level = Manager.max_level_up;
+            }
             synchronized (Server.LOCK_MYSQL) {
-                SQLManager.stat.executeUpdate("update bxh_event set count = " + this.countEvent + ", count_boss = "
-                        + this.countBossEvent + " where ninja_id = "
-                        + this.id + " and event_id = " + Server.manager.event + ";");
-                if (this.get().level >= Manager.max_level_up) {
-                    this.get().level = Manager.max_level_up;
-                }
+
                 this.get().level = (int) Level.getLevelExp(this.get().exp)[0];
                 if (this.mapid == 133 || this.mapid == 149 || this.mapid == 111 || this.mapid == 129
                         || Map.mapHD(this.mapid) || (this.mapid >= 80 && this.mapid <= 90)) {

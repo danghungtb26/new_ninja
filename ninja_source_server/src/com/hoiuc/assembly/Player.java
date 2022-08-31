@@ -2047,7 +2047,11 @@ public class Player extends User {
         if (item == null) {
             this.c.p.sendAddchatYellow("Bạn cần phải có thú cưỡi mới có thể sử dụng vật phẩm");
             return false;
-        } else if (item.upgrade < 99) {
+        } else if (!ItemTemplate.isIdNewMounts(item.id) || item.isExpires) {
+            this.c.p.sendAddchatYellow("Thú cưỡi này không thể nâng sao");
+            return false;
+        } 
+        else if (item.upgrade < 99) {
             this.c.p.sendAddchatYellow("Thú cưỡi chưa đạt cấp tối đa");
             return false;
         } else if (item.sys >= 2100000000) {

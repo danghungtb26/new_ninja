@@ -3325,7 +3325,7 @@ public class TileMap {
                         if (p.role == 2601 && System.currentTimeMillis() > p.c.delayEffect) {
                             p.c.delayEffect = System.currentTimeMillis() + 3000L;
                             for (k = this.players.size() - 1; k >= 0; k--) {
-                                GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 30,
+                                GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 16,
                                         100, 500, true);
                             }
                         }

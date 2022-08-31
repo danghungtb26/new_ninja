@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.hoiuc.assembly.Item;
 import com.hoiuc.assembly.Player;
 import com.hoiuc.io.SQLManager;
+import com.hoiuc.io.Util;
 import com.hoiuc.server.Service;
 import com.hoiuc.server.Rank.Entry3;
 import com.hoiuc.stream.Server;
@@ -39,7 +40,7 @@ public class NPCTienNu {
 
             if (type == 8) {
                 String str = "";
-                if (bxh.isEmpty()) {
+                if (bxhBoss.isEmpty()) {
                     str = "Chưa có thông tin";
                     Server.manager.sendTB(p, "Top Giết BOSS Event", str);
                     return;
@@ -65,10 +66,10 @@ public class NPCTienNu {
                             "- Khi đã có đủ nguyên liệu các bạn có thể đến các làng gặp NPC Tiên Nữ để làm ra những chiếc bánh trung thu thơm ngon với công thức như sau:"
                             +
                             "\n" +
-                            "* Bánh Thập Cẩm = 10 Bột + 10 Trứng + 10Hạt sen + 10 Đường + 10 Mứt + 50000 yên" + "\n" +
-                            "* Bánh Dẻo = 10 Bột + 10Hạt sen + 10 Đường + 10 Mứt + 50000 yên" + "\n" +
-                            "* Bánh Đậu xanh = 10 Bột + 10 Trứng + 10 Đường + 10 Đậu xanh + 50000 yên" + "\n" +
-                            "* Bánh Pía = 10 Bột + 10 Trứng + 10 Đường + 10 Đậu xanh + 50000 yên" +
+                            "* Bánh Thập Cẩm = 2 Bột + 5 Trứng + 5 Hạt sen + 5 Đường + 5 Mứt + 50000 yên" + "\n" +
+                            "* Bánh Dẻo = 2 Bột + 5Hạt sen + 5 Đường + 5 Mứt + 50000 yên" + "\n" +
+                            "* Bánh Đậu xanh = 2 Bột + 5 Trứng + 5 Đường + 5 Đậu xanh + 50000 yên" + "\n" +
+                            "* Bánh Pía = 2 Bột + 5 Trứng + 5 Đường + 5 Đậu xanh + 50000 yên" +
                             "\n" +
                             "- Tiên Nữ sẽ thu mỗi bạn một ít Yên cho tiền công làm bánh." +
                             "\n" +
@@ -147,19 +148,19 @@ public class NPCTienNu {
                         break;
                     }
                     case 3: {
-                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 10 * quantity
-                                && p.c.quantityItemyTotal(293) >= 10 * quantity
-                                && p.c.quantityItemyTotal(294) >= 10 * quantity) {
+                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 2 * quantity
+                                && p.c.quantityItemyTotal(293) >= 5 * quantity
+                                && p.c.quantityItemyTotal(294) >= 5 * quantity) {
                             if (p.c.getBagNull() == 0) {
                                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                             } else {
                                 it = ItemTemplate.itemDefault(298);
                                 it.quantity = quantity;
                                 p.c.addItemBag(true, it);
-                                p.c.upyenMessage(-50000L * quantity * 10);
-                                p.c.removeItemBags(292, quantity * 10);
-                                p.c.removeItemBags(293, quantity * 10);
-                                p.c.removeItemBags(294, quantity * 10);
+                                p.c.upyenMessage(-50000L * quantity);
+                                p.c.removeItemBags(292, quantity * 2);
+                                p.c.removeItemBags(293, quantity * 5);
+                                p.c.removeItemBags(294, quantity * 5);
                             }
 
                             return;
@@ -169,19 +170,19 @@ public class NPCTienNu {
                         break;
                     }
                     case 4: {
-                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 10 * quantity
-                                && p.c.quantityItemyTotal(295) >= 10 * quantity
-                                && p.c.quantityItemyTotal(294) >= 10 * quantity) {
+                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 2 * quantity
+                                && p.c.quantityItemyTotal(295) >= 5 * quantity
+                                && p.c.quantityItemyTotal(294) >= 5 * quantity) {
                             if (p.c.getBagNull() == 0) {
                                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                             } else {
                                 it = ItemTemplate.itemDefault(299);
                                 it.quantity = quantity;
                                 p.c.addItemBag(true, it);
-                                p.c.upyenMessage(-50000L * quantity * 10);
-                                p.c.removeItemBags(292, quantity * 10);
-                                p.c.removeItemBags(295, quantity * 10);
-                                p.c.removeItemBags(294, quantity * 10);
+                                p.c.upyenMessage(-50000L * quantity);
+                                p.c.removeItemBags(292, quantity * 2);
+                                p.c.removeItemBags(295, quantity * 5);
+                                p.c.removeItemBags(294, quantity * 5);
                             }
 
                             return;
@@ -191,19 +192,19 @@ public class NPCTienNu {
                         break;
                     }
                     case 5: {
-                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 10 * quantity
-                                && p.c.quantityItemyTotal(295) >= 10 * quantity
-                                && p.c.quantityItemyTotal(297) >= 10 * quantity) {
+                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 2 * quantity
+                                && p.c.quantityItemyTotal(295) >= 5 * quantity
+                                && p.c.quantityItemyTotal(297) >= 5 * quantity) {
                             if (p.c.getBagNull() == 0) {
                                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                             } else {
                                 it = ItemTemplate.itemDefault(300);
                                 it.quantity = quantity;
                                 p.c.addItemBag(true, it);
-                                p.c.upyenMessage(-50000L * quantity * 10);
-                                p.c.removeItemBags(292, quantity * 10);
-                                p.c.removeItemBags(295, quantity * 10);
-                                p.c.removeItemBags(297, quantity * 10);
+                                p.c.upyenMessage(-50000L * quantity);
+                                p.c.removeItemBags(292, quantity * 2);
+                                p.c.removeItemBags(295, quantity * 5);
+                                p.c.removeItemBags(297, quantity * 5);
                             }
 
                             return;
@@ -213,19 +214,19 @@ public class NPCTienNu {
                         break;
                     }
                     case 6: {
-                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 10 * quantity
-                                && p.c.quantityItemyTotal(296) >= 10 * quantity
-                                && p.c.quantityItemyTotal(297) >= 10 * quantity) {
+                        if (quantity > 0 && p.c.yen >= 50000 * quantity && p.c.quantityItemyTotal(292) >= 2 * quantity
+                                && p.c.quantityItemyTotal(296) >= 5 * quantity
+                                && p.c.quantityItemyTotal(297) >= 5 * quantity) {
                             if (p.c.getBagNull() == 0) {
                                 p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
                             } else {
                                 it = ItemTemplate.itemDefault(301);
                                 it.quantity = quantity;
                                 p.c.addItemBag(true, it);
-                                p.c.upyenMessage(-50000L * quantity * 10);
-                                p.c.removeItemBags(292, quantity * 10);
-                                p.c.removeItemBags(296, quantity * 10);
-                                p.c.removeItemBags(297, quantity * 10);
+                                p.c.upyenMessage(-50000L * quantity);
+                                p.c.removeItemBags(292, quantity * 2);
+                                p.c.removeItemBags(296, quantity * 5);
+                                p.c.removeItemBags(297, quantity * 5);
                             }
                         } else {
                             Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
@@ -246,13 +247,13 @@ public class NPCTienNu {
 
         public static void initBXH() {
             try {
-
+                Util.Debug("new bxh event");
                 ResultSet red = SQLManager.stat.executeQuery(
                         "SELECT B.event_id as event_id, N.id as ninja_id, N.name as ninja_name, B.count as count FROM bxh_event as B inner join ninja as N where B.ninja_id = N.id and B.event_id = "
                                 + Server.manager.event + " and count > 10000 order by count desc;");
 
                 if (red != null) {
-
+                    Util.Debug("new bxh event");
                     bxh.clear();
                     String name;
                     int count;
@@ -276,13 +277,14 @@ public class NPCTienNu {
                                 + Server.manager.event + " and count_boss > 0 order by count desc;");
 
                 if (red != null) {
-
+                    Util.Debug("new bxh event");
                     bxhBoss.clear();
                     String name;
                     int count;
                     int i = 1;
                     Entry3 event;
                     while (red.next()) {
+                        Util.Debug("new bxh event");
                         name = red.getString("ninja_name");
                         count = red.getInt("count");
                         event = new Entry3();
