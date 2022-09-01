@@ -521,7 +521,7 @@ public class Boss {
     private static int[] hoursRefreshBossPK = new int[] { 12, 21 };
     private static boolean[] isRefreshBossPK = new boolean[] { false, false };
 
-    private static int[] hoursRefreshBossKyLan = new int[] { 14, 19, 21, 23 };
+    private static int[] hoursRefreshBossKyLan = new int[] { 12, 19, 21, 23 };
     private static boolean[] isRefreshBossKyLan = new boolean[] { false, false, false, false };
     private static int[] mapsBossKyLan = new int[] { 4, 2, 8, 15 };
 
