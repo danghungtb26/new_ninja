@@ -3938,7 +3938,7 @@ public class Menu {
                 switch (b3) {
                     case 0: {
                         if (p.c.level < 70) {
-                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 70 mới được đổi lượng.");
                             return;
                         }
 
@@ -3954,7 +3954,7 @@ public class Menu {
                     }
                     case 1: {
                         if (p.c.level < 70) {
-                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 70 mới được đổi lượng.");
                             return;
                         }
 
@@ -3989,6 +3989,10 @@ public class Menu {
                         break;
                     }
                     case 4: {
+                        if (p.c.level < 70) {
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 70 mới được đổi lượng.");
+                            return;
+                        }
                         if (p.luong < 20000) {
                             Service.chatNPC(p, (short) npcid, "Mày cần phải có trên 20000 mới đổi được");
                         } else {
