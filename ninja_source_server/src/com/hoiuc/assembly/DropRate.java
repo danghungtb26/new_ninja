@@ -664,6 +664,9 @@ public class DropRate {
             // mặt nạ thỏ
             case 337:
             case 338:
+            // gây
+            case 799:
+            case 800:
             // sói đen
             case 523: {
                 item.isExpires = true;
