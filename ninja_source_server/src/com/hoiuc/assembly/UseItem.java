@@ -619,6 +619,10 @@ public class UseItem {
                     }
                     // Hiếu chiến
                     case 257: {
+                        if (p.c.tileMap.map.LangCo()) {
+                            p.sendAddchatYellow("Không thể dùng ở đây.");
+                            return;
+                        }
                         if (p.c.get().pk > 0) {
                             p.c.get().pk -= 5;
                             if (p.c.get().pk < 0) {
@@ -2083,7 +2087,7 @@ public class UseItem {
                             // p.c.addItemBag(false,
                             // ItemTemplate.itemDefault(GameSrc.arrNgocRong[Util.nextInt(GameSrc.arrNgocRong.length)],
                             // false));
-                        } else if (Util.nextInt(1000) == 1) {
+                        } else if (Util.nextInt(1500) == 1) {
                             p.c.addItemBag(true, ItemTemplate.itemDefault(28, false));
                             // } else if (Util.nextInt(300) == 0) {
                             // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));

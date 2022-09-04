@@ -202,7 +202,7 @@ public class ItemLeave {
 
     public static void leaveItemSuKien(TileMap place, Mob mob3, int master) {
         ItemMap im = null;
-        int per = Util.nextInt(10);
+        int per = Util.nextInt(3);
         try {
             switch (Server.manager.event) {
                 case 1: {
@@ -298,6 +298,14 @@ public class ItemLeave {
                     }
                     case 7: {
                         im = place.LeaveItem((short) 7, mob3.x, mob3.y, mob3.templates.type, false);
+                        break;
+                    }
+                    case 8: {
+                        im = place.LeaveItem((short) 8, mob3.x, mob3.y, mob3.templates.type, false);
+                        break;
+                    }
+                    case 9: {
+                        im = place.LeaveItem((short) 9, mob3.x, mob3.y, mob3.templates.type, false);
                         break;
                     }
                     case 38: {
@@ -488,8 +496,10 @@ public class ItemLeave {
             } else if (perCentTTT <= 25) {
                 // Chuyển tinh thạch
                 im = place.LeaveItem((short) 454, mob3.x, mob3.y, mob3.templates.type, false);
-            } else if (perCentTTT > 200 && perCentTTT <= 220) {
+            } else if (perCentTTT > 200 && perCentTTT <= 230) {
                 im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
+            } else if (perCentTTT > 230 && perCentTTT <= 260) {
+                im = place.LeaveItem((short) UpgradeTemplate.daNangCapNguSac(), mob3.x, mob3.y, mob3.templates.type, false);
             }
             // else if (Util.nextInt(2000) == 1990) {
             // // tinh thạch cao
@@ -503,7 +513,7 @@ public class ItemLeave {
             im.item.isLock = false;
             im.item.quantity = 1;
             im.master = master;
-            if (im.item.id != UpgradeTemplate.daNangCap()) {
+            if (im.item.id != UpgradeTemplate.daNangCap() && im.item.id != UpgradeTemplate.daNangCapNguSac()) {
                 im.item.isExpires = true;
                 im.item.expires = Util.TimeDay(7);
             }
@@ -561,17 +571,18 @@ public class ItemLeave {
                 }
             }
             // if (Util.nextInt(10) < 2) {
-            //     // tinh thạch trung
-            //     im = place.LeaveItem((short) 780, mob3.x, mob3.y, mob3.templates.type, false);
-            //     if (im != null) {
-            //         im.item.isLock = false;
-            //         im.item.quantity = 1;
-            //         im.master = master;
-            //         if (im.item.id != UpgradeTemplate.daNangCap()) {
-            //             im.item.isExpires = true;
-            //             im.item.expires = Util.TimeDay(7);
-            //         }
-            //     }
+            // // tinh thạch trung
+            // im = place.LeaveItem((short) 780, mob3.x, mob3.y, mob3.templates.type,
+            // false);
+            // if (im != null) {
+            // im.item.isLock = false;
+            // im.item.quantity = 1;
+            // im.master = master;
+            // if (im.item.id != UpgradeTemplate.daNangCap()) {
+            // im.item.isExpires = true;
+            // im.item.expires = Util.TimeDay(7);
+            // }
+            // }
             // }
 
             // đá mặt trăng
@@ -623,11 +634,13 @@ public class ItemLeave {
             } else if (perCentTTT < 5) {
                 // Chuyển tinh thạch
                 im = place.LeaveItem((short) 454, mob3.x, mob3.y, mob3.templates.type, false);
-            } 
-            // else if (perCentTTT > 2840) {
-            //     // đá mặt trăng
-            //     im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type, false);
-            // }
+            } else if (perCentTTT > 2600 && perCentTTT < 2900) {
+                im = place.LeaveItem((short) UpgradeTemplate.daNangCapNguSac(), mob3.x, mob3.y, mob3.templates.type,
+                        false);
+            } else if (perCentTTT > 2300 && perCentTTT < 2700) {
+                im = place.LeaveItem((short) UpgradeTemplate.daNangCap(), mob3.x, mob3.y, mob3.templates.type,
+                        false);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -635,7 +648,7 @@ public class ItemLeave {
             im.item.isLock = false;
             im.item.quantity = 1;
             im.master = master;
-            if (im.item.id != UpgradeTemplate.daNangCap()) {
+            if (im.item.id != UpgradeTemplate.daNangCap() && im.item.id != UpgradeTemplate.daNangCapNguSac()) {
                 im.item.isExpires = true;
                 im.item.expires = Util.TimeDay(7);
             }

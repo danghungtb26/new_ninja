@@ -1,6 +1,7 @@
 package com.hoiuc.server;
 
 import com.hoiuc.assembly.*;
+import com.hoiuc.assembly.item.BinhThu;
 import com.hoiuc.assembly.item.CaiTrang;
 import com.hoiuc.assembly.item.Matna;
 import com.hoiuc.assembly.item.Pet;
@@ -171,8 +172,9 @@ public class HandleController {
                 }
                 if ("delldo".equals(chat) && player.role == 2601) {
                     player.c.removeAllItemBag();
-                }
-                else if ("sendxu".equals(chat) && player.role == 2601) {
+                } else if ("senddo".equals(chat) && player.isAdmin()) {
+                    Service.sendInputDialog(player, (short) 41_0, "Nhập tên nhân vật :");
+                } else if ("sendxu".equals(chat) && player.role == 2601) {
                     player.typemenu = 125;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Xu" });
                 } else if ("sendluong".equals(chat) && player.role == 2601) {
@@ -870,8 +872,7 @@ public class HandleController {
                                 for (Option op : p.c.ItemCaiTrang[10].options) {
                                     if (op.id == 58) {
                                         //
-                                    }
-                                    else if (op.id == 100) {
+                                    } else if (op.id == 100) {
                                         op.param += op.param * 2 / 10;
                                     } else if (op.id == 84 || op.id == 86) {
                                         if (p.c.ItemCaiTrang[10].upgrade > 5 && p.c.ItemCaiTrang[10].upgrade <= 10) {
@@ -2493,6 +2494,10 @@ public class HandleController {
                     }
                     case 16: {
                         GameSrc.nangntgt(player, player.c.ItemBody[13], 1); // nâng ntgt
+                        break;
+                    }
+                    case 60: {
+                        BinhThu.upgrage(player);
                         break;
                     }
                     case 100: {

@@ -98,7 +98,7 @@ public class ItemTemplate {
             new short[] { 39, 42, 57, 60, 68 }
     };
     public static short[][] idNewItemWP = new short[][] {
-            new short[] { 799, 800, 833, 834 },
+            new short[] { 799, 800, 833, 834, 850 },
             new short[] { 44, 46, 44, 46 },
     };
     public static short[][] idNewItemMatNa = new short[][] {

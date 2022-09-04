@@ -20,8 +20,13 @@ public class UpgradeTemplate {
         if (!vip && upgrade > 8) {
             upPer = -1;
         }
-
+        if (upPer >= 100) return true;
         return Util.nextInt(150) < upPer && upPer != -1;
+    }
+
+    public static boolean shouldUpgrade(int percent) {
+        if (percent >= 100) return true;
+        return Util.nextInt(150) < percent;
     }
 
     public static Option upgradeOption(int id, int param, byte upgrade) {
@@ -34,5 +39,9 @@ public class UpgradeTemplate {
 
     public static int daNangCap() {
         return 682;
+    }
+
+    public static int daNangCapNguSac() {
+        return 851;
     }
 }

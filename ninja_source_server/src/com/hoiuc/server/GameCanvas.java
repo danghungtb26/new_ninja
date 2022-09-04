@@ -105,6 +105,46 @@ public class GameCanvas {
                         msg.writer().write(ab);
                         msg.writer().flush();
                         session.sendMessage(msg);
+                    } else if (id == 12) {
+                        // đao
+                        ab[14] = -32;
+                        ab[16] = -92;
+                        msg = new Message(125);
+                        msg.writer().write(ab);
+                        msg.writer().flush();
+                        session.sendMessage(msg);
+                    } else if (id == 13) {
+                        // cung
+                        ab[14] = -36;
+                        ab[16] = -92;
+                        msg = new Message(125);
+                        msg.writer().write(ab);
+                        msg.writer().flush();
+                        session.sendMessage(msg);
+                    } else if (id == 14) {
+                        // quạt
+                        ab[14] = -33;
+                        ab[16] = -92;
+                        msg = new Message(125);
+                        msg.writer().write(ab);
+                        msg.writer().flush();
+                        session.sendMessage(msg);
+                    } else if (id == 15) {
+                        // kunai
+                        ab[14] = -33;
+                        ab[16] = -92;
+                        msg = new Message(125);
+                        msg.writer().write(ab);
+                        msg.writer().flush();
+                        session.sendMessage(msg);
+                    } else if (id == 17) {
+                        // Tieeu
+                        ab[14] = -34;
+                        ab[16] = -92;
+                        msg = new Message(125);
+                        msg.writer().write(ab);
+                        msg.writer().flush();
+                        session.sendMessage(msg);
                     }
 
                     else if (id == 21) {

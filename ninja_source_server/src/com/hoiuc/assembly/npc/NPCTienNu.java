@@ -247,13 +247,11 @@ public class NPCTienNu {
 
         public static void initBXH() {
             try {
-                Util.Debug("new bxh event");
                 ResultSet red = SQLManager.stat.executeQuery(
                         "SELECT B.event_id as event_id, N.id as ninja_id, N.name as ninja_name, B.count as count FROM bxh_event as B inner join ninja as N where B.ninja_id = N.id and B.event_id = "
                                 + Server.manager.event + " and count > 10000 order by count desc;");
 
                 if (red != null) {
-                    Util.Debug("new bxh event");
                     bxh.clear();
                     String name;
                     int count;
@@ -277,14 +275,12 @@ public class NPCTienNu {
                                 + Server.manager.event + " and count_boss > 0 order by count desc;");
 
                 if (red != null) {
-                    Util.Debug("new bxh event");
                     bxhBoss.clear();
                     String name;
                     int count;
                     int i = 1;
                     Entry3 event;
                     while (red.next()) {
-                        Util.Debug("new bxh event");
                         name = red.getString("ninja_name");
                         count = red.getInt("count");
                         event = new Entry3();

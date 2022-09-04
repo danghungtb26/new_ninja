@@ -125,7 +125,7 @@ public class Mob {
                 this.timeRefresh = System.currentTimeMillis() + 7500L;
             }
             if (this.isRefresh && this.checkMobLangCo()) {
-                this.timeRefresh = System.currentTimeMillis() + 20000L;
+                this.timeRefresh = System.currentTimeMillis() + 10000L;
             } else if (this.isRefresh && this.checkMobChienTruong()) {
                 this.timeRefresh = System.currentTimeMillis() + 30000L;
             } else if (this.isRefresh && this.tileMap.map.getXHD() == 9) {

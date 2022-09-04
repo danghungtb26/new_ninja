@@ -21,7 +21,7 @@ public class Item {
     public ArrayList<Option> options;
     public List<Item> ngocs;
     private static final short[] DEFAULT_RANDOM_ITEM_IDS = new short[]{7, 8, 9, 436, 437, 438, 695};
-
+    public int quantityUpgrade;
     public Item() {
         this.id = -1;
         this.isLock = false;
@@ -36,6 +36,7 @@ public class Item {
         this.sys = 0;
         this.options = new ArrayList<Option>();
         this.ngocs = new ArrayList();
+        this.quantityUpgrade = 0;
     }
 
     public Item clone() {
@@ -55,6 +56,7 @@ public class Item {
             item.options.add(new Option(this.options.get(i).id, this.options.get(i).param));
         }
         item.ngocs.addAll(this.ngocs);
+        item.quantityUpgrade = this.quantityUpgrade;
         return item;
     }
 

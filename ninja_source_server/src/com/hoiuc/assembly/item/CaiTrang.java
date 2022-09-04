@@ -45,29 +45,30 @@ public class CaiTrang {
         }
 
         public static void upgrage(Player p) throws IOException {
-            
-    
+
             if (p.c.ItemCaiTrang[10].upgrade >= 16) {
                 p.conn.sendMessageLog("đã nâng cấp tối đa");
                 return;
             }
-            
+
             if (p.luong < luong[p.c.ItemCaiTrang[10].upgrade]) {
                 p.conn.sendMessageLog("Mày đéo đủ lượng để nâng cấp");
                 return;
             }
-    
+
             Item daInBag = p.c.getItemIdBag(UpgradeTemplate.daNangCap());
             if (daInBag == null || daInBag.quantity < daNangCap[p.c.ItemCaiTrang[10].upgrade]) {
                 ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCap());
                 p.conn.sendMessageLog("Mày đéo đủ " + da.name + " để nâng cấp");
                 return;
             }
-    
+
             handleUpgrage(p);
 
             Message m = new Message(13);
 
+            m.writer().writeInt(p.c.xu);// xu
+            m.writer().writeInt(p.c.yen);// yen
             m.writer().writeInt(p.luong);// luong
             m.writer().flush();
             p.conn.sendMessage(m);
@@ -129,13 +130,12 @@ public class CaiTrang {
                         }
                     }
                     p.sendAddchatYellow("Nâng thành công!");
-                }
-                else {
+                } else {
                     p.sendAddchatYellow("Nâng cấp thất bại!");
                 }
 
-                p.c.removeItemBags(UpgradeTemplate.daNangCap(), quantity);
                 p.luong -= gold;
+                p.c.removeItemBags(UpgradeTemplate.daNangCap(), quantity);
             } catch (Exception e) {
                 e.printStackTrace();
             }

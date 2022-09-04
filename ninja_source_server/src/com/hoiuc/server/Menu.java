@@ -22,6 +22,7 @@ import com.hoiuc.assembly.CheckTXXu;
 import com.hoiuc.assembly.item.CaiTrang;
 import com.hoiuc.assembly.item.Matna;
 import com.hoiuc.assembly.item.Pet;
+import com.hoiuc.assembly.npc.NPCNangCap;
 import com.hoiuc.assembly.npc.NPCShopVip;
 import com.hoiuc.assembly.npc.NPCTienNu;
 
@@ -287,11 +288,11 @@ public class Menu {
                         break;
                     }
                     case 44: {
-                        // Menu.npcVip(p, npcId, menuId, b3);
+                        NPCNangCap.request(p, npcId, menuId, b3);
                         break;
                     }
                     case 45: {
-                        Menu.npcMiNuong(p, npcId, menuId, b3);
+                        // Menu.npcMiNuong(p, npcId, menuId, b3);
                         break;
                     }
                     case 46: {
@@ -562,10 +563,10 @@ public class Menu {
                         Menu.npcHoadao(p, npcId, menuId, b3);
                         break;
                     }
-                    // case 44: {
-                    //     Menu.npcVip(p, npcId, menuId, b3);
-                    //     break;
-                    // }
+                    case 44: {
+                        NPCNangCap.request(p, npcId, menuId, b3);
+                        break;
+                    }
                     // case 45: {
                     //     Menu.npcMiNuong(p, npcId, menuId, b3);
                     //     break;
@@ -3937,8 +3938,8 @@ public class Menu {
 
                 switch (b3) {
                     case 0: {
-                        if (p.c.level < 70) {
-                            Service.chatNPC(p, (short) npcid, "Mày phải trên 70 mới được đổi lượng.");
+                        if (p.c.level < 80) {
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
                             return;
                         }
 
@@ -3953,8 +3954,8 @@ public class Menu {
 
                     }
                     case 1: {
-                        if (p.c.level < 70) {
-                            Service.chatNPC(p, (short) npcid, "Mày phải trên 70 mới được đổi lượng.");
+                        if (p.c.level < 80) {
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
                             return;
                         }
 
@@ -3989,8 +3990,8 @@ public class Menu {
                         break;
                     }
                     case 4: {
-                        if (p.c.level < 70) {
-                            Service.chatNPC(p, (short) npcid, "Mày phải trên 70 mới được đổi lượng.");
+                        if (p.c.level < 80) {
+                            Service.chatNPC(p, (short) npcid, "Mày phải trên 80 mới được đổi lượng.");
                             return;
                         }
                         if (p.luong < 20000) {
