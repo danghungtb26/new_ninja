@@ -136,7 +136,7 @@ public class BiKip {
                 p.c.upxu(-coin);
             }
             if (vip) {
-                p.luong -= BiKip.luongUpgrade[item.upgrade];
+                p.upluong(-BiKip.luongUpgrade[item.upgrade]);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class BiKip {
                 return;
             }
             p.c.setNhanBiKip();
-            p.luong -= 5000;
+            p.upluong(-5000L);
 
             Item item = ItemTemplate.itemDefault(data.id);
             item.isExpires = false;

@@ -182,7 +182,7 @@ public class BinhThu {
                 p.c.get().ItemBody[slot].quantityUpgrade++;
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
-            p.luong -= gold;
+            p.upluong(-gold);
             p.c.removeItemBags(UpgradeTemplate.daNangCapNguSac(), quantity);
         } catch (Exception e) {
             e.printStackTrace();

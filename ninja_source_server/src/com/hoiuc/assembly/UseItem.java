@@ -920,7 +920,7 @@ public class UseItem {
                     case 844: {
                         Locale localeEN = new Locale("en", "EN");
                         NumberFormat en = NumberFormat.getInstance(localeEN);
-                        Server.manager.sendTB(p, "NSOBIA333",
+                        Server.manager.sendTB(p, "NSOTUAN",
                                 " - TÀI KHOẢN : " + p.username
                                         + "\n+ tên nhân vật : " + p.c.name
                                         + "\n+ Level : " + p.c.level
@@ -1878,6 +1878,7 @@ public class UseItem {
                                         + "\nLượng : " + p.luong
                                         + "\nXu : " + p.c.xu
                                         + "\nYên : " + p.c.yen
+                                        + "\nĐiểm tiêu lượng : " + p.point
                                         + "\nZalo admin 0946168325"
                                         + (p.isAdmin() ? "\n\n- Số người online: " + Client.gI().ninja_size() : " " ));
                             }

@@ -3699,7 +3699,7 @@ public class GameSrc {
                 p.c.yen -= GameSrc.coinUpMat[item.upgrade];
             }
             if (type == 1) {
-                p.luong -= GameSrc.goldUpMat[item.upgrade];
+                p.upluong(-GameSrc.goldUpMat[item.upgrade]);
             }
             p.c.removeItemBags(694 + item.upgrade, 10);
 
@@ -3805,7 +3805,7 @@ public class GameSrc {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
             if (type == 1) {
-                p.luong -= GameSrc.coinup[item.upgrade];
+                p.upluong(-GameSrc.coinup[item.upgrade]);
             }
             p.c.removeItemBags(454, 20 * item.upgrade);
         } catch (Exception e) {
@@ -3877,7 +3877,7 @@ public class GameSrc {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
             if (type == 1) {
-                p.luong -= GameSrc.coinup[item.upgrade];
+                p.upluong(-GameSrc.coinup[item.upgrade]);
             }
             p.c.removeItemBags(454, 20 * item.upgrade);
         } catch (Exception e) {
@@ -3953,7 +3953,7 @@ public class GameSrc {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
             if (type == 1) {
-                p.luong -= GameSrc.coinup[item.upgrade];
+                p.upluong(-GameSrc.coinup[item.upgrade]);
             }
             p.c.removeItemBags(454, 20 * item.upgrade);
         } catch (Exception e) {
@@ -4030,7 +4030,7 @@ public class GameSrc {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
             if (type == 1) {
-                p.luong -= GameSrc.coinup[item.upgrade];
+                p.upluong(-GameSrc.coinup[item.upgrade]);
             }
             p.c.removeItemBags(454, 20 * item.upgrade);
         } catch (Exception e) {
@@ -4106,7 +4106,7 @@ public class GameSrc {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
             if (type == 1) {
-                p.luong -= GameSrc.coinup[item.upgrade];
+                p.upluong(-GameSrc.coinup[item.upgrade]);
             }
             p.c.removeItemBags(454, 20 * item.upgrade);
         } catch (Exception e) {

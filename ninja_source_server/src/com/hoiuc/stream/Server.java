@@ -78,6 +78,12 @@ public class Server extends Thread{
                         for (Session conn : Client.gI().conns) {
                             if (conn != null && conn.player != null) {
                                 conn.player.flush();
+                                if (conn.player.c != null) {
+                                    conn.player.c.flush();
+                                    if (conn.player.c.clone != null) {
+                                        conn.player.c.clone.flush();
+                                    }
+                                }
                             }
                         }
                         for (ClanManager entry : ClanManager.entrys) {

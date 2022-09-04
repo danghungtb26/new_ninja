@@ -60,6 +60,8 @@ public class Player extends User {
     public String passnew;
     public int coin;
 
+    public int point = 0;
+
     public Player() {
         this.username = null;
         this.version = null;
@@ -75,6 +77,28 @@ public class Player extends User {
 
     public void cleanup() {
         this.conn = null;
+    }
+
+    public boolean checkPointToTradeXu() {
+        if (this.point < 25000) {
+            Service.chatNPC(this, (short) 24, "Mày k đủ 25000 điểm tiêu lượng để đổi");
+            return false;
+        }
+        return true;
+    }
+
+    public void tradeLuongToXu(short npcid, long quantity) {
+        if (!this.checkPointToTradeXu()) {
+            return;
+        }
+
+        if (this.luong < quantity) {
+            Service.chatNPC(this, (short) npcid, "Mày cần phải có trên " + quantity + " lượng mới đổi được");
+        } else {
+            this.luongMessage(-quantity);
+            this.c.upxuMessage(quantity * 1000);
+            Service.chatNPC(this, (short) npcid, "Đổi lượng sang xu thành công");
+        }
     }
 
     public void sendDo() throws IOException {
@@ -944,6 +968,9 @@ public class Player extends User {
     }
 
     public synchronized int upluong(long x) {
+        if (x < 0) {
+            this.point -= (int) x / 2;
+        }
         long luongnew = (long) this.luong + x;
         if (luongnew > 2000000000L) {
             x = 2000000000 - this.luong;
@@ -999,6 +1026,8 @@ public class Player extends User {
                     final int coinnap = red.getInt("coinnap");
                     final byte vxLuong = red.getByte("vongxoayluong");
 
+                    final int point = red.getInt("point");
+
                     if (lock != 0 && lock == 1) {
                         conn.sendMessageLog(
                                 "Tài khoản của bạn chưa được kích hoạt, hãy truy cập trang chủ để kích hoạt tài khoản.");
@@ -1031,6 +1060,7 @@ public class Player extends User {
                     p.coinnap = coinnap;
                     p.vxLuong = vxLuong;
                     p.coin = coin;
+                    p.point = point;
 
                     for (byte i = 0; i < jarr.size(); ++i) {
                         p.sortNinja[i] = jarr.get((int) i).toString();
@@ -1632,7 +1662,7 @@ public class Player extends User {
 
                 SQLManager.stat.executeUpdate("UPDATE `player` SET `online`=0,`luong`=" + this.luong + ",`coin`="
                         + this.coin + ",`vip`=" + this.vip + ",`vongxoayluong`=" + this.vxLuong + ",`ninja`='"
-                        + jarr.toJSONString() + "' WHERE `id`=" + this.id + " LIMIT 1;");
+                        + jarr.toJSONString() + "',`point`=" + this.point + " WHERE `id`=" + this.id + " LIMIT 1;");
                 if (jarr != null && !jarr.isEmpty()) {
                     jarr.clear();
                 }
@@ -1740,9 +1770,9 @@ public class Player extends User {
                         try {
                             ResultSet expMax = SQLManager.stat.executeQuery(
                                     "select sum(exps) as max from level where level < " + Manager.max_level_up + ";");
-                            if(expMax != null && expMax.first()) {
+                            if (expMax != null && expMax.first()) {
                                 this.c.exp = expMax.getLong("max");
-                                
+
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -2050,8 +2080,7 @@ public class Player extends User {
         } else if (!ItemTemplate.isIdNewMounts(item.id) || item.isExpires) {
             this.c.p.sendAddchatYellow("Thú cưỡi này không thể nâng sao");
             return false;
-        } 
-        else if (item.upgrade < 99) {
+        } else if (item.upgrade < 99) {
             this.c.p.sendAddchatYellow("Thú cưỡi chưa đạt cấp tối đa");
             return false;
         } else if (item.sys >= 2100000000) {
@@ -2097,7 +2126,7 @@ public class Player extends User {
         } else if (item.upgrade < 99) {
             this.c.p.sendAddchatYellow("Thú cưỡi chưa đạt cấp tối đa");
             return false;
-        } else if (item.sys >=4) {
+        } else if (item.sys >= 4) {
             this.c.p.sendAddchatYellow("Không thể nâng thêm sao");
             return false;
         } else {

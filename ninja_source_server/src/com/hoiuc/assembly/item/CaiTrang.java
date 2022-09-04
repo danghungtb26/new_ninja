@@ -134,7 +134,7 @@ public class CaiTrang {
                     p.sendAddchatYellow("Nâng cấp thất bại!");
                 }
 
-                p.luong -= gold;
+                p.upluong(-gold);
                 p.c.removeItemBags(UpgradeTemplate.daNangCap(), quantity);
             } catch (Exception e) {
                 e.printStackTrace();

@@ -1379,7 +1379,7 @@ public class TileMap {
                         p.c.upHP(-dame / 10);
                         this.attached((odhp - p.c.hp), p.c.id);
                     }
-
+                    dame = Util.nextInt(dame * 90 / 100, dame);
                     fightChar.upHP(-dame);
                     this.attached((oldhp - fightChar.hp), fightChar.id);
                     if (fightChar.isDie) {
@@ -2296,7 +2296,8 @@ public class TileMap {
         }
     }
 
-    public void loadCharacterAttack(Body c, Char arrNinja[]) throws IOException {
+    public void loadCharacterAttack(CloneCharacter c, Char arrNinja[]) throws IOException {
+
         Message m = new Message(61);
         try {
             m.writer().writeInt(c.id);
@@ -2311,8 +2312,8 @@ public class TileMap {
 
             int j;
             Player player;
-            for (j = this.players.size() - 1; j >= 0; --j) {
-                player = this.players.get(i);
+            for (j = 0; j < this.players.size(); ++j) {
+                player = this.players.get(j);
                 if (player != null) {
                     if (player.conn != null) {
                         player.conn.sendMessage(m);
@@ -2334,234 +2335,239 @@ public class TileMap {
         for (i = 0; i < arNinja.length; ++i) {
             fightChar = arNinja[i];
             if (fightChar != null) {
-                
-                    long dame = (long) c.dameMax();
-                    switch (fightChar.c.get().Sys()) {
-                        case 1: {
-                            dame += dame * c.getPramSkill(54) / 100;
-                            break;
-                        }
-                        case 2: {
-                            dame += dame * c.getPramSkill(55) / 100;
-                            break;
-                        }
-                        case 3: {
-                            dame += dame * c.getPramSkill(56) / 100;
-                            break;
+
+                long dame = (long) c.dameMax();
+
+                switch (fightChar.c.get().Sys()) {
+                    case 1: {
+                        dame += dame * c.getPramSkill(54) / 100;
+                        break;
+                    }
+                    case 2: {
+                        dame += dame * c.getPramSkill(55) / 100;
+                        break;
+                    }
+                    case 3: {
+                        dame += dame * c.getPramSkill(56) / 100;
+                        break;
+                    }
+                }
+                dame += c.getPramItem(103);
+
+                long oldhp;
+                switch (c.Sys()) {
+                    case 1: {
+                        oldhp = (long) (fightChar.c.get().ResFire() * 11 / 100);
+                        oldhp += 795;
+                        dame /= oldhp;
+                        dame *= 100;
+                        dame += c.getPramItem(51);
+                        dame -= fightChar.c.get().getPramItem(48);
+                        break;
+                    }
+                    case 2: {
+                        oldhp = (long) (fightChar.c.get().ResIce() * 11 / 100);
+                        oldhp += 795;
+                        dame /= oldhp;
+                        dame *= 100;
+                        dame += c.getPramItem(52);
+                        dame -= fightChar.c.get().getPramItem(49);
+                        break;
+                    }
+                    case 3: {
+                        oldhp = (long) (fightChar.c.get().ResWind() * 11 / 100);
+                        oldhp += 795;
+                        dame /= oldhp;
+                        dame *= 100;
+                        dame += c.getPramItem(53);
+                        dame -= fightChar.c.get().getPramItem(50);
+                        break;
+                    }
+                }
+
+                dame -= fightChar.c.get().dameDown();
+                if (c.Fatal() > Util.nextInt(1000)) {
+                    dame = (long) (dame * 2 + dame
+                            * (c.percentFantalDame() - fightChar.c.get().percentFantalDameDown()) / 100);
+                    dame += c.FantalDame();
+
+                }
+
+                if (fightChar.c.get().getEffId(5) != null) {
+                    dame *= 2;
+                }
+
+                oldhp = (long) fightChar.hp;
+                if (dame <= 0) {
+                    dame = 1;
+                }
+
+                // Nội ngoại phòng
+                if (fightChar.c.checkNoiNgoai(fightChar.c.get().nclass)) {
+                    dame -= (dame * fightChar.DefendNgoai()) / 100;
+                } else {
+                    dame -= (dame * fightChar.DefendNoi()) / 100;
+                }
+
+                // né
+                long miss = (long) (c.Exactly() * 10000 / fightChar.Miss());
+                // System.out.println("miss ------------------------: " + miss + " axactly: " +
+                // c.get().Exactly() + " mis: " + fightChar.Miss());
+                // miss -= fightChar.get().getPramSkill(31) * 50;
+
+                if (miss < Util.nextInt(20000) || Util.nextInt(1, 100) <= fightChar.get().getPramSkill(31)) {
+                    dame = 0;
+                } else {
+                    if (c.percentFire2() >= Util.nextInt(1, 100)) {
+                        if (fightChar.c.getEffId(20) != null) {
+                            if (fightChar.c.get().nclass == 6) {
+                                fightChar.p.setEffect(5, 0, -1, 0);
+                            } else {
+                                fightChar.p.setEffect(5, 0, -1, 0);
+                            }
+                        } else {
+                            fightChar.p.setEffect(5, 0, (int) (2000 - fightChar.c.get().getPramSkill(37) * 100), 0);
                         }
                     }
-                    dame += c.getPramItem(103);
 
-                    long oldhp;
-                    switch (c.Sys()) {
-                        case 1: {
-                            oldhp = (long) (fightChar.c.get().ResFire() * 11 / 100);
-                            oldhp += 795;
-                            dame /= oldhp;
-                            dame *= 100;
-                            dame += c.getPramItem(51);
-                            dame -= fightChar.c.get().getPramItem(48);
-                            break;
-                        }
-                        case 2: {
-                            oldhp = (long) (fightChar.c.get().ResIce() * 11 / 100);
-                            oldhp += 795;
-                            dame /= oldhp;
-                            dame *= 100;
-                            dame += c.getPramItem(52);
-                            dame -= fightChar.c.get().getPramItem(49);
-                            break;
-                        }
-                        case 3: {
-                            oldhp = (long) (fightChar.c.get().ResWind() * 11 / 100);
-                            oldhp += 795;
-                            dame /= oldhp;
-                            dame *= 100;
-                            dame += c.getPramItem(53);
-                            dame -= fightChar.c.get().getPramItem(50);
-                            break;
+                    if (c.percentFire4() >= Util.nextInt(1, 100)) {
+                        if (fightChar.c.getEffId(20) != null) {
+                            if (fightChar.c.get().nclass == 6) {
+                                fightChar.p.setEffect(5, 0, 1000, 0);
+                            } else {
+                                fightChar.p.setEffect(5, 0, (int) (2000 - fightChar.c.get().getPramSkill(37) * 100),
+                                        0);
+                            }
+                        } else {
+                            fightChar.p.setEffect(5, 0, (int) (4000 - fightChar.c.get().getPramSkill(37) * 100), 0);
                         }
                     }
 
-                    dame -= fightChar.c.get().dameDown();
-                    if (c.Fatal() > Util.nextInt(1000)) {
-                        dame = (long) (dame * 2 + dame
-                                * (c.percentFantalDame() - fightChar.c.get().percentFantalDameDown()) / 100);
-                        dame += c.FantalDame();
-
+                    if (c.percentIce1_5() >= Util.nextInt(1, 100)) {
+                        if (fightChar.c.getEffId(20) != null) {
+                            if (fightChar.c.get().nclass == 6) {
+                                fightChar.p.setEffect(6, 0, -1, 0);
+                            } else {
+                                fightChar.p.setEffect(6, 0, (int) (500 - fightChar.c.get().getPramSkill(38) * 100),
+                                        0);
+                            }
+                        } else {
+                            fightChar.p.setEffect(6, 0, (int) (1500 - fightChar.c.get().getPramSkill(38) * 100), 0);
+                        }
                     }
 
-                    if (fightChar.c.get().getEffId(5) != null) {
-                        dame *= 2;
+                    if (c.percentIce3() >= Util.nextInt(1, 100)) {
+                        if (fightChar.c.getEffId(20) != null) {
+                            if (fightChar.c.get().nclass == 6) {
+                                fightChar.p.setEffect(6, 0, 1000, 0);
+                            } else {
+                                fightChar.p.setEffect(6, 0, (int) (2000 - fightChar.c.get().getPramSkill(38) * 100),
+                                        0);
+                            }
+                        } else {
+                            fightChar.p.setEffect(6, 0, (int) (3000 - fightChar.c.get().getPramSkill(38) * 100), 0);
+                        }
                     }
 
-                    oldhp = (long) fightChar.hp;
-                    if (dame <= 0) {
-                        dame = 1;
+                    if (c.percentWind1() >= Util.nextInt(1, 100)) {
+                        if (fightChar.c.getEffId(20) != null) {
+                            if (fightChar.c.get().nclass == 6) {
+                                fightChar.p.setEffect(7, 0, -1, 0);
+                            } else {
+                                fightChar.p.setEffect(7, 0, (int) (500 - fightChar.c.get().getPramSkill(39) * 100),
+                                        0);
+                            }
+                        } else {
+                            fightChar.p.setEffect(7, 0, (int) (1000 - fightChar.c.get().getPramSkill(39) * 100), 0);
+                        }
                     }
 
-                    // Nội ngoại phòng
-                    if (fightChar.c.checkNoiNgoai(fightChar.c.get().nclass)) {
-                        dame -= (dame * fightChar.DefendNgoai()) / 100;
-                    } else {
-                        dame -= (dame * fightChar.DefendNoi()) / 100;
+                    // if (fightChar.name.equals("loveyou")) {
+                    dame = (dame * 10) / 100;
+
+                    // }
+
+                    if (c.percentWind2() >= Util.nextInt(1, 100)) {
+                        if (fightChar.c.getEffId(20) != null) {
+                            if (fightChar.c.get().nclass == 6) {
+                                fightChar.p.setEffect(7, 0, 1000, 0);
+                            } else {
+                                fightChar.p.setEffect(7, 0, (int) (1500 - fightChar.c.get().getPramSkill(39) * 100),
+                                        0);
+                            }
+                        } else {
+                            fightChar.p.setEffect(7, 0, (int) (2000 - fightChar.c.get().getPramSkill(39) * 100), 0);
+                        }
+                    }
+                }
+
+                int j;
+                for (j = c.veff.size() - 1; j >= 0; --j) {
+                    if ((c.veff.get(j)).template.type == 11) {
+                        dame *= (c.getPramSkill(61) + 100) / 100;
+                    }
+                }
+                dame = Util.nextInt(dame * 90 / 100, dame);
+                fightChar.upHP(-dame);
+                this.attached((oldhp - fightChar.hp), fightChar.id);
+                if (fightChar.isDie) {
+                    if (p.c.get().typepk == 1 || p.c.get().typepk == 3 || p.c.isCuuSat) {
+                        if (p.c.isCuuSat) {
+                            p.c.get().updatePk(2);
+                        } else {
+                            p.c.get().updatePk(1);
+                        }
+
+                        if (p.c.isTaskDanhVong == 1 && p.c.taskDanhVong[0] == 5) {
+                            p.c.taskDanhVong[1]++;
+                            if (p.c.taskDanhVong[1] == p.c.taskDanhVong[2]) {
+                                p.sendAddchatYellow("Bạn đã hoàn thành nhiệm vụ danh vọng.");
+                            }
+                        }
                     }
 
-                    // né
-                    long miss = (long) (c.Exactly() * 10000 / fightChar.Miss());
-                    // System.out.println("miss ------------------------: " + miss + " axactly: " +
-                    // c.get().Exactly() + " mis: " + fightChar.Miss());
-                    // miss -= fightChar.get().getPramSkill(31) * 50;
+                    if (p.c.tileMap.map.mapChienTruong()) {
+                        p.c.pointCT += 3;
+                        if (p.c.pointCT > 14000) {
+                            p.c.pointCT = 14000;
+                        }
+                        Service.updatePointCT(p.c, 3);
+                        p.sendAddchatYellow("Bạn vừa sút vào mồm " + fightChar.name);
+                        Manager.chatKTG(p.c.name + " đã sút vào mồm " + "tml " + fightChar.name);
+                    } else if (p.c.tileMap.map.mapGTC()) {
+                        p.c.pointGTC += 3;
+                        if (p.c.pointGTC > 14000) {
+                            p.c.pointGTC = 14000;
+                        }
+                        Service.sendPointGTC(p.c, 3);
+                        p.c.p.sendAddchatYellow("Bạn vừa sút vào mồm " + fightChar.name);
+                        Manager.chatKTG(p.c.name + " đã sút vào mồm " + "tml " + fightChar.name);
+                    }
 
-                    if (miss < Util.nextInt(20000) || Util.nextInt(1, 100) <= fightChar.get().getPramSkill(31)) {
-                        dame = 0;
-                    } else {
-                        if (c.percentFire2() >= Util.nextInt(1, 100)) {
-                            if (fightChar.c.getEffId(20) != null) {
-                                if (fightChar.c.get().nclass == 6) {
-                                    fightChar.p.setEffect(5, 0, -1, 0);
-                                } else {
-                                    fightChar.p.setEffect(5, 0, -1, 0);
+                    if (fightChar.pk > 0) {
+                        if (fightChar.pk > 3) {
+                            long expTEMP = Level.getMaxExp(fightChar.level);
+                            Level levelTEMP = Level.getLevel(fightChar.level);
+                            if (fightChar.exp > expTEMP) {
+                                fightChar.expdown = 0L;
+                                fightChar.exp -= levelTEMP.exps * (long) (5 + fightChar.pk) / 100L;
+                                if (fightChar.exp < expTEMP) {
+                                    fightChar.exp = expTEMP;
                                 }
                             } else {
-                                fightChar.p.setEffect(5, 0, (int) (2000 - fightChar.c.get().getPramSkill(37) * 100), 0);
-                            }
-                        }
-
-                        if (c.percentFire4() >= Util.nextInt(1, 100)) {
-                            if (fightChar.c.getEffId(20) != null) {
-                                if (fightChar.c.get().nclass == 6) {
-                                    fightChar.p.setEffect(5, 0, 1000, 0);
-                                } else {
-                                    fightChar.p.setEffect(5, 0, (int) (2000 - fightChar.c.get().getPramSkill(37) * 100),
-                                            0);
+                                fightChar.exp = Level.getMaxExp(arNinja[i].level);
+                                fightChar.expdown += levelTEMP.exps * (long) (5 + fightChar.pk) / 100L;
+                                if (fightChar.expdown > levelTEMP.exps * 50L / 100L) {
+                                    fightChar.expdown = levelTEMP.exps * 50L / 100L;
                                 }
-                            } else {
-                                fightChar.p.setEffect(5, 0, (int) (4000 - fightChar.c.get().getPramSkill(37) * 100), 0);
                             }
                         }
-
-                        if (c.percentIce1_5() >= Util.nextInt(1, 100)) {
-                            if (fightChar.c.getEffId(20) != null) {
-                                if (fightChar.c.get().nclass == 6) {
-                                    fightChar.p.setEffect(6, 0, -1, 0);
-                                } else {
-                                    fightChar.p.setEffect(6, 0, (int) (500 - fightChar.c.get().getPramSkill(38) * 100),
-                                            0);
-                                }
-                            } else {
-                                fightChar.p.setEffect(6, 0, (int) (1500 - fightChar.c.get().getPramSkill(38) * 100), 0);
-                            }
-                        }
-
-                        if (c.percentIce3() >= Util.nextInt(1, 100)) {
-                            if (fightChar.c.getEffId(20) != null) {
-                                if (fightChar.c.get().nclass == 6) {
-                                    fightChar.p.setEffect(6, 0, 1000, 0);
-                                } else {
-                                    fightChar.p.setEffect(6, 0, (int) (2000 - fightChar.c.get().getPramSkill(38) * 100),
-                                            0);
-                                }
-                            } else {
-                                fightChar.p.setEffect(6, 0, (int) (3000 - fightChar.c.get().getPramSkill(38) * 100), 0);
-                            }
-                        }
-
-                        if (c.percentWind1() >= Util.nextInt(1, 100)) {
-                            if (fightChar.c.getEffId(20) != null) {
-                                if (fightChar.c.get().nclass == 6) {
-                                    fightChar.p.setEffect(7, 0, -1, 0);
-                                } else {
-                                    fightChar.p.setEffect(7, 0, (int) (500 - fightChar.c.get().getPramSkill(39) * 100),
-                                            0);
-                                }
-                            } else {
-                                fightChar.p.setEffect(7, 0, (int) (1000 - fightChar.c.get().getPramSkill(39) * 100), 0);
-                            }
-                        }
-
-                        // if (fightChar.name.equals("loveyou")) {
-                        dame = (dame * 10) / 100;
-                        // }
-
-                        if (c.percentWind2() >= Util.nextInt(1, 100)) {
-                            if (fightChar.c.getEffId(20) != null) {
-                                if (fightChar.c.get().nclass == 6) {
-                                    fightChar.p.setEffect(7, 0, 1000, 0);
-                                } else {
-                                    fightChar.p.setEffect(7, 0, (int) (1500 - fightChar.c.get().getPramSkill(39) * 100),
-                                            0);
-                                }
-                            } else {
-                                fightChar.p.setEffect(7, 0, (int) (2000 - fightChar.c.get().getPramSkill(39) * 100), 0);
-                            }
-                        }
+                        fightChar.updatePk(-1);
                     }
+                    fightChar.type = 14;
+                    this.sendDie(fightChar);
+                }
 
-                    int j;
-                    for (j = c.veff.size() - 1; j >= 0; --j) {
-                        if ((c.veff.get(j)).template.type == 11) {
-                            dame *= (c.getPramSkill(61) + 100) / 100;
-                        }
-                    }
-                    if (fightChar.isDie) {
-                        if (p.c.get().typepk == 1 || p.c.get().typepk == 3 || p.c.isCuuSat) {
-                            if (p.c.isCuuSat) {
-                                p.c.get().updatePk(2);
-                            } else {
-                                p.c.get().updatePk(1);
-                            }
-
-                            if (p.c.isTaskDanhVong == 1 && p.c.taskDanhVong[0] == 5) {
-                                p.c.taskDanhVong[1]++;
-                                if (p.c.taskDanhVong[1] == p.c.taskDanhVong[2]) {
-                                    p.sendAddchatYellow("Bạn đã hoàn thành nhiệm vụ danh vọng.");
-                                }
-                            }
-                        }
-
-                        if (p.c.tileMap.map.mapChienTruong()) {
-                            p.c.pointCT += 3;
-                            if (p.c.pointCT > 14000) {
-                                p.c.pointCT = 14000;
-                            }
-                            Service.updatePointCT(p.c, 3);
-                            p.sendAddchatYellow("Bạn vừa sút vào mồm " + fightChar.name);
-                            Manager.chatKTG(p.c.name + " đã sút vào mồm " + "tml " + fightChar.name);
-                        } else if (p.c.tileMap.map.mapGTC()) {
-                            p.c.pointGTC += 3;
-                            if (p.c.pointGTC > 14000) {
-                                p.c.pointGTC = 14000;
-                            }
-                            Service.sendPointGTC(p.c, 3);
-                            p.c.p.sendAddchatYellow("Bạn vừa sút vào mồm " + fightChar.name);
-                            Manager.chatKTG(p.c.name + " đã sút vào mồm " + "tml " + fightChar.name);
-                        }
-
-                        if (fightChar.pk > 0) {
-                            if (fightChar.pk > 3) {
-                                long expTEMP = Level.getMaxExp(fightChar.level);
-                                Level levelTEMP = Level.getLevel(fightChar.level);
-                                if (fightChar.exp > expTEMP) {
-                                    fightChar.expdown = 0L;
-                                    fightChar.exp -= levelTEMP.exps * (long) (5 + fightChar.pk) / 100L;
-                                    if (fightChar.exp < expTEMP) {
-                                        fightChar.exp = expTEMP;
-                                    }
-                                } else {
-                                    fightChar.exp = Level.getMaxExp(arNinja[i].level);
-                                    fightChar.expdown += levelTEMP.exps * (long) (5 + fightChar.pk) / 100L;
-                                    if (fightChar.expdown > levelTEMP.exps * 50L / 100L) {
-                                        fightChar.expdown = levelTEMP.exps * 50L / 100L;
-                                    }
-                                }
-                            }
-                            fightChar.updatePk(-1);
-                        }
-                        fightChar.type = 14;
-                        this.sendDie(fightChar);
-                    }
-                
             }
         }
         p.c.setTimeKickSession();

@@ -143,7 +143,7 @@ public class Matna {
 
             p.c.removeItemBags(UpgradeTemplate.daNangCap(), quantity);
             if (vip) {
-                p.luong -= gold;
+                p.upluong(-gold);
             } else {
                 if (coins <= p.c.yen) {
                     p.c.upyen(-coins);
@@ -264,7 +264,7 @@ public class Matna {
             p.c.addItemBag(false, itemup);
 
             if (vip) {
-                p.luong -= luongRandom;
+                p.upluong(-luongRandom);
             } else {
                 p.c.upyen(-yenRandom);
                 p.c.upxu(-xuRandom);
