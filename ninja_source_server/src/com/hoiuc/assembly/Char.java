@@ -1258,10 +1258,10 @@ public class Char extends Body {
                 String sqlSET = "`head`=" + this.head + ",`caiTrang`=" + this.caiTrang + ",`rankTDB`=" + this.rankTDB
                         + ",`countWin`=" + this.countWin + ",`countPhao`=" + this.countPhao + ",`nhanTP`=" + this.nhanTP
                         + ",`countTDB`=" + this.countTDB + ",`isGiftTDB`=" + this.isGiftTDB + ", `taskId`="
-                        + this.taskId + ",`class`=" + this.get().nclass + ",`ppoint`=" + this.get().ppoint
-                        + ",`potential0`=" + this.get().potential0 + ",`potential1`=" + this.get().potential1
-                        + ",`potential2`=" + this.get().potential2 + ",`potential3`=" + this.get().potential3
-                        + ",`spoint`=" + this.get().spoint + ",`level`=" + this.get().level + ",`exp`=" + this.exp
+                        + this.taskId + ",`class`=" + this.nclass + ",`ppoint`=" + this.ppoint
+                        + ",`potential0`=" + this.potential0 + ",`potential1`=" + this.potential1
+                        + ",`potential2`=" + this.potential2 + ",`potential3`=" + this.potential3
+                        + ",`spoint`=" + this.spoint + ",`level`=" + this.level + ",`exp`=" + this.exp
                         + ",`expdown`=" + this.expdown + ",`expSkillClone`=" + this.expSkillClone + ",`pk`=" + this.pk
                         + ",`xu`=" + this.xu + ",`yen`=" + this.yen + ",`maxluggage`=" + this.maxluggage
                         + ",`levelBag`=" + this.levelBag + ",`site`='" + jarr.toJSONString() + "', `buyX3` ="
@@ -1344,9 +1344,9 @@ public class Char extends Body {
                 sqlSET = sqlSET + ",`xuBox`=" + this.xuBox + ",`ItemBox`='" + jarr.toJSONString() + "'";
                 jarr.clear();
 
-                for (j = 0; j < this.get().ItemBody.length; ++j) {
-                    if (this.get().ItemBody[j] != null) {
-                        jarr.add(ItemTemplate.ObjectItem(this.get().ItemBody[j], j));
+                for (j = 0; j < this.ItemBody.length; ++j) {
+                    if (this.ItemBody[j] != null) {
+                        jarr.add(ItemTemplate.ObjectItem(this.ItemBody[j], j));
                     }
                 }
 
@@ -1426,15 +1426,15 @@ public class Char extends Body {
 
                 jarr.add(jarr2);
                 jarr.add(this.isQuaHangDong);
-                jarr.add(this.get().countTayTiemNang);
-                jarr.add(this.get().countTayKyNang);
+                jarr.add(this.countTayTiemNang);
+                jarr.add(this.countTayKyNang);
                 sqlSET = sqlSET + ",`info`='" + jarr.toJSONString() + "'";
                 jarr.clear();
                 jarr.add(this.useTaThuLenh);
-                jarr.add(this.get().useKyNang);
-                jarr.add(this.get().useTiemNang);
-                jarr.add(this.get().useBanhPhongLoi);
-                jarr.add(this.get().useBanhBangHoa);
+                jarr.add(this.useKyNang);
+                jarr.add(this.useTiemNang);
+                jarr.add(this.useBanhPhongLoi);
+                jarr.add(this.useBanhBangHoa);
                 sqlSET = sqlSET + ",`countUseItem`='" + jarr.toJSONString() + "'";
                 jarr.clear();
                 jarr.add(this.pointUydanh);

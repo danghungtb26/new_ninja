@@ -31,7 +31,7 @@ public class Controller implements IMessageHandler {
             return;
         }
         byte num1 = message.getCommand();
-        // Util.Debug("Check cmd ---> " + num1);
+        Util.Debug("Check cmd ---> " + num1);
         Player player = session.player;
         switch (num1) {
             case -30: {

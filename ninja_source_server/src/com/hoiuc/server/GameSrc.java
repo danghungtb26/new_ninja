@@ -2025,7 +2025,6 @@ public class GameSrc {
                     m.writer().writeInt(itemLuyenNgoc.buyCoinLock);
                     m.writer().writeInt(itemLuyenNgoc.buyGold);
                 }
-                Util.Debug("aaaaaaaaa: ");
                 if (ItemTemplate.isTypeBody(itemLuyenNgoc.id) || ItemTemplate.isTypeMounts(itemLuyenNgoc.id)
                         || ItemTemplate.isTypeNgocKham(itemLuyenNgoc.id)) {
                     m.writer().writeByte(itemLuyenNgoc.sys);// thuoc tinh

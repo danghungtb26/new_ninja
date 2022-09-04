@@ -1447,9 +1447,10 @@ public class Service {
             msg.writer().writeBoolean(party.isLock);
             byte i;
             for(i = 0; i < party.numPlayer; ++i) {
-                msg.writer().writeInt((party.aChar.get(i)).id);
-                msg.writer().writeByte((party.aChar.get(i)).nclass);
-                msg.writer().writeUTF((party.aChar.get(i)).name);
+                Char c2 = party.aChar.get(i);
+                msg.writer().writeInt(c2.isNhanban ? c2.clone.id : c2.id);
+                msg.writer().writeByte(c2.isNhanban ? c2.clone.nclass : c2.nclass);
+                msg.writer().writeUTF(c2.name);
             }
             msg.writer().flush();
             c.p.conn.sendMessage(msg);

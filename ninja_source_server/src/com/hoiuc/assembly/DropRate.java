@@ -445,8 +445,8 @@ public class DropRate {
     public static int countUseBB = 80000;
     public static int countUseRBN = 400000;
     public static int countUseRHB = 2000000;
-    public static int countUseBanhPhongLoi = 10000;
-    public static int countUseBanhBanghoa = 12000;
+    public static int countUseBanhPhongLoi = 8000;
+    public static int countUseBanhBanghoa = 10000;
 
     public static Item dropSieuVipRuong(boolean vip) {
         if (Util.isDebug()) {
@@ -517,8 +517,8 @@ public class DropRate {
         // items.add(new DropRate(383, 3));
 
         // sói
-        items.add(new DropRate(523, 3));
-        items.add(new DropRate(524, 3));
+        items.add(new DropRate(523, 5));
+        items.add(new DropRate(524, 5));
 
         // đan
         items.add(new DropRate(275, 3));
@@ -576,7 +576,7 @@ public class DropRate {
         items.add(new DropRate(567, 3));
 
         // sói
-        items.add(new DropRate(443, 3));
+        items.add(new DropRate(443, 7));
         // items.add(new DropRate(485, 4));
 
         // đan

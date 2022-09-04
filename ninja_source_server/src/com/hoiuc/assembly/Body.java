@@ -186,10 +186,6 @@ public class Body {
 
 public long getMaxHP() {
         long hpmax = this.getPotential(2) * 10;
-        // Tu tiên
-        if (this.c.leveltutien >0) {
-            hpmax += (this.c.leveltutien*1000L);
-        }
         hpmax += hpmax * (this.getPramItem(31) + this.getPramItem(61) + this.getPramSkill(17)) / 100;
         hpmax += this.getPramItem(6);
         hpmax += this.getPramItem(32);

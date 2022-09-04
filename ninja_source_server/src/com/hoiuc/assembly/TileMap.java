@@ -1886,7 +1886,7 @@ public class TileMap {
                     xpup = this.handleAfterAttackMob(arrMob[i], _char, xpup);
                 }
 
-                if (xpup > 0L && xpup > 0L) {
+                if (xpup > 0L) {
                     if (_char.level >= 90 && _char.clone.islive) {
                         Skill ski = null;
                         if (_char.level >= 90 && _char.clone.islive) {
@@ -1922,8 +1922,10 @@ public class TileMap {
                             Player pl;
                             for (miss = this.players.size() - 1; miss >= 0; miss--) {
                                 pl = this.players.get(miss);
+                                int lvl = pl.c.isNhanban ? pl.c.clone.level : pl.c.level;
+                                // int id = pl.c.isNhanban ? pl.c.clone.id : pl.c.id;
                                 if (pl != null && pl.c != null && pl.c.id != _char.id && pl.c.party == _char.party
-                                        && Math.abs(pl.c.level - _char.level) <= 10) {
+                                        && Math.abs(lvl - _char.level) <= 10) {
                                     pl.updateExp(xpup * 13L / 100L);
                                 }
                             }
@@ -2158,11 +2160,20 @@ public class TileMap {
                                                 Player player;
                                                 for (i2 = this.players.size() - 1; i2 >= 0; i2--) {
                                                     player = this.players.get(i2);
-                                                    if (player != null && player.c.id != p.c.id
+                                                    int lvl = player.c.isNhanban ? player.c.clone.level
+                                                            : player.c.level;
+                                                    // int id = player.c.isNhanban ? player.c.clone.id : player.c.id;
+                                                    if (player != null && player.c != null && player.c.id != p.c.id
                                                             && player.c.party == p.c.party
-                                                            && Math.abs(player.c.level - p.c.level) <= 10) {
+                                                            && Math.abs(lvl - p.c.level) <= 10) {
                                                         player.updateExp(xpup * 13L / 100L);
                                                     }
+
+                                                    // if (player != null && player.c.id != p.c.id
+                                                    // && player.c.party == p.c.party
+                                                    // && Math.abs(player.c.level - p.c.level) <= 10) {
+                                                    // player.updateExp(xpup * 13L / 100L);
+                                                    // }
                                                 }
                                             }
                                         }
@@ -3605,8 +3616,8 @@ public class TileMap {
                                         10000000, 10000000, false);
                             }
                         }
-                        if (System.currentTimeMillis() > p.c.delayEffect && p.c.ItemBody[BinhThu.slot] != null
-                                && p.c.ItemBody[BinhThu.slot].upgrade == 16) {
+                        if (System.currentTimeMillis() > p.c.delayEffect && p.c.get().ItemBody[BinhThu.slot] != null
+                                && p.c.get().ItemBody[BinhThu.slot].upgrade == 16) {
                             p.c.delayEffect = System.currentTimeMillis() + 3000L;
                             short type = 0;
                             switch (p.c.get().nclass) {
