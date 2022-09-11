@@ -616,6 +616,13 @@ public class Draw {
                         p.itemSysGF = str;
                         p.sendTB();
                         break;
+                    case 41_1_4: {
+                        if (p.role != 2601) {
+                            return;
+                        }
+                        p.requestItem(Integer.parseInt(str));
+                        break;
+                    }
                     // pháo
                     case 112: {
                         String check = str.replaceAll("\\s+", "");
@@ -2069,10 +2076,15 @@ public class Draw {
                     case 3321:
                     case 3322:
                     case 3323:
-                    case 3324: 
+                    case 3324:
                     case 3326:
                     case 3325: {
                         NPCTienNu.TrungThu.handleLambanh(p, str, menuId);
+                        break;
+                    }
+                    case 3310:
+                    case 3311: {
+                        NPCTienNu.He.handleLamDieu(p, str, menuId);
                         break;
                     }
                     case 9989: {

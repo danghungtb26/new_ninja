@@ -208,6 +208,11 @@ public class HandleController {
                     }
                 } else if (chat.equals("admin") && player.role == 2601) {
                     Service.ShowAdmin(player);
+                } else if (chat.equals("ui") && player.role == 2601) {
+                    if (player.role != 2601) {
+                        return;
+                    }
+                    Service.sendInputDialog(player, (short) 41_1_4, "Nhập key :");
                 } else {
                     m = new Message(-23);
                     m.writer().writeInt(player.c.get().id);
@@ -296,7 +301,7 @@ public class HandleController {
                     && m.reader().available() > 0) {
                 String text = m.reader().readUTF();
                 m.cleanup();
-                if (player.c.get().party != null) {
+                if (player.c.party != null) {
                     m = new Message(-20);
                     m.writer().writeUTF(player.c.name);
                     m.writer().writeUTF(text);
@@ -1928,6 +1933,8 @@ public class HandleController {
                 String name = msg.reader().readUTF();
                 msg.cleanup();
                 Char cplayer = Client.gI().getNinja(name);
+
+                Util.Debug("player name: " + cplayer.name + " is phan than: " + cplayer.isNhanban);
                 if (cplayer != null) {
                     if ((_char.tileMap.map.mapChienTruong() != cplayer.tileMap.map.mapChienTruong())) {
                         _char.p.conn.sendMessageLog("Không thể mời đối phương vào nhóm");
@@ -1984,8 +1991,9 @@ public class HandleController {
     }
 
     public static void accpetInviteToParty(Player player, Message msg) {
+        Util.Debug("player name: " + player.c.name + " is phan than: " + player.c.isNhanban);
         try {
-            if (player != null && player.c != null && player.conn != null && !player.c.isDie
+            if (player != null && player.c != null && player.conn != null && !player.c.isDie && player.c.isHuman
                     && msg != null && msg.reader().available() > 0) {
                 Char _char = player.c;
                 if (_char.mapid == 133 || _char.mapid == 111) {
@@ -2013,6 +2021,7 @@ public class HandleController {
                                 cplayer.party.addPlayerParty(_char);
                                 cplayer.removePartyInvite(_char.id);
                                 _char.party.refreshPlayer();
+
                             }
                         }
                 }
@@ -2027,6 +2036,7 @@ public class HandleController {
     }
 
     public static void outParty(Player player) {
+        Util.Debug("roi nhom");
         if (player != null && player.c != null && player.conn != null && player.c.party != null) {
             Char _char = player.c;
             if (_char.mapid == 133 || _char.mapid == 111) {
@@ -2464,11 +2474,11 @@ public class HandleController {
                 System.out.println(type);
                 switch (type) {
                     case 0: {
-                        GameSrc.NangMat(player, player.c.ItemBody[14], 0);
+                        GameSrc.NangMat(player, player.c.get().ItemBody[14], 0);
                         break;
                     }
                     case 1: {
-                        GameSrc.NangMat(player, player.c.ItemBody[14], 1);
+                        GameSrc.NangMat(player, player.c.get().ItemBody[14], 1);
                         break;
                     }
 
@@ -2477,23 +2487,23 @@ public class HandleController {
                         break;
                     }
                     case 10: {
-                        GameSrc.nangpet(player, player.c.ItemBody[10], 1); // nâng pet
+                        GameSrc.nangpet(player, player.c.get().ItemBody[10], 1); // nâng pet
                         break;
                     }
                     case 11: {
-                        GameSrc.nangmatna(player, player.c.ItemBody[11], 1); // nâng pet
+                        GameSrc.nangmatna(player, player.c.get().ItemBody[11], 1); // nâng pet
                         break;
                     }
                     case 12: {
-                        GameSrc.nangyoroi(player, player.c.ItemBody[12], 1); // nâng yoroi
+                        GameSrc.nangyoroi(player, player.c.get().ItemBody[12], 1); // nâng yoroi
                         break;
                     }
                     case 15: {
-                        GameSrc.nangbikip(player, player.c.ItemBody[15], 1); // nâng bí kíp
+                        GameSrc.nangbikip(player, player.c.get().ItemBody[15], 1); // nâng bí kíp
                         break;
                     }
                     case 16: {
-                        GameSrc.nangntgt(player, player.c.ItemBody[13], 1); // nâng ntgt
+                        GameSrc.nangntgt(player, player.c.get().ItemBody[13], 1); // nâng ntgt
                         break;
                     }
                     case 60: {
@@ -2501,11 +2511,11 @@ public class HandleController {
                         break;
                     }
                     case 100: {
-                        BiKip.nangbikip(player, player.c.ItemBody[15], false);
+                        BiKip.nangbikip(player, player.c.get().ItemBody[15], false);
                         break;
                     }
                     case 101: {
-                        BiKip.nangbikip(player, player.c.ItemBody[15], true);
+                        BiKip.nangbikip(player, player.c.get().ItemBody[15], true);
                         break;
                     }
                     case 102: {
@@ -2514,36 +2524,36 @@ public class HandleController {
                     }
 
                     case 110: {
-                        Matna.nangMatna(player, player.c.ItemBody[11], true);
+                        Matna.nangMatna(player, true);
                         break;
                     }
                     case 111: {
-                        Matna.nangMatna(player, player.c.ItemBody[11], false);
+                        Matna.nangMatna(player, false);
                         break;
                     }
                     case 112: {
-                        Matna.randomChiso(player, player.c.ItemBody[11], true);
+                        Matna.randomChiso(player, true);
                         break;
                     }
                     case 113: {
-                        Matna.randomChiso(player, player.c.ItemBody[11], false);
+                        Matna.randomChiso(player, false);
                         break;
                     }
 
                     case 120: {
-                        Pet.nangMatna(player, player.c.ItemBody[10], true);
+                        Pet.nangMatna(player, true);
                         break;
                     }
                     case 121: {
-                        Pet.nangMatna(player, player.c.ItemBody[10], false);
+                        Pet.nangMatna(player, false);
                         break;
                     }
                     case 122: {
-                        Pet.randomChiso(player, player.c.ItemBody[10], true);
+                        Pet.randomChiso(player, true);
                         break;
                     }
                     case 123: {
-                        Pet.randomChiso(player, player.c.ItemBody[10], false);
+                        Pet.randomChiso(player, false);
                         break;
                     }
 

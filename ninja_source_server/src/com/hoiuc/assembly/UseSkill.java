@@ -159,7 +159,7 @@ public class UseSkill {
                 param = (int) p.c.get().getPramSkill(27);
                 param += param * p.c.get().getPramSkill(66) / 100;
                 p.setEffect(8, 0, 5000, param);
-                if (p.c.get().party != null && p.c.tileMap != null) {
+                if (p.c.party != null && p.c.tileMap != null) {
                     int i;
                     Player p2;
                     Char n;
@@ -167,7 +167,7 @@ public class UseSkill {
                         p2 = p.c.tileMap.players.get(i);
                         if (p2.c.id != p.c.id) {
                             n = p2.c;
-                            if (n.party == p.c.get().party && Math.abs(p.c.get().x - n.x) <= temp.dx && Math.abs(p.c.get().y - n.y) <= temp.dy) {
+                            if (n.party.partyId == p.c.party.partyId && Math.abs(p.c.get().x - n.x) <= temp.dx && Math.abs(p.c.get().y - n.y) <= temp.dy) {
                                 n.p.setEffect(8, 0, 5000, (int) (p.c.get().getPramSkill(43) + p.c.get().getPramSkill(43) * p.c.get().getPramSkill(66) / 100));
                             }
                         }
@@ -180,7 +180,7 @@ public class UseSkill {
                 param = (int) p.c.get().getPramSkill(45);
                 param += param*p.c.get().getPramSkill(66)/100;
                 p.setEffect(19, 0, 90000, param);
-                if (p.c.get().party != null && p.c.tileMap != null) {
+                if (p.c.party != null && p.c.tileMap != null) {
                     int i;
                     Player p2;
                     Char n;
@@ -188,7 +188,7 @@ public class UseSkill {
                         p2 = p.c.tileMap.players.get(i);
                         if (p2.c.id != p.c.id) {
                             n = p2.c;
-                            if (n.party == p.c.get().party && Math.abs(p.c.x - n.x) <= temp.dx && Math.abs(p.c.y - n.y) <= temp.dy) {
+                            if (n.party.partyId == p.c.party.partyId && Math.abs(p.c.get().x - n.x) <= temp.dx && Math.abs(p.c.get().y - n.y) <= temp.dy) {
                                 n.p.setEffect(19, 0, 90000, param);
                             }
                         }
@@ -201,7 +201,7 @@ public class UseSkill {
                 param = (int) (p.c.get().getPramSkill(40)*1000);
                 param += param*p.c.get().getPramSkill(66)/100;
                 p.setEffect(20, 0, param, 0);
-                if (p.c.get().party != null && p.c.tileMap != null) {
+                if (p.c.party != null && p.c.tileMap != null) {
                     int i;
                     Player p2;
                     Char n;
@@ -209,7 +209,7 @@ public class UseSkill {
                         p2 = p.c.tileMap.players.get(i);
                         if (p2.c.id != p.c.id) {
                             n = p2.c;
-                            if (n.party == p.c.get().party && Math.abs(p.c.get().x - n.x) <= temp.dx && Math.abs(p.c.get().y - n.y) <= temp.dy) {
+                            if (n.party == p.c.party && Math.abs(p.c.get().x - n.x) <= temp.dx && Math.abs(p.c.get().y - n.y) <= temp.dy) {
                                 n.p.setEffect(20, 0, param, 0);
                             }
                         }

@@ -1592,7 +1592,7 @@ public class Service {
             return;
         }
         p.typemenu = 9999;
-        Menu.doMenuArray(p, new String[]{"Bảo trì Server", "Khoá tài khoản người chơi", "Cập nhật BXH cao thủ", "Xem info map, vị trí", "Cộng Xu", "Cộng Lượng", "Cộng Yên", "Tăng level", "Tăng điểm tiềm năng", "Tăng kỹ năng", "Cập nhật DATA", "Đăng thông báo", "Kiểm tra số người chơi", "Clear Clone Login", "Clear Session", "Thay đổi tăng exp", "CHECK RHB", "Cập nhật Thông báo", "Rương Huyền bí", "Rương Bạch ngân", "Bật/Tắt nhận quà", "gửi đồ", "gửi trang bị"});
+        Menu.doMenuArray(p, new String[]{"Bảo trì Server", "Khoá tài khoản người chơi", "Cập nhật BXH cao thủ", "Xem info map, vị trí", "Cộng Xu", "Cộng Lượng", "Cộng Yên", "Tăng level", "Tăng điểm tiềm năng", "Tăng kỹ năng", "Cập nhật DATA", "Đăng thông báo", "Kiểm tra số người chơi", "Clear Clone Login", "Clear Session", "Thay đổi tăng exp", "CHECK RHB", "Cập nhật Thông báo", "Rương Huyền bí", "Rương Bạch ngân", "Bật/Tắt nhận quà", "gửi đồ", "gửi trang bị", "thứ thân", "chủ thân"});
     }
 
     public static void mess_30_106(Player player){

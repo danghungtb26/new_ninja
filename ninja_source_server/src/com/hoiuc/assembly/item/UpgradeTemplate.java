@@ -1,5 +1,6 @@
 package com.hoiuc.assembly.item;
 
+import com.hoiuc.assembly.Item;
 import com.hoiuc.assembly.Option;
 import com.hoiuc.io.Util;
 
@@ -12,20 +13,30 @@ public class UpgradeTemplate {
     public static int[] percen = new int[] { 70, 60, 50, 40, 35, 30, 25, 20, 15, 12, 12, 10, 7, 5, 4,
             4 };
 
+    public static boolean shouldUpgrade(Item item, boolean vip) {
+        if (vip) {
+            return shouldUpgrade(getPercentForIncreament(item));
+        }
+
+        return shouldUpgrade(item.upgrade, vip);
+    }
+
     public static boolean shouldUpgrade(int upgrade, boolean vip) {
-        if (Util.isDebug()) {
+        if (Util.isDebug() && upgrade < 8) {
             return true;
         }
         int upPer = (int) (percen[upgrade] * (vip ? 1.2 : 1));
-        if (!vip && upgrade > 8) {
+        if (!vip && upgrade >= 8) {
             upPer = -1;
         }
-        if (upPer >= 100) return true;
+        if (upPer >= 100)
+            return true;
         return Util.nextInt(150) < upPer && upPer != -1;
     }
 
     public static boolean shouldUpgrade(int percent) {
-        if (percent >= 100) return true;
+        if (percent >= 100)
+            return true;
         return Util.nextInt(150) < percent;
     }
 
@@ -43,5 +54,31 @@ public class UpgradeTemplate {
 
     public static int daNangCapNguSac() {
         return 851;
+    }
+
+    public static int[] percen2 = new int[] { 50, 45, 40, 35, 30, 25, 20, 15, 10, 10, 8, 7, 6, 5, 4,
+            3 };
+
+    public static int getPercentForIncreament(Item item) {
+        int per = percen2[item.upgrade];
+        per += Math.max(0, Math.min(2, (item.quantityUpgrade))) * 1;
+
+        if (item.quantityUpgrade > 2)
+            per += Math.min(2, (item.quantityUpgrade - 2)) * 2;
+
+        if (item.quantityUpgrade > 4)
+            per += Math.min(2, (item.quantityUpgrade - 4)) * 3;
+
+        if (item.quantityUpgrade > 6)
+            per += Math.min(2, (item.quantityUpgrade - 6)) * 4;
+
+        if (item.quantityUpgrade > 8)
+            per += Math.min(2, (item.quantityUpgrade - 8)) * 4;
+
+        if (item.quantityUpgrade > 10) {
+            per += (item.quantityUpgrade - 10) * 5;
+        }
+
+        return per;
     }
 }

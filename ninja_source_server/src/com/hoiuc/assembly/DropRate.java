@@ -442,7 +442,7 @@ public class DropRate {
 
     // event
 
-    public static int countUseBB = 80000;
+    public static int countUseBB = 20000;
     public static int countUseRBN = 400000;
     public static int countUseRHB = 2000000;
     public static int countUseBanhPhongLoi = 8000;
@@ -467,19 +467,23 @@ public class DropRate {
             if (Server.manager.countVipBoxOpen % countUseBB == 0) {
                 return ItemTemplate.itemDefault(383, false);
             }
-            if (Server.manager.countVipBoxOpen % countUseBanhPhongLoi == 0) {
-                return ItemTemplate.itemDefault(308, false);
-            }
-            if (Server.manager.countVipBoxOpen % countUseBanhBanghoa == 0) {
-                return ItemTemplate.itemDefault(309, false);
+            if (Server.manager.event == 2) {
+                if (Server.manager.countVipBoxOpen % countUseBanhPhongLoi == 0) {
+                    return ItemTemplate.itemDefault(308, false);
+                }
+                if (Server.manager.countVipBoxOpen % countUseBanhBanghoa == 0) {
+                    return ItemTemplate.itemDefault(309, false);
+                }
             }
         } else {
             Server.manager.countNormalBoxOpen++;
             if ((Server.manager.countNormalBoxOpen % countUseBB) == 0) {
                 return ItemTemplate.itemDefault(383, false);
             }
-            if (Server.manager.countNormalBoxOpen % countUseBanhPhongLoi == 0) {
-                return ItemTemplate.itemDefault(308, false);
+            if (Server.manager.event == 2) {
+                if (Server.manager.countNormalBoxOpen % countUseBanhPhongLoi == 0) {
+                    return ItemTemplate.itemDefault(308, false);
+                }
             }
         }
         return null;
@@ -600,7 +604,6 @@ public class DropRate {
         items.add(new DropRate(452, 1));
         items.add(new DropRate(453, 1));
 
-
         return items;
     }
 
@@ -623,7 +626,6 @@ public class DropRate {
         items.add(new DropRate(337, 5));
         items.add(new DropRate(338, 5));
 
-         
         // đá mặt trăng
         items.add(new DropRate(UpgradeTemplate.daNangCap(), 1));
 
@@ -640,34 +642,36 @@ public class DropRate {
         items.add(new DropRate(570, 2));
         items.add(new DropRate(571, 2));
 
-       
-
         return generateDropItem(items);
     }
 
     public static void exprieItem(Item item) {
         switch (item.id) {
+            // chim tinh anh
+            case 419:
             // mặt nạ
+            case 407:
+            case 408:
             case 403:
             case 404:
-            // hakairo
+                // hakairo
             case 797:
-            // lân sư vũ
+                // lân sư vũ
             case 798:
-            // dơi
+                // dơi
             case 246:
-            // lồng đèn
+                // lồng đèn
             case 568:
             case 569:
             case 570:
             case 571:
-            // mặt nạ thỏ
+                // mặt nạ thỏ
             case 337:
             case 338:
-            // gây
+                // gây
             case 799:
             case 800:
-            // sói đen
+                // sói đen
             case 523: {
                 item.isExpires = true;
                 item.expires = Util.TimeDay(7);

@@ -168,9 +168,9 @@ public class Map {
         short j;
         TileMap tileMap;
         for (i = 15; i < this.area.length; ++i) {
-            if (i >= 29) {
-                break;
-            }
+            // if (i >= 29) {
+            //     break;
+            // }
             if (i == area) {
                 tileMap = this.area[i];
                 Mob mob;
@@ -192,9 +192,9 @@ public class Map {
         int i;
         TileMap tileMap;
         for (i = 15; i < this.area.length; ++i) {
-            if (i >= 29) {
-                break;
-            }
+            // if (i >= 29) {
+            //     break;
+            // }
             if (i == area) {
                 tileMap = this.area[i];
                 Mob mob;
@@ -225,9 +225,9 @@ public class Map {
         short j;
         TileMap tileMap;
         for (i = 0; i < this.area.length; ++i) {
-            if (i > 28) {
-                break;
-            }
+            // if (i > 28) {
+            //     break;
+            // }
             if (i == area) {
                 tileMap = this.area[i];
                 Mob mob;
@@ -250,15 +250,15 @@ public class Map {
         short j;
         TileMap tileMap;
         for (i = 0; i < this.area.length; ++i) {
-            if (i > 28) {
-                break;
-            }
+            // if (i > 28) {
+            //     break;
+            // }
             if (i == area) {
                 tileMap = this.area[i];
                 Mob mob;
                 for (j = 0; j < tileMap.mobs.size(); ++j) {
                     mob = tileMap.mobs.get(j);
-                    if (mob != null && mob.status == 0 && mob.isboss && mob.templates.id == id) {
+                    if (mob != null && mob.isboss && mob.templates.id == id) {
                         tileMap.refreshMob(mob.id);
                         System.out.println("Xuất hiện boss: " + mob.templates.name + ",  Map: " + this.template.name
                                 + ", Khu: " + area);

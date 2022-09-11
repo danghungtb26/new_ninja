@@ -1376,11 +1376,11 @@ public class TileMap {
 
                     long odhp = (long) p.c.hp;
                     if (fightChar.c.get().ReactDame() > Util.nextInt(1000)) {
-                        p.c.upHP(-dame / 10);
+                        p.c.get().upHP(-dame / 10);
                         this.attached((odhp - p.c.hp), p.c.id);
                     }
                     dame = Util.nextInt(dame * 90 / 100, dame);
-                    fightChar.upHP(-dame);
+                    fightChar.get().upHP(-dame);
                     this.attached((oldhp - fightChar.hp), fightChar.id);
                     if (fightChar.isDie) {
                         if (p.c.get().typepk == 1 || p.c.get().typepk == 3 || p.c.isCuuSat) {
@@ -1922,9 +1922,10 @@ public class TileMap {
                             Player pl;
                             for (miss = this.players.size() - 1; miss >= 0; miss--) {
                                 pl = this.players.get(miss);
-                                int lvl = pl.c.isNhanban ? pl.c.clone.level : pl.c.level;
+                                int lvl = pl.c.isNhanban ? pl.c.level : pl.c.level;
                                 // int id = pl.c.isNhanban ? pl.c.clone.id : pl.c.id;
-                                if (pl != null && pl.c != null && pl.c.id != _char.id && pl.c.party == _char.party
+                                if (pl != null && pl.c != null && pl.c.id != _char.id && pl.c.party != null
+                                        && pl.c.party.partyId == _char.party.partyId
                                         && Math.abs(lvl - _char.level) <= 10) {
                                     pl.updateExp(xpup * 13L / 100L);
                                 }
@@ -2146,9 +2147,6 @@ public class TileMap {
                                         if (Manager.up_exp > 1) {
                                             xpup *= (long) Manager.up_exp;
                                         }
-                                        if (p.c.get().level >= 10 && p.c.get().level < 70 && p.c.isHuman) {
-                                            xpup *= 2;
-                                        }
                                         if (this.map.cave != null) {
                                             this.map.cave.updateXP(xpup + xpup / 2L);
                                         } else {
@@ -2156,15 +2154,17 @@ public class TileMap {
                                                 xpup /= 4L;
                                             }
                                             p.updateExp(xpup);
-                                            if (p.c.get().party != null) {
+                                            if (p.c.party != null) {
                                                 Player player;
                                                 for (i2 = this.players.size() - 1; i2 >= 0; i2--) {
                                                     player = this.players.get(i2);
-                                                    int lvl = player.c.isNhanban ? player.c.clone.level
+                                                    int lvl = player.c.isNhanban ? player.c.level
                                                             : player.c.level;
                                                     // int id = player.c.isNhanban ? player.c.clone.id : player.c.id;
+                                                    
                                                     if (player != null && player.c != null && player.c.id != p.c.id
-                                                            && player.c.party == p.c.party
+                                                            && player.c.party != null
+                                                            && player.c.party.partyId == p.c.party.partyId
                                                             && Math.abs(lvl - p.c.level) <= 10) {
                                                         player.updateExp(xpup * 13L / 100L);
                                                     }
@@ -2519,7 +2519,7 @@ public class TileMap {
                     }
                 }
                 dame = Util.nextInt(dame * 90 / 100, dame);
-                fightChar.upHP(-dame);
+                fightChar.get().upHP(-dame);
                 this.attached((oldhp - fightChar.hp), fightChar.id);
                 if (fightChar.isDie) {
                     if (p.c.get().typepk == 1 || p.c.get().typepk == 3 || p.c.isCuuSat) {
@@ -3282,7 +3282,8 @@ public class TileMap {
                                                     }
                                                 }
                                             }
-                                            player.c.get().upHP(-dame);
+                                            dame = (long) (dame * 1.2);
+                                            player.c.get().upHP(dame);
                                             this.MobAtkMessage(mob.id, player.c, dame, mpdown, (short) -1, (byte) -1,
                                                     (byte) -1);
                                             if (!mob.isboss && mob.lvboss == 0) {
@@ -3672,13 +3673,13 @@ public class TileMap {
                                         1000, 1000, true);
                             }
                         }
-                        if (p.role == 0 || p.isAdmin() && System.currentTimeMillis() > p.c.delayEffect) {
-                            p.c.delayEffect = System.currentTimeMillis() + 3000L;
-                            for (k = this.players.size() - 1; k >= 0; k--) {
-                                GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 127,
-                                        1000, 1000, false);
-                            }
-                        }
+                        // if (p.role == 0 || p.isAdmin() && System.currentTimeMillis() > p.c.delayEffect) {
+                        //     p.c.delayEffect = System.currentTimeMillis() + 3000L;
+                        //     for (k = this.players.size() - 1; k >= 0; k--) {
+                        //         GameCanvas.addEffect((this.players.get(k)).conn, (byte) 0, p.c.get().id, (short) 127,
+                        //                 1000, 1000, false);
+                        //     }
+                        // }
                         if (p.role == 12 && System.currentTimeMillis() > p.c.delayEffect) {
                             p.c.delayEffect = System.currentTimeMillis() + 3000L;
                             for (k = this.players.size() - 1; k >= 0; k--) {

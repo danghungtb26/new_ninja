@@ -44,7 +44,7 @@ public class Party {
         synchronized (this.LOCK) {
             this.numPlayer = (byte)(this.numPlayer + 1);
             this.aChar.add(_char);
-            _char.get().party = this;
+            _char.party = this;
         }
     }
 

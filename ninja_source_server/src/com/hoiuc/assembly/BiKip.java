@@ -27,18 +27,15 @@ public class BiKip {
     public static int[] bikip = new int[] { 397, 398, 399, 400, 401, 402 };
 
     public static void nangCapBiKip(Player p, byte npcid, boolean vip) {
-        if (p.c.isNhanban) {
-            Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-            return;
-        }
+        
 
-        if (p.c.ItemBody[15] == null) {
+        if (p.c.get().ItemBody[15] == null) {
             Service.chatNPC(p, (short) npcid,
                     "Hãy đeo bí kíp vào người trước rồi nâng cấp nhé.");
             return;
         }
 
-        if (p.c.ItemBody[15].upgrade >= 16) {
+        if (p.c.get().ItemBody[15].upgrade >= 16) {
             Service.chatNPC(p, (short) npcid, "Bí kíp của con đã đạt cấp tối đa");
             return;
         }
@@ -49,12 +46,12 @@ public class BiKip {
             return;
         }
 
-        ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.ItemBody[15].id);
+        ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.get().ItemBody[15].id);
         Service.startYesNoDlg(p, (byte) (vip ? BIKIP_VIP_MESSAGE_ID : BIKIP_MESSAGE_ID),
                 "Bạn có muốn nâng cấp " + data.name
-                        + " với " + (int) (BiKip.yenUpgrade[p.c.ItemBody[15].upgrade] * 1000000)
+                        + " với " + (int) (BiKip.yenUpgrade[p.c.get().ItemBody[15].upgrade] * 1000000)
                         + " yên hoặc xu "
-                        + (vip ? ("và " + BiKip.luongUpgrade[p.c.ItemBody[15].upgrade] + " lượng") : "") + " không?");
+                        + (vip ? ("và " + BiKip.luongUpgrade[p.c.get().ItemBody[15].upgrade] + " lượng") : "") + " không?");
     }
 
     public static void nangbikip(Player p, Item item, boolean vip) throws IOException {
@@ -91,7 +88,7 @@ public class BiKip {
             }
             if (Util.nextInt(150) < upPer && upPer != -1) {
                 
-                Item itemup = ItemTemplate.itemDefault(p.c.ItemBody[15].id);
+                Item itemup = ItemTemplate.itemDefault(p.c.get().ItemBody[15].id);
                 itemup.options.clear();
                 p.c.removeItemBody((byte) 15);
                 itemup.quantity = 1;

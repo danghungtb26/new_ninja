@@ -1514,18 +1514,6 @@ public class UseItem {
                         } else if (Util.nextInt(5) != 0) {
                             p.updateExp(5000000L);
                         }
-                        // else if (Util.nextInt(8000) == 0) {
-                        // p.c.addItemBag(true, ItemTemplate.itemDefault(383, false));
-                        // }
-
-                        // else if (Util.nextInt(30000) == 0) {
-                        // p.c.addItemBag(true, ItemTemplate.itemDefault(384, false));
-                        // } else if (Util.nextInt(80000) == 0) {
-                        // p.c.addItemBag(true, ItemTemplate.itemDefault(385, false));
-                        // Manager.chatKTG("Người chơi " + p.c.name + " sử dụng " + data.name + " đã
-                        // nhận được "
-                        // + ItemTemplate.ItemTemplateId(385).name);
-                        // }
                         else {
                             short idI = UseItem.idItemDieuVai[Util.nextInt(UseItem.idItemDieuVai.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);

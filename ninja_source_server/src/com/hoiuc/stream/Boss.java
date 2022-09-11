@@ -197,7 +197,7 @@ public class Boss {
                 }
             }
 
-            if (Util.nextInt(100) < 2) {
+            if (Util.nextInt(80) < 2) {
                 switch (Util.nextInt(3)) {
                     case 0:
                         im = place.LeaveItem((short) 841, mob3.x, mob3.y, mob3.templates.type, true);
@@ -565,7 +565,7 @@ public class Boss {
         }
     }
 
-    public static void handleAfterBossPkDie(Char lasthitChar, Char topChar, int percen, TileMap map, Mob mob) {
+    public static synchronized void handleAfterBossPkDie(Char lasthitChar, Char topChar, int percen, TileMap map, Mob mob) {
         if (mob.isBossPK()) {
             leaveItemBOSS(map, mob, -1, new Boss(map.map.template.id, Enum.BOSS45));
             Service.chatKTG(topChar.name + " đã đấm boss " + mob.templates.name + " sml với " + percen + "% hp và "

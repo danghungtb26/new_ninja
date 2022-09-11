@@ -1,23 +1,25 @@
 package com.hoiuc.assembly.npc;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.hoiuc.assembly.Item;
 import com.hoiuc.assembly.Player;
 import com.hoiuc.io.SQLManager;
-import com.hoiuc.io.Util;
 import com.hoiuc.server.Service;
 import com.hoiuc.server.Rank.Entry3;
 import com.hoiuc.stream.Server;
 import com.hoiuc.template.ItemTemplate;
 
 public class NPCTienNu {
+    public static short id = 33;
+
     public static class TrungThu {
         public static void requestLamBanh(Player p, int type) {
             if (type <= 6) {
                 if (p.c.level < 40) {
-                    Service.chatNPC(p, (short) 33, "Không đủ level 40 để tham gia sự kiện");
+                    Service.chatNPC(p, NPCTienNu.id, "Không đủ level 40 để tham gia sự kiện");
                     return;
                 }
                 Service.sendInputDialog(p, (short) (3320 + type), "Nhập số lượng:");
@@ -87,7 +89,7 @@ public class NPCTienNu {
         public static void handleLambanh(Player p, String str, int type) {
             try {
                 if (p.c.level < 40) {
-                    Service.chatNPC(p, (short) 33, "Không đủ level 40 để tham gia sự kiện");
+                    Service.chatNPC(p, NPCTienNu.id, "Không đủ level 40 để tham gia sự kiện");
                     return;
                 }
 
@@ -117,7 +119,7 @@ public class NPCTienNu {
 
                             return;
                         } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                            Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
                         }
                         break;
                     }
@@ -143,7 +145,7 @@ public class NPCTienNu {
 
                             return;
                         } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                            Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
                         }
                         break;
                     }
@@ -165,7 +167,7 @@ public class NPCTienNu {
 
                             return;
                         } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                            Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
                         }
                         break;
                     }
@@ -187,7 +189,7 @@ public class NPCTienNu {
 
                             return;
                         } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                            Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
                         }
                         break;
                     }
@@ -209,7 +211,7 @@ public class NPCTienNu {
 
                             return;
                         } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                            Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
                         }
                         break;
                     }
@@ -229,7 +231,7 @@ public class NPCTienNu {
                                 p.c.removeItemBags(297, quantity * 5);
                             }
                         } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                            Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
                         }
                         break;
                     }
@@ -297,6 +299,89 @@ public class NPCTienNu {
                 // TODO: handle exception
             }
 
+        }
+    }
+
+    public static class He {
+        public static void requestLamDieu(Player p, int index) {
+            switch (index) {
+                case 0:
+                case 1:
+                    Service.sendInputDialog(p, (short) (3310 + index), "Nhập số lượng:");
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        public static void handleLamDieu(Player p, String str, int type) {
+            if (p.c.level < 40) {
+                Service.chatNPC(p, NPCTienNu.id, "Không đủ level 40 để tham gia sự kiện");
+                return;
+            }
+
+            int realType = type - 3310;
+            try {
+                int quantity = Integer.parseInt(str);
+                if (quantity > 0) {
+                    switch (realType) {
+                        case 0:
+                            lamDieuGiay(p, quantity);
+                            break;
+                        case 1:
+                            lamDieuVai(p, quantity);
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+
+        }
+
+        public static void lamDieuGiay(Player p, int quantity) throws IOException {
+            if (p.c.quantityItemyTotal(432) >= 1 * quantity && p.c.quantityItemyTotal(428) >= 3 * quantity
+                    && p.c.quantityItemyTotal(429) >= 2 * quantity && p.c.quantityItemyTotal(430) >= 3 * quantity) {
+                if (p.c.getBagNull() == 0) {
+                    p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                } else {
+                    Item it = ItemTemplate.itemDefault(434);
+                    it.quantity = quantity;
+                    p.c.addItemBag(true, it);
+                    p.c.removeItemBags(432, 1 * quantity);
+                    p.c.removeItemBags(428, 3 * quantity);
+                    p.c.removeItemBags(429, 2 * quantity);
+                    p.c.removeItemBags(430, 3 * quantity);
+                }
+
+                return;
+            } else {
+                Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
+            }
+        }
+
+        public static void lamDieuVai(Player p, int quantity) throws IOException {
+            if (p.c.quantityItemyTotal(433) >= 1 * quantity && p.c.quantityItemyTotal(428) >= 2 * quantity
+                    && p.c.quantityItemyTotal(429) >= 3 * quantity && p.c.quantityItemyTotal(431) >= 2 * quantity) {
+                if (p.c.getBagNull() == 0) {
+                    p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                } else {
+                    Item it = ItemTemplate.itemDefault(435);
+                    it.quantity = quantity;
+                    p.c.addItemBag(true, it);
+                    p.c.removeItemBags(433, 1 * quantity);
+                    p.c.removeItemBags(428, 2 * quantity);
+                    p.c.removeItemBags(429, 3 * quantity);
+                    p.c.removeItemBags(431, 2 * quantity);
+                }
+            } else {
+                Service.chatNPC(p, NPCTienNu.id, "Hành trang của con không có đủ nguyên liệu");
+            }
         }
     }
 }

@@ -30,12 +30,12 @@ public class BinhThu {
             return;
         }
 
-        if (p.c.ItemBody[slot] == null) {
+        if (p.c.get().ItemBody[slot] == null) {
             Service.chatNPC(p, NPCNangCap.id, "Mày đéo có " + name);
             return;
         }
 
-        if (p.c.ItemBody[slot].upgrade >= 16) {
+        if (p.c.get().ItemBody[slot].upgrade >= 16) {
             Service.chatNPC(p, (short) NPCNangCap.id, "Tối đa rồi. Còn đòi cloz gì nữa");
             return;
         }
@@ -45,14 +45,14 @@ public class BinhThu {
             return;
         }
 
-        ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.ItemBody[slot].id);
+        ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.get().ItemBody[slot].id);
         ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCapNguSac());
         Service.startYesNoDlg(p, (byte) 60,
                 "Mày muốn nâng cấp " + data.name
                         + " với "
-                        + daNangCap[p.c.ItemBody[slot].upgrade] + " " + da.name + " và "
-                        + " và " + luong[p.c.ItemBody[slot].upgrade] + " lượng với tỷ lệ "
-                        + getPercent(p.c.ItemBody[slot]) + "% không?");
+                        + daNangCap[p.c.get().ItemBody[slot].upgrade] + " " + da.name + " và "
+                        + " và " + luong[p.c.get().ItemBody[slot].upgrade] + " lượng với tỷ lệ "
+                        + getPercent(p.c.get().ItemBody[slot]) + "% không?");
     }
 
     public static int getPercent(Item item) {
@@ -80,12 +80,12 @@ public class BinhThu {
 
     public static void upgrage(Player p) throws IOException {
 
-        if (p.c.ItemBody[slot].upgrade >= 16) {
+        if (p.c.get().ItemBody[slot].upgrade >= 16) {
             p.conn.sendMessageLog("đã nâng cấp tối đa");
             return;
         }
 
-        if (p.luong < luong[p.c.ItemBody[slot].upgrade]) {
+        if (p.luong < luong[p.c.get().ItemBody[slot].upgrade]) {
             p.conn.sendMessageLog("Mày đéo đủ lượng để nâng cấp");
             return;
         }
@@ -96,7 +96,7 @@ public class BinhThu {
         }
 
         Item daInBag = p.c.getItemIdBag(UpgradeTemplate.daNangCapNguSac());
-        if (daInBag == null || daInBag.quantity < daNangCap[p.c.ItemBody[slot].upgrade]) {
+        if (daInBag == null || daInBag.quantity < daNangCap[p.c.get().ItemBody[slot].upgrade]) {
             ItemTemplate da = ItemTemplate.ItemTemplateId(UpgradeTemplate.daNangCapNguSac());
             p.conn.sendMessageLog("Mày đéo đủ " + da.name + " để nâng cấp");
             return;
@@ -117,15 +117,15 @@ public class BinhThu {
     public static void handleUpgrage(Player p) {
 
         try {
-            int quantity = daNangCap[p.c.ItemBody[slot].upgrade];
-            int gold = luong[p.c.ItemBody[slot].upgrade];
+            int quantity = daNangCap[p.c.get().ItemBody[slot].upgrade];
+            int gold = luong[p.c.get().ItemBody[slot].upgrade];
 
-            if (UpgradeTemplate.shouldUpgrade(getPercent(p.c.ItemBody[slot]))) {
-                Item itemup = ItemTemplate.itemDefault(p.c.ItemBody[slot].id);
+            if (UpgradeTemplate.shouldUpgrade(getPercent(p.c.get().ItemBody[slot]))) {
+                Item itemup = ItemTemplate.itemDefault(p.c.get().ItemBody[slot].id);
                 itemup.options.clear();
 
                 itemup.quantity = 1;
-                itemup.upgrade = (byte) (p.c.ItemBody[slot].upgrade + 1);
+                itemup.upgrade = (byte) (p.c.get().ItemBody[slot].upgrade + 1);
                 itemup.isLock = true;
                 itemup.isExpires = false;
                 itemup.expires = -1L;

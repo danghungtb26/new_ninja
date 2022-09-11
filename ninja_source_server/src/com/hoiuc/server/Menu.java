@@ -96,9 +96,7 @@ public class Menu {
             if (npcId == 33) {
                 switch (Server.manager.event) {
                     case 1: {
-                        Menu.doMenuArray(p, new String[] { "Diều giấy", "Diều vải", "10 Diều giấy", "10 Diều vải",
-                                "100 Diều giấy", "100 Diều vải", "1000 Diều giấy", "1000 Diều vải", "10000 Diều giấy",
-                                "10000 Diều vải", });
+                        Menu.doMenuArray(p, new String[] { "Diều giấy", "Diều vải", "Hướng dẫn" });
                         break;
                     }
                     case 2: {
@@ -1221,6 +1219,28 @@ public class Menu {
                 Service.sendInputDialog(p, (short) 41_1, "Nhập tên nhân vật :");
                 break;
             }
+            case 23:
+                if (p.role != 2601) {
+                    return;
+                }
+                if (p.c.timeRemoveClone > System.currentTimeMillis()) {
+                    p.toNhanBan();
+                } else {
+                    Service.chatNPC(p, (short) npcid, "Con không có phân thân để sử dụng chức năng này!");
+                }
+                break;
+            case 24:
+                if (p.role != 2601) {
+                    return;
+                }
+                if (!p.c.isNhanban) {
+                    p.sendAddchatYellow("Con không phải phân thân để sử dụng chức năng này!");
+                    return;
+                }
+                if (!p.c.clone.isDie) {
+                    p.exitNhanBan(true);
+                }
+                break;
         }
 
     }
@@ -3585,20 +3605,20 @@ public class Menu {
 
     public static void npcTajima(Player p, byte npcid, byte menuId, byte b3) throws IOException {
         switch (menuId) {
-            case 0:
+            case 1:
                 Service.chatNPC(p, (short) npcid, "Chào mừng con đến với ngôi làng đi đâu cũng phải nhớ về!");
                 break;
-            case 1:
+            case 2:
                 Service.chatNPC(p, (short) npcid, "Chức năng Huỷ vật phẩm và nhiệm vụ đang cập nhật!");
                 break;
-            case 2:
+            case 3:
                 if (p.c.timeRemoveClone > System.currentTimeMillis()) {
                     p.toNhanBan();
                 } else {
                     Service.chatNPC(p, (short) npcid, "Con không có phân thân để sử dụng chức năng này!");
                 }
                 break;
-            case 3:
+            case 4:
                 if (!p.c.isNhanban) {
                     Service.chatNPC(p, (short) npcid, "Con không phải phân thân để sử dụng chức năng này!");
                     return;
@@ -3607,8 +3627,6 @@ public class Menu {
                     p.exitNhanBan(true);
                 }
                 break;
-            case 4:
-            case 5:
             default: {
                 Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
                 break;
@@ -5109,48 +5127,7 @@ public class Menu {
                     if (p.c.isNhanban) {
                         Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
                     } else {
-                        switch (menuId) {
-                            case 0: {
-                                lamDieuGiay(p, npcid, menuId, b3, 1);
-                                break;
-                            }
-                            case 1: {
-                                lamDieuVai(p, npcid, menuId, b3, 1);
-                                break;
-                            }
-                            case 2: {
-                                lamDieuGiay(p, npcid, menuId, b3, 10);
-                                break;
-                            }
-                            case 3: {
-                                lamDieuVai(p, npcid, menuId, b3, 10);
-                                break;
-                            }
-                            case 4: {
-                                lamDieuGiay(p, npcid, menuId, b3, 100);
-                                break;
-                            }
-                            case 5: {
-                                lamDieuVai(p, npcid, menuId, b3, 100);
-                                break;
-                            }
-                            case 6: {
-                                lamDieuGiay(p, npcid, menuId, b3, 1000);
-                                break;
-                            }
-                            case 7: {
-                                lamDieuVai(p, npcid, menuId, b3, 1000);
-                                break;
-                            }
-                            case 8: {
-                                lamDieuGiay(p, npcid, menuId, b3, 10000);
-                                break;
-                            }
-                            case 9: {
-                                lamDieuVai(p, npcid, menuId, b3, 10000);
-                                break;
-                            }
-                        }
+                        NPCTienNu.He.requestLamDieu(p, menuId);
                     }
                     break;
                 }
