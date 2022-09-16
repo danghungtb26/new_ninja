@@ -1369,421 +1369,421 @@ public class Draw {
                         break;
                     }
                     case 1234: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("-") || check.equals("0")) {
-                            Service.chatNPC(p, (short) 36, "Giá trị coin nhập vào không đúng");
-                            break;
-                        }
-                        int luong = Integer.parseInt(str);
-                        try {
-                            ResultSet red = SQLManager.stat
-                                    .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
-                            if (red != null && red.first()) {
-                                int coin = Integer.parseInt(red.getString("coin"));
-                                if (luong <= p.luong) {
-                                    if (coin <= 0) {
-                                        p.lockAcc();
-                                    }
-                                    int coinnew = coin + (luong / 2);
-                                    p.upluongMessage(-luong);
-                                    SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + coinnew
-                                            + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                    p.flush();
-                                    red.close();
-                                } else {
-                                    p.conn.sendMessageLog("Bạn không đủ coin để đổi ra lượng.");
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi đổi coin.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("-") || check.equals("0")) {
+                        //     Service.chatNPC(p, (short) 36, "Giá trị coin nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int luong = Integer.parseInt(str);
+                        // try {
+                        //     ResultSet red = SQLManager.stat
+                        //             .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
+                        //     if (red != null && red.first()) {
+                        //         int coin = Integer.parseInt(red.getString("coin"));
+                        //         if (luong <= p.luong) {
+                        //             if (coin <= 0) {
+                        //                 p.lockAcc();
+                        //             }
+                        //             int coinnew = coin + (luong / 2);
+                        //             p.upluongMessage(-luong);
+                        //             SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + coinnew
+                        //                     + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //             p.flush();
+                        //             red.close();
+                        //         } else {
+                        //             p.conn.sendMessageLog("Bạn không đủ coin để đổi ra lượng.");
+                        //         }
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi đổi coin.");
+                        // }
                         break;
                     }
                     case 44_1_0: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
-                                || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 44, "Giá trị nhập vào không đúng");
-                            break;
-                        }
-                        int joincoinc = Integer.parseInt(str);
-                        try {
-                            if (joincoinc <= 0 || joincoinc % 10 != 0) {
-                                p.conn.sendMessageLog("?????");
-                                return;
-                            }
-                            if (joincoinc <= p.coin) {
-                                p.coin = p.coin - joincoinc;
-                                SQLManager.stat.executeUpdate(
-                                        "UPDATE `player` SET `coin`=" + p.coin + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
-                                int TimeSeconds = 15;
-                                while (TimeSeconds > 0) {
-                                    TimeSeconds--;
-                                    Thread.sleep(1000);
-                                }
-                                int x = (int) Util.nextInt(1, 9);
-                                int y = (int) Util.nextInt(1, 9);
-                                int z = (int) Util.nextInt(1, 9);
-                                int t = (int) Util.nextInt(1, 9);
-                                if ((x + y + z + t) % 2 != 0) {
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joincoinc + " coin vào Chẵn"
-                                                    + "\nKết quả : Lẻ"
-                                                    + "\nCòn cái nịt."
-                                                    + "\nSố coin hiện tại của bạn là : " + p.coin);
-                                    CheckCLCoin.checkCLCoinArrayList.add(new CheckCLCoin(p.c.name,
-                                            "Kết quả Lẻ (" + (x + y + z + t) + ") thua " + joincoinc + " coin",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
-                                            + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                    return;
-                                } else if ((x + y + z + t) % 2 == 0) {
-                                    p.coin = p.coin + joincoinc * 19 / 10;
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joincoinc + " coin vào Chẵn"
-                                                    + "\nKết quả : Chẵn"
-                                                    + "\nVề bờ"
-                                                    + "\nSố coin hiện tại của bạn là : " + p.coin);
-                                    CheckCLCoin.checkCLCoinArrayList
-                                            .add(new CheckCLCoin(
-                                                    p.c.name, "Kết quả Chẵn (" + (x + y + z + t) + ") ăn "
-                                                            + joincoinc * 19 / 10 + " coin",
-                                                    Util.toDateString(Date.from(Instant.now()))));
-                                    SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
-                                            + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                    return;
-                                }
-                            } else {
-                                p.conn.sendMessageLog("Bạn không đủ coin để chơi.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
+                        //         || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 44, "Giá trị nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int joincoinc = Integer.parseInt(str);
+                        // try {
+                        //     if (joincoinc <= 0 || joincoinc % 10 != 0) {
+                        //         p.conn.sendMessageLog("?????");
+                        //         return;
+                        //     }
+                        //     if (joincoinc <= p.coin) {
+                        //         p.coin = p.coin - joincoinc;
+                        //         SQLManager.stat.executeUpdate(
+                        //                 "UPDATE `player` SET `coin`=" + p.coin + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //         p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
+                        //         int TimeSeconds = 15;
+                        //         while (TimeSeconds > 0) {
+                        //             TimeSeconds--;
+                        //             Thread.sleep(1000);
+                        //         }
+                        //         int x = (int) Util.nextInt(1, 9);
+                        //         int y = (int) Util.nextInt(1, 9);
+                        //         int z = (int) Util.nextInt(1, 9);
+                        //         int t = (int) Util.nextInt(1, 9);
+                        //         if ((x + y + z + t) % 2 != 0) {
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joincoinc + " coin vào Chẵn"
+                        //                             + "\nKết quả : Lẻ"
+                        //                             + "\nCòn cái nịt."
+                        //                             + "\nSố coin hiện tại của bạn là : " + p.coin);
+                        //             CheckCLCoin.checkCLCoinArrayList.add(new CheckCLCoin(p.c.name,
+                        //                     "Kết quả Lẻ (" + (x + y + z + t) + ") thua " + joincoinc + " coin",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
+                        //                     + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //             return;
+                        //         } else if ((x + y + z + t) % 2 == 0) {
+                        //             p.coin = p.coin + joincoinc * 19 / 10;
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joincoinc + " coin vào Chẵn"
+                        //                             + "\nKết quả : Chẵn"
+                        //                             + "\nVề bờ"
+                        //                             + "\nSố coin hiện tại của bạn là : " + p.coin);
+                        //             CheckCLCoin.checkCLCoinArrayList
+                        //                     .add(new CheckCLCoin(
+                        //                             p.c.name, "Kết quả Chẵn (" + (x + y + z + t) + ") ăn "
+                        //                                     + joincoinc * 19 / 10 + " coin",
+                        //                             Util.toDateString(Date.from(Instant.now()))));
+                        //             SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
+                        //                     + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //             return;
+                        //         }
+                        //     } else {
+                        //         p.conn.sendMessageLog("Bạn không đủ coin để chơi.");
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi.");
+                        // }
                         break;
                     }
                     case 44_1_1: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
-                                || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 44, "Giá trị nhập vào không đúng");
-                            break;
-                        }
-                        int joincoinl = Integer.parseInt(str);
-                        try {
-                            if (joincoinl <= 0 || joincoinl % 10 != 0) {
-                                p.conn.sendMessageLog("?????");
-                                return;
-                            }
-                            if (joincoinl <= p.coin) {
-                                p.coin = p.coin - joincoinl;
-                                SQLManager.stat.executeUpdate(
-                                        "UPDATE `player` SET `coin`=" + p.coin + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
-                                int TimeSeconds = 15;
-                                while (TimeSeconds > 0) {
-                                    TimeSeconds--;
-                                    Thread.sleep(1000);
-                                }
-                                int x = (int) Util.nextInt(1, 9);
-                                int y = (int) Util.nextInt(1, 9);
-                                int z = (int) Util.nextInt(1, 9);
-                                int t = (int) Util.nextInt(1, 9);
-                                if ((x + y + z + t) % 2 == 0) {
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joincoinl + " coin vào Lẻ"
-                                                    + "\nKết quả : Chẵn"
-                                                    + "\nCòn cái nịt."
-                                                    + "\nSố coin hiện tại của bạn là : " + p.coin);
-                                    CheckCLCoin.checkCLCoinArrayList.add(new CheckCLCoin(p.c.name,
-                                            "Kết quả Chẵn (" + (x + y + z + t) + ") thua " + joincoinl + " coin",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
-                                            + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                    return;
-                                } else if ((x + y + z + t) % 2 != 0) {
-                                    p.coin = p.coin + joincoinl * 19 / 10;
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joincoinl + " coin vào Lẻ"
-                                                    + "\nKết quả : Lẻ"
-                                                    + "\nVề bờ"
-                                                    + "\nSố coin hiện tại của bạn là : " + p.coin);
-                                    CheckCLCoin.checkCLCoinArrayList.add(new CheckCLCoin(p.c.name,
-                                            "Kết quả Lẻ (" + (x + y + z + t) + ") ăn " + joincoinl * 19 / 10 + " coin",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
-                                            + " WHERE `id`=" + p.id + " LIMIT 1;");
-                                    return;
-                                }
-                            } else {
-                                p.conn.sendMessageLog("Bạn không đủ coin để chơi.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
+                        //         || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 44, "Giá trị nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int joincoinl = Integer.parseInt(str);
+                        // try {
+                        //     if (joincoinl <= 0 || joincoinl % 10 != 0) {
+                        //         p.conn.sendMessageLog("?????");
+                        //         return;
+                        //     }
+                        //     if (joincoinl <= p.coin) {
+                        //         p.coin = p.coin - joincoinl;
+                        //         SQLManager.stat.executeUpdate(
+                        //                 "UPDATE `player` SET `coin`=" + p.coin + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //         p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
+                        //         int TimeSeconds = 15;
+                        //         while (TimeSeconds > 0) {
+                        //             TimeSeconds--;
+                        //             Thread.sleep(1000);
+                        //         }
+                        //         int x = (int) Util.nextInt(1, 9);
+                        //         int y = (int) Util.nextInt(1, 9);
+                        //         int z = (int) Util.nextInt(1, 9);
+                        //         int t = (int) Util.nextInt(1, 9);
+                        //         if ((x + y + z + t) % 2 == 0) {
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joincoinl + " coin vào Lẻ"
+                        //                             + "\nKết quả : Chẵn"
+                        //                             + "\nCòn cái nịt."
+                        //                             + "\nSố coin hiện tại của bạn là : " + p.coin);
+                        //             CheckCLCoin.checkCLCoinArrayList.add(new CheckCLCoin(p.c.name,
+                        //                     "Kết quả Chẵn (" + (x + y + z + t) + ") thua " + joincoinl + " coin",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
+                        //                     + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //             return;
+                        //         } else if ((x + y + z + t) % 2 != 0) {
+                        //             p.coin = p.coin + joincoinl * 19 / 10;
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joincoinl + " coin vào Lẻ"
+                        //                             + "\nKết quả : Lẻ"
+                        //                             + "\nVề bờ"
+                        //                             + "\nSố coin hiện tại của bạn là : " + p.coin);
+                        //             CheckCLCoin.checkCLCoinArrayList.add(new CheckCLCoin(p.c.name,
+                        //                     "Kết quả Lẻ (" + (x + y + z + t) + ") ăn " + joincoinl * 19 / 10 + " coin",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + p.coin
+                        //                     + " WHERE `id`=" + p.id + " LIMIT 1;");
+                        //             return;
+                        //         }
+                        //     } else {
+                        //         p.conn.sendMessageLog("Bạn không đủ coin để chơi.");
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi.");
+                        // }
                         break;
                     }
                     case 45_0_0: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
-                                || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
-                            break;
-                        }
-                        int joinluongt = Integer.parseInt(str);
-                        try {
-                            if (joinluongt <= 0 || joinluongt % 10 != 0) {
-                                p.conn.sendMessageLog("?????");
-                                return;
-                            }
-                            if (joinluongt <= p.luong) {
-                                p.upluongMessage(-joinluongt);
-                                int TimeSeconds = 15;
-                                p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
-                                while (TimeSeconds > 0) {
-                                    TimeSeconds--;
-                                    Thread.sleep(1000);
-                                }
-                                int x = (int) Util.nextInt(1, 6);
-                                int y = (int) Util.nextInt(1, 6);
-                                int z = (int) Util.nextInt(1, 6);
-                                if (4 <= (x + y + z) && (x + y + z) <= 10) {
-                                    Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
-                                            + "\nTổng là : " + (x + y + z)
-                                            + "\nBạn đã cược : " + joinluongt + " lượng vào Tài"
-                                            + "\nKết quả : Xỉu"
-                                            + "\nCòn cái nịt.");
-                                    CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
-                                            "Kết quả Xỉu (" + (x + y + z) + ") thua " + joinluongt + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                } else if (x == y && x == z) {
-                                    Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
-                                            + "\nTổng là : " + (x + y + z)
-                                            + "\nBạn đã cược : " + joinluongt + " lượng vào Tài"
-                                            + "\nKết quả : Tam hoa"
-                                            + "\nCòn cái nịt.");
-                                    CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
-                                            "Kết quả Tam Hoa (" + (x + y + z) + ") thua " + joinluongt + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                } else if ((x + y + z) > 10) {
-                                    p.upluongMessage(joinluongt * 19 / 10);
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra là : " + x + " " + y + " " + z
-                                                    + "\nTổng là : " + (x + y + z)
-                                                    + "\nBạn đã cược : " + joinluongt + " lượng vào Tài"
-                                                    + "\nKết quả : Tài"
-                                                    + "\nVề bờ");
-                                    CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
-                                            "Kết quả Tài (" + (x + y + z) + ") ăn " + joinluongt * 19 / 10 + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                }
-                            } else {
-                                p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
+                        //         || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int joinluongt = Integer.parseInt(str);
+                        // try {
+                        //     if (joinluongt <= 0 || joinluongt % 10 != 0) {
+                        //         p.conn.sendMessageLog("?????");
+                        //         return;
+                        //     }
+                        //     if (joinluongt <= p.luong) {
+                        //         p.upluongMessage(-joinluongt);
+                        //         int TimeSeconds = 15;
+                        //         p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
+                        //         while (TimeSeconds > 0) {
+                        //             TimeSeconds--;
+                        //             Thread.sleep(1000);
+                        //         }
+                        //         int x = (int) Util.nextInt(1, 6);
+                        //         int y = (int) Util.nextInt(1, 6);
+                        //         int z = (int) Util.nextInt(1, 6);
+                        //         if (4 <= (x + y + z) && (x + y + z) <= 10) {
+                        //             Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
+                        //                     + "\nTổng là : " + (x + y + z)
+                        //                     + "\nBạn đã cược : " + joinluongt + " lượng vào Tài"
+                        //                     + "\nKết quả : Xỉu"
+                        //                     + "\nCòn cái nịt.");
+                        //             CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
+                        //                     "Kết quả Xỉu (" + (x + y + z) + ") thua " + joinluongt + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         } else if (x == y && x == z) {
+                        //             Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
+                        //                     + "\nTổng là : " + (x + y + z)
+                        //                     + "\nBạn đã cược : " + joinluongt + " lượng vào Tài"
+                        //                     + "\nKết quả : Tam hoa"
+                        //                     + "\nCòn cái nịt.");
+                        //             CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
+                        //                     "Kết quả Tam Hoa (" + (x + y + z) + ") thua " + joinluongt + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         } else if ((x + y + z) > 10) {
+                        //             p.upluongMessage(joinluongt * 19 / 10);
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra là : " + x + " " + y + " " + z
+                        //                             + "\nTổng là : " + (x + y + z)
+                        //                             + "\nBạn đã cược : " + joinluongt + " lượng vào Tài"
+                        //                             + "\nKết quả : Tài"
+                        //                             + "\nVề bờ");
+                        //             CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
+                        //                     "Kết quả Tài (" + (x + y + z) + ") ăn " + joinluongt * 19 / 10 + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         }
+                        //     } else {
+                        //         p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi.");
+                        // }
                         break;
                     }
                     case 45_0_1: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
-                                || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
-                            break;
-                        }
-                        int joinluongx = Integer.parseInt(str);
-                        try {
-                            if (joinluongx <= 0 || joinluongx % 10 != 0) {
-                                p.conn.sendMessageLog("?????");
-                                return;
-                            }
-                            if (joinluongx <= p.luong) {
-                                p.upluongMessage(-joinluongx);
-                                p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
-                                int TimeSeconds = 15;
-                                while (TimeSeconds > 0) {
-                                    TimeSeconds--;
-                                    Thread.sleep(1000);
-                                }
-                                int x = (int) Util.nextInt(1, 6);
-                                int y = (int) Util.nextInt(1, 6);
-                                int z = (int) Util.nextInt(1, 6);
-                                if (4 > (x + y + z) || (x + y + z) > 10) {
-                                    Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
-                                            + "\nTổng là : " + (x + y + z)
-                                            + "\nBạn đã cược : " + joinluongx + " lượng vào Xỉu"
-                                            + "\nKết quả : Tài"
-                                            + "\nCòn cái nịt.");
-                                    CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
-                                            "Kết quả Tài (" + (x + y + z) + ") thua " + joinluongx + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                } else if (x == y && x == z) {
-                                    Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
-                                            + "\nTổng là : " + (x + y + z)
-                                            + "\nBạn đã cược : " + joinluongx + " lượng vào Xỉu"
-                                            + "\nKết quả : Tam hoa"
-                                            + "\nCòn cái nịt.");
-                                    CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
-                                            "Kết quả Tam Hoa (" + (x + y + z) + ") thua " + joinluongx + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                } else if ((x + y + z) <= 10 && (x + y + z) >= 4) {
-                                    p.upluongMessage(joinluongx * 19 / 10);
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra là : " + x + " " + y + " " + z
-                                                    + "\nTổng là : " + (x + y + z)
-                                                    + "\nBạn đã cược : " + joinluongx + " lượng vào Xỉu"
-                                                    + "\nKết quả : Xỉu"
-                                                    + "\nVề bờ");
-                                    CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
-                                            "Kết quả Xỉu (" + (x + y + z) + ") ăn " + joinluongx * 19 / 10 + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
+                        //         || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int joinluongx = Integer.parseInt(str);
+                        // try {
+                        //     if (joinluongx <= 0 || joinluongx % 10 != 0) {
+                        //         p.conn.sendMessageLog("?????");
+                        //         return;
+                        //     }
+                        //     if (joinluongx <= p.luong) {
+                        //         p.upluongMessage(-joinluongx);
+                        //         p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
+                        //         int TimeSeconds = 15;
+                        //         while (TimeSeconds > 0) {
+                        //             TimeSeconds--;
+                        //             Thread.sleep(1000);
+                        //         }
+                        //         int x = (int) Util.nextInt(1, 6);
+                        //         int y = (int) Util.nextInt(1, 6);
+                        //         int z = (int) Util.nextInt(1, 6);
+                        //         if (4 > (x + y + z) || (x + y + z) > 10) {
+                        //             Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
+                        //                     + "\nTổng là : " + (x + y + z)
+                        //                     + "\nBạn đã cược : " + joinluongx + " lượng vào Xỉu"
+                        //                     + "\nKết quả : Tài"
+                        //                     + "\nCòn cái nịt.");
+                        //             CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
+                        //                     "Kết quả Tài (" + (x + y + z) + ") thua " + joinluongx + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         } else if (x == y && x == z) {
+                        //             Server.manager.sendTB(p, "Kết quả", "Số hệ thống quay ra : " + x + " " + y + " " + z
+                        //                     + "\nTổng là : " + (x + y + z)
+                        //                     + "\nBạn đã cược : " + joinluongx + " lượng vào Xỉu"
+                        //                     + "\nKết quả : Tam hoa"
+                        //                     + "\nCòn cái nịt.");
+                        //             CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
+                        //                     "Kết quả Tam Hoa (" + (x + y + z) + ") thua " + joinluongx + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         } else if ((x + y + z) <= 10 && (x + y + z) >= 4) {
+                        //             p.upluongMessage(joinluongx * 19 / 10);
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra là : " + x + " " + y + " " + z
+                        //                             + "\nTổng là : " + (x + y + z)
+                        //                             + "\nBạn đã cược : " + joinluongx + " lượng vào Xỉu"
+                        //                             + "\nKết quả : Xỉu"
+                        //                             + "\nVề bờ");
+                        //             CheckTXLuong.checkTXLuongArrayList.add(new CheckTXLuong(p.c.name,
+                        //                     "Kết quả Xỉu (" + (x + y + z) + ") ăn " + joinluongx * 19 / 10 + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
 
-                                    return;
-                                }
-                            } else {
-                                p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi.");
-                        }
+                        //             return;
+                        //         }
+                        //     } else {
+                        //         p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi.");
+                        // }
                         break;
                     }
                     case 45_1_0: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
-                                || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
-                            break;
-                        }
-                        int joinluongc = Integer.parseInt(str);
-                        try {
-                            if (joinluongc <= 0 || joinluongc % 10 != 0) {
-                                p.conn.sendMessageLog("?????");
-                                return;
-                            }
-                            if (joinluongc <= p.luong) {
-                                p.upluongMessage(-joinluongc);
-                                p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
-                                int TimeSeconds = 15;
-                                while (TimeSeconds > 0) {
-                                    TimeSeconds--;
-                                    Thread.sleep(1000);
-                                }
-                                int x = (int) Util.nextInt(1, 9);
-                                int y = (int) Util.nextInt(1, 9);
-                                int z = (int) Util.nextInt(1, 9);
-                                int t = (int) Util.nextInt(1, 9);
-                                if ((x + y + z + t) % 2 != 0) {
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joinluongc + " lượng vào Chẵn"
-                                                    + "\nKết quả : Lẻ"
-                                                    + "\nCòn cái nịt.");
-                                    CheckCLLuong.checkCLLuongArrayList.add(new CheckCLLuong(p.c.name,
-                                            "Kết quả Lẻ (" + (x + y + z + t) + ") thua " + joinluongc + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                } else if ((x + y + z + t) % 2 == 0) {
-                                    p.upluongMessage(joinluongc * 19 / 10);
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joinluongc + " lượng vào Chẵn"
-                                                    + "\nKết quả : Chẵn"
-                                                    + "\nVề bờ");
-                                    CheckCLLuong.checkCLLuongArrayList.add(new CheckCLLuong(
-                                            p.c.name, "Kết quả Chẵn (" + (x + y + z + t) + ") ăn "
-                                                    + joinluongc * 19 / 10 + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                }
-                            } else {
-                                p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
+                        //         || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int joinluongc = Integer.parseInt(str);
+                        // try {
+                        //     if (joinluongc <= 0 || joinluongc % 10 != 0) {
+                        //         p.conn.sendMessageLog("?????");
+                        //         return;
+                        //     }
+                        //     if (joinluongc <= p.luong) {
+                        //         p.upluongMessage(-joinluongc);
+                        //         p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
+                        //         int TimeSeconds = 15;
+                        //         while (TimeSeconds > 0) {
+                        //             TimeSeconds--;
+                        //             Thread.sleep(1000);
+                        //         }
+                        //         int x = (int) Util.nextInt(1, 9);
+                        //         int y = (int) Util.nextInt(1, 9);
+                        //         int z = (int) Util.nextInt(1, 9);
+                        //         int t = (int) Util.nextInt(1, 9);
+                        //         if ((x + y + z + t) % 2 != 0) {
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joinluongc + " lượng vào Chẵn"
+                        //                             + "\nKết quả : Lẻ"
+                        //                             + "\nCòn cái nịt.");
+                        //             CheckCLLuong.checkCLLuongArrayList.add(new CheckCLLuong(p.c.name,
+                        //                     "Kết quả Lẻ (" + (x + y + z + t) + ") thua " + joinluongc + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         } else if ((x + y + z + t) % 2 == 0) {
+                        //             p.upluongMessage(joinluongc * 19 / 10);
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joinluongc + " lượng vào Chẵn"
+                        //                             + "\nKết quả : Chẵn"
+                        //                             + "\nVề bờ");
+                        //             CheckCLLuong.checkCLLuongArrayList.add(new CheckCLLuong(
+                        //                     p.c.name, "Kết quả Chẵn (" + (x + y + z + t) + ") ăn "
+                        //                             + joinluongc * 19 / 10 + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         }
+                        //     } else {
+                        //         p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi.");
+                        // }
                         break;
                     }
                     case 45_1_1: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
-                                || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
-                            break;
-                        }
-                        int joinluongl = Integer.parseInt(str);
-                        try {
-                            if (joinluongl <= 0 || joinluongl % 10 != 0) {
-                                p.conn.sendMessageLog("?????");
-                                return;
-                            }
-                            if (joinluongl <= p.luong) {
-                                p.upluongMessage(-joinluongl);
-                                p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
-                                int TimeSeconds = 15;
-                                while (TimeSeconds > 0) {
-                                    TimeSeconds--;
-                                    Thread.sleep(1000);
-                                }
-                                int x = (int) Util.nextInt(1, 9);
-                                int y = (int) Util.nextInt(1, 9);
-                                int z = (int) Util.nextInt(1, 9);
-                                int t = (int) Util.nextInt(1, 9);
-                                if ((x + y + z + t) % 2 == 0) {
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joinluongl + " lượng vào Lẻ"
-                                                    + "\nKết quả : Chẵn"
-                                                    + "\nCòn cái nịt.");
-                                    CheckCLLuong.checkCLLuongArrayList.add(new CheckCLLuong(p.c.name,
-                                            "Kết quả Chẵn (" + (x + y + z + t) + ") thua " + joinluongl + " lượng",
-                                            Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                } else if ((x + y + z + t) % 2 != 0) {
-                                    p.upluongMessage(joinluongl * 19 / 10);
-                                    Server.manager.sendTB(p, "Kết quả",
-                                            "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
-                                                    + "\nTổng là : " + (x + y + z + t)
-                                                    + "\nBạn đã cược : " + joinluongl + " lượng vào Lẻ"
-                                                    + "\nKết quả : Lẻ"
-                                                    + "\nVề bờ");
-                                    CheckCLLuong.checkCLLuongArrayList
-                                            .add(new CheckCLLuong(
-                                                    p.c.name, "Kết quả Lẻ (" + (x + y + z + t) + ") ăn "
-                                                            + joinluongl * 19 / 10 + " lượng",
-                                                    Util.toDateString(Date.from(Instant.now()))));
-                                    return;
-                                }
-                            } else {
-                                p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || check.equals("0")
+                        //         || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 45, "Giá trị nhập vào không đúng");
+                        //     break;
+                        // }
+                        // int joinluongl = Integer.parseInt(str);
+                        // try {
+                        //     if (joinluongl <= 0 || joinluongl % 10 != 0) {
+                        //         p.conn.sendMessageLog("?????");
+                        //         return;
+                        //     }
+                        //     if (joinluongl <= p.luong) {
+                        //         p.upluongMessage(-joinluongl);
+                        //         p.conn.sendMessageLog("Chờ 15 giây để biết kết quả.");
+                        //         int TimeSeconds = 15;
+                        //         while (TimeSeconds > 0) {
+                        //             TimeSeconds--;
+                        //             Thread.sleep(1000);
+                        //         }
+                        //         int x = (int) Util.nextInt(1, 9);
+                        //         int y = (int) Util.nextInt(1, 9);
+                        //         int z = (int) Util.nextInt(1, 9);
+                        //         int t = (int) Util.nextInt(1, 9);
+                        //         if ((x + y + z + t) % 2 == 0) {
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joinluongl + " lượng vào Lẻ"
+                        //                             + "\nKết quả : Chẵn"
+                        //                             + "\nCòn cái nịt.");
+                        //             CheckCLLuong.checkCLLuongArrayList.add(new CheckCLLuong(p.c.name,
+                        //                     "Kết quả Chẵn (" + (x + y + z + t) + ") thua " + joinluongl + " lượng",
+                        //                     Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         } else if ((x + y + z + t) % 2 != 0) {
+                        //             p.upluongMessage(joinluongl * 19 / 10);
+                        //             Server.manager.sendTB(p, "Kết quả",
+                        //                     "Số hệ thống quay ra là : " + x + " " + y + " " + z + " " + t
+                        //                             + "\nTổng là : " + (x + y + z + t)
+                        //                             + "\nBạn đã cược : " + joinluongl + " lượng vào Lẻ"
+                        //                             + "\nKết quả : Lẻ"
+                        //                             + "\nVề bờ");
+                        //             CheckCLLuong.checkCLLuongArrayList
+                        //                     .add(new CheckCLLuong(
+                        //                             p.c.name, "Kết quả Lẻ (" + (x + y + z + t) + ") ăn "
+                        //                                     + joinluongl * 19 / 10 + " lượng",
+                        //                             Util.toDateString(Date.from(Instant.now()))));
+                        //             return;
+                        //         }
+                        //     } else {
+                        //         p.conn.sendMessageLog("Bạn không đủ lượng để chơi.");
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi.");
+                        // }
                         break;
                     }
                     // Send Xu
@@ -2005,35 +2005,35 @@ public class Draw {
                     }
                     // Đổi coin => lượng
                     case 9: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("")) {
-                            Service.chatNPC(p, (short) 36, "Giá trị coin nhập vào không đúng");
-                            break;
-                        }
-                        long coin = Integer.parseInt(str);
-                        try {
-                            ResultSet red = SQLManager.stat
-                                    .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
-                            if (red != null && red.first()) {
-                                int coinP = Integer.parseInt(red.getString("coin"));
-                                if (coin <= coinP) {
-                                    if (coin <= 0) {
-                                        p.lockAcc();
-                                    }
-                                    coinP -= coin;
-                                    p.upluongMessage(coin);
-                                    SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + coinP + " WHERE `id`="
-                                            + p.id + " LIMIT 1;");
-                                } else {
-                                    p.conn.sendMessageLog("Bạn không đủ coin để đổi ra lượng.");
-                                }
-                                p.flush();
-                                red.close();
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            p.conn.sendMessageLog("Lỗi đổi coin.");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("")) {
+                        //     Service.chatNPC(p, (short) 36, "Giá trị coin nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long coin = Integer.parseInt(str);
+                        // try {
+                        //     ResultSet red = SQLManager.stat
+                        //             .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
+                        //     if (red != null && red.first()) {
+                        //         int coinP = Integer.parseInt(red.getString("coin"));
+                        //         if (coin <= coinP) {
+                        //             if (coin <= 0) {
+                        //                 p.lockAcc();
+                        //             }
+                        //             coinP -= coin;
+                        //             p.upluongMessage(coin);
+                        //             SQLManager.stat.executeUpdate("UPDATE `player` SET `coin`=" + coinP + " WHERE `id`="
+                        //                     + p.id + " LIMIT 1;");
+                        //         } else {
+                        //             p.conn.sendMessageLog("Bạn không đủ coin để đổi ra lượng.");
+                        //         }
+                        //         p.flush();
+                        //         red.close();
+                        //     }
+                        // } catch (Exception e) {
+                        //     e.printStackTrace();
+                        //     p.conn.sendMessageLog("Lỗi đổi coin.");
+                        // }
                         break;
                     }
                     case 50: {

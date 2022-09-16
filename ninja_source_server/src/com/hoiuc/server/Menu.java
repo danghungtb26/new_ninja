@@ -784,7 +784,7 @@ public class Menu {
                         }
                         // Mảnh top vk
                     case 839: {
-                        Menu.menuDoiVK(p, npcId, menuId, b3);
+                        // Menu.menuDoiVK(p, npcId, menuId, b3);
                         break;
                     }
                     case 9999: {
@@ -1261,258 +1261,6 @@ public class Menu {
 
     }
 
-    public static void npcThanMeo(Player p, byte npcid, byte menuId, byte b3) {
-        int[] bk = { 0, 397, 398, 399, 400, 401, 402 };
-
-        switch (menuId) {
-            case 0: {
-                if (p.c.isNhanban) {
-                    p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
-                    return;
-                }
-                if (p.c.getBagNull() < 1) {
-                    p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                    return;
-                }
-                if (p.luong < 30000) {
-                    p.conn.sendMessageLog("Hành trang không đủ 30000 lượng");
-                    return;
-                }
-                if (p.c.get().nclass == 0) {
-                    Service.chatNPC(p, (short) npcid, "Trùm chưa nhập học để nhận bí kíp");
-                    return;
-                }
-                if (p.c.get().nclass > 0) {
-                    Item itemup = ItemTemplate.itemDefault(bk[p.c.get().nclass]);
-                    Option op = new Option(6, (int) Util.nextInt(1, 10000));
-                    itemup.options.add(op);
-                    op = new Option(73, (int) Util.nextInt(1, 6000));
-                    itemup.options.add(op);
-                    op = new Option(69, (int) Util.nextInt(1, 50));
-                    itemup.options.add(op);
-                    op = new Option(81, (int) Util.nextInt(1, 500));
-                    itemup.options.add(op);
-                    op = new Option(119, (int) Util.nextInt(1, 5000));
-                    itemup.options.add(op);
-                    op = new Option(120, (int) Util.nextInt(1, 5000));
-                    itemup.options.add(op);
-                    op = new Option(58, (int) Util.nextInt(1, 25));
-                    itemup.options.add(op);
-                    op = new Option(68, (int) Util.nextInt(1, 500));
-                    itemup.options.add(op);
-
-                    itemup.sys = p.c.getSys();
-
-                    p.c.addItemBag(false, itemup);
-                    p.upluongMessage(-30000);
-                    break;
-                }
-            }
-            /*
-             * case 1: {
-             * if (p.c.isNhanban) {
-             * Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-             * return;
-             * }
-             * Item itemup = p.c.ItemBody[15];
-             * if((itemup == null)){
-             * p.conn.sendMessageLog("Bạn chưa mang bí kíp");
-             * return;
-             * }
-             * if(p.c.quantityItemyTotal(530) < 1000){
-             * p.conn.sendMessageLog("Bạn không có 1000 linh thạch");
-             * return;
-             * }
-             * if(itemup.upgrade == 16) {
-             * p.conn.sendMessageLog("Bí Kíp đã đạt cấp độ tối đa");
-             * return;
-             * }
-             * int[] xu = new int[16];
-             * xu[0] = 10000000;
-             * for(byte i = 1; i < 16; i++) {
-             * xu[i] = xu[i - 1] + 10000000;
-             * }
-             * if(p.c.xu < xu[itemup.upgrade]){
-             * p.conn.sendMessageLog("Bạn không đủ " + xu[itemup.upgrade] +
-             * " xu để nâng cấp bí kíp");
-             * return;
-             * }
-             * p.c.upxuMessage(-(xu[itemup.upgrade]));
-             * p.c.removeItemBody((byte)15);
-             * for (int i = 530; i <=530 ; i++) {
-             * if (p.c.getIndexBagid(i, false) != -1000) {
-             * p.c.removeItemBag(p.c.getIndexBagid(i, false), 1000);
-             * } else {
-             * p.c.removeItemBag(p.c.getIndexBagid(i, true), 1000);
-             * }
-             * }
-             * itemup.ncBK((byte)1);
-             * p.c.addItemBag(false, itemup);
-             * break;
-             * }
-             */
-            case 1: {
-                Server.manager.sendTB(p, "Bí Kíp", ">Bí kíp max chỉ số<\n"
-                        + "Hp tối đa: 1 đến 10000\n"
-                        + "Tấn công: 1 đến 6000\n"
-                        + "Chí mạng: 1 đến 50\n"
-                        + "Kháng tất cả: 1 đến 500\n"
-                        + "Hồi hp, mp mỗi 5 giây: 1 đến 5000\n"
-                        + "Cộng thêm tiềm năng: 1 đến 25%\n"
-                        + "Né đòn: 1 đến 500\n");
-                break;
-            }
-        }
-    }
-
-    // thêm public trong menu
-    public static void luyenma(Player p, byte npcid, byte menuId, byte b3) throws IOException, InterruptedException {
-        switch (menuId) {
-            case 0: {
-                switch (b3) {
-                    case 0: {
-                        if (p.c.vip < 6) {
-                            Service.chatNPC(p, (short) npcid, "pro đã nạp vip 6 chưa!");
-                            break;
-
-                        }
-                        Map ma = Manager.getMapid(75);
-                        TileMap area;
-                        int var8;
-                        for (var8 = 0; var8 < ma.area.length; ++var8) {
-                            area = ma.area[var8];
-                            if (area.numplayers < ma.template.maxplayers) {
-                                p.c.tileMap.leave(p);
-                                area.EnterMap1(p.c);
-                                return;
-                            }
-                        }
-                    }
-                        break;
-                    case 1: {
-                        if (p.c.vip < 7) {
-                            Service.chatNPC(p, (short) npcid, "pro đã nạp vip 12 chưa");
-                            break;
-
-                        }
-                        Map ma = Manager.getMapid(76);
-                        TileMap area;
-                        int var8;
-                        for (var8 = 0; var8 < ma.area.length; ++var8) {
-                            area = ma.area[var8];
-                            if (area.numplayers < ma.template.maxplayers) {
-                                p.c.tileMap.leave(p);
-                                area.EnterMap1(p.c);
-                                return;
-                            }
-                        }
-                        break;
-                    }
-                    case 2: {
-                        if (p.c.vip < 8) {
-                            Service.chatNPC(p, (short) npcid, "pro đã nạp vip 18 chưa!");
-                            break;
-
-                        }
-                        Map ma = Manager.getMapid(77);
-                        TileMap area;
-                        int var8;
-                        for (var8 = 0; var8 < ma.area.length; ++var8) {
-                            area = ma.area[var8];
-                            if (area.numplayers < ma.template.maxplayers) {
-                                p.c.tileMap.leave(p);
-                                area.EnterMap1(p.c);
-                                return;
-                            }
-                        }
-                        break;
-                    }
-
-                    default: {
-                        Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
-                        break;
-                    }
-                }
-            }
-                break;
-
-            case 1: {
-                Server.manager.sendTB(p, "Thông tin", "Để vào được MAP bạn cần phải đủ lv vip  tương xứng"
-                        + "\n- Để vào map vip 6 bạn cần phải nạp 200k"
-                        + "\n- Để vào map vip 12 bạn cần phải nạp 600k"
-                        + "\n- Để vào map vip 18 bạn cần đạt 1200k"
-                        + "\n- Ngoài ra:"
-                        + "\n- Các võ giả muốn mạnh có 4 cách"
-                        + "\n+ cách 1 nạp tiền  "
-                        + "\n+ cách 2 cày chay nhưng vẫn phải nạp tiền "
-                        + "\n+ buôn bán cày chay tư duy vô cực nhưng vẫn phải nạp tiền"
-                        + "\n+ cách 4 làm theo 3 cách như trên");
-            }
-                break;
-            default: {
-                Service.chatNPC(p, (short) npcid, "Chức năng này đang cập nhật!");
-                break;
-            }
-        }
-    }
-
-    // Đổi vk top
-    public static void menuDoiVK(Player p, byte npcid, byte menuId, byte b3) {
-        int[] ids = { 0, 632, 633, 634, 635, 636, 637 };
-        switch (menuId) {
-            case 0: {
-                if (p.c.get().nclass == 0) {
-                    p.conn.sendMessageLog("Bạn cần nhập học để sử dụng");
-                    return;
-                }
-                if (p.c.isNhanban) {
-                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                    return;
-                }
-                if (p.c.getBagNull() < 1) {
-                    p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                    return;
-                }
-                if (p.c.quantityItemyTotal(839) < 300) {
-                    p.conn.sendMessageLog("Bạn không có 300 mảnh Thần Binh");
-                    return;
-                }
-                Item itemup = ItemTemplate.itemDefault(ids[p.c.get().nclass]);
-                itemup.NhanVKTop(300);
-                itemup.sys = p.c.getSys();
-                itemup.upgradeNext((byte) 16);
-                p.c.addItemBag(false, itemup);
-                p.c.removeItemBags(839, 300);
-                break;
-            }
-            case 1: {
-                if (p.c.get().nclass == 0) {
-                    p.conn.sendMessageLog("Bạn cần nhập học để sử dụng");
-                    return;
-                }
-                if (p.c.isNhanban) {
-                    Service.chatNPC(p, (short) npcid, Language.NOT_FOR_PHAN_THAN);
-                    return;
-                }
-                if (p.c.getBagNull() < 1) {
-                    p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                    return;
-                }
-                if (p.c.quantityItemyTotal(839) < 500) {
-                    p.conn.sendMessageLog("Bạn không có 500 mảnh Thần Binh");
-                    return;
-                }
-                Item itemup = ItemTemplate.itemDefault(ids[p.c.get().nclass]);
-                itemup.NhanVKTop(500);
-                p.c.addItemBag(false, itemup);
-                itemup.sys = p.c.getSys();
-                itemup.upgradeNext((byte) 16);
-                p.c.removeItemBags(839, 500);
-                break;
-            }
-        }
-    }
-
     public static void npcKanata(Player p, byte npcid, byte menuId, byte b3) throws IOException {
         switch (menuId) {
             case 0: {
@@ -1980,567 +1728,567 @@ public class Menu {
 
     }
 
-    static void npccasino(Player p, byte npcid, byte menuId, byte b3) throws IOException {
-        switch (menuId) {
-            case 0: {
-                switch (b3) {
-                    case 0: {
-                        if (p.c.xu > 10000000) {
-                            p.c.upxuMessage(-10000000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.c.upxuMessage(19000000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        if (p.c.xu > 10000000) {
-                            p.c.upxuMessage(-10000000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.c.upxuMessage(19000000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 1: {
-                switch (b3) {
-                    case 0: {
-                        if (p.c.xu > 50000000) {
-                            p.c.upxuMessage(-50000000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.c.upxuMessage(90000000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        if (p.c.xu > 50000000) {
-                            p.c.upxuMessage(-50000000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.c.upxuMessage(90000000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 2: {
-                switch (b3) {
-                    case 0: {
-                        if (p.c.xu > 100000000) {
-                            p.c.upxuMessage(-100000000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.c.upxuMessage(190000000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        if (p.c.xu > 100000000) {
-                            p.c.upxuMessage(-100000000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.c.upxuMessage(190000000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 100.000.000 tr xu Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 3: {
-                switch (b3) {
-                    case 0: {
-                        if (p.luong > 10000) {
-                            p.upluongMessage(-10000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.upluongMessage(19000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa hốt 20.000 lượng của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Lẽ con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        if (p.luong > 10000) {
-                            p.upluongMessage(-10000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.upluongMessage(19000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa hốt 19.000 lượng của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 4: {
-                switch (b3) {
-                    case 0: {
-                        if (p.luong > 50000) {
-                            p.upluongMessage(-50000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.upluongMessage(90000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Lẽ con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        if (p.luong > 50000) {
-                            p.upluongMessage(-50000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.upluongMessage(90000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 5: {
-                switch (b3) {
-                    case 0: {
-                        if (p.luong > 100000) {
-                            p.upluongMessage(-100000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.upluongMessage(190000);
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        if (p.luong > 100000) {
-                            p.upluongMessage(-100000);
-                            int x = Util.nextInt(2);
-                            if (x == 1) {
-                                p.upluongMessage(190000);
-                                Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
-                                        + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
-                                break;
-                            } else {
-                                Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
-                                        + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
-                            }
-                        } else {
-                            Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
-                            break;
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
+    // static void npccasino(Player p, byte npcid, byte menuId, byte b3) throws IOException {
+    //     switch (menuId) {
+    //         case 0: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.c.xu > 10000000) {
+    //                         p.c.upxuMessage(-10000000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.c.upxuMessage(19000000);
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     if (p.c.xu > 10000000) {
+    //                         p.c.upxuMessage(-10000000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.c.upxuMessage(19000000);
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa hốt 20.000.000 xu của Casino nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 10.000.000 tr xu Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 1: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.c.xu > 50000000) {
+    //                         p.c.upxuMessage(-50000000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.c.upxuMessage(90000000);
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     if (p.c.xu > 50000000) {
+    //                         p.c.upxuMessage(-50000000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.c.upxuMessage(90000000);
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa hốt 100.000.000 xu của Casino nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 2: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.c.xu > 100000000) {
+    //                         p.c.upxuMessage(-100000000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.c.upxuMessage(190000000);
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 50.000.000 tr xu Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     if (p.c.xu > 100000000) {
+    //                         p.c.upxuMessage(-100000000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.c.upxuMessage(190000000);
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa hốt 200.000.000 xu của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 100.000.000 tr xu Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có xu mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 3: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.luong > 10000) {
+    //                         p.upluongMessage(-10000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.upluongMessage(19000);
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa hốt 20.000 lượng của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Lẽ con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     if (p.luong > 10000) {
+    //                         p.upluongMessage(-10000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.upluongMessage(19000);
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa hốt 19.000 lượng của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 10.000 lượng Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 4: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.luong > 50000) {
+    //                         p.upluongMessage(-50000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.upluongMessage(90000);
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Lẽ con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     if (p.luong > 50000) {
+    //                         p.upluongMessage(-50000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.upluongMessage(90000);
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa hốt 100.000 lượng của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 50.000 lượng Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 5: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.luong > 100000) {
+    //                         p.upluongMessage(-100000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.upluongMessage(190000);
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     if (p.luong > 100000) {
+    //                         p.upluongMessage(-100000);
+    //                         int x = Util.nextInt(2);
+    //                         if (x == 1) {
+    //                             p.upluongMessage(190000);
+    //                             Manager.chatKTG("Về Lẻ con nghiện " + p.c.name
+    //                                     + " vừa hốt 200.000 lượng của Casino Luộc nhân phẩm tốt");
+    //                             break;
+    //                         } else {
+    //                             Manager.chatKTG("Về Chẵn con nghiện " + p.c.name
+    //                                     + " vừa bị Casino Luộc 100.000 lượng Còn cái nịt");
+    //                         }
+    //                     } else {
+    //                         Service.chatNPC(p, (short) npcid, "Không có lượng mà đòi chơi");
+    //                         break;
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
 
-            case 6: {
-                switch (b3) {
-                    case 0: {
-                        if (p.c.quantityItemyTotal(632) < 10) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Vô Cực Kiếm");
-                            break;
-                        } else if (p.luong < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
-                            break;
-                        } else {
-                            int tl = Util.nextInt(3);
-                            if (tl != 1) {
-                                Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(632, 10);
-                                break;
-                            } else {
-                                Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Kiếm rồi");
-                                final Item itemup = ItemData.itemDefault(397);
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(632, 10);
-                                p.c.addItemBag(false, itemup);
-                                break;
-                            }
-                        }
-                    }
-                    case 1: {
-                        if (p.c.quantityItemyTotal(633) < 10) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Thiên Hỏa Tiêu");
-                            break;
-                        } else if (p.luong < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
-                            break;
-                        } else {
-                            int tl = Util.nextInt(3);
-                            if (tl != 1) {
-                                Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(633, 10);
-                                break;
-                            } else {
-                                Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Tiêu rồi");
-                                final Item itemup = ItemData.itemDefault(398);
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(633, 10);
-                                p.c.addItemBag(false, itemup);
-                                break;
-                            }
-                        }
-                    }
-                    case 2: {
-                        if (p.c.quantityItemyTotal(636) < 10) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Chiến Lục Đao");
-                            break;
-                        } else if (p.luong < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
-                            break;
-                        } else {
-                            int tl = Util.nextInt(3);
-                            if (tl != 1) {
-                                Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(636, 10);
-                                break;
-                            } else {
-                                Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Đao rồi");
-                                final Item itemup = ItemData.itemDefault(401);
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(636, 10);
-                                p.c.addItemBag(false, itemup);
-                                break;
-                            }
-                        }
-                    }
-                    case 3: {
-                        if (p.c.quantityItemyTotal(637) < 10) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Hoàng Phong Phiến");
-                            break;
-                        } else if (p.luong < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
-                            break;
-                        } else {
-                            int tl = Util.nextInt(3);
-                            if (tl != 1) {
-                                Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(637, 10);
-                                break;
-                            } else {
-                                Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Quạt rồi");
-                                final Item itemup = ItemData.itemDefault(402);
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(637, 10);
-                                p.c.addItemBag(false, itemup);
-                                break;
-                            }
-                        }
-                    }
-                    case 4: {
-                        if (p.c.quantityItemyTotal(634) < 10) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Táng Hồn Dao");
-                            break;
-                        } else if (p.luong < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
-                            break;
-                        } else {
-                            int tl = Util.nextInt(3);
-                            if (tl != 1) {
-                                Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(634, 10);
-                                break;
-                            } else {
-                                Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Kunai rồi");
-                                final Item itemup = ItemData.itemDefault(399);
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(634, 10);
-                                p.c.addItemBag(false, itemup);
-                                break;
-                            }
-                        }
-                    }
-                    case 5: {
-                        if (p.c.quantityItemyTotal(635) < 10) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Băng Thần Cung");
-                            break;
-                        } else if (p.luong < 10000) {
-                            Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
-                            break;
-                        } else {
-                            int tl = Util.nextInt(3);
-                            if (tl != 1) {
-                                Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(635, 10);
-                                break;
-                            } else {
-                                Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Cung rồi");
-                                final Item itemup = ItemData.itemDefault(400);
-                                p.upluongMessage(-10000);
-                                p.c.removeItemBags(635, 10);
-                                p.c.addItemBag(false, itemup);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            default: {
-                Server.manager.sendTB(p, "Hướng dẫn",
-                        "Khoắng cây bút viết thơ tặng bạn Chúc Tân Niên có vạn niềm vui Bao nhiêu vất vả đẩy lùi Thay vào là những ngọt bùi yêu thương Hôm nay là Tết Dương lịch đó Gửi lời chúc nhờ gió chuyển cho Mong mọi người hết sầu lo Bình an hạnh phúc chuyến đò nhân gian Một... hai... ba, cùng san sẻ Tết Ta nâng ly quên hết buồn đời Chúc cho cuộc sống tuyệt vời Tình bạn tri kỷ người ơi giữ gìn Hãy đặt những niềm tin yêu quý Sống chân thành, hoan hỷ mỗi ngày Thế sự có lắm đổi thay Tâm ta bất biến, thẳng ngay mà làm Gửi chúc người Việt Nam yêu dấu Năm Tân sửu phấn đấu mọi điều Làm những công việc mình yêu Để cho cuộc sống thêm nhiều bình yên -Tết 2022 Chúc Mọi Người May Mắn !!");
-                break;
-            }
-        }
-    }
+    //         case 6: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     if (p.c.quantityItemyTotal(632) < 10) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Vô Cực Kiếm");
+    //                         break;
+    //                     } else if (p.luong < 10000) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
+    //                         break;
+    //                     } else {
+    //                         int tl = Util.nextInt(3);
+    //                         if (tl != 1) {
+    //                             Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(632, 10);
+    //                             break;
+    //                         } else {
+    //                             Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Kiếm rồi");
+    //                             final Item itemup = ItemData.itemDefault(397);
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(632, 10);
+    //                             p.c.addItemBag(false, itemup);
+    //                             break;
+    //                         }
+    //                     }
+    //                 }
+    //                 case 1: {
+    //                     if (p.c.quantityItemyTotal(633) < 10) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Thiên Hỏa Tiêu");
+    //                         break;
+    //                     } else if (p.luong < 10000) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
+    //                         break;
+    //                     } else {
+    //                         int tl = Util.nextInt(3);
+    //                         if (tl != 1) {
+    //                             Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(633, 10);
+    //                             break;
+    //                         } else {
+    //                             Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Tiêu rồi");
+    //                             final Item itemup = ItemData.itemDefault(398);
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(633, 10);
+    //                             p.c.addItemBag(false, itemup);
+    //                             break;
+    //                         }
+    //                     }
+    //                 }
+    //                 case 2: {
+    //                     if (p.c.quantityItemyTotal(636) < 10) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Chiến Lục Đao");
+    //                         break;
+    //                     } else if (p.luong < 10000) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
+    //                         break;
+    //                     } else {
+    //                         int tl = Util.nextInt(3);
+    //                         if (tl != 1) {
+    //                             Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(636, 10);
+    //                             break;
+    //                         } else {
+    //                             Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Đao rồi");
+    //                             final Item itemup = ItemData.itemDefault(401);
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(636, 10);
+    //                             p.c.addItemBag(false, itemup);
+    //                             break;
+    //                         }
+    //                     }
+    //                 }
+    //                 case 3: {
+    //                     if (p.c.quantityItemyTotal(637) < 10) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Hoàng Phong Phiến");
+    //                         break;
+    //                     } else if (p.luong < 10000) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
+    //                         break;
+    //                     } else {
+    //                         int tl = Util.nextInt(3);
+    //                         if (tl != 1) {
+    //                             Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(637, 10);
+    //                             break;
+    //                         } else {
+    //                             Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Quạt rồi");
+    //                             final Item itemup = ItemData.itemDefault(402);
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(637, 10);
+    //                             p.c.addItemBag(false, itemup);
+    //                             break;
+    //                         }
+    //                     }
+    //                 }
+    //                 case 4: {
+    //                     if (p.c.quantityItemyTotal(634) < 10) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Táng Hồn Dao");
+    //                         break;
+    //                     } else if (p.luong < 10000) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
+    //                         break;
+    //                     } else {
+    //                         int tl = Util.nextInt(3);
+    //                         if (tl != 1) {
+    //                             Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(634, 10);
+    //                             break;
+    //                         } else {
+    //                             Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Kunai rồi");
+    //                             final Item itemup = ItemData.itemDefault(399);
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(634, 10);
+    //                             p.c.addItemBag(false, itemup);
+    //                             break;
+    //                         }
+    //                     }
+    //                 }
+    //                 case 5: {
+    //                     if (p.c.quantityItemyTotal(635) < 10) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10 Thái Dương Băng Thần Cung");
+    //                         break;
+    //                     } else if (p.luong < 10000) {
+    //                         Service.chatNPC(p, (short) npcid, "Cần 10000 lượng");
+    //                         break;
+    //                     } else {
+    //                         int tl = Util.nextInt(3);
+    //                         if (tl != 1) {
+    //                             Service.chatNPC(p, (short) npcid, "Số con đen như bản mặt con vậy");
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(635, 10);
+    //                             break;
+    //                         } else {
+    //                             Service.chatNPC(p, (short) npcid, "Cuối cùng con cũng có bí kíp Cung rồi");
+    //                             final Item itemup = ItemData.itemDefault(400);
+    //                             p.upluongMessage(-10000);
+    //                             p.c.removeItemBags(635, 10);
+    //                             p.c.addItemBag(false, itemup);
+    //                             break;
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         default: {
+    //             Server.manager.sendTB(p, "Hướng dẫn",
+    //                     "Khoắng cây bút viết thơ tặng bạn Chúc Tân Niên có vạn niềm vui Bao nhiêu vất vả đẩy lùi Thay vào là những ngọt bùi yêu thương Hôm nay là Tết Dương lịch đó Gửi lời chúc nhờ gió chuyển cho Mong mọi người hết sầu lo Bình an hạnh phúc chuyến đò nhân gian Một... hai... ba, cùng san sẻ Tết Ta nâng ly quên hết buồn đời Chúc cho cuộc sống tuyệt vời Tình bạn tri kỷ người ơi giữ gìn Hãy đặt những niềm tin yêu quý Sống chân thành, hoan hỷ mỗi ngày Thế sự có lắm đổi thay Tâm ta bất biến, thẳng ngay mà làm Gửi chúc người Việt Nam yêu dấu Năm Tân sửu phấn đấu mọi điều Làm những công việc mình yêu Để cho cuộc sống thêm nhiều bình yên -Tết 2022 Chúc Mọi Người May Mắn !!");
+    //             break;
+    //         }
+    //     }
+    // }
 
-    public static void npcCLXTCoin(Player p, byte npcid, byte menuId, byte b3) throws IOException, SQLException {
-        switch (menuId) {
-            case 0: {
-                switch (b3) {
-                    case 0: {
-                        Service.sendInputDialog(p, (short) 44_0_0, "Nhập số coin đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 1: {
-                        Service.sendInputDialog(p, (short) 44_0_1, "Nhập số coin đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 2: {
-                        try {
-                            String a = "";
-                            int i2 = 1;
-                            for (CheckTXCoin check : CheckTXCoin.checkTXCoinArrayList) {
-                                a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
-                                i2++;
-                            }
-                            Server.manager.sendTB(p, "Soi Cầu", a);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 1: {
-                switch (b3) {
-                    case 0: {
-                        Service.sendInputDialog(p, (short) 44_1_0, "Nhập số coin đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 1: {
-                        Service.sendInputDialog(p, (short) 44_1_1, "Nhập số coin đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 2: {
-                        try {
-                            String a = "";
-                            int i2 = 1;
-                            for (CheckCLCoin check : CheckCLCoin.checkCLCoinArrayList) {
-                                a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
-                                i2++;
-                            }
-                            Server.manager.sendTB(p, "Soi Cầu", a);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 2: {
-                try {
-                    synchronized (Server.LOCK_MYSQL) {
-                        ResultSet red = SQLManager.stat
-                                .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
-                        if (red != null && red.first()) {
-                            p.coin = red.getInt("coin");
-                            p.conn.sendMessageLog("Bạn đang có : " + p.coin
-                                    + ". Hãy thoát ra vào lại để cập nhật coin mới nhất nếu nạp.");
-                            break;
-                        }
-                    }
-                } catch (SQLException var17) {
-                    var17.printStackTrace();
-                    p.conn.sendMessageLog("Lỗi.");
-                }
-                break;
-            }
-            case 3: {
-                Server.manager.sendTB(p, "Hướng dẫn", "Đây là NPC chơi CLTX bằng coin."
-                        + "\nMỗi lần đặt cược giá trị phải là bội số của 10 (20,30,40,...)\n"
-                        + "Nếu may mắn chiến thắng bạn sẽ nhận được 1,9 số coin cược.\n"
-                        + "Nếu thua bạn méo được gì.\n"
-                        + "Để có coin chơi bạn cần lên web teamobi.cf nạp coin hoặc ib admin.\n"
-                        + "Chúc Bạn Sớm Trở Thành Trùm VIP!");
-                break;
-            }
-        }
-    }
+    // public static void npcCLXTCoin(Player p, byte npcid, byte menuId, byte b3) throws IOException, SQLException {
+    //     switch (menuId) {
+    //         case 0: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     Service.sendInputDialog(p, (short) 44_0_0, "Nhập số coin đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     Service.sendInputDialog(p, (short) 44_0_1, "Nhập số coin đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 2: {
+    //                     try {
+    //                         String a = "";
+    //                         int i2 = 1;
+    //                         for (CheckTXCoin check : CheckTXCoin.checkTXCoinArrayList) {
+    //                             a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
+    //                             i2++;
+    //                         }
+    //                         Server.manager.sendTB(p, "Soi Cầu", a);
+    //                     } catch (Exception e) {
+    //                         e.printStackTrace();
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 1: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     Service.sendInputDialog(p, (short) 44_1_0, "Nhập số coin đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     Service.sendInputDialog(p, (short) 44_1_1, "Nhập số coin đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 2: {
+    //                     try {
+    //                         String a = "";
+    //                         int i2 = 1;
+    //                         for (CheckCLCoin check : CheckCLCoin.checkCLCoinArrayList) {
+    //                             a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
+    //                             i2++;
+    //                         }
+    //                         Server.manager.sendTB(p, "Soi Cầu", a);
+    //                     } catch (Exception e) {
+    //                         e.printStackTrace();
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 2: {
+    //             try {
+    //                 synchronized (Server.LOCK_MYSQL) {
+    //                     ResultSet red = SQLManager.stat
+    //                             .executeQuery("SELECT `coin` FROM `player` WHERE `id` = " + p.id + ";");
+    //                     if (red != null && red.first()) {
+    //                         p.coin = red.getInt("coin");
+    //                         p.conn.sendMessageLog("Bạn đang có : " + p.coin
+    //                                 + ". Hãy thoát ra vào lại để cập nhật coin mới nhất nếu nạp.");
+    //                         break;
+    //                     }
+    //                 }
+    //             } catch (SQLException var17) {
+    //                 var17.printStackTrace();
+    //                 p.conn.sendMessageLog("Lỗi.");
+    //             }
+    //             break;
+    //         }
+    //         case 3: {
+    //             Server.manager.sendTB(p, "Hướng dẫn", "Đây là NPC chơi CLTX bằng coin."
+    //                     + "\nMỗi lần đặt cược giá trị phải là bội số của 10 (20,30,40,...)\n"
+    //                     + "Nếu may mắn chiến thắng bạn sẽ nhận được 1,9 số coin cược.\n"
+    //                     + "Nếu thua bạn méo được gì.\n"
+    //                     + "Để có coin chơi bạn cần lên web teamobi.cf nạp coin hoặc ib admin.\n"
+    //                     + "Chúc Bạn Sớm Trở Thành Trùm VIP!");
+    //             break;
+    //         }
+    //     }
+    // }
 
-    public static void npcCLXTLuong(Player p, byte npcid, byte menuId, byte b3) throws IOException {
-        switch (menuId) {
-            case 0: {
-                switch (b3) {
-                    case 0: {
-                        Service.sendInputDialog(p, (short) 45_0_0, "Nhập số lượng đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 1: {
-                        Service.sendInputDialog(p, (short) 45_0_1, "Nhập số lượng đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 2: {
-                        try {
-                            String a = "";
-                            int i2 = 1;
-                            for (CheckTXLuong check : CheckTXLuong.checkTXLuongArrayList) {
-                                a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
-                                i2++;
-                            }
-                            Server.manager.sendTB(p, "Soi Cầu", a);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-            case 1: {
-                switch (b3) {
-                    case 0: {
-                        Service.sendInputDialog(p, (short) 45_1_0, "Nhập số lượng đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 1: {
-                        Service.sendInputDialog(p, (short) 45_1_1, "Nhập số lượng đặt (phải là bội số của 10) :");
-                        break;
-                    }
-                    case 2: {
-                        try {
-                            String a = "";
-                            int i2 = 1;
-                            for (CheckCLLuong check : CheckCLLuong.checkCLLuongArrayList) {
-                                a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
-                                i2++;
-                            }
-                            Server.manager.sendTB(p, "Soi Cầu", a);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-    }
+    // public static void npcCLXTLuong(Player p, byte npcid, byte menuId, byte b3) throws IOException {
+    //     switch (menuId) {
+    //         case 0: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     Service.sendInputDialog(p, (short) 45_0_0, "Nhập số lượng đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     Service.sendInputDialog(p, (short) 45_0_1, "Nhập số lượng đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 2: {
+    //                     try {
+    //                         String a = "";
+    //                         int i2 = 1;
+    //                         for (CheckTXLuong check : CheckTXLuong.checkTXLuongArrayList) {
+    //                             a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
+    //                             i2++;
+    //                         }
+    //                         Server.manager.sendTB(p, "Soi Cầu", a);
+    //                     } catch (Exception e) {
+    //                         e.printStackTrace();
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //         case 1: {
+    //             switch (b3) {
+    //                 case 0: {
+    //                     Service.sendInputDialog(p, (short) 45_1_0, "Nhập số lượng đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 1: {
+    //                     Service.sendInputDialog(p, (short) 45_1_1, "Nhập số lượng đặt (phải là bội số của 10) :");
+    //                     break;
+    //                 }
+    //                 case 2: {
+    //                     try {
+    //                         String a = "";
+    //                         int i2 = 1;
+    //                         for (CheckCLLuong check : CheckCLLuong.checkCLLuongArrayList) {
+    //                             a += i2 + ". " + check.name + " - " + check.item + " - " + check.time + ".\n";
+    //                             i2++;
+    //                         }
+    //                         Server.manager.sendTB(p, "Soi Cầu", a);
+    //                     } catch (Exception e) {
+    //                         e.printStackTrace();
+    //                     }
+    //                     break;
+    //                 }
+    //             }
+    //             break;
+    //         }
+    //     }
+    // }
 
     public static void npcAmeji(Player p, byte npcid, byte menuId, byte b3) throws IOException {
         switch (menuId) {
