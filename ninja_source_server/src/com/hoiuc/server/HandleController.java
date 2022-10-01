@@ -109,7 +109,7 @@ public class HandleController {
                 String check = chat.replaceAll("\\s+", "");
                 // chát admin
                 String[] gm = chat.split(" ");
-                if (player.role == 2601 && gm.length == 4 && gm[0].equals("a")) {
+                if (player.isAdmin() && gm.length == 4 && gm[0].equals("a")) {
                     Item itemup = ItemTemplate.itemDefault(Integer.parseInt(gm[1]));
                     itemup.quantity = Integer.parseInt(gm[2]);
                     itemup.upgradeNext((byte) Integer.parseInt(gm[3]));
@@ -119,7 +119,7 @@ public class HandleController {
                 if (chat.equals("diemtanghoa")) {
                     player.conn.sendMessageLog("Điểm tặng hoa: " + player.c.diemtanghoa);
                 }
-                if (player.role == 2601 && chat.equals("batu")) {
+                if (player.isAdmin() && chat.equals("batu")) {
                     if (player.c.isNhanban) {
                         player.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
                         return;
@@ -170,17 +170,17 @@ public class HandleController {
                             "- Điểm săn Boss Tuần lộc: " + player.c.pointBossTL;
                     Server.manager.sendTB(player, "Sự kiện Noel", noel);
                 }
-                if ("delldo".equals(chat) && player.role == 2601) {
+                if ("delldo".equals(chat) && player.isAdmin()) {
                     player.c.removeAllItemBag();
                 } else if ("senddo".equals(chat) && player.isAdmin()) {
                     Service.sendInputDialog(player, (short) 41_0, "Nhập tên nhân vật :");
-                } else if ("sendxu".equals(chat) && player.role == 2601) {
+                } else if ("sendxu".equals(chat) && player.isAdmin()) {
                     player.typemenu = 125;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Xu" });
-                } else if ("sendluong".equals(chat) && player.role == 2601) {
+                } else if ("sendluong".equals(chat) && player.isAdmin()) {
                     player.typemenu = 126;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Lượng" });
-                } else if ("sendyen".equals(chat) && player.role == 2601) {
+                } else if ("sendyen".equals(chat) && player.isAdmin()) {
                     player.typemenu = 127;
                     Server.menu.doMenuArray(player, new String[] { "Gửi Yên" });
                 } else if (chat.equals("tp")) {
@@ -206,9 +206,9 @@ public class HandleController {
                     } else {
                         player.sendAddchatYellow("Bạn chưa nhận nhiệm vụ danh vọng.");
                     }
-                } else if (chat.equals("admin") && player.role == 2601) {
+                } else if (chat.equals("admin") && player.isAdmin()) {
                     Service.ShowAdmin(player);
-                } else if (chat.equals("ui") && player.role == 2601) {
+                } else if (chat.equals("ui") && player.isAdmin()) {
                     if (player.role != 2601) {
                         return;
                     }
@@ -2707,20 +2707,20 @@ public class HandleController {
 
                     // vòng xoay v1
                     case 6: {
-                        player.upluongMessage(-77000);
-                        long luongUp = Util.nextInt(107000, 177000);
-                        player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
-                        player.vxLuong = 1;
+                        // player.upluongMessage(-77000);
+                        // long luongUp = Util.nextInt(107000, 177000);
+                        // player.upluongMessage(luongUp);
+                        // player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
+                        // player.vxLuong = 1;
                         break;
                     }
                     // vòng xoay v2
                     case 7: {
-                        player.upluongMessage(-277000);
-                        long luongUp = Util.nextInt(377000, 577000);
-                        player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
-                        player.vxLuong = 2;
+                        // player.upluongMessage(-277000);
+                        // long luongUp = Util.nextInt(377000, 577000);
+                        // player.upluongMessage(luongUp);
+                        // player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
+                        // player.vxLuong = 2;
                         break;
                     }
                     // case bug
@@ -2728,11 +2728,11 @@ public class HandleController {
                         break;
                     }
                     case 9: {
-                        player.upluongMessage(-777000);
-                        long luongUp = Util.nextInt(977000, 1777000);
-                        player.upluongMessage(luongUp);
-                        player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
-                        player.vxLuong = 3;
+                        // player.upluongMessage(-777000);
+                        // long luongUp = Util.nextInt(977000, 1777000);
+                        // player.upluongMessage(luongUp);
+                        // player.conn.sendMessageLog("Bạn nhận được: " + luongUp + " lượng");
+                        // player.vxLuong = 3;
                         break;
                     }
                     /*

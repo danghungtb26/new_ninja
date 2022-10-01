@@ -49,8 +49,8 @@ public class BiKip {
         ItemTemplate data = ItemTemplate.ItemTemplateId(p.c.get().ItemBody[15].id);
         Service.startYesNoDlg(p, (byte) (vip ? BIKIP_VIP_MESSAGE_ID : BIKIP_MESSAGE_ID),
                 "Bạn có muốn nâng cấp " + data.name
-                        + " với " + (int) (BiKip.yenUpgrade[p.c.get().ItemBody[15].upgrade] * 1000000)
-                        + " yên hoặc xu "
+                        + (vip ? " với " : " với " + (int) (BiKip.yenUpgrade[p.c.get().ItemBody[15].upgrade] * 1000000)
+                        + " yên hoặc xu ")
                         + (vip ? ("và " + BiKip.luongUpgrade[p.c.get().ItemBody[15].upgrade] + " lượng") : "") + " không?");
     }
 
@@ -59,7 +59,7 @@ public class BiKip {
             p.conn.sendMessageLog("đã nâng cấp tối đa");
             return;
         }
-        if ((p.c.yen + p.c.xu) < BiKip.yenUpgrade[item.upgrade] * 1000000) {
+        if (!vip && (p.c.yen + p.c.xu) < BiKip.yenUpgrade[item.upgrade] * 1000000) {
             p.conn.sendMessageLog("Bạn không đủ yên và xu để nâng cấp bí kíp");
             return;
         }
@@ -84,7 +84,7 @@ public class BiKip {
             int coins = (int) (BiKip.yenUpgrade[item.upgrade] * 1000000);
             int upPer = (int) (BiKip.percenUpgrade[item.upgrade] * (vip ? 1.5 : 1));
             if (!vip && item.upgrade > 8) {
-                upPer = -1;
+                upPer = 2;
             }
             if (Util.nextInt(150) < upPer && upPer != -1) {
                 
@@ -125,12 +125,14 @@ public class BiKip {
                 p.sendAddchatYellow("Nâng cấp thất bại!");
             }
 
-            if (coins <= p.c.yen) {
-                p.c.upyen(-coins);
-            } else if (coins >= p.c.yen) {
-                int coin = coins - p.c.yen;
-                p.c.upyen(-p.c.yen);
-                p.c.upxu(-coin);
+            if (!vip) {
+                if (coins <= p.c.yen) {
+                    p.c.upyen(-coins);
+                } else if (coins >= p.c.yen) {
+                    int coin = coins - p.c.yen;
+                    p.c.upyen(-p.c.yen);
+                    p.c.upxu(-coin);
+                }
             }
             if (vip) {
                 p.upluong(-BiKip.luongUpgrade[item.upgrade]);

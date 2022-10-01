@@ -1915,7 +1915,7 @@ public class TileMap {
                         this.map.cave.updateXP(xpup * 2L);
                     } else {
                         if (_char.isNhanban) {
-                            xpup /= 4L;
+                            xpup /= 1.1;
                         }
                         _char.p.updateExp(xpup);
                         if (_char.get().party != null) {
@@ -2151,7 +2151,7 @@ public class TileMap {
                                             this.map.cave.updateXP(xpup + xpup / 2L);
                                         } else {
                                             if (p.c.isNhanban) {
-                                                xpup /= 4L;
+                                                xpup /= 1.1;
                                             }
                                             p.updateExp(xpup);
                                             if (p.c.party != null) {

@@ -55,7 +55,7 @@ public class UseItem {
             5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9, 10, 275, 276, 277, 278,
             289, 340, 340, 383, 409, 410, 419, 436, 436, 436, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 436, 437, 437, 438, 443,
             485, 524, 567, 567, 549, 550, 551, 549, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 550, 551, 775, 569, 575, 5, 5,
-            5, 6, 6, 6, 6, 6, 7, 7, 578, 574, 577, 742, 673, 775, 781, 828 };
+            5, 6, 6, 6, 6, 6, 7, 7, 578, 574, 577, 742, 673, 775, 781 };
     public static short[] idItemCayThong = new short[] { 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 549, 549, 549, 549, 550, 550,
             551, 551, 436, 436, 437 };
     public static short[] idTangHoa = new short[] { 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 8, 8, 8,
@@ -68,8 +68,7 @@ public class UseItem {
     public static short[] idItemHomBlackFriday = new short[] { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5,
             5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9, 275, 276, 277, 278, 289,
             289, 340, 340, 383, 409, 410, 436, 436, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 437, 443, 485, 524, 549, 550,
-            551, 549, 550, 551, 569, 574, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 577, 575, 578, 742, 673, 775,
-            828 };
+            551, 549, 550, 551, 569, 574, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 577, 575, 578, 742, 673, 775 };
 
     public static void uesItem(Player p, Item item, byte index) {
         Message m = null;
@@ -1553,25 +1552,25 @@ public class UseItem {
                     }
                     // huy chương câu cá
                     case 976: {
-                        if (p.c.isNhanban) {
-                            p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
-                            return;
-                        }
-                        if (p.c.pk > 0) {
-                            p.sendAddchatYellow("Không thể vào làng cổ khi có điểm hiếu chiến lớn hơn 0");
-                            return;
-                        }
-                        p.c.removeItemBag(index, 1);
-                        p.c.tileMap.leave(p);
-                        Map map = Server.maps[79];
-                        byte k;
-                        for (k = 0; k < map.area.length; k++) {
-                            if (map.area[k].numplayers < map.template.maxplayers) {
-                                map.area[k].EnterMap0(p.c);
-                                break;
-                            }
-                        }
-                        p.endLoad(true);
+                        // if (p.c.isNhanban) {
+                        //     p.conn.sendMessageLog(Language.NOT_FOR_PHAN_THAN);
+                        //     return;
+                        // }
+                        // if (p.c.pk > 0) {
+                        //     p.sendAddchatYellow("Không thể vào làng cổ khi có điểm hiếu chiến lớn hơn 0");
+                        //     return;
+                        // }
+                        // p.c.removeItemBag(index, 1);
+                        // p.c.tileMap.leave(p);
+                        // Map map = Server.maps[79];
+                        // byte k;
+                        // for (k = 0; k < map.area.length; k++) {
+                        //     if (map.area[k].numplayers < map.template.maxplayers) {
+                        //         map.area[k].EnterMap0(p.c);
+                        //         break;
+                        //     }
+                        // }
+                        // p.endLoad(true);
                         break;
                     }
                     // Khai nhãn phù
@@ -1726,8 +1725,8 @@ public class UseItem {
                             short idI = arId[Util.nextInt(arId.length)];
                             Item itemup = ItemTemplate.itemDefault(idI);
                             itemup.isLock = false;
-                            p.c.removeItemBag(index, 1);
-                            p.c.addItemBag(true, itemup);
+                            // p.c.removeItemBag(index, 1);
+                            // p.c.addItemBag(true, itemup);
 
                         }
                         break;
@@ -1833,8 +1832,8 @@ public class UseItem {
                         short idI = arId[Util.nextInt(arId.length)];
                         Item itemup = ItemTemplate.itemDefault(idI);
                         itemup.isLock = false;
-                        p.c.removeItemBag(index, 1);
-                        p.c.addItemBag(true, itemup);
+                        // p.c.removeItemBag(index, 1);
+                        // p.c.addItemBag(true, itemup);
                     }
                         break;
 
@@ -1863,8 +1862,8 @@ public class UseItem {
                         short idI = arId[Util.nextInt(arId.length)];
                         Item itemup = ItemTemplate.itemDefault(idI);
                         itemup.isLock = false;
-                        p.c.removeItemBag(index, 1);
-                        p.c.addItemBag(true, itemup);
+                        // p.c.removeItemBag(index, 1);
+                        // p.c.addItemBag(true, itemup);
                     }
 
                         break;
@@ -2080,6 +2079,10 @@ public class UseItem {
                         break;
                     }
                     case 827: {
+                        if (Server.manager.event != 3) {
+                            p.sendAddchatYellow(Language.END_EVENT);
+                            return;
+                        }
                         if (numbagnull < 1) {
                             p.conn.sendMessageLog("Hành trang không đủ chỗ trống.");
                             return;

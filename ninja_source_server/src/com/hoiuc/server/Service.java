@@ -1588,7 +1588,7 @@ public class Service {
 
 
     public static void ShowAdmin(Player p) throws IOException {
-        if (p.role != 2601) {
+        if (!p.isAdmin()) {
             return;
         }
         p.typemenu = 9999;

@@ -162,7 +162,7 @@ public class LanhDiaGiaToc {
                         if (_char != null) {
                             _char.p.setTimeMap((int)(this.time - System.currentTimeMillis()) / 1000);
 
-                            _char.p.upluongMessage(10*clanManager.level*((int)clanManager.level/10));
+                            _char.p.upluongMessage((int) (clanManager.level * 2));
                             _char.p.sendAddchatYellow("Đã hoàn thành Lãnh Địa Gia Tộc.");
                         }
                     }

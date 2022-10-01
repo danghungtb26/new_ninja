@@ -432,6 +432,7 @@ public class Mob {
 
             if (this.isboss) {
                 if (this.tileMap.map.cave == null) {
+                    this.status = 0;
                     if (this.isBossPK() || this.isBossHoaKyLan()) {
                         Boss.handleAfterBossPkDie(_char, this.sortNinjaFightWithChar(), this.sortNinjaFightPercen(), this.tileMap, this);
                     } else {

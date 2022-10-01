@@ -72,7 +72,19 @@ public class Player extends User {
     }
 
     public boolean isAdmin() {
-        return this.role == 2601;
+        try {
+            final ResultSet red = SQLManager.stat
+                    .executeQuery("SELECT `role` FROM `player` WHERE `id` = " + this.id + ";");
+            if (red != null && red.first()) {
+                final int role = red.getInt("role");
+                return role == 2601;
+            }
+
+            return false;
+        } catch (Exception e) {
+            // TODO: handle exception
+            return false;
+        }
     }
 
     public void cleanup() {

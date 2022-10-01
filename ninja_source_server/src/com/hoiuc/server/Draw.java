@@ -61,65 +61,65 @@ public class Draw {
                         break;
                     }
                     case 118:
-                        p.nameUS = str;
-                        Char a18 = Client.gI().getNinja(str);
-                        if (a18 != null && a18.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
-                            return;
-                        }
-                        if (a18 == null) {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                            return;
-                        }
-                        if (a18.gender != 0) {
-                            p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
-                            return;
-                        }
+                        // p.nameUS = str;
+                        // Char a18 = Client.gI().getNinja(str);
+                        // if (a18 != null && a18.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
+                        //     return;
+                        // }
+                        // if (a18 == null) {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        //     return;
+                        // }
+                        // if (a18.gender != 0) {
+                        //     p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
+                        //     return;
+                        // }
 
-                        if (p.c.quantityItemyTotal(392) < 1) {
-                            p.conn.sendMessageLog("Bạn không có đủ giỏ hoa");
-                            return;
-                        }
+                        // if (p.c.quantityItemyTotal(392) < 1) {
+                        //     p.conn.sendMessageLog("Bạn không có đủ giỏ hoa");
+                        //     return;
+                        // }
 
-                        if (a18 != null) {
-                            p.tanggiohoa();
+                        // if (a18 != null) {
+                        //     p.tanggiohoa();
 
-                            break;
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        //     break;
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
 
                     case 119: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
-                        if (p.c.quantityItemyTotal(386) >= 8 * soluong && p.c.quantityItemyTotal(393) >= 1 * soluong
-                                && p.c.quantityItemyTotal(394) >= 1 * soluong
-                                && p.c.quantityItemyTotal(395) >= 1 * soluong) {
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
+                        // if (p.c.quantityItemyTotal(386) >= 8 * soluong && p.c.quantityItemyTotal(393) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(394) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(395) >= 1 * soluong) {
 
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(386, (int) (8 * soluong));
-                                p.c.removeItemBags(393, (int) (1 * soluong));
-                                p.c.removeItemBags(394, (int) (1 * soluong));
-                                p.c.removeItemBags(395, (int) (1 * soluong));
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(386, (int) (8 * soluong));
+                        //         p.c.removeItemBags(393, (int) (1 * soluong));
+                        //         p.c.removeItemBags(394, (int) (1 * soluong));
+                        //         p.c.removeItemBags(395, (int) (1 * soluong));
 
-                                Item it = ItemTemplate.itemDefault(389);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        //         Item it = ItemTemplate.itemDefault(389);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
                     case 222:
@@ -155,192 +155,192 @@ public class Draw {
                         Server.manager.taixiu[0].joinXiu(p, joinxiu);
                         break;
                     case 120: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
-                        if (p.c.quantityItemyTotal(387) >= 8 * soluong && p.c.quantityItemyTotal(393) >= 1 * soluong
-                                && p.c.quantityItemyTotal(394) >= 1 * soluong
-                                && p.c.quantityItemyTotal(395) >= 1 * soluong) {
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
+                        // if (p.c.quantityItemyTotal(387) >= 8 * soluong && p.c.quantityItemyTotal(393) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(394) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(395) >= 1 * soluong) {
 
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(387, (int) (8 * soluong));
-                                p.c.removeItemBags(393, (int) (1 * soluong));
-                                p.c.removeItemBags(394, (int) (1 * soluong));
-                                p.c.removeItemBags(395, (int) (1 * soluong));
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(387, (int) (8 * soluong));
+                        //         p.c.removeItemBags(393, (int) (1 * soluong));
+                        //         p.c.removeItemBags(394, (int) (1 * soluong));
+                        //         p.c.removeItemBags(395, (int) (1 * soluong));
 
-                                Item it = ItemTemplate.itemDefault(390);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        //         Item it = ItemTemplate.itemDefault(390);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
                     case 121: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
-                        if (p.c.quantityItemyTotal(388) >= 8 * soluong && p.c.quantityItemyTotal(393) >= 1 * soluong
-                                && p.c.quantityItemyTotal(394) >= 1 * soluong
-                                && p.c.quantityItemyTotal(395) >= 1 * soluong) {
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
+                        // if (p.c.quantityItemyTotal(388) >= 8 * soluong && p.c.quantityItemyTotal(393) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(394) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(395) >= 1 * soluong) {
 
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(388, (int) (8 * soluong));
-                                p.c.removeItemBags(393, (int) (1 * soluong));
-                                p.c.removeItemBags(394, (int) (1 * soluong));
-                                p.c.removeItemBags(395, (int) (1 * soluong));
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(388, (int) (8 * soluong));
+                        //         p.c.removeItemBags(393, (int) (1 * soluong));
+                        //         p.c.removeItemBags(394, (int) (1 * soluong));
+                        //         p.c.removeItemBags(395, (int) (1 * soluong));
 
-                                Item it = ItemTemplate.itemDefault(391);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        //         Item it = ItemTemplate.itemDefault(391);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
                     case 122: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
-                        if (p.c.quantityItemyTotal(386) >= 8 * soluong && p.c.quantityItemyTotal(387) >= 8 * soluong
-                                && p.c.quantityItemyTotal(388) >= 8 * soluong
-                                && p.c.quantityItemyTotal(393) >= 1 * soluong
-                                && p.c.quantityItemyTotal(394) >= 1 * soluong
-                                && p.c.quantityItemyTotal(395) >= 1 * soluong) {
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
+                        // if (p.c.quantityItemyTotal(386) >= 8 * soluong && p.c.quantityItemyTotal(387) >= 8 * soluong
+                        //         && p.c.quantityItemyTotal(388) >= 8 * soluong
+                        //         && p.c.quantityItemyTotal(393) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(394) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(395) >= 1 * soluong) {
 
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(386, (int) (8 * soluong));
-                                p.c.removeItemBags(387, (int) (8 * soluong));
-                                p.c.removeItemBags(388, (int) (8 * soluong));
-                                p.c.removeItemBags(393, (int) (1 * soluong));
-                                p.c.removeItemBags(394, (int) (1 * soluong));
-                                p.c.removeItemBags(395, (int) (1 * soluong));
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(386, (int) (8 * soluong));
+                        //         p.c.removeItemBags(387, (int) (8 * soluong));
+                        //         p.c.removeItemBags(388, (int) (8 * soluong));
+                        //         p.c.removeItemBags(393, (int) (1 * soluong));
+                        //         p.c.removeItemBags(394, (int) (1 * soluong));
+                        //         p.c.removeItemBags(395, (int) (1 * soluong));
 
-                                Item it = ItemTemplate.itemDefault(392);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        //         Item it = ItemTemplate.itemDefault(392);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
 
                     case 123:
-                        p.nameUS = str;
-                        Char a19 = Client.gI().getNinja(str);
-                        if (a19 != null && a19.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
-                            return;
-                        }
-                        if (a19 == null) {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                            return;
-                        }
-                        if (a19.gender != 0) {
-                            p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
-                            return;
-                        }
+                        // p.nameUS = str;
+                        // Char a19 = Client.gI().getNinja(str);
+                        // if (a19 != null && a19.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
+                        //     return;
+                        // }
+                        // if (a19 == null) {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        //     return;
+                        // }
+                        // if (a19.gender != 0) {
+                        //     p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
+                        //     return;
+                        // }
 
-                        if (p.c.quantityItemyTotal(389) < 1) {
-                            p.sendAddchatYellow("Bạn không có đủ giỏ hoa hồng đỏ");
-                            return;
-                        }
+                        // if (p.c.quantityItemyTotal(389) < 1) {
+                        //     p.sendAddchatYellow("Bạn không có đủ giỏ hoa hồng đỏ");
+                        //     return;
+                        // }
 
-                        if (a19 != null) {
-                            p.tanghoado();
+                        // if (a19 != null) {
+                        //     p.tanghoado();
 
-                            break;
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        //     break;
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
                     case 124:
-                        p.nameUS = str;
-                        Char a20 = Client.gI().getNinja(str);
-                        if (a20 != null && a20.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
-                            return;
-                        }
-                        if (a20 == null) {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                            return;
-                        }
-                        if (a20.gender != 0) {
-                            p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
-                            return;
-                        }
+                        // p.nameUS = str;
+                        // Char a20 = Client.gI().getNinja(str);
+                        // if (a20 != null && a20.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
+                        //     return;
+                        // }
+                        // if (a20 == null) {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        //     return;
+                        // }
+                        // if (a20.gender != 0) {
+                        //     p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
+                        //     return;
+                        // }
 
-                        if (p.c.quantityItemyTotal(390) < 1) {
-                            p.sendAddchatYellow("Bạn không có đủ giỏ hoa hồng vàng");
-                            return;
-                        }
+                        // if (p.c.quantityItemyTotal(390) < 1) {
+                        //     p.sendAddchatYellow("Bạn không có đủ giỏ hoa hồng vàng");
+                        //     return;
+                        // }
 
-                        if (a20 != null) {
-                            p.tanghoavang();
+                        // if (a20 != null) {
+                        //     p.tanghoavang();
 
-                            break;
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        //     break;
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
                     case 125:
-                        p.nameUS = str;
-                        Char a21 = Client.gI().getNinja(str);
-                        if (a21 != null && a21.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
-                            return;
-                        }
-                        if (a21 == null) {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                            return;
-                        }
-                        if (a21.gender != 0) {
-                            p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
-                            return;
-                        }
+                        // p.nameUS = str;
+                        // Char a21 = Client.gI().getNinja(str);
+                        // if (a21 != null && a21.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể tặng hoa cho chính mình");
+                        //     return;
+                        // }
+                        // if (a21 == null) {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        //     return;
+                        // }
+                        // if (a21.gender != 0) {
+                        //     p.conn.sendMessageLog("Chỉ có thể tặng hoa cho nhận vật nữ");
+                        //     return;
+                        // }
 
-                        if (p.c.quantityItemyTotal(391) < 1) {
-                            p.conn.sendMessageLog("Bạn không có đủ giỏ hoa hồng xanh");
-                            return;
-                        }
+                        // if (p.c.quantityItemyTotal(391) < 1) {
+                        //     p.conn.sendMessageLog("Bạn không có đủ giỏ hoa hồng xanh");
+                        //     return;
+                        // }
 
-                        if (a21 != null) {
-                            p.tanghoaxanh();
+                        // if (a21 != null) {
+                        //     p.tanghoaxanh();
 
-                            break;
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        //     break;
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
                     case 2: {
                         Char temp = Client.gI().getNinja(str);
@@ -450,92 +450,92 @@ public class Draw {
 
                     // Làm bánh chưng
                     case 110: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
 
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
 
-                        if (p.c.quantityItemyTotal(638) >= 3 * soluong && p.c.quantityItemyTotal(639) >= 5 * soluong
-                                && p.c.quantityItemyTotal(640) >= 1 * soluong
-                                && p.c.quantityItemyTotal(641) >= 3 * soluong
-                                && p.c.quantityItemyTotal(642) >= 2 * soluong) {
-                            if (p.c.yen < 50000 * soluong) {
-                                p.conn.sendMessageLog("Không đủ yên để làm bánh");
-                                return;
-                            }
-                            if (p.c.xu < 50000 * soluong) {
-                                p.conn.sendMessageLog("Không đủ xu để làm bánh");
-                                return;
-                            }
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(638, (int) (3 * soluong));
-                                p.c.removeItemBags(639, (int) (5 * soluong));
-                                p.c.removeItemBags(640, (int) (1 * soluong));
-                                p.c.removeItemBags(641, (int) (3 * soluong));
-                                p.c.removeItemBags(642, (int) (2 * soluong));
-                                p.c.upyenMessage(-(50000 * soluong));
-                                p.c.upxuMessage(-(50000 * soluong));
-                                Item it = ItemTemplate.itemDefault(643);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        // if (p.c.quantityItemyTotal(638) >= 3 * soluong && p.c.quantityItemyTotal(639) >= 5 * soluong
+                        //         && p.c.quantityItemyTotal(640) >= 1 * soluong
+                        //         && p.c.quantityItemyTotal(641) >= 3 * soluong
+                        //         && p.c.quantityItemyTotal(642) >= 2 * soluong) {
+                        //     if (p.c.yen < 50000 * soluong) {
+                        //         p.conn.sendMessageLog("Không đủ yên để làm bánh");
+                        //         return;
+                        //     }
+                        //     if (p.c.xu < 50000 * soluong) {
+                        //         p.conn.sendMessageLog("Không đủ xu để làm bánh");
+                        //         return;
+                        //     }
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(638, (int) (3 * soluong));
+                        //         p.c.removeItemBags(639, (int) (5 * soluong));
+                        //         p.c.removeItemBags(640, (int) (1 * soluong));
+                        //         p.c.removeItemBags(641, (int) (3 * soluong));
+                        //         p.c.removeItemBags(642, (int) (2 * soluong));
+                        //         p.c.upyenMessage(-(50000 * soluong));
+                        //         p.c.upxuMessage(-(50000 * soluong));
+                        //         Item it = ItemTemplate.itemDefault(643);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
                     // Làm bánh tét
                     case 111: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
-                        if (p.c.quantityItemyTotal(638) >= 2 * soluong && p.c.quantityItemyTotal(639) >= 4 * soluong
-                                && p.c.quantityItemyTotal(641) >= 2 * soluong
-                                && p.c.quantityItemyTotal(642) >= 4 * soluong) {
-                            if (p.c.yen < 40000 * soluong) {
-                                p.conn.sendMessageLog("Không đủ yên để làm bánh");
-                                return;
-                            }
-                            if (p.c.xu < 40000 * soluong) {
-                                p.conn.sendMessageLog("Không đủ xu để làm bánh");
-                                return;
-                            }
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(638, (int) (2 * soluong));
-                                p.c.removeItemBags(639, (int) (4 * soluong));
-                                p.c.removeItemBags(641, (int) (2 * soluong));
-                                p.c.removeItemBags(642, (int) (4 * soluong));
-                                p.c.upyenMessage(-(40000 * soluong));
-                                p.c.upxuMessage(-(40000 * soluong));
-                                Item it = ItemTemplate.itemDefault(644);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
+                        // if (p.c.quantityItemyTotal(638) >= 2 * soluong && p.c.quantityItemyTotal(639) >= 4 * soluong
+                        //         && p.c.quantityItemyTotal(641) >= 2 * soluong
+                        //         && p.c.quantityItemyTotal(642) >= 4 * soluong) {
+                        //     if (p.c.yen < 40000 * soluong) {
+                        //         p.conn.sendMessageLog("Không đủ yên để làm bánh");
+                        //         return;
+                        //     }
+                        //     if (p.c.xu < 40000 * soluong) {
+                        //         p.conn.sendMessageLog("Không đủ xu để làm bánh");
+                        //         return;
+                        //     }
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(638, (int) (2 * soluong));
+                        //         p.c.removeItemBags(639, (int) (4 * soluong));
+                        //         p.c.removeItemBags(641, (int) (2 * soluong));
+                        //         p.c.removeItemBags(642, (int) (4 * soluong));
+                        //         p.c.upyenMessage(-(40000 * soluong));
+                        //         p.c.upxuMessage(-(40000 * soluong));
+                        //         Item it = ItemTemplate.itemDefault(644);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
                     case 41_0:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.nameUS = str;
@@ -547,7 +547,7 @@ public class Draw {
                         }
                         break;
                     case 41_0_0:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.idItemGF = str;
@@ -558,14 +558,14 @@ public class Draw {
                         }
                         break;
                     case 41_0_1:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.itemQuantityGF = str;
                         p.sendItem();
                         break;
                     case 41_1:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.nameUS = str;
@@ -577,7 +577,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_0:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.idItemGF = str;
@@ -588,7 +588,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_1:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.itemQuantityGF = str;
@@ -599,7 +599,7 @@ public class Draw {
                         }
                         break;
                     case 41_1_2:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.itemUpgradeGF = str;
@@ -610,14 +610,14 @@ public class Draw {
                         }
                         break;
                     case 41_1_3:
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.itemSysGF = str;
                         p.sendTB();
                         break;
                     case 41_1_4: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         p.requestItem(Integer.parseInt(str));
@@ -625,124 +625,124 @@ public class Draw {
                     }
                     // pháo
                     case 112: {
-                        String check = str.replaceAll("\\s+", "");
-                        if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
-                            Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
-                            break;
-                        }
-                        long soluong = Integer.parseInt(str);
-                        if (soluong <= 0) {
-                            p.lockAcc();
-                        }
-                        if (p.c.quantityItemyTotal(674) >= 10 * soluong) {
-                            if (p.c.yen < 30000 * soluong) {
-                                p.conn.sendMessageLog("Không đủ yên để làm bánh");
-                                return;
-                            }
-                            if (p.c.xu < 30000 * soluong) {
-                                p.conn.sendMessageLog("Không đủ xu để làm bánh");
-                                return;
-                            }
-                            if (p.c.getBagNull() == 0) {
-                                p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
-                            } else {
-                                p.c.removeItemBags(674, (int) (10 * soluong));
-                                p.c.upyenMessage(-(30000 * soluong));
-                                p.c.upxuMessage(-(30000 * soluong));
-                                Item it = ItemTemplate.itemDefault(675);
-                                it.quantity = (int) (1 * soluong);
-                                p.c.addItemBag(true, it);
-                            }
-                            return;
-                        } else {
-                            Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
-                        }
+                        // String check = str.replaceAll("\\s+", "");
+                        // if (!Util.isNumericInt(str) || check.equals("") || !Util.isNumericInt(str)) {
+                        //     Service.chatNPC(p, (short) 33, "Giá trị tiền cược nhập vào không đúng");
+                        //     break;
+                        // }
+                        // long soluong = Integer.parseInt(str);
+                        // if (soluong <= 0) {
+                        //     p.lockAcc();
+                        // }
+                        // if (p.c.quantityItemyTotal(674) >= 10 * soluong) {
+                        //     if (p.c.yen < 30000 * soluong) {
+                        //         p.conn.sendMessageLog("Không đủ yên để làm bánh");
+                        //         return;
+                        //     }
+                        //     if (p.c.xu < 30000 * soluong) {
+                        //         p.conn.sendMessageLog("Không đủ xu để làm bánh");
+                        //         return;
+                        //     }
+                        //     if (p.c.getBagNull() == 0) {
+                        //         p.conn.sendMessageLog("Hành trang không đủ chỗ trống");
+                        //     } else {
+                        //         p.c.removeItemBags(674, (int) (10 * soluong));
+                        //         p.c.upyenMessage(-(30000 * soluong));
+                        //         p.c.upxuMessage(-(30000 * soluong));
+                        //         Item it = ItemTemplate.itemDefault(675);
+                        //         it.quantity = (int) (1 * soluong);
+                        //         p.c.addItemBag(true, it);
+                        //     }
+                        //     return;
+                        // } else {
+                        //     Service.chatNPC(p, (short) 33, "Hành trang của con không có đủ nguyên liệu");
+                        // }
                         break;
                     }
 
                     case 113:
-                        p.nameUS = str;
-                        Char a10 = Client.gI().getNinja(str);
-                        if (a10 != null && a10.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể lì xì cho bản thân.");
-                            return;
-                        }
-                        if (a10 != null) {
-                            p.sendDo();
-                            break;
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        // p.nameUS = str;
+                        // Char a10 = Client.gI().getNinja(str);
+                        // if (a10 != null && a10.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể lì xì cho bản thân.");
+                        //     return;
+                        // }
+                        // if (a10 != null) {
+                        //     p.sendDo();
+                        //     break;
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
                     case 24: {
-                        final String num = str.replaceAll(" ", "").trim();
-                        if (num.length() > 10 || !Util.checkNumInt(num)) {
-                            return;
-                        }
-                        if (Long.parseLong(num) > p.luong) {
-                            Service.chatNPC(p, (short) 57, "Bạn không có đủ lượng");
-                            return;
-                        }
-                        p.upluongMessage(-Long.parseLong(num));
-                        p.c.upxuMessage(Long.parseLong(num) * 1L);
+                        // final String num = str.replaceAll(" ", "").trim();
+                        // if (num.length() > 10 || !Util.checkNumInt(num)) {
+                        //     return;
+                        // }
+                        // if (Long.parseLong(num) > p.luong) {
+                        //     Service.chatNPC(p, (short) 57, "Bạn không có đủ lượng");
+                        //     return;
+                        // }
+                        // p.upluongMessage(-Long.parseLong(num));
+                        // p.c.upxuMessage(Long.parseLong(num) * 1L);
                         break;
                     }
                     case 25: {
-                        final String num = str.replaceAll(" ", "").trim();
-                        if (num.length() > 10 || !Util.checkNumInt(num)) {
-                            return;
-                        }
-                        if (Long.parseLong(num) > p.luong) {
-                            Service.chatNPC(p, (short) 57, "Bạn không có đủ lượng");
-                            return;
-                        }
-                        p.upluongMessage(-Long.parseLong(num));
-                        p.c.upyenMessage(Long.parseLong(num) * 1L);
+                        // final String num = str.replaceAll(" ", "").trim();
+                        // if (num.length() > 10 || !Util.checkNumInt(num)) {
+                        //     return;
+                        // }
+                        // if (Long.parseLong(num) > p.luong) {
+                        //     Service.chatNPC(p, (short) 57, "Bạn không có đủ lượng");
+                        //     return;
+                        // }
+                        // p.upluongMessage(-Long.parseLong(num));
+                        // p.c.upyenMessage(Long.parseLong(num) * 1L);
                         break;
                     }
                     case 26: {
-                        final String num = str.replaceAll(" ", "").trim();
-                        if (num.length() > 10 || !Util.checkNumInt(num)) {
-                            return;
-                        }
-                        if (Long.parseLong(num) > p.c.xu) {
-                            Service.chatNPC(p, (short) 57, "Bạn không có đủ xu");
-                            return;
-                        }
-                        p.c.upxuMessage(-Long.parseLong(num));
-                        p.c.upyenMessage(Long.parseLong(num) * 1L);
+                        // final String num = str.replaceAll(" ", "").trim();
+                        // if (num.length() > 10 || !Util.checkNumInt(num)) {
+                        //     return;
+                        // }
+                        // if (Long.parseLong(num) > p.c.xu) {
+                        //     Service.chatNPC(p, (short) 57, "Bạn không có đủ xu");
+                        //     return;
+                        // }
+                        // p.c.upxuMessage(-Long.parseLong(num));
+                        // p.c.upyenMessage(Long.parseLong(num) * 1L);
                         break;
                     }
 
                     // thiệp chúc thường
                     case 114:
-                        p.nameUS = str;
-                        Char a12 = Client.gI().getNinja(str);
+                        // p.nameUS = str;
+                        // Char a12 = Client.gI().getNinja(str);
 
-                        if (a12 != null && a12.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể chúc chính mình,đừng thủ dâm tinh thần như thế chứ.");
-                            return;
-                        }
-                        if (a12 != null) {
-                            Service.sendInputDialog(p, (short) 116, "Nhập lời nhắn:");
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        // if (a12 != null && a12.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể chúc chính mình,đừng thủ dâm tinh thần như thế chứ.");
+                        //     return;
+                        // }
+                        // if (a12 != null) {
+                        //     Service.sendInputDialog(p, (short) 116, "Nhập lời nhắn:");
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
 
                     // thiệp chúc vip
                     case 115:
-                        p.nameUS = str;
-                        Char a13 = Client.gI().getNinja(str);
-                        if (a13 != null && a13.id == p.c.id) {
-                            p.conn.sendMessageLog("Không thể chúc chính mình,đừng thủ dâm tinh thần như thế chứ.");
-                            return;
-                        }
-                        if (a13 != null) {
-                            Service.sendInputDialog(p, (short) 117, "Nhập lời nhắn:");
-                        } else {
-                            p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
-                        }
+                        // p.nameUS = str;
+                        // Char a13 = Client.gI().getNinja(str);
+                        // if (a13 != null && a13.id == p.c.id) {
+                        //     p.conn.sendMessageLog("Không thể chúc chính mình,đừng thủ dâm tinh thần như thế chứ.");
+                        //     return;
+                        // }
+                        // if (a13 != null) {
+                        //     Service.sendInputDialog(p, (short) 117, "Nhập lời nhắn:");
+                        // } else {
+                        //     p.sendAddchatYellow("Nhân vật này không tồn tại hoặc không online.");
+                        // }
                         break;
 
                     // loi nhan thuong
@@ -2088,7 +2088,7 @@ public class Draw {
                         break;
                     }
                     case 9989: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2104,7 +2104,7 @@ public class Draw {
                     }
                     // Thay đổi exp
                     case 9990: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2124,7 +2124,7 @@ public class Draw {
 
                     // Thong bao
                     case 9991: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (str.equals("")) {
@@ -2138,7 +2138,7 @@ public class Draw {
 
                     // kỹ năng
                     case 9992: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2159,7 +2159,7 @@ public class Draw {
 
                     // tiềm năng
                     case 9993: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2180,7 +2180,7 @@ public class Draw {
 
                     // tăng level
                     case 9994: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2211,7 +2211,7 @@ public class Draw {
 
                     // tăng lượng
                     case 9995: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2231,7 +2231,7 @@ public class Draw {
 
                     // tăng xu
                     case 9996: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2251,7 +2251,7 @@ public class Draw {
 
                     // tăng yên
                     case 9997: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2271,7 +2271,7 @@ public class Draw {
 
                     // bảo trì
                     case 9998: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         if (!Util.isNumeric(str) || str.equals("")) {
@@ -2292,13 +2292,13 @@ public class Draw {
 
                     // khoá tài khoản
                     case 9999: {
-                        if (p.role != 2601) {
+                        if (!p.isAdmin()) {
                             return;
                         }
                         Char temp = Client.gI().getNinja(str);
                         if (temp != null) {
                             Player banPlayer = Client.gI().getPlayer(temp.p.username);
-                            if (banPlayer != null && banPlayer.role != 2601) {
+                            if (banPlayer != null && !banPlayer.isAdmin()) {
                                 Client.gI().kickSession(banPlayer.conn);
                                 try {
                                     SQLManager.stat.executeUpdate(

@@ -27,7 +27,7 @@ public class UpgradeTemplate {
         }
         int upPer = (int) (percen[upgrade] * (vip ? 1.2 : 1));
         if (!vip && upgrade >= 8) {
-            upPer = -1;
+            upPer = 3;
         }
         if (upPer >= 100)
             return true;
